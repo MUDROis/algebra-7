@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнение значений выражений — Алгебра 7 класс | Глава 1, §4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafafa;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .chapter-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+        }
+        
+        .content-block {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 12px 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 85%;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 1.05em;
+        }
+        
+        .visual-container {
+            text-align: center;
+            margin: 25px 0;
+            padding: 20px;
+            background: #fafafa;
+            border: 2px dashed #bdc3c7;
+        }
+        
+        /* Числовая прямая для двойного неравенства */
+        .line-visual {
+            position: relative;
+            height: 95px;
+            margin: 25px 15px 10px 15px;
+        }
+        
+        .line-visual .line {
+            position: absolute;
+            top: 45px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #2d3436;
+            border-radius: 2px;
+        }
+        
+        .line-visual .segment {
+            position: absolute;
+            top: 38px;
+            left: 15%;
+            width: 70%;
+            height: 18px;
+            background: #fff59d;
+            border: 2px dashed #f39c12;
+            border-radius: 4px;
+        }
+        
+        .line-visual .tick {
+            position: absolute;
+            top: 62px;
+            transform: translateX(-50%);
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .line-visual .tick::before {
+            content: "";
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            width: 3px;
+            height: 14px;
+            background: #2d3436;
+        }
+        
+        .line-visual .tick.m-mark {
+            color: #e67e22;
+            font-size: 1.3em;
+        }
+        
+        .tip-box {
+            background: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h4 {
+            color: #1abc9c;
+            margin-bottom: 8px;
+        }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #f39c12;
+            margin-bottom: 8px;
+        }
+        
+        .scaffolding-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 3px solid #2d3436;
+            box-shadow: 4px 4px 0 #2d3436;
+        }
+        
+        .scaffolding-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .scaffolding-step {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #2d3436;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin: 12px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        
+        .exercise h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid #2d3436;
+        }
+        
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
+        
+        .check-answer {
+            margin-top: 15px;
+        }
+        
+        .answer-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border: 2px solid #2d3436;
+            box-shadow: 2px 2px 0 #2d3436;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #2980b9;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #2d3436;
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #dfe6e9;
+            border-left: 4px solid #00b894;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .answer-content.show {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .emoji {
+            margin-right: 5px;
+        }
+        
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 12px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        table.values-table {
+            margin: 15px auto;
+            border-collapse: collapse;
+            font-family: 'Courier New', monospace;
+        }
+        
+        table.values-table td, table.values-table th {
+            border: 2px solid #bdc3c7;
+            padding: 6px 14px;
+            text-align: center;
+        }
+        
+        .signs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .sign-card {
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .sign-card.strict {
+            border-color: #e74c3c;
+            background: #fadbd8;
+        }
+        
+        .sign-card.non-strict {
+            border-color: #27ae60;
+            background: #d5f5e3;
+        }
+        
+        .sign-card .big-sign {
+            font-size: 2em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 3px solid #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+            .content-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="chapter-badge">Глава 1 • §4</div>
+            <h1>Сравнение значений выражений</h1>
+            <p class="subtitle">Равенства, неравенства и двойные неравенства</p>
+        </header>
+
+        <!-- Введение -->
+        <div class="content-block">
+            <p>Привет! 👋 Сегодня учимся сравнивать значения выражений. Это как спорить с друзьями, у кого результат лучше — только в математике всё решают точные знаки: <span class="highlight">=, &gt;, &lt;, ≥, ≤</span>. И самое интересное: если в выражении есть переменная, результат сравнения может <strong>меняться</strong>!</p>
+        </div>
+
+        <!-- Зачем сравнивать -->
+        <div class="content-block">
+            <h2><span class="emoji">🌾</span> Зачем сравнивать выражения?</h2>
+            
+            <h3>Задача из учебника: где урожай выше?</h3>
+            <p>Два опытных участка: <span class="math">48 га</span> и <span class="math">60 га</span>. С первого собрали <span class="math">1800 ц</span> пшеницы, со второго — <span class="math">2100 ц</span>. На каком участке урожайность выше?</p>
+            
+            <div class="example-box">
+                <h4>📝 Решаем</h4>
+                <p>Урожайность = масса пшеницы ÷ площадь участка. Сравниваем:</p>
+                <p>Участок 1: <span class="math">1800 : 48 = 37,5</span> ц/га</p>
+                <p>Участок 2: <span class="math">2100 : 60 = 35</span> ц/га</p>
+            </div>
+            
+            <div class="formula">
+                <span class="math">1800 : 48 &gt; 2100 : 60</span>
+            </div>
+            
+            <p>Значит, урожайность выше на <span class="highlight">первом участке</span>. Видишь? Результат сравнения выражений записали в виде <strong>неравенства</strong>. Если значения равны — записали бы <strong>равенство</strong>.</p>
+        </div>
+
+        <!-- Переменные меняют результат -->
+        <div class="content-block">
+            <h2><span class="emoji">🎭</span> Осторожно: переменные меняют результат!</h2>
+            
+            <p>Сравним выражения <span class="math">2a</span> и <span class="math">a + 4</span> при разных значениях <span class="math">a</span>:</p>
+            
+            <table class="values-table">
+                <tr><th>a</th><th>0</th><th>4</th><th>10</th></tr>
+                <tr><td>2a</td><td>0</td><td>8</td><td>20</td></tr>
+                <tr><td>a + 4</td><td>4</td><td>8</td><td>14</td></tr>
+                <tr><td><strong>Результат</strong></td><td><span class="math">2a &lt; a+4</span></td><td><span class="math">2a = a+4</span></td><td><span class="math">2a &gt; a+4</span></td></tr>
+            </table>
+            
+            <div class="warning-box">
+                <h4>💡 Вывод</h4>
+                <p>Для разных значений переменной результат сравнения может быть <span class="highlight">разным</span>: сегодня «меньше», завтра «равно», послезавтра «больше»!</p>
+            </div>
+        </div>
+
+        <!-- Двойные неравенства -->
+        <div class="content-block">
+            <h2><span class="emoji">⚖️</span> Двойные неравенства</h2>
+            
+            <h3>Пример: шарик на весах</h3>
+            <p>Масса шарика <span class="math">m</span> больше 86 г, но меньше 87 г. Два неравенства <span class="math">86 &lt; m</span> и <span class="math">m &lt; 87</span> можно записать одним — <span class="highlight">двойным неравенством</span>:</p>
+            
+            <div class="formula">
+                <span class="math">86 &lt; m &lt; 87</span>
+            </div>
+            <p>Читается: <strong>«m больше 86 и меньше 87»</strong>.</p>
+            
+            <div class="visual-container">
+                <h4 style="margin-bottom: 5px;">Числовая прямая: m прячется между 86 и 87</h4>
+                <div class="line-visual">
+                    <div class="line"></div>
+                    <div class="segment"></div>
+                    <span class="tick" style="left: 15%;">86</span>
+                    <span class="tick m-mark" style="left: 50%;">m</span>
+                    <span class="tick" style="left: 85%;">87</span>
+                </div>
+                <p style="color: #7f8c8d; font-size: 0.9em;">Жёлтая зона — все возможные значения m</p>
+            </div>
+            
+            <h3>Ещё пример: дни в месяце</h3>
+            <p>Число дней <span class="math">n</span> не меньше 28 и не больше 31:</p>
+            <div class="formula">
+                <span class="math">28 ≤ n ≤ 31</span>
+            </div>
+        </div>
+
+        <!-- Строгие и нестрогие -->
+        <div class="content-block">
+            <h2><span class="emoji">🚦</span> Строгие и нестрогие неравенства</h2>
+            
+            <div class="signs-grid">
+                <div class="sign-card strict">
+                    <div class="big-sign">&gt; &nbsp; &lt;</div>
+                    <p><strong>Строгие</strong></p>
+                    <p style="font-size: 0.9em;">«больше», «меньше»<br>без равенства!</p>
+                </div>
+                <div class="sign-card non-strict">
+                    <div class="big-sign">≥ &nbsp; ≤</div>
+                    <p><strong>Нестрогие</strong></p>
+                    <p style="font-size: 0.9em;">«больше или равно»,<br>«меньше или равно»</p>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>📖 Учимся читать</h4>
+                <p><span class="math">n ≤ 31</span> — «n меньше или равно 31»</p>
+                <p><span class="math">n ≥ 28</span> — «n больше или равно 28»</p>
+                <p><span class="math">-5 ≤ a &lt; -2</span> — «a больше или равно -5, но меньше -2»</p>
+            </div>
+        </div>
+
+        <!-- Методическая подсказка -->
+        <div class="content-block">
+            <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+            
+            <div class="scaffolding-box">
+                <h4>🔥 Лайфхак: сравнивай, НЕ вычисляя!</h4>
+                <p style="margin-bottom: 15px;"><strong>Часто можно сравнить выражения за 5 секунд, если знать три правила:</strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Правило 1:</strong> Положительное число ВСЕГДА больше отрицательного.<br>
+                    <span class="math">6,13 - 7,57 &lt; -6,13 + 7,57</span> (слева отрицательное, справа положительное)
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Правило 2:</strong> Умножение: на число &gt; 1 — число «растёт», на число &lt; 1 — «уменьшается».<br>
+                    <span class="math">9 · 0,6 &lt; 9</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Правило 3:</strong> Деление: на число &gt; 1 — «уменьшается», на число &lt; 1 — «растёт».<br>
+                    <span class="math">9 : 0,6 &gt; 9</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Пример:</strong> Сравним <span class="math">9 : 0,6</span> и <span class="math">9 · 0,6</span>:<br>
+                    первое больше 9, второе меньше 9 → <span class="math">9 : 0,6 &gt; 9 · 0,6</span>. Счёт не нужен! ⚡
+                </div>
+            </div>
+        </div>
+
+        <!-- Упражнения -->
+        <div class="content-block">
+            <h2><span class="emoji">✏️</span> Проверь себя</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>"Проверить"</strong>, чтобы увидеть ответ!</p>
+            
+            <!-- Уровень 1 -->
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 1 (№66 из учебника)</h4>
+                <p>Сравни значения выражений (вычисли и сравни):</p>
+                <p>а) <span class="math">2,06 · 3,05</span> и <span class="math">21,28 : 3,5</span></p>
+                <p>б) <span class="math">97,2 : 2,4</span> и <span class="math">62 - 21,6</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div id="answer1" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">2,06 · 3,05 = 6,283</span>; <span class="math">21,28 : 3,5 = 6,08</span> → <span class="math">2,06 · 3,05 &gt; 21,28 : 3,5</span><br>
+                        б) <span class="math">97,2 : 2,4 = 40,5</span>; <span class="math">62 - 21,6 = 40,4</span> → <span class="math">97,2 : 2,4 &gt; 62 - 21,6</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 2 (№75 из учебника)</h4>
+                <p>Запиши в виде двойного неравенства:</p>
+                <p>а) 8 меньше 13 и 13 меньше 15;</p>
+                <p>б) 63,5 больше 63 и меньше 64;</p>
+                <p>в) -8,1 больше -11 и меньше -7.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div id="answer2" class="answer-content">
+                        <strong>Ответ:</strong><br>
+                        а) <span class="math">8 &lt; 13 &lt; 15</span><br>
+                        б) <span class="math">63 &lt; 63,5 &lt; 64</span><br>
+                        в) <span class="math">-11 &lt; -8,1 &lt; -7</span> (среднее число стоит между крайними!)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 2 -->
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 3 (№67 из учебника)</h4>
+                <p>Сравни значения выражений, <strong>НЕ вычисляя</strong> их (используй лайфхак!):</p>
+                <p>а) <span class="math">56 · 7</span> и <span class="math">56 : 7</span></p>
+                <p>б) <span class="math">9 : 0,6</span> и <span class="math">9 · 0,6</span></p>
+                <p>в) <span class="math">2,1 - 5,8</span> и <span class="math">2,1 - 1,7</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div id="answer3" class="answer-content">
+                        <strong>Ответ:</strong><br>
+                        а) <span class="math">56 · 7 &gt; 56 : 7</span> (умножение на 7 растит, деление уменьшает)<br>
+                        б) <span class="math">9 : 0,6 &gt; 9 · 0,6</span> (деление на число &lt; 1 растит!)<br>
+                        в) <span class="math">2,1 - 5,8 &lt; 2,1 - 1,7</span> (вычитаем больше — результат меньше)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 4 (№71а из учебника)</h4>
+                <p>Сравни значения выражений <span class="math">x</span> и <span class="math">-x</span> при <span class="math">x = 8; 0; -3</span>.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div id="answer4" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        При x = 8: <span class="math">8 &gt; -8</span><br>
+                        При x = 0: <span class="math">0 = 0</span><br>
+                        При x = -3: <span class="math">-3 &lt; 3</span><br>
+                        <strong>Вывод:</strong> результат зависит от значения переменной! 🎭
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 3 -->
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 5 (№73 из учебника)</h4>
+                <p>Верно ли неравенство <span class="math">2x + 5 &lt; 3x</span> при <span class="math">x = 4,2; 5; 6,5</span>?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div id="answer5" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        x = 4,2: <span class="math">2·4,2 + 5 = 13,4</span>; <span class="math">3·4,2 = 12,6</span> → 13,4 &lt; 12,6? <strong>НЕВЕРНО</strong> ❌<br>
+                        x = 5: <span class="math">15 &lt; 15</span>? <strong>НЕВЕРНО</strong> (равны) ❌<br>
+                        x = 6,5: <span class="math">18 &lt; 19,5</span>? <strong>ВЕРНО</strong> ✅
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 6 (№84 из учебника)</h4>
+                <p>Один автомобиль проехал 700 км за <span class="math">x</span> ч, а другой — 630 км за <span class="math">y</span> ч. Сравни средние скорости, если:</p>
+                <p>а) <span class="math">x = 12,5</span>, <span class="math">y = 10,5</span>; &nbsp; б) <span class="math">x = y = 14</span>.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div id="answer6" class="answer-content">
+                        <strong>Решение:</strong> скорость = путь ÷ время<br>
+                        а) <span class="math">700 : 12,5 = 56</span> км/ч; <span class="math">630 : 10,5 = 60</span> км/ч → <span class="math">56 &lt; 60</span> (второй быстрее)<br>
+                        б) <span class="math">700 : 14 = 50</span> км/ч; <span class="math">630 : 14 = 45</span> км/ч → <span class="math">50 &gt; 45</span> (первый быстрее)<br>
+                        <em>При одинаковом времени быстрее тот, кто проехал больше!</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+            <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+            <ul>
+                <li>Результат сравнения выражений записывается как <span class="highlight">равенство или неравенство</span></li>
+                <li>Если есть переменная — результат сравнения <span class="highlight">зависит от её значения</span></li>
+                <li><span class="highlight">Двойное неравенство</span>: <span class="math">86 &lt; m &lt; 87</span> — «m больше 86 и меньше 87»</li>
+                <li><span class="highlight">Строгие</span> неравенства: знаки &gt; и &lt;; <span class="highlight">нестрогие</span>: ≥ и ≤</li>
+                <li>≥ читается «больше или равно», ≤ — «меньше или равно»</li>
+                <li>Сравнивай без вычислений: положительное &gt; отрицательного; умножение/деление на число &gt; 1 или &lt; 1 меняет число по-разному</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>📖 Учебник: Алгебра 7 класс • Глава 1: Выражения, тождества, уравнения</p>
+            <p>§4. Сравнение значений выражений • Страницы 19-23</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const btn = answer.previousElementSibling;
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                btn.textContent = '🔍 Проверить';
+                btn.style.background = '#3498db';
+            } else {
+                answer.classList.add('show');
+                btn.textContent = '🔒 Скрыть ответ';
+                btn.style.background = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>

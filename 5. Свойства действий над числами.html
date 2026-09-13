@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свойства действий над числами — Алгебра 7 класс | Глава 1, §2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafafa;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .chapter-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+        }
+        
+        .content-block {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 12px 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 85%;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 1.05em;
+        }
+        
+        /* Цветные пары для группировки */
+        .p1 { background: #fadbd8; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+        .p2 { background: #d6eaf8; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+        .p3 { background: #d5f5e3; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+        
+        .prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .prop-card {
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+        }
+        
+        .prop-card.comm { border-color: #e74c3c; background: #fdedec; }
+        .prop-card.assoc { border-color: #2980b9; background: #eaf2f8; }
+        .prop-card.distr { border-color: #27ae60; background: #e9f7ef; }
+        
+        .prop-card .prop-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .prop-card .prop-formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+        
+        .prop-card .prop-idea {
+            font-size: 0.9em;
+            color: #555;
+        }
+        
+        .friends-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        
+        .friend-chip {
+            background: #fff59d;
+            border: 2px solid #2d3436;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        .tip-box {
+            background: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h4 {
+            color: #1abc9c;
+            margin-bottom: 8px;
+        }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #f39c12;
+            margin-bottom: 8px;
+        }
+        
+        .scaffolding-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 3px solid #2d3436;
+            box-shadow: 4px 4px 0 #2d3436;
+        }
+        
+        .scaffolding-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .scaffolding-step {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #2d3436;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin: 12px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        
+        .exercise h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid #2d3436;
+        }
+        
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
+        
+        .check-answer {
+            margin-top: 15px;
+        }
+        
+        .answer-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border: 2px solid #2d3436;
+            box-shadow: 2px 2px 0 #2d3436;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #2980b9;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #2d3436;
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #dfe6e9;
+            border-left: 4px solid #00b894;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .answer-content.show {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .emoji {
+            margin-right: 5px;
+        }
+        
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 12px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 3px solid #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+            .content-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="chapter-badge">Глава 1 • §2, п. 5</div>
+            <h1>Свойства действий над числами</h1>
+            <p class="subtitle">Как считать быстро, красиво и без калькулятора</p>
+        </header>
+
+        <!-- Введение -->
+        <div class="content-block">
+            <p>Привет! 👋 Сегодня ты узнаешь секрет «ленивых гениев»: оказывается, сложные примеры можно считать <span class="highlight">в уме за пару секунд</span>, если знать три волшебных свойства чисел. Готов(а) почувствовать себя математическим фокусником? 🎩</p>
+        </div>
+
+        <!-- Три свойства -->
+        <div class="content-block">
+            <h2><span class="emoji">🧩</span> Три главных свойства</h2>
+            
+            <div class="prop-grid">
+                <div class="prop-card comm">
+                    <div class="prop-name">1. Переместительное</div>
+                    <div class="prop-formula">a + b = b + a<br>ab = ba</div>
+                    <div class="prop-idea">«От перестановки слагаемых и множителей сумма и произведение не меняются»</div>
+                </div>
+                <div class="prop-card assoc">
+                    <div class="prop-name">2. Сочетательное</div>
+                    <div class="prop-formula">(a + b) + c = a + (b + c)<br>(ab)c = a(bc)</div>
+                    <div class="prop-idea">«Группируй соседей как удобно»</div>
+                </div>
+                <div class="prop-card distr">
+                    <div class="prop-name">3. Распределительное</div>
+                    <div class="prop-formula">a(b + c) = ab + ac</div>
+                    <div class="prop-idea">«Умножь каждое слагаемое в скобках»</div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Главный вывод</h4>
+                <p>В любой <span class="highlight">сумме</span> можно как угодно переставлять слагаемые и объединять их в группы.</p>
+                <p>В любом <span class="highlight">произведении</span> можно как угодно переставлять множители и объединять их в группы.</p>
+            </div>
+        </div>
+
+        <!-- Группировка в суммах и произведениях -->
+        <div class="content-block">
+            <h2><span class="emoji">🤝</span> Приём «удобные пары»</h2>
+            
+            <h3>Пример 1: группируем слагаемые</h3>
+            <div class="example-box">
+                <p>Вычислим сумму <span class="math">1,23 + 13,5 + 4,27</span>:</p>
+                <div class="formula">
+                    <span class="p1">1,23</span> + 13,5 + <span class="p1">4,27</span> = (<span class="p1">1,23 + 4,27</span>) + 13,5 = 5,5 + 13,5 = <strong>19</strong>
+                </div>
+                <p>Видишь? Дробные части <span class="p1">0,23 и 0,27</span> в сумме дают целое число — их выгодно сложить первыми!</p>
+            </div>
+            
+            <h3>Пример 2: группируем множители</h3>
+            <div class="example-box">
+                <p>Найдём значение произведения <span class="math">1,8 · 0,25 · 64 · 0,5</span>:</p>
+                <div class="formula">
+                    (<span class="p2">1,8 · 0,5</span>) · (<span class="p3">0,25 · 64</span>) = 0,9 · 16 = <strong>14,4</strong>
+                </div>
+                <p>Пара <span class="p3">0,25 · 64</span> дала удобное число 16 — и пример решился почти устно!</p>
+            </div>
+            
+            <h3>«Друзья» круглых чисел</h3>
+            <div class="friends-grid">
+                <span class="friend-chip">25 · 4 = 100</span>
+                <span class="friend-chip">50 · 2 = 100</span>
+                <span class="friend-chip">125 · 8 = 1000</span>
+                <span class="friend-chip">0,5 · 2 = 1</span>
+                <span class="friend-chip">0,25 · 4 = 1</span>
+            </div>
+            <p style="text-align:center; color:#7f8c8d; font-size:0.95em;">Запомни эти пары — они твои лучшие помощники в быстрых вычислениях!</p>
+        </div>
+
+        <!-- Вычитание как сложение -->
+        <div class="content-block">
+            <h2><span class="emoji">🔄</span> Вычитание — это тоже сложение!</h2>
+            
+            <p>Любое вычитание можно заменить сложением, прибавив <span class="highlight">противоположное число</span>:</p>
+            
+            <div class="formula">
+                <span class="math">a - b = a + (-b)</span>
+            </div>
+            
+            <p>Поэтому выражение <span class="math">3,27 - 6,5 - 2,5 + 1,73</span> — это на самом деле <strong>сумма</strong> чисел <span class="math">3,27</span>, <span class="math">-6,5</span>, <span class="math">-2,5</span> и <span class="math">1,73</span>. А значит, её тоже можно группировать!</p>
+            
+            <div class="example-box">
+                <h4>📝 Пример 3</h4>
+                <div class="formula">
+                    (<span class="p1">3,27 + 1,73</span>) + (<span class="p2">-6,5 - 2,5</span>) = 5 + (-9) = <strong>-4</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Распределительное свойство в обе стороны -->
+        <div class="content-block">
+            <h2><span class="emoji">↔️</span> Распределительное свойство работает в обе стороны</h2>
+            
+            <p>Оно справедливо и когда число умножается на сумму трёх и более слагаемых:</p>
+            <div class="formula">
+                <span class="math">a(b + c + d) = ab + ac + ad</span>
+            </div>
+            
+            <h3>Направление 1: раскрыть скобки</h3>
+            <div class="example-box">
+                <div class="formula">
+                    36 · (1/4 - 5/18) = 36 · 1/4 - 36 · 5/18 = 9 - 10 = <strong>-1</strong>
+                </div>
+                <p>Без свойства пришлось бы приводить дроби к общему знаменателю — а так всё посчиталось устно!</p>
+            </div>
+            
+            <h3>Направление 2: вынести общий множитель</h3>
+            <div class="example-box">
+                <div class="formula">
+                    <span class="p1">3,5</span> · 6,8 + <span class="p1">3,5</span> · 3,2 = <span class="p1">3,5</span> · (6,8 + 3,2) = 3,5 · 10 = <strong>35</strong>
+                </div>
+                <p>Общий множитель <span class="p1">3,5</span> «вынесли за скобки» — и снова получилось круглое число!</p>
+            </div>
+        </div>
+
+        <!-- Жизненные примеры -->
+        <div class="content-block">
+            <h2><span class="emoji">🛒</span> Где это встречается в жизни?</h2>
+            
+            <div class="example-box">
+                <h4> Закупка для детского сада (№99)</h4>
+                <p>Купили 5 наборов карандашей по <span class="math">a</span> руб. и 10 альбомов по <span class="math">b</span> руб. Стоимость покупки:</p>
+                <div class="formula"><span class="math">5a + 10b</span> рублей</div>
+            </div>
+            
+            <div class="example-box">
+                <h4>🚗 Средняя скорость (№100)</h4>
+                <p>Автомобиль ехал <span class="math">t</span> ч со скоростью 60 км/ч и <span class="math">p</span> ч со скоростью 50 км/ч. Средняя скорость:</p>
+                <div class="formula"><span class="math">(60t + 50p) : (t + p)</span> км/ч</div>
+                <p><em>Весь путь делим на всё время — и никак иначе!</em></p>
+            </div>
+        </div>
+
+        <!-- Методическая подсказка -->
+        <div class="content-block">
+            <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+            
+            <div class="scaffolding-box">
+                <h4>🔥 Лайфхак: как заметить «удобную пару» за 3 секунды</h4>
+                <p style="margin-bottom: 15px;"><strong>Прежде чем считать «в лоб», просканируй пример тремя взглядами:</strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Взгляд 1 (суммы):</strong> ищи дробные части, дополняющие до целого:<br>
+                    <span class="math">0,17 + 0,83</span>, <span class="math">0,27 + 0,73</span>, <span class="math">0,21 + 0,79</span> → в сумме целое!
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Взгляд 2 (произведения):</strong> ищи «друзей» круглых чисел:<br>
+                    <span class="math">25 · 4</span>, <span class="math">50 · 2</span>, <span class="math">125 · 8</span>, <span class="math">0,5 · 2</span>, <span class="math">0,25 · 4</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Взгляд 3 (общий множитель):</strong> если одно и то же число повторяется в нескольких слагаемых — вынеси его за скобки:<br>
+                    <span class="math">15,7 · 3,09 + 15,7 · 2,91 = 15,7 · (3,09 + 2,91) = 15,7 · 6</span>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 1.1em; text-align: center; font-weight: bold;">
+                    ⚡ Рациональный способ = заметить пару, а не считать столбиком!
+                </p>
+            </div>
+        </div>
+
+        <!-- Упражнения -->
+        <div class="content-block">
+            <h2><span class="emoji">✏️</span> Проверь себя</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>"Проверить"</strong>, чтобы увидеть ответ!</p>
+            
+            <!-- Уровень 1 -->
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 1 (№89 из учебника)</h4>
+                <p>Какие свойства действий позволяют, не вычисляя, утверждать, что верно равенство:</p>
+                <p>а) <span class="math">247 + 35 = 35 + 247</span>; &nbsp; б) <span class="math">84 · 19 = 19 · 84</span>;</p>
+                <p>в) <span class="math">14 + (16 + 97) = (14 + 16) + 97</span>; &nbsp; г) <span class="math">25 · (4 + 7) = 25 · 4 + 25 · 7</span>?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div id="answer1" class="answer-content">
+                        <strong>Ответ:</strong><br>
+                        а) переместительное свойство сложения<br>
+                        б) переместительное свойство умножения<br>
+                        в) сочетательное свойство сложения<br>
+                        г) распределительное свойство умножения
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 2 (№90 а, б из учебника)</h4>
+                <p>Вычисли наиболее рациональным способом:</p>
+                <p>а) <span class="math">3,17 + 10,2 + 0,83 + 9,8</span></p>
+                <p>б) <span class="math">4,11 + 15,5 + 0,89 + 4,4</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div id="answer2" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">(3,17 + 0,83) + (10,2 + 9,8) = 4 + 20 = 24</span><br>
+                        б) <span class="math">(4,11 + 0,89) + (15,5 + 4,4) = 5 + 19,9 = 24,9</span><br>
+                        <em>Пары сложились в круглые числа!</em>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 2 -->
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 3 (№94 а, в из учебника)</h4>
+                <p>Вычисли наиболее рациональным способом:</p>
+                <p>а) <span class="math">50 · 1,34 · 0,2</span></p>
+                <p>в) <span class="math">-75,7 · 0,5 · 20</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div id="answer3" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">(50 · 0,2) · 1,34 = 10 · 1,34 = 13,4</span><br>
+                        в) <span class="math">-75,7 · (0,5 · 20) = -75,7 · 10 = -757</span><br>
+                        <em>Сначала «друзья» 50·0,2 и 0,5·20 — потом всё остальное!</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 4 (№96 из учебника)</h4>
+                <p>Найди значение выражения, вынеся общий множитель за скобки:</p>
+                <p>а) <span class="math">3,5 · 6,8 + 3,5 · 3,2</span></p>
+                <p>б) <span class="math">12,4 · 14,3 - 12,4 · 4,3</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div id="answer4" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">3,5 · (6,8 + 3,2) = 3,5 · 10 = 35</span><br>
+                        б) <span class="math">12,4 · (14,3 - 4,3) = 12,4 · 10 = 124</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 3 -->
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 5 (№93а из учебника)</h4>
+                <p>Найди значение выражения, сгруппировав удобные слагаемые:</p>
+                <p><span class="math">5 3/4 - 2 1/7 + 1 1/4 - 4 6/7</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div id="answer5" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Группируем: <span class="math">(5 3/4 + 1 1/4) - (2 1/7 + 4 6/7)</span><br>
+                        <span class="math">5 3/4 + 1 1/4 = 7</span>; &nbsp; <span class="math">2 1/7 + 4 6/7 = 7</span><br>
+                        <span class="math">7 - 7 = 0</span><br>
+                        <strong>Ответ:</strong> <span class="math">0</span> — пример решился без приведения к общему знаменателю! ✨
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 6 (№98а из учебника)</h4>
+                <p>Докажи, что сумма <span class="math">24 · 17 + 17 · 6</span> делится на 5.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div id="answer6" class="answer-content">
+                        <strong>Доказательство:</strong><br>
+                        Вынесем общий множитель 17: <span class="math">24 · 17 + 17 · 6 = 17 · (24 + 6) = 17 · 30</span><br>
+                        Число 30 делится на 5, значит, и всё произведение <span class="math">17 · 30</span> делится на 5. ∎<br>
+                        <em>Вычислять ничего не пришлось — свойство сделало всё за нас!</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+            <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+            <ul>
+                <li><span class="highlight">Переместительное:</span> <span class="math">a + b = b + a</span>, <span class="math">ab = ba</span></li>
+                <li><span class="highlight">Сочетательное:</span> <span class="math">(a + b) + c = a + (b + c)</span>, <span class="math">(ab)c = a(bc)</span></li>
+                <li><span class="highlight">Распределительное:</span> <span class="math">a(b + c) = ab + ac</span> — работает в обе стороны!</li>
+                <li>В суммах и произведениях можно <span class="highlight">переставлять и группировать</span> как угодно</li>
+                <li><span class="highlight">Вычитание = сложение с противоположным:</span> <span class="math">a - b = a + (-b)</span></li>
+                <li>Рациональный способ: ищи удобные пары (до целого, «друзья» 25·4, 125·8) и общий множитель</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>📖 Учебник: Алгебра 7 класс • Глава 1: Выражения, тождества, уравнения</p>
+            <p>§2, п. 5. Свойства действий над числами • Страницы 23-25</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const btn = answer.previousElementSibling;
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                btn.textContent = '🔍 Проверить';
+                btn.style.background = '#3498db';
+            } else {
+                answer.classList.add('show');
+                btn.textContent = '🔒 Скрыть ответ';
+                btn.style.background = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>

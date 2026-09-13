@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тождества и тождественные преобразования — Алгебра 7 класс | Глава 1, §2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafafa;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .chapter-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+        }
+        
+        .content-block {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 12px 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 85%;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 1.05em;
+        }
+        
+        /* Цветная подсветка подобных слагаемых */
+        .p1 { background: #fadbd8; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+        .p2 { background: #d6eaf8; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+        .p3 { background: #d5f5e3; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+        
+        table.values-table {
+            margin: 15px auto;
+            border-collapse: collapse;
+            font-family: 'Courier New', monospace;
+        }
+        
+        table.values-table td, table.values-table th {
+            border: 2px solid #bdc3c7;
+            padding: 6px 14px;
+            text-align: center;
+        }
+        
+        .rule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .rule-card {
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+        }
+        
+        .rule-card.plus { border-color: #27ae60; background: #e9f7ef; }
+        .rule-card.minus { border-color: #e74c3c; background: #fdedec; }
+        
+        .rule-card .rule-sign {
+            font-size: 2em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .rule-card .rule-text {
+            font-size: 0.95em;
+            margin: 8px 0;
+        }
+        
+        .tip-box {
+            background: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h4 {
+            color: #1abc9c;
+            margin-bottom: 8px;
+        }
+        
+        .history-box {
+            background: #f4ecf7;
+            border-left: 4px solid #8e44ad;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .history-box h4 {
+            color: #8e44ad;
+            margin-bottom: 8px;
+        }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #f39c12;
+            margin-bottom: 8px;
+        }
+        
+        .scaffolding-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 3px solid #2d3436;
+            box-shadow: 4px 4px 0 #2d3436;
+        }
+        
+        .scaffolding-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .scaffolding-step {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #2d3436;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin: 12px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        
+        .exercise h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid #2d3436;
+        }
+        
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
+        
+        .check-answer {
+            margin-top: 15px;
+        }
+        
+        .answer-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border: 2px solid #2d3436;
+            box-shadow: 2px 2px 0 #2d3436;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #2980b9;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #2d3436;
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #dfe6e9;
+            border-left: 4px solid #00b894;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .answer-content.show {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .emoji {
+            margin-right: 5px;
+        }
+        
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 12px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 3px solid #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+            .content-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="chapter-badge">Глава 1 • §2, п. 6</div>
+            <h1>Тождества и тождественные преобразования</h1>
+            <p class="subtitle">Математические близнецы и искусство упрощать</p>
+        </header>
+
+        <!-- Введение -->
+        <div class="content-block">
+            <p>Привет! 👋 Сегодня знакомимся с <span class="highlight">тождествами</span> — равенствами, которые верны ВСЕГДА, при любых значениях букв. Это как математические близнецы: два разных на вид выражения дают один и тот же результат. А ещё ты освоишь главный инструмент алгебры — <span class="highlight">упрощение выражений</span>!</p>
+        </div>
+
+        <!-- Тождественно равные выражения -->
+        <div class="content-block">
+            <h2><span class="emoji">👯</span> Выражения-близнецы</h2>
+            
+            <h3>Пример: всегда равны</h3>
+            <p>Найдём значения выражений <span class="math">3(x + y)</span> и <span class="math">3x + 3y</span> при разных значениях:</p>
+            
+            <table class="values-table">
+                <tr><th>x</th><th>5</th><th>0</th><th>-2</th></tr>
+                <tr><th>y</th><th>4</th><th>1</th><th>7</th></tr>
+                <tr><td>3(x + y)</td><td>27</td><td>3</td><td>15</td></tr>
+                <tr><td>3x + 3y</td><td>27</td><td>3</td><td>15</td></tr>
+            </table>
+            
+            <p>Результаты совпали при любых значениях! Такие выражения называют <span class="highlight">тождественно равными</span>.</p>
+            
+            <h3>Антипример: совпали случайно</h3>
+            <p>Теперь сравним <span class="math">2x + y</span> и <span class="math">2xy</span>:</p>
+            
+            <table class="values-table">
+                <tr><th>x</th><th>1</th><th>3</th></tr>
+                <tr><th>y</th><th>2</th><th>4</th></tr>
+                <tr><td>2x + y</td><td>4</td><td>10</td></tr>
+                <tr><td>2xy</td><td>4</td><td>24</td></tr>
+            </table>
+            
+            <div class="warning-box">
+                <h4>⚠️ Важно</h4>
+                <p>При <span class="math">x = 1, y = 2</span> значения совпали (оба равны 4) — но это <strong>случайность</strong>! При <span class="math">x = 3, y = 4</span> они уже разные. Значит, эти выражения <span class="highlight">НЕ являются</span> тождественно равными.</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>📌 Определение</h4>
+                <p>Два выражения, значения которых равны <span class="highlight">при любых значениях переменных</span>, называются тождественно равными.</p>
+            </div>
+        </div>
+
+        <!-- Тождество -->
+        <div class="content-block">
+            <h2><span class="emoji">♾️</span> Что такое тождество?</h2>
+            
+            <div class="example-box">
+                <h4>📌 Определение</h4>
+                <p><span class="highlight">Тождество</span> — это равенство, верное при любых значениях переменных.</p>
+            </div>
+            
+            <div class="formula">
+                <span class="math">3(x + y) = 3x + 3y</span> — тождество ✅
+            </div>
+            
+            <h3>Примеры тождеств, которые ты уже знаешь:</h3>
+            <div class="formula">
+                <span class="math">a + b = b + a</span> &nbsp; <span class="math">(a + b) + c = a + (b + c)</span><br><br>
+                <span class="math">ab = ba</span> &nbsp; <span class="math">(ab)c = a(bc)</span> &nbsp; <span class="math">a(b + c) = ab + ac</span><br><br>
+                <span class="math">a + 0 = a</span> &nbsp; <span class="math">a + (-a) = 0</span> &nbsp; <span class="math">a · 1 = a</span> &nbsp; <span class="math">(-a)(-b) = ab</span>
+            </div>
+            
+            <p>Верные числовые равенства (например, <span class="math">2 + 2 = 4</span>) тоже считаются тождествами.</p>
+            
+            <div class="history-box">
+                <h4>🏛 Минутка истории</h4>
+                <p><strong>Мухаммед бен Муса аль-Хорезми</strong> (787 — ок. 850) — среднеазиатский математик и астроном. Он впервые отделил алгебру от арифметики и стал рассматривать её как самостоятельный предмет. От его имени произошло слово «алгоритм», а от названия его трактата «аль-джебр» — слово «алгебра»!</p>
+            </div>
+        </div>
+
+        <!-- Тождественное преобразование -->
+        <div class="content-block">
+            <h2><span class="emoji">🪄</span> Тождественное преобразование: зачем упрощать?</h2>
+            
+            <p>Заменив выражение тождественно равным ему, мы выполняем <span class="highlight">тождественное преобразование</span> — и часто сильно упрощаем себе жизнь.</p>
+            
+            <h3>Сравни два пути:</h3>
+            <p>Найдём значение <span class="math">xy - xz</span> при <span class="math">x = 2,3</span>, <span class="math">y = 0,8</span>, <span class="math">z = 0,2</span>.</p>
+            
+            <div class="example-box">
+                <h4>Путь 1: «в лоб» (3 действия)</h4>
+                <div class="formula">
+                    2,3 · 0,8 - 2,3 · 0,2 = 1,84 - 0,46 = 1,38
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <h4>Путь 2: сначала упростить (2 действия)</h4>
+                <div class="formula">
+                    xy - xz = x(y - z) = 2,3 · (0,8 - 0,2) = 2,3 · 0,6 = 1,38
+                </div>
+                <p>Вынесли общий множитель — и вычислений стало меньше! ✨</p>
+            </div>
+        </div>
+
+        <!-- Подобные слагаемые -->
+        <div class="content-block">
+            <h2><span class="emoji">🧲</span> Приведение подобных слагаемых</h2>
+            
+            <p><span class="highlight">Подобные слагаемые</span> — это слагаемые с одинаковой буквенной частью. Посмотри на сумму:</p>
+            
+            <div class="formula">
+                <span class="p1">3a</span> - <span class="p1">2a</span> + <span class="p2">b</span> - <span class="p3">2c</span> + <span class="p1">4a</span>
+            </div>
+            <p>Здесь <span class="p1">3a, -2a, 4a</span> — подобные (буквенная часть «a»), а <span class="p2">b</span> и <span class="p3">-2c</span> — сами по себе.</p>
+            
+            <div class="tip-box">
+                <h4>📌 Правило приведения</h4>
+                <p>Чтобы привести подобные слагаемые, нужно <span class="highlight">сложить их коэффициенты</span> и результат умножить на общую буквенную часть.</p>
+            </div>
+            
+            <div class="example-box">
+                <h4>📝 Пример 1</h4>
+                <div class="formula">
+                    5x + 2x - 3x = (5 + 2 - 3)x = <strong>4x</strong>
+                </div>
+                <p>Преобразование основано на распределительном свойстве умножения.</p>
+            </div>
+        </div>
+
+        <!-- Раскрытие скобок -->
+        <div class="content-block">
+            <h2><span class="emoji">✂️</span> Раскрытие скобок: плюс и минус</h2>
+            
+            <div class="rule-grid">
+                <div class="rule-card plus">
+                    <div class="rule-sign">+ ( ... )</div>
+                    <p class="rule-text">Скобки опускаем,<br><strong>знаки сохраняем</strong></p>
+                    <p class="math">2a + (b - 3c) = 2a + b - 3c</p>
+                </div>
+                <div class="rule-card minus">
+                    <div class="rule-sign">− ( ... )</div>
+                    <p class="rule-text">Скобки опускаем,<br><strong>знаки меняем на противоположные</strong></p>
+                    <p class="math">a - (4b - c) = a - 4b + c</p>
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <h4>🔍 Почему минус меняет знаки?</h4>
+                <p>Выражение <span class="math">-(4b - c)</span> — это то же самое, что <span class="math">(-1) · (4b - c)</span>. Раскрываем скобки через распределительное свойство:</p>
+                <div class="formula">
+                    a - (4b - c) = a + (-1)(4b - c) = a + (-4b + c) = a - 4b + c
+                </div>
+                <p>Вот и причина «переворота» знаков! Минус перед скобкой — это умножение на -1.</p>
+            </div>
+        </div>
+
+        <!-- Жизненный пример -->
+        <div class="content-block">
+            <h2><span class="emoji">📮</span> Где это встречается в жизни?</h2>
+            
+            <div class="example-box">
+                <h4>Задача про альбомы с марками (№126а)</h4>
+                <p>У Игоря три альбома. В первом — <span class="math">a</span> марок, во втором — на 15 больше, чем в первом, а в третьем — втрое больше, чем во втором. Сколько марок в трёх альбомах?</p>
+                <div class="formula">
+                    a + (a + 15) + 3(a + 15) = a + a + 15 + 3a + 45 = <strong>5a + 60</strong>
+                </div>
+                <p>Раскрыли скобки, привели подобные — и получили короткую формулу! Если <span class="math">a = 20</span>, то марок <span class="math">5 · 20 + 60 = 160</span>.</p>
+            </div>
+        </div>
+
+        <!-- Методическая подсказка -->
+        <div class="content-block">
+            <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+            
+            <div class="scaffolding-box">
+                <h4>🔥 Лайфхак: «невидимый коэффициент»</h4>
+                <p style="margin-bottom: 15px;"><strong>Самая частая ошибка при приведении подобных — потерять коэффициент 1. Запомни:</strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 1:</strong> У каждого слагаемого ЕСТЬ коэффициент, даже если он не написан:<br>
+                    <span class="math">x = 1 · x</span>, &nbsp; <span class="math">-x = -1 · x</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 2:</strong> Складывая коэффициенты, не забывай невидимые:<br>
+                    <span class="math">5a + 27a - a = (5 + 27 - 1)a = 31a</span> (а не 32a!)
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 3:</strong> Проверь себя: сколько слагаемых было — столько коэффициентов должно участвовать в сумме.<br>
+                    <span class="math">a - 3a = (1 - 3)a = -2a</span> ✅
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 1.1em; text-align: center; font-weight: bold;">
+                    👻 Невидимая единица — тоже число!
+                </p>
+            </div>
+        </div>
+
+        <!-- Упражнения -->
+        <div class="content-block">
+            <h2><span class="emoji">✏️</span> Проверь себя</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>"Проверить"</strong>, чтобы увидеть ответ!</p>
+            
+            <!-- Уровень 1 -->
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 1 (№104 из учебника)</h4>
+                <p>Какие свойства действий позволяют утверждать, что тождественно равны выражения:</p>
+                <p>а) <span class="math">ab + 16c</span> и <span class="math">16c + ab</span>; &nbsp; б) <span class="math">(a + 2) + x</span> и <span class="math">a + (2 + x)</span>;</p>
+                <p>в) <span class="math">xy + 3</span> и <span class="math">3 + xy</span>; &nbsp; г) <span class="math">5(b + c)</span> и <span class="math">5b + 5c</span>?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div id="answer1" class="answer-content">
+                        <strong>Ответ:</strong><br>
+                        а) переместительное свойство сложения<br>
+                        б) сочетательное свойство сложения<br>
+                        в) переместительное свойство сложения<br>
+                        г) распределительное свойство умножения
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 2 (№108 из учебника)</h4>
+                <p>Верно ли утверждение:</p>
+                <p>а) равенство <span class="math">6(x - y) = 6x - 6y</span> является тождеством;</p>
+                <p>б) равенство <span class="math">3a - 4 = a + (2a - 4)</span> является тождеством;</p>
+                <p>в) равенство <span class="math">25(a - a) = 25</span> является тождеством?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div id="answer2" class="answer-content">
+                        <strong>Ответ:</strong><br>
+                        а) <strong>верно</strong> (распределительное свойство)<br>
+                        б) <strong>верно</strong>: <span class="math">a + (2a - 4) = 3a - 4</span><br>
+                        в) <strong>неверно</strong>: <span class="math">25(a - a) = 25 · 0 = 0</span>, а не 25! 🚫
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 2 -->
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 3 (№119 а, в из учебника)</h4>
+                <p>Упрости выражение (раскрой скобки):</p>
+                <p>а) <span class="math">5 - (a - 3)</span>; &nbsp; в) <span class="math">64 - (14 + 7x)</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div id="answer3" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">5 - a + 3 = 8 - a</span> (минус перед скобкой поменял знаки!)<br>
+                        в) <span class="math">64 - 14 - 7x = 50 - 7x</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 4 (№120 б, в из учебника)</h4>
+                <p>Раскрой скобки и приведи подобные слагаемые:</p>
+                <p>б) <span class="math">3x - (x - 2)</span>; &nbsp; в) <span class="math">4a - (a + 6)</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div id="answer4" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        б) <span class="math">3x - x + 2 = 2x + 2</span><br>
+                        в) <span class="math">4a - a - 6 = 3a - 6</span> (не забудь невидимый коэффициент: 4 - 1 = 3!)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 3 -->
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 5 (№121 а, в из учебника)</h4>
+                <p>Упрости выражение и найди его значение:</p>
+                <p>а) <span class="math">(5x - 1) - (2 - 8x)</span> при <span class="math">x = 0,75</span>;</p>
+                <p>в) <span class="math">12 + 7x - (1 - 3x)</span> при <span class="math">x = -1,7</span>.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div id="answer5" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">5x - 1 - 2 + 8x = 13x - 3</span>; при x = 0,75: <span class="math">13 · 0,75 - 3 = 9,75 - 3 = 6,75</span><br>
+                        в) <span class="math">12 + 7x - 1 + 3x = 10x + 11</span>; при x = -1,7: <span class="math">-17 + 11 = -6</span><br>
+                        <em>Сначала упростили — потом подставили. Так намного легче считать!</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 6 (№123 из учебника)</h4>
+                <p>Докажи, что при любом <span class="math">a</span> значение выражения <span class="math">3(a + 2) - 3a</span> равно 6.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div id="answer6" class="answer-content">
+                        <strong>Доказательство:</strong><br>
+                        <span class="math">3(a + 2) - 3a = 3a + 6 - 3a = (3 - 3)a + 6 = 0 · a + 6 = 6</span><br>
+                        Буква «исчезла» — значит, значение не зависит от a и всегда равно 6. ∎<br>
+                        <em>Это и есть тождество: равенство верное при любом a!</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+            <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+            <ul>
+                <li><span class="highlight">Тождественно равные</span> — выражения, равные при ЛЮБЫХ значениях переменных</li>
+                <li><span class="highlight">Тождество</span> — равенство, верное при любых значениях переменных</li>
+                <li><span class="highlight">Тождественное преобразование</span> — замена выражения тождественно равным (упрощение)</li>
+                <li><span class="highlight">Подобные слагаемые</span> — слагаемые с одинаковой буквенной частью</li>
+                <li>Приведение подобных: сложи коэффициенты (не забудь невидимый 1!) и умножь на общую буквенную часть</li>
+                <li>Скобки: после «+» знаки сохраняем, после «−» — меняем на противоположные</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>📖 Учебник: Алгебра 7 класс • Глава 1: Выражения, тождества, уравнения</p>
+            <p>§2, п. 6. Тождества. Тождественные преобразования выражений • Страницы 27-32</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const btn = answer.previousElementSibling;
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                btn.textContent = '🔍 Проверить';
+                btn.style.background = '#3498db';
+            } else {
+                answer.classList.add('show');
+                btn.textContent = '🔒 Скрыть ответ';
+                btn.style.background = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>
