@@ -186,7 +186,7 @@
         }
         
         .scaffolding-box {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
             color: #2d3436;
             padding: 25px;
             border-radius: 8px;
@@ -208,7 +208,6 @@
             margin: 10px 0;
             border-radius: 5px;
             border: 2px solid #2d3436;
-            font-family: 'Courier New', monospace;
             font-size: 1.05em;
         }
         
@@ -244,18 +243,9 @@
             border: 2px solid #2d3436;
         }
         
-        .level-1 { 
-            background: #55efc4; 
-            color: #2d3436;
-        }
-        .level-2 { 
-            background: #74b9ff; 
-            color: #2d3436;
-        }
-        .level-3 { 
-            background: #a29bfe; 
-            color: #2d3436;
-        }
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
         
         .check-answer {
             margin-top: 15px;
@@ -296,14 +286,8 @@
         }
         
         @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .emoji {
@@ -392,7 +376,7 @@
             <h2><span class="emoji">📐</span> Что такое числовое выражение?</h2>
             
             <div class="example-box">
-                <h4> Определение</h4>
+                <h4>📌 Определение</h4>
                 <p><span class="highlight">Числовое выражение</span> — это запись, составленная из чисел с помощью знаков действий и скобок.</p>
                 <p>Примеры: <span class="math">16·2+7</span>, <span class="math">43:5</span>, <span class="math">6-3·1,2</span>, <span class="math">5·(7,4-6,1)</span></p>
             </div>
@@ -408,7 +392,7 @@
                     </div>
                     <div class="arrow">+</div>
                     <div class="route-part">
-                        <div class="label"> Часть 2: пешком</div>
+                        <div class="label">🚶 Часть 2: пешком</div>
                         <div class="formula">7 км</div>
                     </div>
                     <div class="arrow">=</div>
@@ -431,7 +415,7 @@
 
         <!-- Порядок действий -->
         <div class="content-block">
-            <h2><span class="emoji"></span> Порядок действий</h2>
+            <h2><span class="emoji">🎯</span> Порядок действий</h2>
             
             <p>Чтобы найти значение выражения <span class="math">12·6-35:7</span>, нужно соблюдать <span class="highlight">порядок действий</span>:</p>
             
@@ -464,7 +448,7 @@
 
         <!-- Выражения, не имеющие смысла -->
         <div class="content-block">
-            <h2><span class="emoji">️</span> Ловушка: деление на ноль</h2>
+            <h2><span class="emoji">⚠️</span> Ловушка: деление на ноль</h2>
             
             <div class="warning-box">
                 <h4>🚫 Важно!</h4>
@@ -489,30 +473,29 @@
             <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
             
             <div class="scaffolding-box">
-                <h4>🔥 Лайфхак: как перевести 0,(6) в обыкновенную дробь</h4>
-                <p style="margin-bottom: 15px;"><strong>Если ты затрудняешься, используй этот волшебный метод!</strong></p>
+                <h4>🔥 Лайфхак: проверка «на смысл» за 3 секунды</h4>
+                <p style="margin-bottom: 15px;"><strong>Прежде чем вычислять всё выражение, проверь знаменатели! Три шага:</strong></p>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 1:</strong> Пусть x = 0,666...
+                    <strong>Шаг 1:</strong> Найди в выражении деление (дробь)
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 2:</strong> Умножим на 10:<br>
-                    <span class="math">10x = 6,666...</span>
+                    <strong>Шаг 2:</strong> Вычисли <em>только знаменатель</em> (то, на что делят)
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 3:</strong> Вычтем первое из второго:<br>
-                    <span class="math">10x - x = 6,666... - 0,666...</span>
+                    <strong>Шаг 3:</strong> Если знаменатель = 0 → выражение <strong>не имеет смысла</strong>, дальше можно не считать
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 4:</strong> Получаем:<br>
-                    <span class="math">9x = 6</span> → <span class="math">x = 6/9 = 2/3</span>
+                    <strong>Пример:</strong> <span class="math">0,57 / (0,8 - 0,4·2)</span><br>
+                    Знаменатель: <span class="math">0,8 - 0,4·2 = 0,8 - 0,8 = 0</span><br>
+                    → Деление на ноль! Выражение без смысла. 🚫
                 </div>
                 
                 <p style="margin-top: 15px; font-size: 1.1em; text-align: center; font-weight: bold;">
-                    ✨ Вау-эффект гарантирован! ✨
+                    ⚡ Сначала знаменатель — потом всё остальное!
                 </p>
             </div>
         </div>
@@ -525,7 +508,7 @@
             <!-- Уровень 1 -->
             <div class="exercise">
                 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
-                <h4>Задание 1 (№14 из учебника)</h4>
+                <h4>Задание 1 (№16а из учебника)</h4>
                 <p>Найди значение выражения:</p>
                 <p><span class="math">3,6:0,08+5,2·2,5</span></p>
                 
@@ -542,7 +525,7 @@
             </div>
             
             <div class="exercise">
-                <span class="level-badge level-1"> Уровень 1: Лёгкий</span>
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
                 <h4>Задание 2 (№16б из учебника)</h4>
                 <p>Найди значение выражения:</p>
                 <p><span class="math">(9,885-0,365):1,7+4,4</span></p>
@@ -612,14 +595,15 @@
                         а) <span class="math">2+2+2 = 6</span><br>
                         б) <span class="math">2·2·2 = 8</span><br>
                         в) <span class="math">2+2:2 = 3</span><br>
-                        г) <span class="math">2:2·2:2 = 1</span> (или <span class="math">2:2 = 1</span>)
+                        г) <span class="math">2 - 2:2 = 1</span> (сначала 2:2 = 1, затем 2 - 1 = 1)<br>
+                        <em>Проверь себя: в каждом выражении ровно три двойки!</em>
                     </div>
                 </div>
             </div>
             
             <div class="exercise">
                 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
-                <h4>Задание 6 (PBL-практика)</h4>
+                <h4>Задание 6 (авторская задача, PBL-практика)</h4>
                 <p>Составь числовое выражение для расчета общей стоимости аренды снаряжения для похода:</p>
                 <p>5 палаток по 300 руб/сутки на 3 дня + 10 спальников по 150 руб/сутки на 3 дня. Найди значение выражения.</p>
                 
@@ -647,6 +631,8 @@
                 <li><span class="highlight">Порядок действий:</span> 1) скобки, 2) умножение/деление, 3) сложение/вычитание</li>
                 <li><span class="highlight">Деление на ноль</span> невозможно — такое выражение не имеет смысла</li>
                 <li>Всегда проверяй, не равен ли знаменатель нулю перед вычислением!</li>
+                <li><span class="highlight">Рациональный способ</span> — группировать слагаемые и множители в круглые числа</li>
+                <li>По условию задачи можно составить выражение и вычислить его значение</li>
             </ul>
         </div>
 
@@ -664,7 +650,7 @@
             
             if (answer.classList.contains('show')) {
                 answer.classList.remove('show');
-                btn.textContent = ' Проверить';
+                btn.textContent = '🔍 Проверить';
                 btn.style.background = '#3498db';
             } else {
                 answer.classList.add('show');
