@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уравнение и его корни — Алгебра 7 класс | Глава 1, §3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafafa;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .chapter-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+        }
+        
+        .content-block {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.3em;
+            margin: 20px 0 12px 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 85%;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 1.05em;
+        }
+        
+        .visual-container {
+            text-align: center;
+            margin: 25px 0;
+            padding: 20px;
+            background: #fafafa;
+            border: 2px dashed #bdc3c7;
+        }
+        
+        /* Весы-равновесие */
+        .scales {
+            position: relative;
+            max-width: 440px;
+            margin: 25px auto 10px auto;
+            height: 160px;
+        }
+        
+        .scales .beam {
+            position: absolute;
+            top: 40px;
+            left: 8%;
+            right: 8%;
+            height: 6px;
+            background: #2d3436;
+            border-radius: 3px;
+        }
+        
+        .scales .stand {
+            position: absolute;
+            top: 42px;
+            left: 50%;
+            width: 6px;
+            height: 95px;
+            background: #2d3436;
+            transform: translateX(-50%);
+        }
+        
+        .scales .base {
+            position: absolute;
+            top: 135px;
+            left: 35%;
+            right: 35%;
+            height: 8px;
+            background: #2d3436;
+            border-radius: 4px;
+        }
+        
+        .scales .pan {
+            position: absolute;
+            top: 46px;
+            width: 110px;
+            height: 52px;
+            border: 3px solid #2d3436;
+            border-top: none;
+            border-radius: 0 0 55px 55px;
+            background: #d6eaf8;
+            text-align: center;
+            padding-top: 12px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        .scales .pan.left { left: 6%; }
+        .scales .pan.right { right: 6%; }
+        
+        .scales .pan-label {
+            position: absolute;
+            top: 12px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #34495e;
+        }
+        
+        .scales .pan-label.left { left: 8%; }
+        .scales .pan-label.right { right: 8%; }
+        
+        /* Карточки «сколько корней» */
+        .roots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .root-card {
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+        
+        .root-card .n {
+            font-size: 1.7em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .root-card .eq {
+            font-family: 'Courier New', monospace;
+            font-size: 0.92em;
+            margin-top: 6px;
+        }
+        
+        .root-card.r0 { border-color: #e74c3c; background: #fdedec; }
+        .root-card.r1 { border-color: #27ae60; background: #e9f7ef; }
+        .root-card.r2 { border-color: #2980b9; background: #eaf2f8; }
+        .root-card.r3 { border-color: #8e44ad; background: #f4ecf7; }
+        
+        .tip-box {
+            background: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h4 {
+            color: #1abc9c;
+            margin-bottom: 8px;
+        }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #f39c12;
+            margin-bottom: 8px;
+        }
+        
+        .scaffolding-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 3px solid #2d3436;
+            box-shadow: 4px 4px 0 #2d3436;
+        }
+        
+        .scaffolding-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .scaffolding-step {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #2d3436;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin: 12px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        
+        .exercise h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid #2d3436;
+        }
+        
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
+        
+        .check-answer {
+            margin-top: 15px;
+        }
+        
+        .answer-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border: 2px solid #2d3436;
+            box-shadow: 2px 2px 0 #2d3436;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #2980b9;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #2d3436;
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #dfe6e9;
+            border-left: 4px solid #00b894;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .answer-content.show {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .emoji {
+            margin-right: 5px;
+        }
+        
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 12px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 3px solid #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+            .content-block { padding: 20px; }
+            .scales .pan { width: 90px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="chapter-badge">Глава 1 • §3, п. 7</div>
+            <h1>Уравнение и его корни</h1>
+            <p class="subtitle">Сколько корней может спрятаться в одном уравнении?</p>
+        </header>
+
+        <!-- Введение -->
+        <div class="content-block">
+            <p>Привет! 👋 Сегодня ты познакомишься с главным героем всей алгебры — <span class="highlight">уравнением</span>. Уравнения умеют разгадывать загадки: про полки с книгами, про возраст, про скорость поездов. Начнём с настоящей загадки из учебника!</p>
+        </div>
+
+        <!-- Блок 1: уравнение из задачи -->
+        <div class="content-block">
+            <h2><span class="emoji">📚</span> Уравнение рождается из задачи</h2>
+            
+            <h3>Загадка про полки</h3>
+            <p>«На нижней полке в 4 раза больше книг, чем на верхней. Если с нижней полки переставить на верхнюю 15 книг, то книг на полках станет поровну. Сколько книг на верхней полке?»</p>
+            
+            <div class="example-box">
+                <h4>📝 Обозначаем и составляем</h4>
+                <p>Пусть <span class="math">x</span> — книг на верхней полке. Тогда на нижней — <span class="math">4x</span>.</p>
+                <p>После перестановки: на нижней <span class="math">4x - 15</span>, на верхней <span class="math">x + 15</span>. По условию их стало поровну:</p>
+                <div class="formula">
+                    <span class="math">4x - 15 = x + 15</span>
+                </div>
+                <p>Мы получили равенство с переменной — это и есть <span class="highlight">уравнение с одной переменной</span>.</p>
+            </div>
+            
+            <h3>Решаем уравнение</h3>
+            <ol>
+                <li><span class="math">4x - x = 15 + 15</span> (перенесли слагаемые с изменением знака)</li>
+                <li><span class="math">3x = 30</span> (привели подобные)</li>
+                <li><span class="math">x = 10</span> (разделили обе части на 3)</li>
+            </ol>
+            <p>Уравнение имеет один корень — число 10. <em>Проверка: на нижней полке 40 книг; после перестановки 40 - 15 = 25 и 10 + 15 = 25 — поровну!</em> ✅</p>
+            
+            <div class="tip-box">
+                <h4>📌 Определение</h4>
+                <p><span class="highlight">Корнем уравнения</span> с одной переменной называется такое значение переменной, при котором уравнение обращается в верное числовое равенство.</p>
+            </div>
+        </div>
+
+        <!-- Блок 2: сколько корней -->
+        <div class="content-block">
+            <h2><span class="emoji">🔢</span> Сколько корней может быть?</h2>
+            
+            <p>Не думай, что корень всегда один! Посмотри на карточки:</p>
+            
+            <div class="roots-grid">
+                <div class="root-card r0">
+                    <div class="n">0</div>
+                    <div class="eq">x + 2 = x</div>
+                    <p style="font-size:0.85em; margin-top:6px;">левая часть всегда на 2 больше</p>
+                </div>
+                <div class="root-card r1">
+                    <div class="n">1</div>
+                    <div class="eq">4x - 15 = x + 15</div>
+                    <p style="font-size:0.85em; margin-top:6px;">корень x = 10</p>
+                </div>
+                <div class="root-card r2">
+                    <div class="n">2</div>
+                    <div class="eq">x² = 4</div>
+                    <p style="font-size:0.85em; margin-top:6px;">корни 2 и -2</p>
+                </div>
+                <div class="root-card r3">
+                    <div class="n">3</div>
+                    <div class="eq">(x-4)(x-5)(x-6) = 0</div>
+                    <p style="font-size:0.85em; margin-top:6px;">корни 4, 5 и 6</p>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ А бывает и бесконечно много!</h4>
+                <p>Уравнение <span class="math">1,4(y + 5) = 7 + 1,4y</span> верно при <strong>любом</strong> y — значит, каждое число является его корнем.</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>📌 Что значит «решить»</h4>
+                <p><span class="highlight">Решить уравнение</span> — значит найти все его корни или доказать, что корней нет.</p>
+            </div>
+        </div>
+
+        <!-- Блок 3: равносильные уравнения -->
+        <div class="content-block">
+            <h2><span class="emoji">⚖️</span> Равносильные уравнения и их свойства</h2>
+            
+            <p>Уравнение — это <span class="highlight">весы в равновесии</span>: левая и правая части равны. Если проделать одинаковую операцию с обеими чашами — равновесие сохранится.</p>
+            
+            <div class="visual-container">
+                <div class="scales">
+                    <span class="pan-label left">4x - 15</span>
+                    <span class="pan-label right">x + 15</span>
+                    <div class="beam"></div>
+                    <div class="pan left">левая часть</div>
+                    <div class="pan right">правая часть</div>
+                    <div class="stand"></div>
+                    <div class="base"></div>
+                </div>
+                <p style="color: #7f8c8d; font-size: 0.9em;">Схема: уравнение — это равновесие двух частей</p>
+            </div>
+            
+            <p>Уравнения, имеющие одни и те же корни, называют <span class="highlight">равносильными</span>. Уравнения без корней тоже считаются равносильными друг другу.</p>
+            
+            <div class="example-box">
+                <h4>📌 Свойство 1 (перенос слагаемых)</h4>
+                <p>Если перенести слагаемое из одной части в другую, <strong>изменив его знак</strong>, получится равносильное уравнение:</p>
+                <div class="formula">
+                    <span class="math">5x = 2x + 7</span> &nbsp;⇔&nbsp; <span class="math">5x - 2x = 7</span>
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <h4>📌 Свойство 2 (умножение и деление)</h4>
+                <p>Если обе части умножить или разделить на одно и то же <strong>отличное от нуля</strong> число, получится равносильное уравнение:</p>
+                <div class="formula">
+                    <span class="math">6x = 2x + 8</span> &nbsp;⇔&nbsp; <span class="math">3x = x + 4</span> (обе части разделили на 2)
+                </div>
+            </div>
+            
+            <p>Именно этими свойствами мы пользуемся, когда решаем уравнение шаг за шагом: каждое следующее уравнение равносильно предыдущему — значит, корни не теряются и не появляются лишние!</p>
+        </div>
+
+        <!-- Методическая подсказка -->
+        <div class="content-block">
+            <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+            
+            <div class="scaffolding-box">
+                <h4>🔥 Лайфхак: корень ли это число? Подставь и сравни обе части!</h4>
+                <p style="margin-bottom: 15px;"><strong>Сначала разберёмся, как устроено уравнение. Любое уравнение состоит из двух частей, разделённых знаком «=»:</strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Устройство уравнения:</strong> возьмём <span class="math">2x + 6 = 14</span><br>
+                    ЛЕВАЯ часть: <span class="math">2x + 6</span> &nbsp;=&nbsp; ПРАВАЯ часть: <span class="math">14</span>
+                </div>
+                
+                <p style="margin: 10px 0;"><strong>Корень — это такое значение x, при котором обе части становятся РАВНЫ. Значит, проверка простая: подставь число в обе части, вычисли каждую и сравни результаты.</strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 1.</strong> Возьми число для проверки. Пусть <span class="math">x = 4</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 2.</strong> Подставь его в ЛЕВУЮ часть и вычисли: <span class="math">2 · 4 + 6 = 8 + 6 = 14</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 3.</strong> Подставь его в ПРАВУЮ часть и вычисли: справа стоит <span class="math">14</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 4.</strong> Сравни результаты: <span class="math">14 = 14</span> → части совпали → <span class="math">x = 4</span> — это <strong>корень</strong> ✅
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>А теперь проверка «не корня»:</strong> возьмём <span class="math">x = 3</span>.<br>
+                    Левая часть: <span class="math">2 · 3 + 6 = 12</span>; правая часть: <span class="math">14</span>.<br>
+                    <span class="math">12 ≠ 14</span> → части НЕ совпали → <span class="math">x = 3</span> — <strong>НЕ корень</strong> 🚫
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+                    ⚖️ В задании 1 сделаешь то же самое: подставь число 3 в обе части уравнения <span class="math">5(2x - 1) = 8x + 1</span> и сравни, что получится!
+                </p>
+            </div>
+        </div>
+
+        <!-- Упражнения -->
+        <div class="content-block">
+            <h2><span class="emoji">✏️</span> Проверь себя</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>"Проверить"</strong>, чтобы увидеть ответ!</p>
+            
+            <!-- Уровень 1 -->
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 1 (№130 из учебника)</h4>
+                <p>Является ли число 3 корнем уравнения:</p>
+                <p>а) <span class="math">5(2x - 1) = 8x + 1</span>; &nbsp; б) <span class="math">(x - 4)(x + 4) = 7</span>?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div id="answer1" class="answer-content">
+                        <strong>Решение (подстановка в обе части):</strong><br>
+                        а) левая: <span class="math">5 · (2 · 3 - 1) = 5 · 5 = 25</span>; правая: <span class="math">8 · 3 + 1 = 25</span>; 25 = 25 → <strong>да, корень</strong> ✅<br>
+                        б) левая: <span class="math">(3 - 4)(3 + 4) = (-1) · 7 = -7</span>; правая: <span class="math">7</span>; -7 ≠ 7 → <strong>не корень</strong> 🚫
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 2 (№132 из учебника)</h4>
+                <p>Является ли корнем уравнения <span class="math">x(x - 5) = 6</span> число: 1; -1; 6; -6?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div id="answer2" class="answer-content">
+                        <strong>Проверяем подстановкой:</strong><br>
+                        x = 1: <span class="math">1 · (1 - 5) = -4 ≠ 6</span> — нет<br>
+                        x = -1: <span class="math">(-1) · (-1 - 5) = 6</span> — <strong>да</strong> ✅<br>
+                        x = 6: <span class="math">6 · (6 - 5) = 6</span> — <strong>да</strong> ✅<br>
+                        x = -6: <span class="math">(-6) · (-6 - 5) = 66 ≠ 6</span> — нет<br>
+                        <strong>Ответ:</strong> корни — числа -1 и 6
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 2 -->
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 3 (№136 из учебника)</h4>
+                <p>Имеет ли корни уравнение:</p>
+                <p>а) <span class="math">2x + 3 = 2x + 8</span>; &nbsp; б) <span class="math">2y = y²</span>?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div id="answer3" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">2x - 2x = 8 - 3</span> → <span class="math">0x = 5</span> → равенство неверно ни при каком x → <strong>корней нет</strong> 🚫<br>
+                        б) <span class="math">y² - 2y = 0</span> → <span class="math">y(y - 2) = 0</span> → <span class="math">y = 0</span> или <span class="math">y = 2</span> → <strong>имеет два корня</strong> ✅
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 4 (№139 из учебника)</h4>
+                <p>Имеет ли уравнение корни и, если имеет, то сколько:</p>
+                <p>а) <span class="math">|x| = 1</span>; &nbsp; б) <span class="math">|x| = 0</span>; &nbsp; в) <span class="math">|x| = -5</span>; &nbsp; г) <span class="math">|x| = 1,3</span>?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div id="answer4" class="answer-content">
+                        <strong>Ответ:</strong><br>
+                        а) <strong>два корня</strong>: x = 1 и x = -1<br>
+                        б) <strong>один корень</strong>: x = 0<br>
+                        в) <strong>корней нет</strong> (модуль не может быть отрицательным!) 🚫<br>
+                        г) <strong>два корня</strong>: x = 1,3 и x = -1,3
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 3 -->
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 5 (№137 из учебника)</h4>
+                <p>Какое из уравнений не имеет корней: <span class="math">3x + 11 = 3(x + 4) + 1</span> или <span class="math">33x = 18x</span>?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div id="answer5" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Первое: <span class="math">3x + 11 = 3x + 12 + 1</span> → <span class="math">3x + 11 = 3x + 13</span> → <span class="math">11 = 13</span> — неверно → <strong>корней нет</strong> 🚫<br>
+                        Второе: <span class="math">33x - 18x = 0</span> → <span class="math">15x = 0</span> → <span class="math">x = 0</span> — корень есть ✅<br>
+                        <strong>Ответ:</strong> не имеет корней первое уравнение
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 6 (№135 из учебника)</h4>
+                <p>Докажи, что:</p>
+                <p>а) корнем уравнения <span class="math">1,4(y + 5) = 7 + 1,4y</span> является любое число;</p>
+                <p>б) уравнение <span class="math">y - 3 = y</span> не имеет корней.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div id="answer6" class="answer-content">
+                        <strong>Доказательство:</strong><br>
+                        а) левая часть: <span class="math">1,4(y + 5) = 1,4y + 7</span>; правая: <span class="math">7 + 1,4y</span>. Части равны при любом y → любое число является корнем ∎<br>
+                        б) <span class="math">y - 3 = y</span> → <span class="math">y - y = 3</span> → <span class="math">0y = 3</span> → <span class="math">0 = 3</span> — неверно ни при каком y → корней нет ∎
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+            <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+            <ul>
+                <li><span class="highlight">Уравнение с одной переменной</span> — равенство, содержащее переменную</li>
+                <li><span class="highlight">Корень</span> — значение переменной, при котором уравнение становится верным равенством</li>
+                <li><span class="highlight">Решить уравнение</span> — найти все корни или доказать, что их нет</li>
+                <li>Корней может быть 0, 1, 2, 3… или бесконечно много</li>
+                <li><span class="highlight">Равносильные уравнения</span> — имеющие одни и те же корни</li>
+                <li>Свойство 1: перенос слагаемого в другую часть с изменением знака сохраняет равносильность</li>
+                <li>Свойство 2: умножение или деление обеих частей на число ≠ 0 сохраняет равносильность</li>
+                <li>Проверка корня — подстановка в обе части уравнения</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>📖 Учебник: Алгебра 7 класс • Глава 1: Выражения, тождества, уравнения</p>
+            <p>§3, п. 7. Уравнение и его корни • Страницы 32-34</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const btn = answer.previousElementSibling;
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                btn.textContent = '🔍 Проверить';
+                btn.style.background = '#3498db';
+            } else {
+                answer.classList.add('show');
+                btn.textContent = '🔒 Скрыть ответ';
+                btn.style.background = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>
