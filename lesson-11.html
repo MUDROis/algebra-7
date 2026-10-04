@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Числовые промежутки — Алгебра 7 класс | Глава 2, §4</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #2c3e50;
+background-color: #fafafa;
+background-image:
+linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+background-size: 20px 20px;
+}
+.container {
+max-width: 900px;
+margin: 0 auto;
+padding: 30px 20px;
+}
+header {
+background: white;
+padding: 30px;
+margin-bottom: 30px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+border-left: 5px solid #3498db;
+}
+.chapter-badge {
+display: inline-block;
+background: #3498db;
+color: white;
+padding: 5px 15px;
+border-radius: 3px;
+font-size: 14px;
+margin-bottom: 10px;
+}
+h1 {
+font-size: 2em;
+color: #2c3e50;
+margin-bottom: 10px;
+}
+.subtitle {
+font-size: 1.1em;
+color: #7f8c8d;
+}
+.content-block {
+background: white;
+padding: 30px;
+margin-bottom: 25px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+h2 {
+color: #2c3e50;
+font-size: 1.6em;
+margin-bottom: 20px;
+padding-bottom: 8px;
+border-bottom: 2px solid #ecf0f1;
+}
+h3 {
+color: #34495e;
+font-size: 1.3em;
+margin: 20px 0 12px 0;
+}
+.highlight {
+background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+background-repeat: no-repeat;
+background-size: 100% 45%;
+background-position: 0 85%;
+padding: 2px 6px;
+font-weight: 600;
+}
+.example-box {
+background: #f8f9fa;
+border-left: 4px solid #3498db;
+padding: 15px 20px;
+margin: 15px 0;
+}
+.example-box h4 {
+color: #3498db;
+margin-bottom: 8px;
+font-size: 1.1em;
+}
+.math {
+font-family: 'Courier New', monospace;
+background: #ecf0f1;
+padding: 3px 8px;
+border-radius: 3px;
+font-size: 1.05em;
+white-space: nowrap;
+}
+.visual-container {
+text-align: center;
+margin: 25px 0;
+padding: 20px;
+background: #fafafa;
+border: 2px dashed #bdc3c7;
+}
+.tip-box {
+background: #e8f6f3;
+border-left: 4px solid #1abc9c;
+padding: 15px 20px;
+margin: 20px 0;
+}
+.tip-box h4 {
+color: #1abc9c;
+margin-bottom: 8px;
+}
+.warning-box {
+background: #fef9e7;
+border-left: 4px solid #f39c12;
+padding: 15px 20px;
+margin: 20px 0;
+}
+.warning-box h4 {
+color: #f39c12;
+margin-bottom: 8px;
+}
+.scaffolding-box {
+background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+color: #2d3436;
+padding: 25px;
+border-radius: 8px;
+margin: 25px 0;
+border: 3px solid #2d3436;
+box-shadow: 4px 4px 0 #2d3436;
+}
+.scaffolding-box h4 {
+font-size: 1.3em;
+margin-bottom: 15px;
+color: #2d3436;
+font-weight: bold;
+}
+.scaffolding-step {
+background: white;
+padding: 12px;
+margin: 10px 0;
+border-radius: 5px;
+border: 2px solid #2d3436;
+font-size: 1.05em;
+}
+ul, ol {
+margin: 12px 0;
+padding-left: 30px;
+}
+li {
+margin: 8px 0;
+}
+.exercise {
+background: #f8f9fa;
+padding: 20px;
+margin: 15px 0;
+border: 2px solid #d5dbdb;
+border-radius: 5px;
+}
+.exercise h4 {
+color: #2c3e50;
+margin-bottom: 10px;
+}
+.level-badge {
+display: inline-block;
+padding: 3px 12px;
+border-radius: 12px;
+font-size: 0.85em;
+font-weight: bold;
+margin-bottom: 10px;
+border: 2px solid #2d3436;
+}
+.level-1 { background: #55efc4; color: #2d3436; }
+.level-2 { background: #74b9ff; color: #2d3436; }
+.level-3 { background: #a29bfe; color: #2d3436; }
+.check-answer {
+margin-top: 15px;
+}
+.answer-btn {
+background: #3498db;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1em;
+border: 2px solid #2d3436;
+box-shadow: 2px 2px 0 #2d3436;
+transition: all 0.3s;
+font-weight: 600;
+}
+.answer-btn:hover {
+background: #2980b9;
+transform: translate(1px, 1px);
+box-shadow: 1px 1px 0 #2d3436;
+}
+.answer-content {
+display: none;
+margin-top: 15px;
+padding: 15px;
+background: #dfe6e9;
+border-left: 4px solid #00b894;
+border-radius: 5px;
+animation: slideDown 0.3s ease-out;
+}
+.answer-content.show {
+display: block;
+}
+@keyframes slideDown {
+from { opacity: 0; transform: translateY(-10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.emoji {
+margin-right: 5px;
+}
+.formula {
+text-align: center;
+font-size: 1.2em;
+margin: 15px 0;
+padding: 12px;
+background: #ecf0f1;
+border-radius: 5px;
+}
+/* ---------- Числовые прямые (SVG) ---------- */
+.numline {
+width: 100%;
+max-width: 340px;
+height: auto;
+display: block;
+margin: 8px auto;
+}
+.numline text {
+font-family: 'Courier New', monospace;
+font-size: 15px;
+font-weight: bold;
+fill: #2d3436;
+}
+.numline text.small {
+font-size: 13px;
+font-weight: normal;
+}
+.numline text.purple { fill: #8e44ad; }
+.numline text.orange { fill: #e67e22; }
+.interval-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 15px;
+margin: 20px 0;
+}
+.interval-card {
+background: #f8f9fa;
+border: 2px solid #d5dbdb;
+border-radius: 8px;
+padding: 12px;
+text-align: center;
+}
+.interval-card .numline {
+max-width: 300px;
+}
+.interval-card .ic-title {
+font-weight: bold;
+color: #34495e;
+margin-bottom: 4px;
+}
+.interval-card .ic-ineq {
+font-family: 'Courier New', monospace;
+color: #7f8c8d;
+font-size: 0.95em;
+margin-bottom: 6px;
+}
+table.interval-table {
+margin: 15px auto;
+border-collapse: collapse;
+font-size: 0.98em;
+width: 100%;
+}
+table.interval-table td, table.interval-table th {
+border: 2px solid #bdc3c7;
+padding: 8px 12px;
+text-align: center;
+}
+table.interval-table th {
+background: #ecf0f1;
+}
+.fig-label {
+font-weight: bold;
+color: #34495e;
+margin: 14px 0 2px 0;
+text-align: center;
+}
+footer {
+text-align: center;
+color: #7f8c8d;
+padding: 20px;
+margin-top: 30px;
+border-top: 3px solid #3498db;
+background: white;
+}
+@media (max-width: 768px) {
+h1 { font-size: 1.6em; }
+h2 { font-size: 1.3em; }
+.content-block { padding: 20px; }
+table.interval-table { font-size: 0.85em; }
+table.interval-table td, table.interval-table th { padding: 5px 6px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<header>
+<div class="chapter-badge">Глава 2 • §4, п. 11</div>
+<h1>Числовые промежутки</h1>
+<p class="subtitle">Как математика описывает всё, что «от и до»</p>
+</header>
+
+<!-- Введение -->
+<div class="content-block">
+<p>Привет! 👋 Начинается новая глава — <span class="highlight">«Функции»</span>, и первым делом нам понадобятся числовые промежутки. Смотри: в прогнозе погоды сказано, что завтра температура будет от −3 °С до +5 °С. А на дороге ограничение: скорость не меньше 40 и не больше 60 км/ч. Всюду вокруг — множества чисел «от и до»! Сегодня ты научишься записывать их коротко и красиво — и сразу тремя способами: неравенством, скобками и картинкой на прямой. 🚀</p>
+</div>
+
+<!-- Блок 1: четыре вида промежутков -->
+<div class="content-block">
+<h2><span class="emoji">📏</span> Четыре вида промежутков «от и до»</h2>
+<p>Пусть <span class="math">a &lt; b</span>. Отметьте на координатной прямой две точки: <span class="math">a</span> и <span class="math">b</span>. Какие числа живут между ними? Это зависит от того, <span class="highlight">входят ли сами границы</span> в множество.</p>
+<div class="example-box">
+<h4>📌 Определения</h4>
+<p>Множество всех чисел, удовлетворяющих условию <span class="math">a ≤ x ≤ b</span>, изображается на координатной прямой отрезком. Его называют <span class="highlight">числовым отрезком</span> (или просто отрезком) и обозначают <span class="math">[a; b]</span>.</p>
+<p>Множество чисел, удовлетворяющих условию <span class="math">a &lt; x &lt; b</span>, называют <span class="highlight">интервалом</span> и обозначают <span class="math">(a; b)</span>.</p>
+<p>Множества чисел, для которых выполняются двойные неравенства <span class="math">a ≤ x &lt; b</span> и <span class="math">a &lt; x ≤ b</span>, называют <span class="highlight">полуинтервалами</span> и обозначают соответственно <span class="math">[a; b)</span> и <span class="math">(a; b]</span>.</p>
+<p>Отрезки, интервалы и полуинтервалы называют <span class="highlight">числовыми промежутками</span>.</p>
+</div>
+<p>Посмотри, как одно и то же «от −2 до 5» превращается в четыре разных промежутка — всё зависит от границ!</p>
+<div class="interval-grid">
+<div class="interval-card">
+<div class="ic-title">Отрезок [−2; 5]</div>
+<div class="ic-ineq">−2 ≤ x ≤ 5</div>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Отрезок от -2 до 5, обе границы включены">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="80" y1="26" x2="240" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="80" cy="26" r="6.5" fill="#2d3436"/>
+<circle cx="240" cy="26" r="6.5" fill="#2d3436"/>
+<text x="80" y="54" text-anchor="middle">-2</text>
+<text x="240" y="54" text-anchor="middle">5</text>
+</svg>
+</div>
+<div class="interval-card">
+<div class="ic-title">Интервал (−2; 5)</div>
+<div class="ic-ineq">−2 &lt; x &lt; 5</div>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Интервал от -2 до 5, границы не включены">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="80" y1="26" x2="240" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="80" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<circle cx="240" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<text x="80" y="54" text-anchor="middle">-2</text>
+<text x="240" y="54" text-anchor="middle">5</text>
+</svg>
+</div>
+<div class="interval-card">
+<div class="ic-title">Полуинтервал [−2; 5)</div>
+<div class="ic-ineq">−2 ≤ x &lt; 5</div>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Полуинтервал от -2 включительно до 5 не включительно">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="80" y1="26" x2="240" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="80" cy="26" r="6.5" fill="#2d3436"/>
+<circle cx="240" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<text x="80" y="54" text-anchor="middle">-2</text>
+<text x="240" y="54" text-anchor="middle">5</text>
+</svg>
+</div>
+<div class="interval-card">
+<div class="ic-title">Полуинтервал (−2; 5]</div>
+<div class="ic-ineq">−2 &lt; x ≤ 5</div>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Полуинтервал от -2 не включительно до 5 включительно">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="80" y1="26" x2="240" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="80" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<circle cx="240" cy="26" r="6.5" fill="#2d3436"/>
+<text x="80" y="54" text-anchor="middle">-2</text>
+<text x="240" y="54" text-anchor="middle">5</text>
+</svg>
+</div>
+</div>
+<div class="tip-box">
+<h4>📌 Как читать обозначения</h4>
+<p><span class="math">[−2; 5]</span> — «отрезок от −2 до 5»; <span class="math">(−2; 5)</span> — «интервал от −2 до 5»; <span class="math">[−2; 5)</span> и <span class="math">(−2; 5]</span> — «полуинтервал от −2 до 5». Границы внутри скобок разделяют точкой с запятой — потому что запятая уже занята десятичными дробями!</p>
+</div>
+</div>
+
+<!-- Блок 2: знак - скобка - точка -->
+<div class="content-block">
+<h2><span class="emoji">🔗</span> Знак ↔ скобка ↔ точка</h2>
+<p>Три записи одного и того же промежутка всегда согласованы между собой:</p>
+<table class="interval-table">
+<tr><th>Неравенство</th><th>Обозначение</th><th>Название</th><th>Точки на прямой</th></tr>
+<tr><td><span class="math">a ≤ x ≤ b</span></td><td><span class="math">[a; b]</span></td><td>отрезок</td><td>обе закрашены</td></tr>
+<tr><td><span class="math">a &lt; x &lt; b</span></td><td><span class="math">(a; b)</span></td><td>интервал</td><td>обе пустые</td></tr>
+<tr><td><span class="math">a ≤ x &lt; b</span></td><td><span class="math">[a; b)</span></td><td>полуинтервал</td><td>a закрашена, b пуста</td></tr>
+<tr><td><span class="math">a &lt; x ≤ b</span></td><td><span class="math">(a; b]</span></td><td>полуинтервал</td><td>a пуста, b закрашена</td></tr>
+</table>
+<div class="warning-box">
+<h4>🚫 Частая ошибка</h4>
+<p>Написать <span class="math">x &lt; 5</span> в виде <span class="math">[…; 5]</span>. Квадратная скобка возле 5 означает, что число 5 входит в промежуток, а по условию — нет! Правильно: <span class="math">[…; 5)</span> — скобка круглая.</p>
+</div>
+</div>
+
+<!-- Блок 3: лучи -->
+<div class="content-block">
+<h2><span class="emoji">➡️</span> Лучи: когда граница только одна</h2>
+<p>А что, если числа идут в одну сторону «до бесконечности»? Например, «все числа, которые не меньше −2». Тогда множество превращается в <span class="highlight">луч</span>:</p>
+<div class="interval-grid">
+<div class="interval-card">
+<div class="ic-title">x ≥ −2</div>
+<div class="ic-ineq">закрытый луч</div>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Закрытый луч из точки -2 вправо">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="80" y1="26" x2="284" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<polygon points="284,18 306,26 284,34" fill="#3498db"/>
+<circle cx="80" cy="26" r="6.5" fill="#2d3436"/>
+<text x="80" y="54" text-anchor="middle">-2</text>
+</svg>
+</div>
+<div class="interval-card">
+<div class="ic-title">x &gt; −2</div>
+<div class="ic-ineq">открытый луч</div>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Открытый луч из точки -2 вправо">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="80" y1="26" x2="284" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<polygon points="284,18 306,26 284,34" fill="#3498db"/>
+<circle cx="80" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<text x="80" y="54" text-anchor="middle">-2</text>
+</svg>
+</div>
+<div class="interval-card">
+<div class="ic-title">x ≤ 3</div>
+<div class="ic-ineq">закрытый луч</div>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Закрытый луч из точки 3 влево">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="36" y1="26" x2="240" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<polygon points="36,18 14,26 36,34" fill="#3498db"/>
+<circle cx="240" cy="26" r="6.5" fill="#2d3436"/>
+<text x="240" y="54" text-anchor="middle">3</text>
+</svg>
+</div>
+<div class="interval-card">
+<div class="ic-title">x &lt; 3</div>
+<div class="ic-ineq">открытый луч</div>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Открытый луч из точки 3 влево">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="36" y1="26" x2="240" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<polygon points="36,18 14,26 36,34" fill="#3498db"/>
+<circle cx="240" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<text x="240" y="54" text-anchor="middle">3</text>
+</svg>
+</div>
+</div>
+<p>Луч <span class="math">x ≥ a</span> называют <span class="highlight">закрытым</span> — начало луча входит в множество (точка закрашена). Луч <span class="math">x &gt; a</span> — <span class="highlight">открытым</span>: начало не входит (точка пуста). То же самое для лучей влево: <span class="math">x ≤ a</span> и <span class="math">x &lt; a</span>.</p>
+</div>
+
+<!-- Блок 4: расстояние между точками -->
+<div class="content-block">
+<h2><span class="emoji">📐</span> Расстояние между точками координатной прямой</h2>
+<p>Из курса 5–6 классов ты знаешь: расстояние от точки с координатой <span class="math">x</span> до начала отсчёта равно <span class="math">|x|</span> — модулю числа. А как найти расстояние между двумя точками?</p>
+<div class="example-box">
+<h4>📌 Правило</h4>
+<p>Расстояние между точками <span class="math">A(a)</span> и <span class="math">B(b)</span> равно <span class="highlight">модулю разности их координат</span>:</p>
+<div class="formula"><span class="math">AB = |b − a|</span></div>
+<p>Проще говоря: <span class="highlight">из большей координаты вычти меньшую</span>. Правило работает для любых координат — и положительных, и отрицательных.</p>
+</div>
+<h3>Пример</h3>
+<svg class="numline" viewBox="0 0 320 68" aria-label="Точки A(2) и B(7), расстояние между ними 5">
+<line x1="12" y1="36" x2="308" y2="36" stroke="#95a5a6" stroke-width="2"/>
+<circle cx="110" cy="36" r="6" fill="#2d3436"/>
+<circle cx="260" cy="36" r="6" fill="#2d3436"/>
+<text x="110" y="62" text-anchor="middle">A(2)</text>
+<text x="260" y="62" text-anchor="middle">B(7)</text>
+<text x="185" y="18" text-anchor="middle" class="small">AB = 7 − 2 = 5</text>
+</svg>
+<p>С отрицательными координатами всё так же: если <span class="math">M(−4)</span> и <span class="math">N(3)</span>, то <span class="math">MN = 3 − (−4) = 3 + 4 = 7</span>.</p>
+<div class="warning-box">
+<h4>⚠️ Проверка на здравый смысл</h4>
+<p>Расстояние не может быть отрицательным! Если в ответе получился «минус» — значит, вычитание наоборот: из большей координаты нужно вычитать меньшую. Поменяй местами или возьми модуль.</p>
+</div>
+</div>
+
+<!-- Методическая подсказка -->
+<div class="content-block">
+<h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+<div class="scaffolding-box">
+<h4>🔥 Лайфхак: у каждой границы — три «образа», и они должны совпадать</h4>
+<p style="margin-bottom: 15px;"><strong>У любого промежутка есть границы. Каждая граница записывается сразу тремя способами: знаком в неравенстве, скобкой в обозначении и точкой на прямой. Выучи два соответствия — и ошибки исчезнут:</strong></p>
+<div class="scaffolding-step">
+<strong>Нестрогий знак</strong> <span class="math">≤</span> или <span class="math">≥</span> (с «перекладиной») → <strong>квадратная скобка</strong> → <strong>закрашенная точка</strong>: граница ВХОДИТ в промежуток.
+</div>
+<div class="scaffolding-step">
+<strong>Строгий знак</strong> <span class="math">&lt;</span> или <span class="math">&gt;</span> (без «перекладины») → <strong>круглая скобка</strong> → <strong>пустая (выколотая) точка</strong>: граница НЕ входит в промежуток.
+</div>
+<div class="scaffolding-step">
+<strong>Проверим на примере</strong> (его нет в заданиях): промежуток <span class="math">[2; 3)</span>. Число <span class="math">2,5</span>: <span class="math">2 ≤ 2,5 &lt; 3</span> — верно ✅, число входит. Число <span class="math">3</span>: <span class="math">3 &lt; 3</span> — неверно 🚫, число не входит. Недаром у тройки круглая скобка и пустая точка!
+</div>
+<div class="scaffolding-step">
+<strong>Типичная ошибка:</strong> записать <span class="math">−1 ≤ x &lt; 4</span> в виде <span class="math">[−1; 4]</span>. Квадратная скобка возле 4 означает, что 4 входит, — а это уже другое множество! Правильно: <span class="math">[−1; 4)</span>.
+</div>
+<p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+🧩 В задании 3 сделаешь то же самое: рассмотришь закрашенные и пустые точки на рисунках и запишешь промежутки с правильными скобками!
+</p>
+</div>
+</div>
+
+<!-- Упражнения -->
+<div class="content-block">
+<h2><span class="emoji">✏️</span> Проверь себя</h2>
+<p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>«Проверить»</strong>, чтобы увидеть ответ!</p>
+
+<!-- Уровень 1 -->
+<div class="exercise">
+<span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+<h4>Задание 1 (№250 из учебника)</h4>
+<p>Изобрази на координатной прямой числовой промежуток, заданный неравенством:</p>
+<p>а) <span class="math">x &lt; −3</span>; &nbsp; б) <span class="math">−3 ≤ x &lt; 6</span>; &nbsp; в) <span class="math">−3 ≤ x ≤ 2</span>; &nbsp; г) <span class="math">−4 &lt; x &lt; 2</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+<div id="answer1" class="answer-content">
+<strong>Решение:</strong> отмечаем границы: закрашенная точка — знак ≤, пустая точка — знак &lt;.<br><br>
+а) <span class="math">x &lt; −3</span> — открытый луч из точки −3 влево (точка −3 выколота):
+<svg class="numline" viewBox="0 0 320 64" aria-label="Открытый луч из точки -3 влево">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="36" y1="26" x2="210" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<polygon points="36,18 14,26 36,34" fill="#3498db"/>
+<circle cx="210" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<text x="210" y="54" text-anchor="middle">-3</text>
+</svg>
+б) <span class="math">−3 ≤ x &lt; 6</span> — полуинтервал: точка −3 закрашена, точка 6 пуста:
+<svg class="numline" viewBox="0 0 320 64" aria-label="Полуинтервал от -3 включительно до 6 не включительно">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="80" y1="26" x2="260" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="80" cy="26" r="6.5" fill="#2d3436"/>
+<circle cx="260" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<text x="80" y="54" text-anchor="middle">-3</text>
+<text x="260" y="54" text-anchor="middle">6</text>
+</svg>
+в) <span class="math">−3 ≤ x ≤ 2</span> — отрезок: обе точки закрашены:
+<svg class="numline" viewBox="0 0 320 64" aria-label="Отрезок от -3 до 2, обе границы включены">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="80" y1="26" x2="240" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="80" cy="26" r="6.5" fill="#2d3436"/>
+<circle cx="240" cy="26" r="6.5" fill="#2d3436"/>
+<text x="80" y="54" text-anchor="middle">-3</text>
+<text x="240" y="54" text-anchor="middle">2</text>
+</svg>
+г) <span class="math">−4 &lt; x &lt; 2</span> — интервал: обе точки пустые:
+<svg class="numline" viewBox="0 0 320 64" aria-label="Интервал от -4 до 2, границы не включены">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="70" y1="26" x2="250" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="70" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<circle cx="250" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<text x="70" y="54" text-anchor="middle">-4</text>
+<text x="250" y="54" text-anchor="middle">2</text>
+</svg>
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+<h4>Задание 2 (№251 а, б из учебника)</h4>
+<p>Найди расстояние между точками координатной прямой:</p>
+<p>а) <span class="math">S(7,45)</span> и <span class="math">D(1,15)</span>; &nbsp; б) <span class="math">R(−5,3)</span> и <span class="math">T(−8,93)</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+<div id="answer2" class="answer-content">
+<strong>Решение:</strong> используем формулу <span class="math">AB = |b − a|</span> — из большей координаты вычитаем меньшую.<br><br>
+а) <span class="math">SD = |7,45 − 1,15| = 6,3</span><br>
+б) <span class="math">RT = |−5,3 − (−8,93)| = |−5,3 + 8,93| = 3,63</span><br><br>
+<strong>Ответ:</strong> а) <span class="math">6,3</span>; б) <span class="math">3,63</span>.
+</div>
+</div>
+</div>
+
+<!-- Уровень 2 -->
+<div class="exercise">
+<span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+<h4>Задание 3 (чтение рисунков — по мотивам №247 из учебника)</h4>
+<p>Запиши изображённый на рисунке числовой промежуток в виде неравенства и назови его вид (отрезок, интервал, полуинтервал или луч):</p>
+<div class="visual-container">
+<p class="fig-label">а)</p>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Промежуток от -4 включительно до 2 не включительно">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="70" y1="26" x2="250" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="70" cy="26" r="6.5" fill="#2d3436"/>
+<circle cx="250" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<text x="70" y="54" text-anchor="middle">-4</text>
+<text x="250" y="54" text-anchor="middle">2</text>
+</svg>
+<p class="fig-label">б)</p>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Промежуток от 0 не включительно до 6 включительно">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="90" y1="26" x2="250" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<circle cx="90" cy="26" r="6.5" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+<circle cx="250" cy="26" r="6.5" fill="#2d3436"/>
+<text x="90" y="54" text-anchor="middle">0</text>
+<text x="250" y="54" text-anchor="middle">6</text>
+</svg>
+<p class="fig-label">в)</p>
+<svg class="numline" viewBox="0 0 320 64" aria-label="Луч из точки 3 влево, точка 3 включена">
+<line x1="12" y1="26" x2="308" y2="26" stroke="#95a5a6" stroke-width="2"/>
+<line x1="36" y1="26" x2="230" y2="26" stroke="#3498db" stroke-width="6" stroke-linecap="round"/>
+<polygon points="36,18 14,26 36,34" fill="#3498db"/>
+<circle cx="230" cy="26" r="6.5" fill="#2d3436"/>
+<text x="230" y="54" text-anchor="middle">3</text>
+</svg>
+</div>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+<div id="answer3" class="answer-content">
+<strong>Ответ:</strong><br>
+а) Левая граница −4 закрашена (входит), правая 2 — пуста (не входит): <span class="math">−4 ≤ x &lt; 2</span> — полуинтервал <span class="math">[−4; 2)</span><br>
+б) Левая граница 0 — пуста, правая 6 — закрашена: <span class="math">0 &lt; x ≤ 6</span> — полуинтервал <span class="math">(0; 6]</span><br>
+в) Закрашенная точка 3 и луч влево: <span class="math">x ≤ 3</span> — закрытый луч с началом в точке 3
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+<h4>Задание 4 (№251 в, г из учебника)</h4>
+<p>Найди расстояние между точками координатной прямой:</p>
+<p>в) <span class="math">K(9,43)</span> и <span class="math">L(−9,43)</span>; &nbsp; г) <span class="math">A(−5 1/3)</span> и <span class="math">B(3 2/3)</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+<div id="answer4" class="answer-content">
+<strong>Решение:</strong><br>
+в) Координаты — противоположные числа, поэтому расстояние равно сумме их модулей:<br>
+<span class="math">KL = |9,43 − (−9,43)| = 9,43 + 9,43 = 18,86</span><br>
+г) Работаем с обыкновенными дробями:<br>
+<span class="math">AB = |3 2/3 − (−5 1/3)| = 3 2/3 + 5 1/3 = 8 3/3 = 9</span><br><br>
+<strong>Ответ:</strong> в) <span class="math">18,86</span>; г) <span class="math">9</span>.
+</div>
+</div>
+</div>
+
+<!-- Уровень 3 -->
+<div class="exercise">
+<span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+<h4>Задание 5 (№252 из учебника)</h4>
+<p>На координатной прямой отмечены точки <span class="math">A(−5)</span>, <span class="math">B(−3)</span>, <span class="math">C(1)</span> и <span class="math">D(6)</span>. Найди расстояние между серединами отрезков <span class="math">AD</span> и <span class="math">BC</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+<div id="answer5" class="answer-content">
+<strong>Решение:</strong><br>
+1) Координата середины отрезка — среднее арифметическое координат его концов.<br>
+Середина <span class="math">M₁</span> отрезка <span class="math">AD</span>: <span class="math">(−5 + 6) : 2 = 1 : 2 = 0,5</span><br>
+2) Середина <span class="math">M₂</span> отрезка <span class="math">BC</span>: <span class="math">(−3 + 1) : 2 = (−2) : 2 = −1</span><br>
+3) Расстояние между серединами: <span class="math">M₁M₂ = |0,5 − (−1)| = 0,5 + 1 = 1,5</span><br><br>
+<svg class="numline" viewBox="0 0 360 84" aria-label="Схема: точки A, B, C, D и середины отрезков AD и BC">
+<line x1="16" y1="42" x2="344" y2="42" stroke="#95a5a6" stroke-width="2"/>
+<line x1="139" y1="42" x2="180" y2="42" stroke="#f39c12" stroke-width="5" stroke-linecap="round"/>
+<circle cx="30" cy="42" r="5.5" fill="#2d3436"/>
+<circle cx="85" cy="42" r="5.5" fill="#2d3436"/>
+<circle cx="194" cy="42" r="5.5" fill="#2d3436"/>
+<circle cx="330" cy="42" r="5.5" fill="#2d3436"/>
+<circle cx="139" cy="42" r="5.5" fill="#8e44ad"/>
+<circle cx="180" cy="42" r="5.5" fill="#e67e22"/>
+<text x="30" y="68" text-anchor="middle">-5</text>
+<text x="85" y="68" text-anchor="middle">-3</text>
+<text x="194" y="68" text-anchor="middle">1</text>
+<text x="330" y="68" text-anchor="middle">6</text>
+<text x="139" y="24" text-anchor="middle" class="purple">-1</text>
+<text x="180" y="24" text-anchor="middle" class="orange">0,5</text>
+</svg>
+<em style="font-size: 0.9em; color: #7f8c8d;">Фиолетовая точка — середина BC (координата −1), оранжевая — середина AD (координата 0,5). Между ними 1,5 единицы.</em><br><br>
+<strong>Ответ:</strong> <span class="math">1,5</span>.
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+<h4>Задание 6 (№257 из учебника)</h4>
+<p>Составь формулу для нахождения площади покраски стен кладового помещения, если длина равна <span class="math">d</span> м, ширина — <span class="math">b</span> м, а высота — <span class="math">h</span> м. Вычисли площадь покраски и заполни таблицу:</p>
+<table class="interval-table">
+<tr><th>Длина, м</th><th>Ширина, м</th><th>Высота, м</th><th>Площадь покраски, м²</th></tr>
+<tr><td>6</td><td>5</td><td>3</td><td>?</td></tr>
+<tr><td>10</td><td>15</td><td>5</td><td>?</td></tr>
+</table>
+<p>Сколько банок краски понадобится в каждом случае, если одной банки хватает на покраску <span class="math">12 м²</span>?</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+<div id="answer6" class="answer-content">
+<strong>Решение:</strong><br>
+1) Красят четыре стены: две имеют площадь <span class="math">d · h</span> и две — <span class="math">b · h</span>. Формула:
+<div class="formula"><span class="math">S = 2dh + 2bh = 2h(d + b)</span></div>
+2) Подставляем значения:<br>
+• <span class="math">d = 6, b = 5, h = 3</span>: <span class="math">S = 2 · 3 · (6 + 5) = 6 · 11 = 66 м²</span><br>
+• <span class="math">d = 10, b = 15, h = 5</span>: <span class="math">S = 2 · 5 · (10 + 15) = 10 · 25 = 250 м²</span><br><br>
+3) Считаем банки (округляем вверх — неполную банку не купишь!):<br>
+• <span class="math">66 : 12 = 5,5</span> → понадобится <strong>6 банок</strong><br>
+• <span class="math">250 : 12 ≈ 20,83</span> → понадобится <strong>21 банка</strong><br><br>
+<strong>Ответ:</strong> для первой кладовой — 6 банок, для второй — 21 банка.
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Итоги -->
+<div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+<h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+<ul>
+<li><span class="highlight">Числовые промежутки</span> — отрезок, интервал, полуинтервалы и лучи — так описывают множества чисел «от и до»</li>
+<li>Отрезок <span class="math">[a; b]</span>: <span class="math">a ≤ x ≤ b</span> — обе границы включены (закрашенные точки)</li>
+<li>Интервал <span class="math">(a; b)</span>: <span class="math">a &lt; x &lt; b</span> — границы не включены (пустые точки)</li>
+<li>Полуинтервалы: <span class="math">[a; b)</span> — это <span class="math">a ≤ x &lt; b</span>; <span class="math">(a; b]</span> — это <span class="math">a &lt; x ≤ b</span></li>
+<li>Правило трёх образов: нестрогий знак ↔ квадратная скобка ↔ закрашенная точка; строгий знак ↔ круглая скобка ↔ пустая точка</li>
+<li>Расстояние между точками <span class="math">A(a)</span> и <span class="math">B(b)</span> равно модулю разности координат: <span class="math">AB = |b − a|</span> (из большей вычесть меньшую)</li>
+<li>Координата середины отрезка — среднее арифметическое координат его концов: <span class="math">(a + b) : 2</span></li>
+<li>Читают обозначения так: <span class="math">[a; b]</span> — «отрезок от a до b», <span class="math">(a; b)</span> — «интервал от a до b»</li>
+</ul>
+</div>
+
+<!-- Footer -->
+<footer>
+<p>📖 Учебник: Алгебра 7 класс • Глава 2: Функции</p>
+<p>§4, п. 11. Числовые промежутки • Страницы 51–55</p>
+</footer>
+
+</div>
+
+<script>
+function toggleAnswer(id) {
+const answer = document.getElementById(id);
+const btn = answer.previousElementSibling;
+if (answer.classList.contains('show')) {
+answer.classList.remove('show');
+btn.textContent = '🔍 Проверить';
+btn.style.background = '#3498db';
+} else {
+answer.classList.add('show');
+btn.textContent = '🔒 Скрыть ответ';
+btn.style.background = '#e74c3c';
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вычисление значений функции по формуле — Алгебра 7 класс | Глава 2, §4, п. 13</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #2c3e50;
+background-color: #fafafa;
+background-image:
+linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+background-size: 20px 20px;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+header {
+background: white;
+padding: 30px;
+margin-bottom: 30px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+border-left: 5px solid #3498db;
+}
+.chapter-badge {
+display: inline-block;
+background: #3498db;
+color: white;
+padding: 5px 15px;
+border-radius: 3px;
+font-size: 14px;
+margin-bottom: 10px;
+}
+h1 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
+.subtitle { font-size: 1.1em; color: #7f8c8d; }
+.content-block {
+background: white;
+padding: 30px;
+margin-bottom: 25px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+h2 {
+color: #2c3e50;
+font-size: 1.6em;
+margin-bottom: 20px;
+padding-bottom: 8px;
+border-bottom: 2px solid #ecf0f1;
+}
+h3 { color: #34495e; font-size: 1.3em; margin: 20px 0 12px 0; }
+.highlight {
+background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+background-repeat: no-repeat;
+background-size: 100% 45%;
+background-position: 0 85%;
+padding: 2px 6px;
+font-weight: 600;
+}
+.example-box {
+background: #f8f9fa;
+border-left: 4px solid #3498db;
+padding: 15px 20px;
+margin: 15px 0;
+}
+.example-box h4 { color: #3498db; margin-bottom: 8px; font-size: 1.1em; }
+.math {
+font-family: 'Courier New', monospace;
+background: #ecf0f1;
+padding: 3px 8px;
+border-radius: 3px;
+font-size: 1.05em;
+}
+.visual-container {
+text-align: center;
+margin: 25px 0;
+padding: 20px;
+background: #fafafa;
+border: 2px dashed #bdc3c7;
+}
+.tip-box {
+background: #e8f6f3;
+border-left: 4px solid #1abc9c;
+padding: 15px 20px;
+margin: 20px 0;
+}
+.tip-box h4 { color: #1abc9c; margin-bottom: 8px; }
+.warning-box {
+background: #fef9e7;
+border-left: 4px solid #f39c12;
+padding: 15px 20px;
+margin: 20px 0;
+}
+.warning-box h4 { color: #f39c12; margin-bottom: 8px; }
+.scaffolding-box {
+background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+color: #2d3436;
+padding: 25px;
+border-radius: 8px;
+margin: 25px 0;
+border: 3px solid #2d3436;
+box-shadow: 4px 4px 0 #2d3436;
+}
+.scaffolding-box h4 {
+font-size: 1.3em;
+margin-bottom: 15px;
+color: #2d3436;
+font-weight: bold;
+}
+.scaffolding-step {
+background: white;
+padding: 12px;
+margin: 10px 0;
+border-radius: 5px;
+border: 2px solid #2d3436;
+font-size: 1.05em;
+}
+ul, ol { margin: 12px 0; padding-left: 30px; }
+li { margin: 8px 0; }
+.exercise {
+background: #f8f9fa;
+padding: 20px;
+margin: 15px 0;
+border: 2px solid #d5dbdb;
+border-radius: 5px;
+}
+.exercise h4 { color: #2c3e50; margin-bottom: 10px; }
+.level-badge {
+display: inline-block;
+padding: 3px 12px;
+border-radius: 12px;
+font-size: 0.85em;
+font-weight: bold;
+margin-bottom: 10px;
+border: 2px solid #2d3436;
+}
+.level-1 { background: #55efc4; color: #2d3436; }
+.level-2 { background: #74b9ff; color: #2d3436; }
+.level-3 { background: #a29bfe; color: #2d3436; }
+.check-answer { margin-top: 15px; }
+.answer-btn {
+background: #3498db;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1em;
+border: 2px solid #2d3436;
+box-shadow: 2px 2px 0 #2d3436;
+transition: all 0.3s;
+font-weight: 600;
+}
+.answer-btn:hover {
+background: #2980b9;
+transform: translate(1px, 1px);
+box-shadow: 1px 1px 0 #2d3436;
+}
+.answer-content {
+display: none;
+margin-top: 15px;
+padding: 15px;
+background: #dfe6e9;
+border-left: 4px solid #00b894;
+border-radius: 5px;
+animation: slideDown 0.3s ease-out;
+}
+.answer-content.show { display: block; }
+@keyframes slideDown {
+from { opacity: 0; transform: translateY(-10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.emoji { margin-right: 5px; }
+.formula {
+text-align: center;
+font-size: 1.2em;
+margin: 15px 0;
+padding: 12px;
+background: #ecf0f1;
+border-radius: 5px;
+}
+table.values-table {
+margin: 15px auto;
+border-collapse: collapse;
+font-family: 'Courier New', monospace;
+}
+table.values-table td, table.values-table th {
+border: 2px solid #bdc3c7;
+padding: 8px 16px;
+text-align: center;
+}
+table.values-table th { background: #ecf0f1; font-weight: bold; }
+/* Схема прямая/обратная задача */
+.task-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 15px;
+margin: 20px 0;
+}
+.task-card {
+border: 3px solid;
+border-radius: 10px;
+padding: 15px;
+text-align: center;
+}
+.task-card.direct { border-color: #27ae60; background: #e9f7ef; }
+.task-card.reverse { border-color: #8e44ad; background: #f4ecf7; }
+.task-card .tc-title { font-weight: bold; font-size: 1.1em; margin-bottom: 8px; }
+.task-card .tc-formula { font-family: 'Courier New', monospace; margin: 6px 0; }
+.task-card .tc-arrow { font-size: 1.5em; margin: 6px 0; }
+footer {
+text-align: center;
+color: #7f8c8d;
+padding: 20px;
+margin-top: 30px;
+border-top: 3px solid #3498db;
+background: white;
+}
+@media (max-width: 768px) {
+h1 { font-size: 1.6em; }
+h2 { font-size: 1.3em; }
+.content-block { padding: 20px; }
+.task-grid { grid-template-columns: 1fr; }
+table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<div class="chapter-badge">Глава 2 • §4, п. 13</div>
+<h1>Вычисление значений функции по формуле</h1>
+<p class="subtitle">Таблицы, области определения и «обратные» задачи</p>
+</header>
+
+<!-- Введение -->
+<div class="content-block">
+<p>Привет! 👋 В прошлом уроке ты узнала, что такое функция и как её можно задать формулой, графиком или таблицей. Сегодня фокусируемся именно на <span class="highlight">формуле</span> — самом популярном способе. Научимся составлять таблицы значений, находить область определения и решать «обратные» задачи — когда по значению функции нужно найти аргумент. Поехали! 🚀</p>
+</div>
+
+<!-- Блок 1: Таблица значений -->
+<div class="content-block">
+<h2><span class="emoji">📊</span> Таблица значений функции</h2>
+<p>Формула — это <span class="highlight">аналитический способ</span> задания функции. Она позволяет для любого значения аргумента вычислить значение функции. Результаты удобно записывать в виде таблицы.</p>
+<h3>Пример из учебника</h3>
+<p>Пусть функция задана формулой <span class="math">y(x) = (3x - 1) / 2</span>, где <span class="math">-3 ≤ x ≤ 3</span>. Найдём значения <span class="math">y</span> при целых <span class="math">x</span>:</p>
+<div class="example-box">
+<p>Если <span class="math">x = -3</span>, то <span class="math">y = (3 · (-3) - 1) / 2 = (-9 - 1) / 2 = -10 / 2 = -5</span></p>
+<p>Если <span class="math">x = -2</span>, то <span class="math">y = (3 · (-2) - 1) / 2 = (-6 - 1) / 2 = -7 / 2 = -3,5</span></p>
+<p>Если <span class="math">x = 0</span>, то <span class="math">y = (3 · 0 - 1) / 2 = -1 / 2 = -0,5</span></p>
+</div>
+<p>Записываем результаты в таблицу (шаг изменения <span class="math">x</span> равен 1):</p>
+<table class="values-table">
+<tr><th>x</th><td>-3</td><td>-2</td><td>-1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><th>y</th><td>-5</td><td>-3,5</td><td>-2</td><td>-0,5</td><td>1</td><td>2,5</td><td>4</td></tr>
+</table>
+<div class="tip-box">
+<h4>💡 Как читать таблицу</h4>
+<p>В верхней строке — значения <span class="highlight">аргумента</span> <span class="math">x</span>, в нижней — соответствующие значения <span class="highlight">функции</span> <span class="math">y</span>. Каждая пара <span class="math">(x; y)</span> — это «вход → выход» нашей машины-функции.</p>
+</div>
+</div>
+
+<!-- Блок 2: Область определения -->
+<div class="content-block">
+<h2><span class="emoji">🎯</span> Область определения: где формула «работает»?</h2>
+<p>Если функция задана формулой и область определения не указана явно, то считается, что она состоит из <span class="highlight">всех значений <span class="math">x</span>, при которых формула имеет смысл</span>.</p>
+<div class="example-box">
+<h4>📝 Пример 1</h4>
+<p><span class="math">y = x(x + 5)</span> — можно подставить любое число: умножение и сложение определены всегда. Область определения — <span class="highlight">все числа</span>.</p>
+</div>
+<div class="example-box">
+<h4>📝 Пример 2</h4>
+<p><span class="math">y = 1 / (x - 2)</span> — делить на ноль нельзя! Значит, <span class="math">x - 2 ≠ 0</span>, то есть <span class="math">x ≠ 2</span>. Область определения — <span class="highlight">все числа, кроме 2</span>.</p>
+</div>
+<div class="warning-box">
+<h4>⚠️ Запомни «запрещённые» операции</h4>
+<ul>
+<li>Деление на ноль → знаменатель ≠ 0</li>
+<li>Корень чётной степени из отрицательного числа (изучим позже)</li>
+</ul>
+<p>В 7 классе главная ловушка — <span class="highlight">деление на ноль</span>. Всегда проверяй знаменатель!</p>
+</div>
+</div>
+
+<!-- Блок 3: Обратная задача -->
+<div class="content-block">
+<h2><span class="emoji">🔄</span> Обратная задача: по значению функции — найти аргумент</h2>
+<p>Иногда нам нужно решить задачу «наоборот»: известно значение функции, а нужно найти, при каком <span class="math">x</span> оно получилось. Тогда мы <span class="highlight">подставляем известное значение в формулу и решаем уравнение</span>.</p>
+<h3>Пример из учебника</h3>
+<p>Функция задана формулой <span class="math">y = 12x - 3,6</span>. При каком <span class="math">x</span> значение функции равно 2,4?</p>
+<div class="example-box">
+<h4>📝 Решение</h4>
+<p>Подставляем <span class="math">y = 2,4</span> в формулу:</p>
+<div class="formula">
+<span class="math">2,4 = 12x - 3,6</span>
+</div>
+<p>Решаем уравнение:</p>
+<ol>
+<li><span class="math">12x = 2,4 + 3,6</span></li>
+<li><span class="math">12x = 6</span></li>
+<li><span class="math">x = 6 : 12 = 0,5</span></li>
+</ol>
+<p>Ответ: <span class="math">y = 2,4</span> при <span class="math">x = 0,5</span>. Проверка: <span class="math">12 · 0,5 - 3,6 = 6 - 3,6 = 2,4</span> ✅</p>
+</div>
+<div class="visual-container">
+<h4 style="margin-bottom: 15px;">Два направления работы с формулой</h4>
+<div class="task-grid">
+<div class="task-card direct">
+<div class="tc-title">🟢 Прямая задача</div>
+<div class="tc-arrow">⬇️</div>
+<div class="tc-formula">Знаем <span class="math">x</span></div>
+<div class="tc-arrow">⬇️</div>
+<div class="tc-formula">Подставляем в формулу</div>
+<div class="tc-arrow">⬇️</div>
+<div class="tc-formula">Вычисляем <span class="math">y</span></div>
+</div>
+<div class="task-card reverse">
+<div class="tc-title">🟣 Обратная задача</div>
+<div class="tc-arrow">⬇️</div>
+<div class="tc-formula">Знаем <span class="math">y</span></div>
+<div class="tc-arrow">⬇️</div>
+<div class="tc-formula">Подставляем в формулу</div>
+<div class="tc-arrow">⬇️</div>
+<div class="tc-formula">Решаем уравнение → <span class="math">x</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Методическая подсказка -->
+<div class="content-block">
+<h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+<div class="scaffolding-box">
+<h4>🔥 Лайфхак: прямая и обратная задача — два лица одной формулы</h4>
+<p style="margin-bottom: 15px;"><strong>Главное — понять, ЧТО тебе известно, а ЧТО нужно найти. От этого зависит направление действий:</strong></p>
+<div class="scaffolding-step">
+<strong>Шаг 1. Определи тип задачи.</strong><br>
+• Дали <span class="math">x</span>, спрашивают <span class="math">y</span> → <strong>прямая</strong> (подставь и вычисли)<br>
+• Дали <span class="math">y</span>, спрашивают <span class="math">x</span> → <strong>обратная</strong> (подставь и реши уравнение)
+</div>
+<div class="scaffolding-step">
+<strong>Шаг 2. Прямая задача — пример, которого нет в заданиях.</strong><br>
+Формула: <span class="math">y = 4x + 1</span>. Найти <span class="math">y</span> при <span class="math">x = 3</span>.<br>
+Подставляем: <span class="math">y = 4 · 3 + 1 = 12 + 1 = 13</span> ✅
+</div>
+<div class="scaffolding-step">
+<strong>Шаг 3. Обратная задача — тот же пример «наоборот».</strong><br>
+Формула: <span class="math">y = 4x + 1</span>. Найти <span class="math">x</span>, при котором <span class="math">y = 13</span>.<br>
+Подставляем <span class="math">y</span>: <span class="math">13 = 4x + 1</span><br>
+Решаем: <span class="math">4x = 13 - 1 = 12</span> → <span class="math">x = 3</span> ✅<br>
+<em>Видишь? Получили тот же ответ — это и есть проверка!</em>
+</div>
+<div class="scaffolding-step">
+<strong>Шаг 4. Проверка — подставь найденное значение в исходную формулу.</strong><br>
+Если при <span class="math">x = 3</span> получилось <span class="math">y = 13</span> — всё верно ✅
+</div>
+<p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+🔄 В задании 4 сделаешь то же самое: подставишь значение <span class="math">y</span> в формулу <span class="math">y = -5x + 6</span> и решишь уравнение!
+</p>
+</div>
+</div>
+
+<!-- Упражнения -->
+<div class="content-block">
+<h2><span class="emoji">✏️</span> Проверь себя</h2>
+<p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>«Проверить»</strong>, чтобы увидеть ответ!</p>
+
+<!-- Уровень 1 -->
+<div class="exercise">
+<span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+<h4>Задание 1 (№267 из учебника)</h4>
+<p>Функция задана формулой <span class="math">y = 2x + 7</span>. Найди значение функции, соответствующее значению аргумента:</p>
+<p>а) <span class="math">x = 1</span>; &nbsp; б) <span class="math">x = -20</span>; &nbsp; в) <span class="math">x = 43</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+<div id="answer1" class="answer-content">
+<strong>Решение (прямая задача — подставляем <span class="math">x</span>):</strong><br>
+а) <span class="math">y = 2 · 1 + 7 = 2 + 7 = 9</span><br>
+б) <span class="math">y = 2 · (-20) + 7 = -40 + 7 = -33</span> (отрицательное — в скобках!)<br>
+в) <span class="math">y = 2 · 43 + 7 = 86 + 7 = 93</span><br>
+<strong>Ответ:</strong> а) 9; б) -33; в) 93
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+<h4>Задание 2 (№268 из учебника)</h4>
+<p>Функция задана формулой <span class="math">y = 0,1x + 5</span>. Найди значение функции при значении аргумента:</p>
+<p>а) <span class="math">x = 10</span>; &nbsp; б) <span class="math">x = 50</span>; &nbsp; в) <span class="math">x = 120</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+<div id="answer2" class="answer-content">
+<strong>Решение:</strong><br>
+а) <span class="math">y = 0,1 · 10 + 5 = 1 + 5 = 6</span><br>
+б) <span class="math">y = 0,1 · 50 + 5 = 5 + 5 = 10</span><br>
+в) <span class="math">y = 0,1 · 120 + 5 = 12 + 5 = 17</span><br>
+<strong>Ответ:</strong> а) 6; б) 10; в) 17
+</div>
+</div>
+</div>
+
+<!-- Уровень 2 -->
+<div class="exercise">
+<span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+<h4>Задание 3 (№272 из учебника)</h4>
+<p>Найди область определения функции, заданной формулой:</p>
+<p>а) <span class="math">y = x + 8</span>; &nbsp; б) <span class="math">y = 1/x</span>; &nbsp; в) <span class="math">y = 1/(x - 4)</span>; &nbsp; г) <span class="math">y = 1/(x + 6)</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+<div id="answer3" class="answer-content">
+<strong>Решение:</strong><br>
+а) <span class="math">y = x + 8</span> — нет деления, подставлять можно любое число → <strong>все числа</strong><br>
+б) <span class="math">y = 1/x</span> — знаменатель <span class="math">x ≠ 0</span> → <strong>все числа, кроме 0</strong><br>
+в) <span class="math">y = 1/(x - 4)</span> — знаменатель <span class="math">x - 4 ≠ 0</span>, значит <span class="math">x ≠ 4</span> → <strong>все числа, кроме 4</strong><br>
+г) <span class="math">y = 1/(x + 6)</span> — знаменатель <span class="math">x + 6 ≠ 0</span>, значит <span class="math">x ≠ -6</span> → <strong>все числа, кроме -6</strong><br>
+<strong>Ответ:</strong> а) все числа; б) <span class="math">x ≠ 0</span>; в) <span class="math">x ≠ 4</span>; г) <span class="math">x ≠ -6</span>
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+<h4>Задание 4 (№273 из учебника)</h4>
+<p>Формула <span class="math">y = -5x + 6</span> задаёт функцию. При каком значении аргумента значение функции равно:</p>
+<p>а) 6; &nbsp; б) 8; &nbsp; в) 100?</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+<div id="answer4" class="answer-content">
+<strong>Решение (обратная задача — подставляем <span class="math">y</span> и решаем уравнение):</strong><br>
+а) <span class="math">6 = -5x + 6</span> → <span class="math">-5x = 6 - 6 = 0</span> → <span class="math">x = 0</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">-5 · 0 + 6 = 6</span> ✅<br>
+б) <span class="math">8 = -5x + 6</span> → <span class="math">-5x = 8 - 6 = 2</span> → <span class="math">x = 2 : (-5) = -0,4</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">-5 · (-0,4) + 6 = 2 + 6 = 8</span> ✅<br>
+в) <span class="math">100 = -5x + 6</span> → <span class="math">-5x = 100 - 6 = 94</span> → <span class="math">x = 94 : (-5) = -18,8</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">-5 · (-18,8) + 6 = 94 + 6 = 100</span> ✅<br>
+<strong>Ответ:</strong> а) 0; б) -0,4; в) -18,8
+</div>
+</div>
+</div>
+
+<!-- Уровень 3 -->
+<div class="exercise">
+<span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+<h4>Задание 5 (№276 из учебника — задача с физическим смыслом)</h4>
+<p>Задай формулой зависимость массы куска пробки от его объёма, если известно, что плотность пробки равна <span class="math">0,18 г/см³</span>. Найди по формуле:</p>
+<p>а) массу куска пробки, объём которого равен <span class="math">240 см³</span>;</p>
+<p>б) объём куска пробки, масса которого равна <span class="math">64,8 г</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+<div id="answer5" class="answer-content">
+<strong>Решение:</strong><br>
+Плотность = масса ÷ объём, значит масса = плотность · объём:<br>
+<div class="formula"><span class="math">m = 0,18 · V</span> (где <span class="math">m</span> — масса в г, <span class="math">V</span> — объём в см³)</div>
+а) <span class="math">V = 240</span>: <span class="math">m = 0,18 · 240 = 43,2 г</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">43,2 : 240 = 0,18</span> ✅<br>
+б) <span class="math">m = 64,8</span>: <span class="math">64,8 = 0,18 · V</span> → <span class="math">V = 64,8 : 0,18 = 6480 : 18 = 360 см³</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">0,18 · 360 = 64,8</span> ✅<br>
+<strong>Ответ:</strong> формула <span class="math">m = 0,18V</span>; а) 43,2 г; б) 360 см³
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+<h4>Задание 6 (№277 из учебника — задача на движение)</h4>
+<p>Велосипедист ехал со скоростью <span class="math">v км/ч</span> в течение <span class="math">6 ч</span> и проехал путь <span class="math">S км</span>. Задай формулой зависимость <span class="math">S(v)</span>. Пользуясь этой формулой:</p>
+<p>а) найди <span class="math">S</span>, если <span class="math">v = 65</span>;</p>
+<p>б) найди <span class="math">v</span>, если <span class="math">S = 363</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+<div id="answer6" class="answer-content">
+<strong>Решение:</strong><br>
+Путь = скорость · время, значит:<br>
+<div class="formula"><span class="math">S = 6v</span> (где <span class="math">S</span> — путь в км, <span class="math">v</span> — скорость в км/ч)</div>
+а) <span class="math">v = 65</span>: <span class="math">S = 6 · 65 = 390 км</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">390 : 6 = 65</span> ✅<br>
+б) <span class="math">S = 363</span>: <span class="math">363 = 6v</span> → <span class="math">v = 363 : 6 = 60,5 км/ч</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">6 · 60,5 = 363</span> ✅<br>
+<strong>Ответ:</strong> формула <span class="math">S = 6v</span>; а) 390 км; б) 60,5 км/ч
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Итоги -->
+<div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+<h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+<ul>
+<li><span class="highlight">Аналитический способ</span> задания функции — формулой — самый распространённый</li>
+<li>Таблица значений: в верхней строке — аргумент <span class="math">x</span>, в нижней — функция <span class="math">y</span></li>
+<li>Если область определения не указана — берём все <span class="math">x</span>, при которых формула имеет смысл</li>
+<li>Главная ловушка — <span class="highlight">деление на ноль</span>: знаменатель ≠ 0</li>
+<li><span class="highlight">Прямая задача:</span> знаем <span class="math">x</span> → подставляем → вычисляем <span class="math">y</span></li>
+<li><span class="highlight">Обратная задача:</span> знаем <span class="math">y</span> → подставляем → решаем уравнение → находим <span class="math">x</span></li>
+<li>Физические формулы (плотность, путь) — тоже функции: одна величина зависит от другой</li>
+<li>Всегда проверяй ответ подстановкой в исходную формулу</li>
+</ul>
+</div>
+
+<footer>
+<p>📖 Учебник: Алгебра 7 класс • Глава 2: Функции</p>
+<p>§4, п. 13. Вычисление значений функции по формуле • Страницы 58-61</p>
+</footer>
+
+</div>
+
+<script>
+function toggleAnswer(id) {
+const answer = document.getElementById(id);
+const btn = answer.previousElementSibling;
+if (answer.classList.contains('show')) {
+answer.classList.remove('show');
+btn.textContent = '🔍 Проверить';
+btn.style.background = '#3498db';
+} else {
+answer.classList.add('show');
+btn.textContent = '🔒 Скрыть ответ';
+btn.style.background = '#e74c3c';
+}
+}
+</script>
+</body>
+</html>

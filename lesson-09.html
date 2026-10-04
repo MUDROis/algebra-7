@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решение задач с помощью уравнений — Алгебра 7 класс | Глава 1, §3</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafafa;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+        
+        header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .chapter-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        h1 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; color: #7f8c8d; }
+        
+        .content-block {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 { color: #34495e; font-size: 1.3em; margin: 20px 0 12px 0; }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 85%;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 { color: #3498db; margin-bottom: 8px; font-size: 1.1em; }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 1.05em;
+        }
+        
+        table.values-table {
+            margin: 15px auto;
+            border-collapse: collapse;
+            font-family: 'Courier New', monospace;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        table.values-table td, table.values-table th {
+            border: 2px solid #bdc3c7;
+            padding: 8px 14px;
+            text-align: center;
+        }
+        
+        table.values-table th {
+            background: #3498db;
+            color: white;
+        }
+        
+        .algorithm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+        
+        .algo-step {
+            background: white;
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .algo-step.s1 { border-color: #27ae60; background: #e9f7ef; }
+        .algo-step.s2 { border-color: #f39c12; background: #fef9e7; }
+        .algo-step.s3 { border-color: #e74c3c; background: #fdedec; }
+        
+        .algo-step .num {
+            font-size: 2em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 6px;
+        }
+        
+        .algo-step .title {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        
+        .algo-step .desc { font-size: 0.92em; color: #34495e; }
+        
+        .trap-box {
+            background: #fff5f5;
+            border: 3px solid #e74c3c;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .trap-box h4 { color: #e74c3c; margin-bottom: 10px; font-size: 1.2em; }
+        
+        .tip-box {
+            background: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h4 { color: #1abc9c; margin-bottom: 8px; }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 { color: #f39c12; margin-bottom: 8px; }
+        
+        .scaffolding-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 3px solid #2d3436;
+            box-shadow: 4px 4px 0 #2d3436;
+        }
+        
+        .scaffolding-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .scaffolding-step {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #2d3436;
+            font-size: 1.05em;
+        }
+        
+        .dictionary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .dict-card {
+            background: white;
+            border: 2px solid #2d3436;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .dict-card .phrase {
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+        
+        .dict-card .arrow { color: #3498db; font-size: 1.2em; margin: 3px 0; }
+        
+        .dict-card .math-ver {
+            font-family: 'Courier New', monospace;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        ul, ol { margin: 12px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        
+        .exercise h4 { color: #2c3e50; margin-bottom: 10px; }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid #2d3436;
+        }
+        
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
+        
+        .check-answer { margin-top: 15px; }
+        
+        .answer-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border: 2px solid #2d3436;
+            box-shadow: 2px 2px 0 #2d3436;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #2980b9;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #2d3436;
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #dfe6e9;
+            border-left: 4px solid #00b894;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .answer-content.show { display: block; }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .emoji { margin-right: 5px; }
+        
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 12px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 3px solid #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+            .content-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="chapter-badge">Глава 1 • §3, п. 9</div>
+            <h1>Решение задач с помощью уравнений</h1>
+            <p class="subtitle">Как перевести задачу с русского языка на математический</p>
+        </header>
+
+        <!-- Введение -->
+        <div class="content-block">
+            <p>Привет! 👋 Сегодня ты узнаешь, что уравнения — это <span class="highlight">суперсила</span> для решения задач. Многие задачи, которые «в лоб» решить невозможно, с помощью уравнения превращаются в простую цепочку шагов. Давай разберёмся, как это работает — на настоящих задачах из учебника!</p>
+        </div>
+
+        <!-- Блок 1: алгоритм из 3 шагов -->
+        <div class="content-block">
+            <h2><span class="emoji">🧭</span> Три шага к решению любой задачи</h2>
+            
+            <p>При решении задач с помощью уравнений действуют по единому алгоритму:</p>
+            
+            <div class="algorithm-grid">
+                <div class="algo-step s1">
+                    <div class="num">1</div>
+                    <div class="title">Обозначь</div>
+                    <div class="desc">Неизвестное число — буквой. Составь уравнение по условию задачи.</div>
+                </div>
+                <div class="algo-step s2">
+                    <div class="num">2</div>
+                    <div class="title">Реши</div>
+                    <div class="desc">Найди корень уравнения любым изученным способом.</div>
+                </div>
+                <div class="algo-step s3">
+                    <div class="num">3</div>
+                    <div class="title">Истолкуй</div>
+                    <div class="desc">Сопоставь результат со смыслом задачи. Запиши ответ.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 2: задача про яблоки -->
+        <div class="content-block">
+            <h2><span class="emoji">🍎</span> Задача 1: яблоки в корзине и ящике</h2>
+            
+            <div class="example-box">
+                <h4>Условие</h4>
+                <p>В корзине было в 2 раза меньше яблок, чем в ящике. После того как из корзины переложили в ящик 10 яблок, в ящике их стало в 5 раз больше, чем в корзине. Сколько яблок было в корзине и сколько в ящике?</p>
+            </div>
+            
+            <h3>Шаг 1: составляем таблицу «было / стало»</h3>
+            <p>Пусть в корзине было <span class="math">x</span> яблок. Тогда в ящике было <span class="math">2x</span> яблок. После перекладывания:</p>
+            
+            <table class="values-table">
+                <tr><th>Тара</th><th>Было</th><th>Стало</th></tr>
+                <tr><td>Корзина</td><td>x</td><td>x − 10</td></tr>
+                <tr><td>Ящик</td><td>2x</td><td>2x + 10</td></tr>
+            </table>
+            
+            <p>По условию в ящике стало в 5 раз больше, чем в корзине:</p>
+            <div class="formula">
+                <span class="math">5(x - 10) = 2x + 10</span>
+            </div>
+            
+            <h3>Шаг 2: решаем уравнение</h3>
+            <ol>
+                <li>Раскроем скобки: <span class="math">5x - 50 = 2x + 10</span></li>
+                <li>Перенесём: <span class="math">5x - 2x = 10 + 50</span></li>
+                <li>Приведём: <span class="math">3x = 60</span></li>
+                <li>Разделим: <span class="math">x = 20</span></li>
+            </ol>
+            
+            <h3>Шаг 3: истолковываем результат</h3>
+            <p>В корзине было 20 яблок, в ящике <span class="math">2 · 20 = 40</span> яблок.</p>
+            <p><em>Проверка по условию: после перекладывания в корзине 10, в ящике 50. Действительно, 50 в 5 раз больше 10.</em> ✅</p>
+            <p><strong>Ответ:</strong> 20 яблок в корзине, 40 яблок в ящике.</p>
+        </div>
+
+        <!-- Блок 3: задача-ловушка -->
+        <div class="content-block">
+            <h2><span class="emoji">🌱</span> Задача-ловушка: саженцы смородины</h2>
+            
+            <div class="example-box">
+                <h4>Условие</h4>
+                <p>Предназначенные для посадки 78 саженцев смородины решили распределить между тремя бригадами так, чтобы первой досталось в 2 раза меньше, чем второй, а третьей — на 12 саженцев больше, чем первой. Сколько саженцев надо выделить первой бригаде?</p>
+            </div>
+            
+            <p>Пусть первой бригаде — <span class="math">x</span> саженцев. Тогда второй <span class="math">2x</span>, третьей <span class="math">x + 12</span>. Всего — 78:</p>
+            <div class="formula">
+                <span class="math">x + 2x + (x + 12) = 78</span>
+            </div>
+            
+            <p>Решаем:</p>
+            <ol>
+                <li><span class="math">4x + 12 = 78</span></li>
+                <li><span class="math">4x = 66</span></li>
+                <li><span class="math">x = 16,5</span></li>
+            </ol>
+            
+            <div class="trap-box">
+                <h4>🚫 Корень не подходит!</h4>
+                <p>По смыслу задачи количество саженцев — <strong>натуральное число</strong> (половина саженца — бессмыслица!). Значит, <span class="math">x = 16,5</span> — посторонний корень.</p>
+                <p><strong>Ответ:</strong> распределить саженцы указанным способом нельзя.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Третий шаг — не формальность!</h4>
+                <p>Всегда проверяй, имеет ли корень смысл:</p>
+                <ul>
+                    <li>количество предметов — натуральное число;</li>
+                    <li>время, длина, масса — положительное число;</li>
+                    <li>номер этажа, номер места — целое число.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Блок 4: жизненный пример -->
+        <div class="content-block">
+            <h2><span class="emoji">🫐</span> Где это встречается в жизни?</h2>
+            
+            <div class="example-box">
+                <h4>Задача про малину (№174 из учебника)</h4>
+                <p>На одном садовом участке в 5 раз больше кустов малины, чем на другом. После того как с первого пересадили на второй 22 куста, на обоих стало поровну. Сколько кустов было на каждом участке?</p>
+                
+                <table class="values-table">
+                    <tr><th>Участок</th><th>Было</th><th>Стало</th></tr>
+                    <tr><td>Второй (меньший)</td><td>x</td><td>x + 22</td></tr>
+                    <tr><td>Первый (больший)</td><td>5x</td><td>5x − 22</td></tr>
+                </table>
+                
+                <div class="formula">
+                    <span class="math">x + 22 = 5x - 22</span> → <span class="math">4x = 44</span> → <span class="math">x = 11</span>
+                </div>
+                <p>На меньшем участке было 11 кустов, на большем — <span class="math">5 · 11 = 55</span>.</p>
+                <p><em>Проверка: после пересадки 11 + 22 = 33 и 55 − 22 = 33 — поровну!</em> ✅</p>
+            </div>
+        </div>
+
+        <!-- Методическая подсказка -->
+        <div class="content-block">
+            <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+            
+            <div class="scaffolding-box">
+                <h4>🔥 Лайфхак: «словарь перевода» с русского на математический</h4>
+                <p style="margin-bottom: 15px;"><strong>Главная сложность в задачах — не решить уравнение, а правильно его составить. Чтобы быстро переводить фразы из условия на язык математики, держи перед глазами этот словарь:</strong></p>
+                
+                <div class="dictionary-grid">
+                    <div class="dict-card">
+                        <div class="phrase">«на N больше»</div>
+                        <div class="arrow">⬇</div>
+                        <div class="math-ver">+ N</div>
+                    </div>
+                    <div class="dict-card">
+                        <div class="phrase">«на N меньше»</div>
+                        <div class="arrow">⬇</div>
+                        <div class="math-ver">− N</div>
+                    </div>
+                    <div class="dict-card">
+                        <div class="phrase">«в N раз больше»</div>
+                        <div class="arrow">⬇</div>
+                        <div class="math-ver">· N</div>
+                    </div>
+                    <div class="dict-card">
+                        <div class="phrase">«в N раз меньше»</div>
+                        <div class="arrow">⬇</div>
+                        <div class="math-ver">: N</div>
+                    </div>
+                    <div class="dict-card">
+                        <div class="phrase">«всего», «вместе»</div>
+                        <div class="arrow">⬇</div>
+                        <div class="math-ver">+</div>
+                    </div>
+                    <div class="dict-card">
+                        <div class="phrase">«поровну», «стало»</div>
+                        <div class="arrow">⬇</div>
+                        <div class="math-ver">=</div>
+                    </div>
+                </div>
+                
+                <p style="margin: 15px 0;"><strong>Покажем, как это работает, на простой задаче, которой нет в заданиях:</strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Задача:</strong> «У Маши было в 3 раза больше конфет, чем у Пети. После того как Маша отдала Пете 4 конфеты, у них стало поровну. Сколько было у Пети?»
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 1.</strong> Обозначим: у Пети — <span class="math">x</span> конфет. У Маши — «в 3 раза больше», то есть <span class="math">3x</span>.
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 2.</strong> Составим таблицу «было / стало»: у Пети стало <span class="math">x + 4</span>, у Маши <span class="math">3x - 4</span>.
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 3.</strong> Условие «поровну» → знак «=»: <span class="math">x + 4 = 3x - 4</span>.
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 4.</strong> Решаем: <span class="math">4 + 4 = 3x - x</span> → <span class="math">2x = 8</span> → <span class="math">x = 4</span>. У Пети было 4 конфеты. ✅ (целое положительное число — подходит!)
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+                    📖 В задании 1 составь такую же таблицу и переведи задачу про билеты на язык уравнения!
+                </p>
+            </div>
+        </div>
+
+        <!-- Упражнения -->
+        <div class="content-block">
+            <h2><span class="emoji">✏️</span> Проверь себя</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>"Проверить"</strong>, чтобы увидеть ответ!</p>
+            
+            <!-- Уровень 1 -->
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 1 (№163 из учебника)</h4>
+                <p>В одной кассе кинотеатра продали на 36 билетов больше, чем в другой. Сколько билетов продали в каждой кассе, если всего было продано 392 билета?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div id="answer1" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Пусть в меньшей кассе продали <span class="math">x</span> билетов, тогда в большей — <span class="math">x + 36</span>.<br>
+                        Всего билетов 392:<br>
+                        <span class="math">x + (x + 36) = 392</span><br>
+                        <span class="math">2x + 36 = 392</span><br>
+                        <span class="math">2x = 356</span><br>
+                        <span class="math">x = 178</span><br>
+                        Во второй кассе: <span class="math">178 + 36 = 214</span>.<br>
+                        <em>Проверка: 178 + 214 = 392, 214 − 178 = 36 ✅</em><br>
+                        <strong>Ответ:</strong> 178 и 214 билетов.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 2 (№164 из учебника)</h4>
+                <p>На Парковой и Молодёжной улицах восстановили разрушенные в половодье 19 домов. На Парковой было восстановлено на 3 дома меньше, чем на Молодёжной. Сколько домов было восстановлено на каждой из этих улиц?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div id="answer2" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Пусть на Молодёжной восстановили <span class="math">x</span> домов, тогда на Парковой — <span class="math">x - 3</span>.<br>
+                        Всего 19 домов:<br>
+                        <span class="math">x + (x - 3) = 19</span><br>
+                        <span class="math">2x - 3 = 19</span><br>
+                        <span class="math">2x = 22</span><br>
+                        <span class="math">x = 11</span><br>
+                        На Парковой: <span class="math">11 - 3 = 8</span>.<br>
+                        <em>Проверка: 11 + 8 = 19, 11 − 8 = 3 ✅</em><br>
+                        <strong>Ответ:</strong> 11 на Молодёжной, 8 на Парковой.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 2 -->
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 3 (№165 из учебника)</h4>
+                <p>Периметр треугольника равен 16 см. Две его стороны равны между собой, и каждая из них на 2,9 см больше третьей. Каковы стороны треугольника?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div id="answer3" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Пусть третья (меньшая) сторона — <span class="math">x</span> см. Тогда каждая из двух равных сторон — <span class="math">x + 2,9</span> см.<br>
+                        Периметр = сумма всех сторон = 16:<br>
+                        <span class="math">x + (x + 2,9) + (x + 2,9) = 16</span><br>
+                        <span class="math">3x + 5,8 = 16</span><br>
+                        <span class="math">3x = 10,2</span><br>
+                        <span class="math">x = 3,4</span><br>
+                        Равные стороны: <span class="math">3,4 + 2,9 = 6,3</span> см.<br>
+                        <em>Проверка: 3,4 + 6,3 + 6,3 = 16 ✅; 6,3 − 3,4 = 2,9 ✅</em><br>
+                        <strong>Ответ:</strong> 3,4 см; 6,3 см; 6,3 см.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 4 (№174 из учебника)</h4>
+                <p>На одном садовом участке в 5 раз больше кустов малины, чем на другом. После того как с первого участка пересадили на второй 22 куста, на обоих участках кустов малины стало поровну. Сколько кустов малины было на каждом участке?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div id="answer4" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Пусть на втором (меньшем) участке было <span class="math">x</span> кустов, тогда на первом — <span class="math">5x</span>.<br>
+                        После пересадки: на втором <span class="math">x + 22</span>, на первом <span class="math">5x - 22</span>.<br>
+                        По условию «поровну»:<br>
+                        <span class="math">x + 22 = 5x - 22</span><br>
+                        <span class="math">22 + 22 = 5x - x</span><br>
+                        <span class="math">4x = 44</span><br>
+                        <span class="math">x = 11</span><br>
+                        На первом участке: <span class="math">5 · 11 = 55</span>.<br>
+                        <em>Проверка: после пересадки 11 + 22 = 33 и 55 − 22 = 33 ✅</em><br>
+                        <strong>Ответ:</strong> 11 и 55 кустов.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 3 -->
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 5 (№167 — старинная задача)</h4>
+                <p>Из четырёх жертвователей второй дал вдвое больше первого, третий — втрое больше второго, четвёртый — вчетверо больше третьего, а все вместе дали 132 рубля. Сколько дал каждый?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div id="answer5" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Пусть первый дал <span class="math">x</span> руб. Тогда:<br>
+                        • второй — <span class="math">2x</span>;<br>
+                        • третий — <span class="math">3 · 2x = 6x</span>;<br>
+                        • четвёртый — <span class="math">4 · 6x = 24x</span>.<br>
+                        Всего 132 руб.:<br>
+                        <span class="math">x + 2x + 6x + 24x = 132</span><br>
+                        <span class="math">33x = 132</span><br>
+                        <span class="math">x = 4</span><br>
+                        Жертвователи дали: 4; 8; 24; 96 руб.<br>
+                        <em>Проверка: 4 + 8 + 24 + 96 = 132 ✅</em><br>
+                        <strong>Ответ:</strong> 4, 8, 24, 96 рублей.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 6 (№178 из учебника)</h4>
+                <p>Для ремонта школы прибыла бригада, в которой было в 2,5 раза больше маляров, чем плотников. Вскоре прораб принял в бригаду ещё четырёх маляров, а двух плотников перевёл на другой объект. В результате маляров в бригаде оказалось в 4 раза больше, чем плотников. Сколько маляров и сколько плотников было в бригаде первоначально?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div id="answer6" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Пусть плотников было <span class="math">x</span>, тогда маляров — <span class="math">2,5x</span>.<br>
+                        После изменений: плотников <span class="math">x - 2</span>, маляров <span class="math">2,5x + 4</span>.<br>
+                        Маляров стало в 4 раза больше:<br>
+                        <span class="math">2,5x + 4 = 4(x - 2)</span><br>
+                        <span class="math">2,5x + 4 = 4x - 8</span><br>
+                        <span class="math">4 + 8 = 4x - 2,5x</span><br>
+                        <span class="math">12 = 1,5x</span><br>
+                        <span class="math">x = 8</span><br>
+                        Плотников: 8, маляров: <span class="math">2,5 · 8 = 20</span>.<br>
+                        <em>Проверка: стало 8 − 2 = 6 плотников и 20 + 4 = 24 маляра; 24 = 4 · 6 ✅</em><br>
+                        <strong>Ответ:</strong> 8 плотников и 20 маляров первоначально.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+            <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+            <ul>
+                <li><span class="highlight">Алгоритм решения задач:</span> 1) обозначить и составить уравнение; 2) решить его; 3) истолковать результат</li>
+                <li>Таблица «было / стало» — мощный инструмент для задач с перекладыванием, пересадкой и т.п.</li>
+                <li>Корень уравнения должен иметь смысл: количество предметов — натуральное, время — положительное, номер — целое</li>
+                <li>Дробный или отрицательный корень часто означает, что задача не имеет решения в реальной жизни</li>
+                <li><span class="highlight">Словарь перевода:</span> «на N больше» → +N; «в N раз больше» → ·N; «поровну» → =</li>
+                <li>«Всего», «вместе» → сумма всех частей; «стало» → результат после изменений</li>
+                <li>Всегда проверяй ответ подстановкой в условие задачи — это финальная страховка от ошибок</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>📖 Учебник: Алгебра 7 класс • Глава 1: Выражения, тождества, уравнения</p>
+            <p>§3, п. 9. Решение задач с помощью уравнений • Страницы 38-40</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const btn = answer.previousElementSibling;
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                btn.textContent = '🔍 Проверить';
+                btn.style.background = '#3498db';
+            } else {
+                answer.classList.add('show');
+                btn.textContent = '🔒 Скрыть ответ';
+                btn.style.background = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>

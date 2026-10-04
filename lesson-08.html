@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Линейное уравнение с одной переменной — Алгебра 7 класс | Глава 1, §3</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafafa;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+        
+        header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .chapter-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        h1 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; color: #7f8c8d; }
+        
+        .content-block {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 { color: #34495e; font-size: 1.3em; margin: 20px 0 12px 0; }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 85%;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 { color: #3498db; margin-bottom: 8px; font-size: 1.1em; }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 1.05em;
+        }
+        
+        /* Карточки трёх случаев */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .case-card {
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        
+        .case-card .cond {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .case-card .res { margin-top: 6px; font-size: 0.92em; }
+        
+        .case-card.one { border-color: #27ae60; background: #e9f7ef; }
+        .case-card.none { border-color: #e74c3c; background: #fdedec; }
+        .case-card.all { border-color: #8e44ad; background: #f4ecf7; }
+        
+        table.values-table {
+            margin: 15px auto;
+            border-collapse: collapse;
+            font-family: 'Courier New', monospace;
+        }
+        
+        table.values-table td, table.values-table th {
+            border: 2px solid #bdc3c7;
+            padding: 6px 14px;
+            text-align: center;
+        }
+        
+        .tip-box {
+            background: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h4 { color: #1abc9c; margin-bottom: 8px; }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 { color: #f39c12; margin-bottom: 8px; }
+        
+        .scaffolding-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 3px solid #2d3436;
+            box-shadow: 4px 4px 0 #2d3436;
+        }
+        
+        .scaffolding-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .scaffolding-step {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #2d3436;
+            font-size: 1.05em;
+        }
+        
+        ul, ol { margin: 12px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        
+        .exercise h4 { color: #2c3e50; margin-bottom: 10px; }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid #2d3436;
+        }
+        
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
+        
+        .check-answer { margin-top: 15px; }
+        
+        .answer-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border: 2px solid #2d3436;
+            box-shadow: 2px 2px 0 #2d3436;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #2980b9;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #2d3436;
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #dfe6e9;
+            border-left: 4px solid #00b894;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .answer-content.show { display: block; }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .emoji { margin-right: 5px; }
+        
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 12px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 3px solid #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+            .content-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="chapter-badge">Глава 1 • §3, п. 8</div>
+            <h1>Линейное уравнение с одной переменной</h1>
+            <p class="subtitle">Один корень, ни одного или миллион — всё решает коэффициент</p>
+        </header>
+
+        <!-- Введение -->
+        <div class="content-block">
+            <p>Привет! 👋 На прошлом уроке мы узнали, что уравнения могут иметь разное число корней. Сегодня выясним, <span class="highlight">почему</span> так происходит и как за пару шагов решать целое семейство уравнений — линейные.Spoiler: всё решает одна-единственная буква — коэффициент!</p>
+        </div>
+
+        <!-- Блок 1: определение -->
+        <div class="content-block">
+            <h2><span class="emoji">📐</span> Какое уравнение называется линейным?</h2>
+            
+            <p>Посмотри на эти уравнения:</p>
+            <div class="formula">
+                <span class="math">5x = -4</span> &nbsp; <span class="math">-0,2x = 0</span> &nbsp; <span class="math">-x = -6,5</span>
+            </div>
+            <p>Все они имеют вид <span class="math">ax = b</span>, где <span class="math">x</span> — переменная, а <span class="math">a</span> и <span class="math">b</span> — числа. В первом: <span class="math">a = 5, b = -4</span>; во втором: <span class="math">a = -0,2, b = 0</span>; в третьем: <span class="math">a = -1, b = -6,5</span>.</p>
+            
+            <div class="tip-box">
+                <h4>📌 Определение</h4>
+                <p>Уравнение вида <span class="highlight">ax = b</span>, где x — переменная, a и b — некоторые числа, называется <span class="highlight">линейным уравнением с одной переменной</span>.</p>
+            </div>
+        </div>
+
+        <!-- Блок 2: три случая -->
+        <div class="content-block">
+            <h2><span class="emoji">🎰</span> Три случая: сколько корней у ax = b?</h2>
+            
+            <p>Всё зависит от того, чему равен коэффициент <span class="math">a</span>:</p>
+            
+            <div class="case-grid">
+                <div class="case-card one">
+                    <div class="cond">a ≠ 0</div>
+                    <p class="res"><strong>Один корень</strong><br><span class="math">x = b : a</span><br>делим обе части на a</p>
+                </div>
+                <div class="case-card none">
+                    <div class="cond">a = 0, b ≠ 0</div>
+                    <p class="res"><strong>Корней нет</strong><br><span class="math">0x = b</span> — неверно<br>ни при каком x 🚫</p>
+                </div>
+                <div class="case-card all">
+                    <div class="cond">a = 0, b = 0</div>
+                    <p class="res"><strong>Корень — любое число</strong><br><span class="math">0x = 0</span> — верно<br>при любом x ✅</p>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Главная идея</h4>
+                <p>Если при решении ты дошёл до строки <span class="math">0x = ...</span> — <strong>не дели</strong>! Остановись и посмотри на правую часть: не ноль — корней нет, ноль — корень любое число.</p>
+            </div>
+        </div>
+
+        <!-- Блок 3: решение сводится к линейному -->
+        <div class="content-block">
+            <h2><span class="emoji">🪜</span> Решение сводится к линейному</h2>
+            
+            <h3>Пример из учебника: решим 4(x + 7) = 3 - x</h3>
+            <ol>
+                <li>Раскроем скобки: <span class="math">4x + 28 = 3 - x</span></li>
+                <li>Перенесём <span class="math">-x</span> влево, а <span class="math">28</span> вправо с противоположными знаками: <span class="math">4x + x = 3 - 28</span></li>
+                <li>Приведём подобные: <span class="math">5x = -25</span></li>
+                <li>Разделим обе части на 5: <span class="math">x = -5</span></li>
+            </ol>
+            <p>Каждый шаг мы заменяли уравнение <span class="highlight">равносильным</span> — корни не терялись и не появлялись лишние.</p>
+            
+            <h3>А если коэффициент стал нулём?</h3>
+            <div class="example-box">
+                <h4>Случай «корней нет»</h4>
+                <p><span class="math">2x + 5 = 2(x + 6)</span> → <span class="math">2x + 5 = 2x + 12</span> → <span class="math">2x - 2x = 12 - 5</span> → <span class="math">0x = 7</span> 🚫</p>
+                <p>Равенство неверно ни при каком x — значит, уравнение не имеет корней.</p>
+            </div>
+            <div class="example-box">
+                <h4>Случай «корень — любое число»</h4>
+                <p><span class="math">3(x + 2) + x = 6 + 4x</span> → <span class="math">4x + 6 = 6 + 4x</span> → <span class="math">0x = 0</span> ✅</p>
+                <p>Равенство верно при любом x — значит, корнем является каждое число.</p>
+            </div>
+        </div>
+
+        <!-- Блок 4: жизненный пример -->
+        <div class="content-block">
+            <h2><span class="emoji">🍎</span> Где это встречается в жизни?</h2>
+            
+            <div class="example-box">
+                <h4>Задача про яблоки (из §9 учебника)</h4>
+                <p>В корзине было в 2 раза меньше яблок, чем в ящике. После того как из корзины переложили в ящик 10 яблок, в ящике их стало в 5 раз больше, чем в корзине. Сколько яблок было в корзине?</p>
+                <table class="values-table">
+                    <tr><th></th><th>Было</th><th>Стало</th></tr>
+                    <tr><td>Корзина</td><td>x</td><td>x - 10</td></tr>
+                    <tr><td>Ящик</td><td>2x</td><td>2x + 10</td></tr>
+                </table>
+                <div class="formula">
+                    <span class="math">5(x - 10) = 2x + 10</span> → <span class="math">5x - 50 = 2x + 10</span> → <span class="math">3x = 60</span> → <span class="math">x = 20</span>
+                </div>
+                <p>В корзине было 20 яблок, в ящике <span class="math">2 · 20 = 40</span>. <em>Проверка: стало 10 и 50 — действительно в 5 раз больше!</em> ✅</p>
+            </div>
+        </div>
+
+        <!-- Методическая подсказка -->
+        <div class="content-block">
+            <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+            
+            <div class="scaffolding-box">
+                <h4>🔥 Лайфхак: универсальные 4 шага решения любого линейного уравнения</h4>
+                <p style="margin-bottom: 15px;"><strong>Не знаешь, с чего начать? Действуй по алгоритму — он работает всегда. Покажем на уравнении, которого нет в заданиях: <span class="math">3(x - 2) = 2x + 1</span></strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 1. Раскрой скобки</strong> (если они есть): <span class="math">3x - 6 = 2x + 1</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 2. Перенеси</strong> слагаемые с буквой — влево, числа — вправо, <em>меняя знак</em>: <span class="math">3x - 2x = 1 + 6</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 3. Приведи подобные</strong> — получи вид ax = b: <span class="math">1x = 7</span>, то есть <span class="math">x = 7</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Шаг 4. Проверь коэффициент a:</strong> если a ≠ 0 — дели и записывай корень; если получилось <span class="math">0x = 5</span> — корней нет 🚫; если <span class="math">0x = 0</span> — корень любое число ✅
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Проверка подстановкой:</strong> левая: <span class="math">3 · (7 - 2) = 15</span>; правая: <span class="math">2 · 7 + 1 = 15</span> → совпало ✅
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+                    🪜 В задании 4 применишь тот же алгоритм к уравнению <span class="math">5x + (3x - 3) = 6x + 11</span> — попробуй сам(а), а потом сверься!
+                </p>
+            </div>
+        </div>
+
+        <!-- Упражнения -->
+        <div class="content-block">
+            <h2><span class="emoji">✏️</span> Проверь себя</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>"Проверить"</strong>, чтобы увидеть ответ!</p>
+            
+            <!-- Уровень 1 -->
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 1 (№145 а, е, и из учебника)</h4>
+                <p>Найди корень уравнения:</p>
+                <p>а) <span class="math">5x = -60</span>; &nbsp; е) <span class="math">0,5x = 1,2</span>; &nbsp; и) <span class="math">0,7x = 0</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div id="answer1" class="answer-content">
+                        <strong>Решение (делим обе части на a):</strong><br>
+                        а) <span class="math">x = -60 : 5 = -12</span><br>
+                        е) <span class="math">x = 1,2 : 0,5 = 2,4</span><br>
+                        и) <span class="math">x = 0 : 0,7 = 0</span><br>
+                        <em>Во всех случаях a ≠ 0 — значит, корень единственный.</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 2 (№147 а, б из учебника)</h4>
+                <p>Найди корень уравнения:</p>
+                <p>а) <span class="math">5x - 150 = 0</span>; &nbsp; б) <span class="math">48 - 3x = 0</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div id="answer2" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">5x = 150</span> → <span class="math">x = 150 : 5 = 30</span><br>
+                        б) <span class="math">-3x = -48</span> → <span class="math">x = -48 : (-3) = 16</span><br>
+                        <em>Проверка б): 48 - 3 · 16 = 48 - 48 = 0 ✅</em>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 2 -->
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 3 (№148 а, в из учебника)</h4>
+                <p>Реши уравнение:</p>
+                <p>а) <span class="math">2x + 9 = 13 - x</span>; &nbsp; в) <span class="math">0,5a + 11 = 4 - 3a</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div id="answer3" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">2x + x = 13 - 9</span> → <span class="math">3x = 4</span> → <span class="math">x = 4 : 3 = 1 1/3</span><br>
+                        в) <span class="math">0,5a + 3a = 4 - 11</span> → <span class="math">3,5a = -7</span> → <span class="math">a = -7 : 3,5 = -2</span><br>
+                        <em>Корень может быть и дробным — это нормально!</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 4 (№152 а, в из учебника)</h4>
+                <p>Реши уравнение:</p>
+                <p>а) <span class="math">5x + (3x - 3) = 6x + 11</span>; &nbsp; в) <span class="math">(x - 7) - (2x + 9) = -13</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div id="answer4" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">5x + 3x - 3 = 6x + 11</span> → <span class="math">8x - 6x = 11 + 3</span> → <span class="math">2x = 14</span> → <span class="math">x = 7</span><br>
+                        в) <span class="math">x - 7 - 2x - 9 = -13</span> (минус перед скобкой поменял знаки!) → <span class="math">-x - 16 = -13</span> → <span class="math">-x = 3</span> → <span class="math">x = -3</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 3 -->
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 5 (№156 а, б из учебника)</h4>
+                <p>Реши уравнение:</p>
+                <p>а) <span class="math">2x + 5 = 2(x + 1) + 11</span>; &nbsp; б) <span class="math">5(2y - 4) = 2(5y - 10)</span></p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div id="answer5" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) <span class="math">2x + 5 = 2x + 2 + 11</span> → <span class="math">2x - 2x = 13 - 5</span> → <span class="math">0x = 8</span> → <strong>корней нет</strong> 🚫<br>
+                        б) <span class="math">10y - 20 = 10y - 20</span> → <span class="math">10y - 10y = -20 + 20</span> → <span class="math">0y = 0</span> → <strong>корень — любое число</strong> ✅<br>
+                        <em>Вот они, два особых случая из карточек!</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 6 (№154а и №155а из учебника)</h4>
+                <p>При каком значении переменной:</p>
+                <p>а) значения выражений <span class="math">2m - 13</span> и <span class="math">m + 3</span> равны;</p>
+                <p>б) значение выражения <span class="math">5y + 3</span> равно значению выражения <span class="math">36 - y</span>?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div id="answer6" class="answer-content">
+                        <strong>Решение (составляем уравнение):</strong><br>
+                        а) <span class="math">2m - 13 = m + 3</span> → <span class="math">2m - m = 3 + 13</span> → <span class="math">m = 16</span><br>
+                        &nbsp;&nbsp;&nbsp;Проверка: <span class="math">2 · 16 - 13 = 19</span> и <span class="math">16 + 3 = 19</span> ✅<br>
+                        б) <span class="math">5y + 3 = 36 - y</span> → <span class="math">5y + y = 36 - 3</span> → <span class="math">6y = 33</span> → <span class="math">y = 5,5</span><br>
+                        &nbsp;&nbsp;&nbsp;Проверка: <span class="math">5 · 5,5 + 3 = 30,5</span> и <span class="math">36 - 5,5 = 30,5</span> ✅
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+            <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+            <ul>
+                <li><span class="highlight">Линейное уравнение</span> — уравнение вида <span class="math">ax = b</span> (x — переменная, a и b — числа)</li>
+                <li>Если <span class="highlight">a ≠ 0</span> — один корень: <span class="math">x = b : a</span></li>
+                <li>Если <span class="highlight">a = 0 и b ≠ 0</span> — корней нет (<span class="math">0x = b</span> неверно)</li>
+                <li>Если <span class="highlight">a = 0 и b = 0</span> — корень любое число (<span class="math">0x = 0</span> верно)</li>
+                <li>Алгоритм: раскрыть скобки → перенести с изменением знака → привести подобные → разделить на a</li>
+                <li>Дошёл до <span class="math">0x = ...</span> — остановись и истолкуй по трём случаям, не дели на ноль!</li>
+                <li>Найденный корень проверяй подстановкой в обе части</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>📖 Учебник: Алгебра 7 класс • Глава 1: Выражения, тождества, уравнения</p>
+            <p>§3, п. 8. Линейное уравнение с одной переменной • Страницы 34-37</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const btn = answer.previousElementSibling;
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                btn.textContent = '🔍 Проверить';
+                btn.style.background = '#3498db';
+            } else {
+                answer.classList.add('show');
+                btn.textContent = '🔒 Скрыть ответ';
+                btn.style.background = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>

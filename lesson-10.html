@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формулы — Алгебра 7 класс | Глава 1, §3, п. 10</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafafa;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+        
+        header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .chapter-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        h1 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; color: #7f8c8d; }
+        
+        .content-block {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 { color: #34495e; font-size: 1.3em; margin: 20px 0 12px 0; }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 85%;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 { color: #3498db; margin-bottom: 8px; font-size: 1.1em; }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 1.05em;
+        }
+        
+        /* Карточки формул */
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .formula-card {
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        
+        .formula-card .f {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.15em;
+            margin-bottom: 6px;
+        }
+        
+        .formula-card .desc { font-size: 0.88em; color: #34495e; }
+        
+        .formula-card.fc1 { border-color: #2980b9; background: #eaf2f8; }
+        .formula-card.fc2 { border-color: #27ae60; background: #e9f7ef; }
+        .formula-card.fc3 { border-color: #e67e22; background: #fdf2e9; }
+        .formula-card.fc4 { border-color: #8e44ad; background: #f4ecf7; }
+        
+        /* Сравнение прямоугольников */
+        .rect-compare {
+            display: flex;
+            gap: 30px;
+            align-items: flex-end;
+            justify-content: center;
+            margin: 25px 0 10px 0;
+            flex-wrap: wrap;
+        }
+        
+        .rect-wrap { text-align: center; }
+        
+        .rect {
+            border: 3px solid #2d3436;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin: 0 auto;
+        }
+        
+        .rect.old { width: 140px; height: 100px; background: #d6eaf8; }
+        .rect.new { width: 154px; height: 110px; background: #d5f5e3; }
+        
+        .rect-label { margin-top: 8px; font-size: 0.9em; color: #34495e; }
+        
+        .tip-box {
+            background: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h4 { color: #1abc9c; margin-bottom: 8px; }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 { color: #f39c12; margin-bottom: 8px; }
+        
+        .scaffolding-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 3px solid #2d3436;
+            box-shadow: 4px 4px 0 #2d3436;
+        }
+        
+        .scaffolding-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .scaffolding-step {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #2d3436;
+            font-size: 1.05em;
+        }
+        
+        ul, ol { margin: 12px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        
+        .exercise h4 { color: #2c3e50; margin-bottom: 10px; }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid #2d3436;
+        }
+        
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
+        .level-star { background: #f9e79f; color: #2d3436; }
+        
+        .bonus-box {
+            border: 3px dashed #f39c12;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            background: #fef9e7;
+        }
+        
+        .bonus-box h3 { color: #b9770e; margin-top: 0; }
+        
+        .check-answer { margin-top: 15px; }
+        
+        .answer-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border: 2px solid #2d3436;
+            box-shadow: 2px 2px 0 #2d3436;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #2980b9;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #2d3436;
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #dfe6e9;
+            border-left: 4px solid #00b894;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .answer-content.show { display: block; }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .emoji { margin-right: 5px; }
+        
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 12px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 3px solid #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+            .content-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="chapter-badge">Глава 1 • §3, п. 10 • для тех, кто хочет знать больше</div>
+            <h1>Формулы</h1>
+            <p class="subtitle">Как читать Jules Verne на языке математики и выводить новые формулы из старых</p>
+        </header>
+
+        <!-- Введение -->
+        <div class="content-block">
+            <p>Привет! 👋 Откроем книгу Жюля Верна «Дети капитана Гранта»: птица jabiru «ростом в пять футов», клюв «восемнадцать дюймов», яхта «Дункан» идёт «семнадцать морских миль в час», температура «+74° по Фаренгейту»... Красиво, но непонятно! 😄 Чтобы перевести эти величины на привычный язык, нужны <span class="highlight">формулы</span>. Сегодня учимся ими пользоваться — и даже выводить новые!</p>
+        </div>
+
+        <!-- Блок 1: формулы из книги -->
+        <div class="content-block">
+            <h2><span class="emoji">📖</span> Формулы-переводчики</h2>
+            
+            <p>Соотношения между старыми и современными единицами записываются формулами:</p>
+            
+            <div class="formula-grid">
+                <div class="formula-card fc1">
+                    <div class="f">b = 30,48a</div>
+                    <div class="desc">a — футы, b — сантиметры</div>
+                </div>
+                <div class="formula-card fc2">
+                    <div class="f">l = 2,54m</div>
+                    <div class="desc">m — дюймы, l — сантиметры</div>
+                </div>
+                <div class="formula-card fc3">
+                    <div class="f">p = 1,853m</div>
+                    <div class="desc">m — морские мили, p — километры</div>
+                </div>
+                <div class="formula-card fc4">
+                    <div class="f">c = 5(f - 32) : 9</div>
+                    <div class="desc">f — °F, c — °C</div>
+                </div>
+            </div>
+            
+            <h3>Переводим текст Жюля Верна</h3>
+            <div class="example-box">
+                <p>Рост птицы: <span class="math">b = 30,48 · 5 = 152,4 ≈ 152 см</span> (≈ 1,5 м)</p>
+                <p>Клюв: <span class="math">l = 2,54 · 18 = 45,72 ≈ 46 см</span> (≈ 0,5 м)</p>
+                <p>Скорость яхты: <span class="math">p = 1,853 · 17 = 31,501 ≈ 32 км/ч</span></p>
+                <p>Температура: <span class="math">c = 5 · (74 - 32) : 9 = 210 : 9 ≈ 23 °C</span></p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Обрати внимание</h4>
+                <p>Знак «≈» означает «приближённо равно»: учебник округляет результаты до целых, чтобы величины было легко представить. В ответах всегда помечай округление!</p>
+            </div>
+        </div>
+
+        <!-- Блок 2: проценты и формулы -->
+        <div class="content-block">
+            <h2><span class="emoji">📈</span> Формулы в задачах на проценты</h2>
+            
+            <h3>Пример 1 из учебника: площадь прямоугольника</h3>
+            <p>Пусть длина прямоугольника <span class="math">a</span> см, ширина <span class="math">b</span> см, площадь <span class="math">S = ab</span>. Увеличим длину и ширину на 10%:</p>
+            
+            <div class="rect-compare">
+                <div class="rect-wrap">
+                    <div class="rect old">S = ab</div>
+                    <div class="rect-label">было: a и b</div>
+                </div>
+                <div class="rect-wrap">
+                    <div class="rect new">1,21ab</div>
+                    <div class="rect-label">стало: 1,1a и 1,1b</div>
+                </div>
+            </div>
+            
+            <ol>
+                <li>Новая длина: <span class="math">a + 0,1a = 1,1a</span>; новая ширина: <span class="math">1,1b</span></li>
+                <li>Новая площадь: <span class="math">1,1a · 1,1b = 1,21ab</span></li>
+                <li>Прирост: <span class="math">1,21ab - ab = 0,21ab</span>, то есть <span class="math">(0,21ab : ab) · 100% = 21%</span></li>
+            </ol>
+            <p><strong>Ответ:</strong> площадь увеличится на 21% — а не на 20%, как подсказывает интуиция! 🎯</p>
+        </div>
+
+        <!-- Блок 3: вывод новой формулы -->
+        <div class="content-block">
+            <h2><span class="emoji">🔁</span> Из одной формулы — другую!</h2>
+            
+            <p>Свойства равенств позволяют из формулы, связывающей несколько переменных, получать новые формулы. Выразим из <span class="math">c = 5(f - 32) : 9</span> переменную <span class="math">f</span> (чтобы переводить °C в °F):</p>
+            
+            <ol>
+                <li>Умножим обе части на 9: <span class="math">9c = 5(f - 32)</span></li>
+                <li>Раскроем скобки: <span class="math">9c = 5f - 160</span></li>
+                <li>Перенесём -160 влево с другим знаком: <span class="math">5f = 9c + 160</span></li>
+                <li>Разделим обе части на 5: <span class="math">f = (9c + 160) : 5</span>, то есть <span class="math">f = 1,8c + 32</span></li>
+            </ol>
+            
+            <div class="tip-box">
+                <h4>📌 Проверка новой формулы</h4>
+                <p>Подставим <span class="math">c = 23</span>: <span class="math">f = 1,8 · 23 + 32 = 41,4 + 32 = 73,4 ≈ 74 °F</span> — сошлось с условием книги! ✅ Выведенная формула работает.</p>
+            </div>
+        </div>
+
+        <!-- Методическая подсказка -->
+        <div class="content-block">
+            <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+            
+            <div class="scaffolding-box">
+                <h4>🔥 Лайфхак: процентный множитель</h4>
+                <p style="margin-bottom: 15px;"><strong>Любое изменение на p% — это просто умножение на коэффициент:</strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Увеличение на p%:</strong> умножь на <span class="math">1 + 0,01p</span>. Пример: +10% → <span class="math">· 1,1</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Уменьшение на p%:</strong> умножь на <span class="math">1 - 0,01p</span>. Пример: -10% → <span class="math">· 0,9</span>
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Ловушка:</strong> товар стоил 200 р. Цену подняли на 10%: <span class="math">200 · 1,1 = 220</span>. Потом снизили на 10%: <span class="math">220 · 0,9 = 198</span>.<br>
+                    Интуиция кричит: «вернулась цена 200!» 🚫 Нет: <span class="math">198 ≠ 200</span> ✅ Проценты считались от РАЗНЫХ баз!
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Итог одним действием:</strong> <span class="math">200 · 1,1 · 0,9 = 200 · 0,99 = 198</span> — суммарный множитель 0,99 показывает: цена упала на 1%.
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+                    🧮 В задании 6 тебя ждёт та же ловушка с +15% и -15% — проверь её множителями!
+                </p>
+            </div>
+        </div>
+
+        <!-- Упражнения -->
+        <div class="content-block">
+            <h2><span class="emoji">✏️</span> Проверь себя</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>"Проверить"</strong>, чтобы увидеть ответ!</p>
+            
+            <!-- Уровень 1 -->
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 1 (№187 а, б из учебника)</h4>
+                <p>Пользуясь формулой <span class="math">b = 1,067a</span> (a — расстояние в верстах, b — в километрах), вырази в километрах расстояние, равное:</p>
+                <p>а) 6 верстам; &nbsp; б) 12,5 версты.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div id="answer1" class="answer-content">
+                        <strong>Решение (подставляем в формулу):</strong><br>
+                        а) <span class="math">b = 1,067 · 6 = 6,402 км</span><br>
+                        б) <span class="math">b = 1,067 · 12,5 = 13,3375 км</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 2 (№190 из учебника)</h4>
+                <p>Пройденное расстояние считают по формуле <span class="math">s = nl</span> (s — в метрах, n — число шагов, l — длина шага). Сколько километров прошёл человек, если длина шага 60 см, а шагов сделано 1800?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div id="answer2" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Переведём шаг в метры: <span class="math">l = 60 см = 0,6 м</span><br>
+                        <span class="math">s = 1800 · 0,6 = 1080 м</span><br>
+                        Переведём в километры: <span class="math">1080 м = 1,08 км</span><br>
+                        <strong>Ответ:</strong> 1,08 км. <em>Единицы измерения — половина успеха!</em>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 2 -->
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 3 (№191 из учебника)</h4>
+                <p>Как изменится площадь прямоугольника, если:</p>
+                <p>а) его длину и ширину уменьшить на 10%;</p>
+                <p>б) его длину увеличить на 30%, а ширину уменьшить на 30%?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div id="answer3" class="answer-content">
+                        <strong>Решение (процентные множители):</strong><br>
+                        а) <span class="math">0,9a · 0,9b = 0,81ab</span> → площадь <strong>уменьшится на 19%</strong><br>
+                        б) <span class="math">1,3a · 0,7b = 0,91ab</span> → площадь <strong>уменьшится на 9%</strong><br>
+                        <em>«+30% и -30%» не компенсируют друг друга!</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 4 (№195а из учебника)</h4>
+                <p>Какой температуре по Фаренгейту соответствует <span class="math">4 °C</span>; <span class="math">-15 °C</span>; <span class="math">0 °C</span>? (Используй формулу <span class="math">f = 1,8c + 32</span>.)</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div id="answer4" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        c = 4: <span class="math">f = 1,8 · 4 + 32 = 7,2 + 32 = 39,2 °F</span><br>
+                        c = -15: <span class="math">f = 1,8 · (-15) + 32 = -27 + 32 = 5 °F</span> (число в скобках!)<br>
+                        c = 0: <span class="math">f = 1,8 · 0 + 32 = 32 °F</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 3 -->
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 5 (№197 а, б из учебника)</h4>
+                <p>Вырази из формулы:</p>
+                <p>а) <span class="math">s = at</span> — переменную t;</p>
+                <p>б) <span class="math">b = u + at</span> — переменную a.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div id="answer5" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        а) Разделим обе части на a (a ≠ 0): <span class="math">t = s : a</span><br>
+                        б) Перенесём u: <span class="math">b - u = at</span>; разделим на t (t ≠ 0): <span class="math">a = (b - u) : t</span><br>
+                        <em>Не забудь указать, что делитель не равен нулю!</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 6 (№193 из учебника)</h4>
+                <p>Цену товара сначала повысили на 15%, а затем снизили на 15%. Первоначальная цена — <span class="math">a</span> р., окончательная — <span class="math">b</span> р. Сравни числа a и b (выбери верный ответ): 1) a &gt; b; 2) a &lt; b; 3) a = b; 4) сравнить нельзя.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div id="answer6" class="answer-content">
+                        <strong>Решение (множители):</strong><br>
+                        <span class="math">b = a · 1,15 · 0,85 = a · 0,9775 = 0,9775a</span><br>
+                        Так как 0,9775 &lt; 1, то <span class="math">b &lt; a</span>, то есть <span class="math">a &gt; b</span>.<br>
+                        <strong>Ответ: вариант 1.</strong> Цена в итоге стала НИЖЕ первоначальной — ловушка из подсказки! 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Дополнительные задания -->
+        <div class="bonus-box">
+            <h3><span class="emoji">⭐</span> Дополнительные задания (из доп. упражнений к главе I)</h3>
+            
+            <div class="exercise" style="background: white;">
+                <span class="level-badge level-star">⭐ Доп. №208</span>
+                <h4>Составь формулу числа:</h4>
+                <p>а) кратного 11; &nbsp; б) кратного 21.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('bonus1')">🔍 Проверить</button>
+                    <div id="bonus1" class="answer-content">
+                        <strong>Ответ:</strong><br>
+                        а) <span class="math">m = 11n</span>, где n — целое число<br>
+                        б) <span class="math">m = 21n</span>, где n — целое число<br>
+                        <em>Проверка: n = 2 → m = 42, делится на 21 ✅</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise" style="background: white;">
+                <span class="level-badge level-star">⭐ Доп. №209</span>
+                <h4>Вырази в километрах расстояния 10 миль, 50 миль, 250 миль, пользуясь формулой <span class="math">y = 1,853x</span> (x — морские мили, y — километры).</h4>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('bonus2')">🔍 Проверить</button>
+                    <div id="bonus2" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        <span class="math">y = 1,853 · 10 = 18,53 км</span><br>
+                        <span class="math">y = 1,853 · 50 = 92,65 км</span><br>
+                        <span class="math">y = 1,853 · 250 = 463,25 км</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise" style="background: white;">
+                <span class="level-badge level-star">⭐ Доп. №246</span>
+                <h4>Если к задуманному числу прибавить 7, полученную сумму умножить на 3 и из произведения вычесть 47, то получится задуманное число. Какое число задумано?</h4>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('bonus3')">🔍 Проверить</button>
+                    <div id="bonus3" class="answer-content">
+                        <strong>Решение:</strong><br>
+                        Пусть задумано x. По условию: <span class="math">3(x + 7) - 47 = x</span><br>
+                        <span class="math">3x + 21 - 47 = x</span> → <span class="math">3x - 26 = x</span> → <span class="math">2x = 26</span> → <span class="math">x = 13</span><br>
+                        <em>Проверка: 13 + 7 = 20; 20 · 3 = 60; 60 - 47 = 13 ✅</em><br>
+                        <strong>Ответ:</strong> 13.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+            <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+            <ul>
+                <li><span class="highlight">Формула</span> — равенство, показывающее, как одна величина выражается через другие</li>
+                <li>Работа с формулой: подставь значение и вычисли, следя за единицами измерения (см → м → км!)</li>
+                <li><span class="highlight">Процентный множитель:</span> +p% → ·(1 + 0,01p); -p% → ·(1 - 0,01p)</li>
+                <li>Последовательные «+p% и -p%» НЕ возвращают исходное значение (0,99; 0,91; 0,9775...)</li>
+                <li>Из формулы можно <span class="highlight">выразить любую переменную</span> через остальные: умножай/дели обе части, переноси слагаемые</li>
+                <li>При делении обеих частей формулы указывай условие: делитель ≠ 0</li>
+                <li>Старинные единицы (верста, пуд, фут, дюйм) связаны с современными формулами — математика читает даже Жюля Верна! </li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>📖 Учебник: Алгебра 7 класс • Глава 1: Выражения, тождества, уравнения</p>
+            <p>§3, п. 10. Формулы • Страницы 42-44 • Дополнительные упражнения к главе I • Страницы 45-47</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const btn = answer.previousElementSibling;
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                btn.textContent = '🔍 Проверить';
+                btn.style.background = '#3498db';
+            } else {
+                answer.classList.add('show');
+                btn.textContent = '🔒 Скрыть ответ';
+                btn.style.background = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>

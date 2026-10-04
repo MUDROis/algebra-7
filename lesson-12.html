@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Что такое функция — Алгебра 7 класс | Глава 2, §4, п. 12</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #2c3e50;
+background-color: #fafafa;
+background-image:
+linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+background-size: 20px 20px;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+header {
+background: white;
+padding: 30px;
+margin-bottom: 30px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+border-left: 5px solid #3498db;
+}
+.chapter-badge {
+display: inline-block;
+background: #3498db;
+color: white;
+padding: 5px 15px;
+border-radius: 3px;
+font-size: 14px;
+margin-bottom: 10px;
+}
+h1 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
+.subtitle { font-size: 1.1em; color: #7f8c8d; }
+.content-block {
+background: white;
+padding: 30px;
+margin-bottom: 25px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+h2 {
+color: #2c3e50;
+font-size: 1.6em;
+margin-bottom: 20px;
+padding-bottom: 8px;
+border-bottom: 2px solid #ecf0f1;
+}
+h3 { color: #34495e; font-size: 1.3em; margin: 20px 0 12px 0; }
+.highlight {
+background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+background-repeat: no-repeat;
+background-size: 100% 45%;
+background-position: 0 85%;
+padding: 2px 6px;
+font-weight: 600;
+}
+.example-box {
+background: #f8f9fa;
+border-left: 4px solid #3498db;
+padding: 15px 20px;
+margin: 15px 0;
+}
+.example-box h4 { color: #3498db; margin-bottom: 8px; font-size: 1.1em; }
+.math {
+font-family: 'Courier New', monospace;
+background: #ecf0f1;
+padding: 3px 8px;
+border-radius: 3px;
+font-size: 1.05em;
+}
+.visual-container {
+text-align: center;
+margin: 25px 0;
+padding: 20px;
+background: #fafafa;
+border: 2px dashed #bdc3c7;
+}
+/* Машина-функция */
+.machine {
+display: flex;
+align-items: stretch;
+justify-content: center;
+gap: 12px;
+flex-wrap: wrap;
+margin: 20px 0;
+}
+.machine-part {
+border: 3px solid #2d3436;
+border-radius: 10px;
+padding: 15px;
+min-width: 150px;
+text-align: center;
+}
+.machine-part.input { background: #d5f5e3; }
+.machine-part.body { background: #fdebd0; }
+.machine-part.output { background: #d6eaf8; }
+.machine-arrow {
+font-size: 2em;
+align-self: center;
+color: #2d3436;
+}
+/* Три способа задания */
+.ways-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+margin: 20px 0;
+}
+.way-card {
+border: 3px solid;
+border-radius: 10px;
+padding: 15px;
+text-align: center;
+}
+.way-card.formula { border-color: #e74c3c; background: #fdedec; }
+.way-card.graph { border-color: #2980b9; background: #eaf2f8; }
+.way-card.table { border-color: #27ae60; background: #e9f7ef; }
+.way-card .way-icon { font-size: 2.5em; margin-bottom: 8px; }
+.way-card .way-name { font-weight: bold; font-size: 1.1em; margin-bottom: 6px; }
+.way-card .way-example {
+font-family: 'Courier New', monospace;
+font-size: 0.95em;
+color: #2d3436;
+}
+.tip-box {
+background: #e8f6f3;
+border-left: 4px solid #1abc9c;
+padding: 15px 20px;
+margin: 20px 0;
+}
+.tip-box h4 { color: #1abc9c; margin-bottom: 8px; }
+.warning-box {
+background: #fef9e7;
+border-left: 4px solid #f39c12;
+padding: 15px 20px;
+margin: 20px 0;
+}
+.warning-box h4 { color: #f39c12; margin-bottom: 8px; }
+.scaffolding-box {
+background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+color: #2d3436;
+padding: 25px;
+border-radius: 8px;
+margin: 25px 0;
+border: 3px solid #2d3436;
+box-shadow: 4px 4px 0 #2d3436;
+}
+.scaffolding-box h4 {
+font-size: 1.3em;
+margin-bottom: 15px;
+color: #2d3436;
+font-weight: bold;
+}
+.scaffolding-step {
+background: white;
+padding: 12px;
+margin: 10px 0;
+border-radius: 5px;
+border: 2px solid #2d3436;
+font-size: 1.05em;
+}
+ul, ol { margin: 12px 0; padding-left: 30px; }
+li { margin: 8px 0; }
+.exercise {
+background: #f8f9fa;
+padding: 20px;
+margin: 15px 0;
+border: 2px solid #d5dbdb;
+border-radius: 5px;
+}
+.exercise h4 { color: #2c3e50; margin-bottom: 10px; }
+.level-badge {
+display: inline-block;
+padding: 3px 12px;
+border-radius: 12px;
+font-size: 0.85em;
+font-weight: bold;
+margin-bottom: 10px;
+border: 2px solid #2d3436;
+}
+.level-1 { background: #55efc4; color: #2d3436; }
+.level-2 { background: #74b9ff; color: #2d3436; }
+.level-3 { background: #a29bfe; color: #2d3436; }
+.check-answer { margin-top: 15px; }
+.answer-btn {
+background: #3498db;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1em;
+border: 2px solid #2d3436;
+box-shadow: 2px 2px 0 #2d3436;
+transition: all 0.3s;
+font-weight: 600;
+}
+.answer-btn:hover {
+background: #2980b9;
+transform: translate(1px, 1px);
+box-shadow: 1px 1px 0 #2d3436;
+}
+.answer-content {
+display: none;
+margin-top: 15px;
+padding: 15px;
+background: #dfe6e9;
+border-left: 4px solid #00b894;
+border-radius: 5px;
+animation: slideDown 0.3s ease-out;
+}
+.answer-content.show { display: block; }
+@keyframes slideDown {
+from { opacity: 0; transform: translateY(-10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.emoji { margin-right: 5px; }
+.formula {
+text-align: center;
+font-size: 1.2em;
+margin: 15px 0;
+padding: 12px;
+background: #ecf0f1;
+border-radius: 5px;
+}
+table.values-table {
+margin: 15px auto;
+border-collapse: collapse;
+font-family: 'Courier New', monospace;
+}
+table.values-table td, table.values-table th {
+border: 2px solid #bdc3c7;
+padding: 6px 14px;
+text-align: center;
+}
+footer {
+text-align: center;
+color: #7f8c8d;
+padding: 20px;
+margin-top: 30px;
+border-top: 3px solid #3498db;
+background: white;
+}
+@media (max-width: 768px) {
+h1 { font-size: 1.6em; }
+h2 { font-size: 1.3em; }
+.content-block { padding: 20px; }
+.machine { flex-direction: column; }
+.machine-arrow { transform: rotate(90deg); align-self: center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<div class="chapter-badge">Глава 2 • §4, п. 12</div>
+<h1>Что такое функция</h1>
+<p class="subtitle">Зависимость одной величины от другой — язык математики</p>
+</header>
+
+<!-- Введение -->
+<div class="content-block">
+<p>Привет! 👋 Сегодня ты познакомишься с одним из главных понятий всей математики — <span class="highlight">функцией</span>. Функции окружают нас везде: площадь комнаты зависит от её размеров, температура воздуха — от времени суток, стоимость проезда — от числа зон. Научимся записывать эти зависимости коротко и красиво!</p>
+</div>
+
+<!-- Блок 1: примеры зависимостей -->
+<div class="content-block">
+<h2><span class="emoji">🌍</span> Зависимости вокруг нас</h2>
+<h3>Пример 1: площадь квадрата</h3>
+<p>Площадь квадрата зависит от длины его стороны. Если сторона равна <span class="math">a</span> см, то площадь <span class="math">S = a²</span> см².</p>
+<div class="example-box">
+<p>При <span class="math">a = 3</span> → <span class="math">S = 9</span>; при <span class="math">a = 15</span> → <span class="math">S = 225</span>; при <span class="math">a = 0,08</span> → <span class="math">S = 0,0064</span>.</p>
+<p>Каждому значению <span class="math">a</span> соответствует <strong>ровно одно</strong> значение <span class="math">S</span>.</p>
+</div>
+
+<h3>Пример 2: путь автомобиля</h3>
+<p>Автомобиль едет со скоростью 50 км/ч. Путь <span class="math">s</span> зависит от времени <span class="math">t</span>:</p>
+<div class="formula"><span class="math">s(t) = 50t</span></div>
+<p>При <span class="math">t = 2</span> ч → <span class="math">s = 100</span> км; при <span class="math">t = 3,5</span> ч → <span class="math">s = 175</span> км.</p>
+
+<h3>Пример 3: температура воздуха</h3>
+<p>На графике показана температура в течение суток. Каждому моменту времени <span class="math">t</span> (от 0 до 24 ч) соответствует <strong>одно</strong> значение температуры <span class="math">p</span>.</p>
+
+<h3>Пример 4: стоимость проезда</h3>
+<p>Стоимость проезда <span class="math">m</span> зависит от номера зоны <span class="math">n</span>:</p>
+<table class="values-table">
+<tr><th>n</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+<tr><td>m (руб.)</td><td>26</td><td>52</td><td>78</td><td>104</td><td>130</td></tr>
+</table>
+</div>
+
+<!-- Блок 2: определение функции -->
+<div class="content-block">
+<h2><span class="emoji">📐</span> Что такое функция?</h2>
+<div class="example-box">
+<h4>📌 Определение</h4>
+<p>Такая зависимость одной переменной от другой, при которой <span class="highlight">каждому значению независимой переменной соответствует единственное значение зависимой переменной</span>, называется <span class="highlight">функциональной зависимостью</span> или <span class="highlight">функцией</span>.</p>
+</div>
+
+<h3>Кто есть кто?</h3>
+<ul>
+<li><span class="highlight">Независимая переменная</span> (аргумент) — та, которую мы выбираем сами (в примерах выше: <span class="math">a, t, n</span>)</li>
+<li><span class="highlight">Зависимая переменная</span> (функция) — та, значение которой получается (в примерах: <span class="math">S, s, m</span>)</li>
+<li><span class="highlight">Значение функции</span> — результат подстановки конкретного аргумента</li>
+</ul>
+
+<div class="machine">
+<div class="machine-part input">📥 ВХОД<br>аргумент <span class="math">x</span><br>(независимая)</div>
+<div class="machine-arrow">→</div>
+<div class="machine-part body">⚙️ ФУНКЦИЯ<br><span class="math">y = f(x)</span><br>«правило»</div>
+<div class="machine-arrow">→</div>
+<div class="machine-part output">📤 ВЫХОД<br>значение <span class="math">y</span><br>(зависимая)</div>
+</div>
+
+<div class="tip-box">
+<h4>💡 Как записывают</h4>
+<p>Вместо длинных слов пишут коротко: <span class="math">y = f(x)</span> (читается: «эф от икс»). Это значит: <em>«y — функция от x»</em>.</p>
+<p>Например: <span class="math">S(a) = a²</span>, <span class="math">s(t) = 50t</span>, <span class="math">m(n) = 26n</span>.</p>
+</div>
+</div>
+
+<!-- Блок 3: область определения -->
+<div class="content-block">
+<h2><span class="emoji">🎯</span> Область определения функции</h2>
+<p>Не всякое число можно подставить в функцию! Все значения, которые может принимать аргумент, образуют <span class="highlight">область определения функции</span>.</p>
+
+<div class="example-box">
+<h4>📝 Примеры</h4>
+<p>• В примере с площадью квадрата: <span class="math">a > 0</span> (сторона не может быть отрицательной или нулём).</p>
+<p>• В примере с температурой: <span class="math">0 ≤ t ≤ 24</span> (в сутках 24 часа).</p>
+<p>• В примере с зонами: <span class="math">n = 1, 2, 3, …, 9</span> (зон всего 9).</p>
+</div>
+
+<div class="warning-box">
+<h4>⚠️ Запомни</h4>
+<p>Область определения — это <strong>все допустимые значения аргумента</strong>. Без неё функция «неполная».</p>
+</div>
+</div>
+
+<!-- Блок 4: способы задания функции -->
+<div class="content-block">
+<h2><span class="emoji">🧩</span> Три способа задать функцию</h2>
+<p>Функцию можно описать по-разному. Вот три главных способа:</p>
+
+<div class="ways-grid">
+<div class="way-card formula">
+<div class="way-icon">📝</div>
+<div class="way-name">Аналитический</div>
+<div class="way-example">формулой<br><span class="math">y = 3x - 1</span></div>
+</div>
+<div class="way-card graph">
+<div class="way-icon">📈</div>
+<div class="way-name">Графический</div>
+<div class="way-example">графиком<br>(кривая на плоскости)</div>
+</div>
+<div class="way-card table">
+<div class="way-icon">📊</div>
+<div class="way-name">Табличный</div>
+<div class="way-example">таблицей значений<br>(как с зонами)</div>
+</div>
+</div>
+
+<h3>Пример: аналитический способ</h3>
+<p>Пусть <span class="math">y(x) = (3x - 1) / 2</span>, где <span class="math">-3 ≤ x ≤ 3</span>. Найдём значения при целых <span class="math">x</span>:</p>
+<table class="values-table">
+<tr><th>x</th><th>-3</th><th>-2</th><th>-1</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
+<tr><td>y</td><td>-5</td><td>-3,5</td><td>-2</td><td>-0,5</td><td>1</td><td>2,5</td><td>4</td></tr>
+</table>
+<p>Таблица — удобный способ увидеть, как функция «работает».</p>
+</div>
+
+<!-- Методическая подсказка -->
+<div class="content-block">
+<h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+<div class="scaffolding-box">
+<h4>🔥 Лайфхак: тест «одному x — одно y»</h4>
+<p style="margin-bottom: 15px;"><strong>Не всякая зависимость — функция! Чтобы проверить, является ли зависимость функцией, задай себе один вопрос: «Каждому ли значению x соответствует <em>ровно одно</em> значение y?»</strong></p>
+
+<div class="scaffolding-step">
+<strong>Шаг 1.</strong> Возьми зависимость. Например: «y — это число, квадрат которого равен x».
+</div>
+<div class="scaffolding-step">
+<strong>Шаг 2.</strong> Подставь <span class="math">x = 4</span>. Какие y подходят? <span class="math">y = 2</span> (потому что 2² = 4) и <span class="math">y = -2</span> (потому что (-2)² = 4).
+</div>
+<div class="scaffolding-step">
+<strong>Шаг 3.</strong> Одному x = 4 соответствуют <strong>два</strong> значения y → это <strong>НЕ функция</strong> 🚫
+</div>
+
+<p style="margin: 15px 0;"><strong>А теперь проверим функцию:</strong> <span class="math">y = x²</span>.</p>
+
+<div class="scaffolding-step">
+<strong>Шаг 1.</strong> Подставь <span class="math">x = 4</span>: <span class="math">y = 4² = 16</span>.
+</div>
+<div class="scaffolding-step">
+<strong>Шаг 2.</strong> Другого значения y при x = 4 <strong>нет</strong> → это <strong>функция</strong> ✅
+</div>
+
+<p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+🔍 Функция = «одному входу — один выход». Если выходов больше — это не функция!
+</p>
+
+<p style="margin-top: 15px; font-size: 1em; text-align: center;">
+📖 В задании 1 проверь по этому тесту, является ли зависимостью функция площадь прямоугольника!
+</p>
+</div>
+</div>
+
+<!-- Упражнения -->
+<div class="content-block">
+<h2><span class="emoji">✏️</span> Проверь себя</h2>
+<p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>«Проверить»</strong>, чтобы увидеть ответ!</p>
+
+<!-- Уровень 1 -->
+<div class="exercise">
+<span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+<h4>Задание 1 (№258 из учебника)</h4>
+<p>Площадь прямоугольника <span class="math">S</span> со сторонами 9 см и <span class="math">x</span> см равна <span class="math">S</span> см². Вырази формулой зависимость <span class="math">S</span> от <span class="math">x</span>. Найди значение функции при <span class="math">x = 4; 6; 15</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+<div id="answer1" class="answer-content">
+<strong>Решение:</strong><br>
+Формула: <span class="math">S(x) = 9x</span><br>
+• При x = 4: <span class="math">S(4) = 9 · 4 = 36</span> см²<br>
+• При x = 6: <span class="math">S(6) = 9 · 6 = 54</span> см²<br>
+• При x = 15: <span class="math">S(15) = 9 · 15 = 135</span> см²<br>
+<strong>Ответ:</strong> <span class="math">S(x) = 9x</span>; S(4) = 36; S(6) = 54; S(15) = 135
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+<h4>Задание 2 (№259 из учебника)</h4>
+<p>Поезд, двигаясь со скоростью 70 км/ч, проходит за <span class="math">t</span> ч расстояние <span class="math">s</span> км. Задай формулой зависимость <span class="math">s</span> от <span class="math">t</span>. Найди значение функции при <span class="math">t = 2; 4</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+<div id="answer2" class="answer-content">
+<strong>Решение:</strong><br>
+Формула: <span class="math">s(t) = 70t</span><br>
+• При t = 2: <span class="math">s(2) = 70 · 2 = 140</span> км<br>
+• При t = 4: <span class="math">s(4) = 70 · 4 = 280</span> км<br>
+<strong>Ответ:</strong> <span class="math">s(t) = 70t</span>; s(2) = 140; s(4) = 280
+</div>
+</div>
+</div>
+
+<!-- Уровень 2 -->
+<div class="exercise">
+<span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+<h4>Задание 3 (№260 из учебника)</h4>
+<p>Объём куба зависит от длины его ребра. Пусть <span class="math">a</span> см — длина ребра куба, а <span class="math">V</span> см³ — его объём. Задай формулой зависимость <span class="math">V</span> от <span class="math">a</span>. Возьми два каких-нибудь значения аргумента и вычисли соответствующие им значения функции.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+<div id="answer3" class="answer-content">
+<strong>Решение:</strong><br>
+Формула объёма куба: <span class="math">V(a) = a³</span><br>
+Возьмём два значения:<br>
+• При a = 2: <span class="math">V(2) = 2³ = 8</span> см³<br>
+• При a = 3: <span class="math">V(3) = 3³ = 27</span> см³<br>
+<em>(Можно взять любые другие значения — например, a = 5 → V = 125)</em><br>
+<strong>Ответ:</strong> <span class="math">V(a) = a³</span>; например, V(2) = 8, V(3) = 27
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+<h4>Задание 4 (№261 из учебника)</h4>
+<p>По озеру плыла яхта. Расстояние <span class="math">S</span> (в км), на которое удалялась яхта от базы, менялось с течением времени <span class="math">t</span> (в мин). По графику найди:</p>
+<p>• На каком расстоянии от базы находилась яхта через 20 мин; 40 мин; 60 мин?</p>
+<p>• Какова область определения рассматриваемой функции?</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+<div id="answer4" class="answer-content">
+<strong>Решение (по графику из учебника):</strong><br>
+• Через 20 мин → <span class="math">S = 4</span> км<br>
+• Через 40 мин → <span class="math">S = 6</span> км<br>
+• Через 60 мин → <span class="math">S = 8</span> км<br>
+• Область определения: <span class="math">0 ≤ t ≤ 90</span> (яхта плыла 90 минут)<br>
+<strong>Ответ:</strong> 4 км; 6 км; 8 км; область определения <span class="math">[0; 90]</span>
+</div>
+</div>
+</div>
+
+<!-- Уровень 3 -->
+<div class="exercise">
+<span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+<h4>Задание 5 (№263 из учебника)</h4>
+<p>Каждому натуральному числу <span class="math">n</span> ставится в соответствие остаток <span class="math">r</span> от деления этого числа на 4.</p>
+<p>а) Найди <span class="math">r</span>, если <span class="math">n</span> равно 13, 34, 43, 100.</p>
+<p>б) В рассматриваемой функциональной зависимости укажи аргумент.</p>
+<p>в) Какова область определения этой функции?</p>
+<p>г) Какие числа служат значениями функции?</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+<div id="answer5" class="answer-content">
+<strong>Решение:</strong><br>
+а) Делим каждое число на 4 и находим остаток:<br>
+• <span class="math">13 : 4 = 3</span> (ост. 1) → <span class="math">r = 1</span><br>
+• <span class="math">34 : 4 = 8</span> (ост. 2) → <span class="math">r = 2</span><br>
+• <span class="math">43 : 4 = 10</span> (ост. 3) → <span class="math">r = 3</span><br>
+• <span class="math">100 : 4 = 25</span> (ост. 0) → <span class="math">r = 0</span><br>
+б) Аргумент (независимая переменная) — число <span class="math">n</span>.<br>
+в) Область определения — <strong>все натуральные числа</strong> (<span class="math">1, 2, 3, …</span>).<br>
+г) Значения функции — числа <span class="math">0, 1, 2, 3</span> (других остатков от деления на 4 не бывает).<br>
+<strong>Ответ:</strong> а) 1; 2; 3; 0; б) n; в) все натуральные числа; г) 0, 1, 2, 3
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+<h4>Задание 6 (№264 из учебника)</h4>
+<p>В таблице, составленной в результате измерений, показана зависимость атмосферного давления <span class="math">p</span> от высоты <span class="math">h</span>:</p>
+<table class="values-table">
+<tr><th>h, км</th><th>0</th><th>0,5</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+<tr><td>p, мм рт. ст.</td><td>760,0</td><td>716,0</td><td>614,0</td><td>596,7</td><td>525,7</td><td>462,2</td><td>404,8</td></tr>
+</table>
+<p>а) Каково атмосферное давление на высоте 1 км; 4 км?</p>
+<p>б) На какой высоте атмосферное давление равно 596,7 мм рт. ст.; 404,8 мм рт. ст.?</p>
+<p>в) Как изменяется давление в зависимости от высоты?</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+<div id="answer6" class="answer-content">
+<strong>Решение (по таблице):</strong><br>
+а) На высоте 1 км → <span class="math">p = 614,0</span> мм рт. ст.<br>
+&nbsp;&nbsp;&nbsp;На высоте 4 км → <span class="math">p = 462,2</span> мм рт. ст.<br>
+б) Давлению 596,7 соответствует высота <span class="math">h = 2</span> км.<br>
+&nbsp;&nbsp;&nbsp;Давлению 404,8 соответствует высота <span class="math">h = 5</span> км.<br>
+в) С ростом высоты атмосферное давление <strong>уменьшается</strong>.<br>
+<strong>Ответ:</strong> а) 614,0; 462,2; б) 2 км; 5 км; в) давление падает с ростом высоты
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Итоги -->
+<div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+<h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+<ul>
+<li><span class="highlight">Функция</span> — это зависимость, при которой каждому значению аргумента соответствует <strong>ровно одно</strong> значение функции</li>
+<li><span class="highlight">Аргумент</span> (независимая переменная) — то, что мы выбираем; <span class="highlight">функция</span> (зависимая переменная) — то, что получается</li>
+<li>Запись <span class="math">y = f(x)</span> читается: «y — функция от x»</li>
+<li><span class="highlight">Область определения</span> — все допустимые значения аргумента</li>
+<li>Три способа задать функцию: <span class="highlight">формулой</span> (аналитически), <span class="highlight">графиком</span>, <span class="highlight">таблицей</span></li>
+<li>Тест на функцию: «одному x — одно y». Если одному x соответствует два или больше y — это не функция</li>
+<li>В жизни функции описывают площадь, путь, температуру, стоимость — всё, что от чего-то зависит</li>
+</ul>
+</div>
+
+<footer>
+<p>📖 Учебник: Алгебра 7 класс • Глава 2: Функции</p>
+<p>§4, п. 12. Что такое функция • Страницы 54-59</p>
+</footer>
+
+</div>
+
+<script>
+function toggleAnswer(id) {
+const answer = document.getElementById(id);
+const btn = answer.previousElementSibling;
+if (answer.classList.contains('show')) {
+answer.classList.remove('show');
+btn.textContent = '🔍 Проверить';
+btn.style.background = '#3498db';
+} else {
+answer.classList.add('show');
+btn.textContent = '🔒 Скрыть ответ';
+btn.style.background = '#e74c3c';
+}
+}
+</script>
+</body>
+</html>
