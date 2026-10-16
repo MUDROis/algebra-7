@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>График функции — Алгебра 7 класс | Глава 2, §4, п. 14</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fafafa;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+        
+        .lesson-nav {
+            background: white;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.95em;
+        }
+        
+        .lesson-nav a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .lesson-nav a:hover { background: #ecf0f1; }
+        
+        .lesson-nav .nav-center { color: #7f8c8d; }
+        
+        header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .chapter-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        h1 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; color: #7f8c8d; }
+        
+        .content-block {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 { color: #34495e; font-size: 1.3em; margin: 20px 0 12px 0; }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 45%;
+            background-position: 0 85%;
+            padding: 2px 6px;
+            font-weight: 600;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-box h4 { color: #3498db; margin-bottom: 8px; font-size: 1.1em; }
+        
+        .math {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 1.05em;
+        }
+        
+        .visual-container {
+            text-align: center;
+            margin: 25px 0;
+            padding: 20px;
+            background: #fafafa;
+            border: 2px dashed #bdc3c7;
+        }
+        
+        /* График функции */
+        .graph-wrap {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 15px auto;
+        }
+        
+        .graph-svg {
+            width: 100%;
+            height: auto;
+            background: white;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+        }
+        
+        table.values-table {
+            margin: 15px auto;
+            border-collapse: collapse;
+            font-family: 'Courier New', monospace;
+        }
+        
+        table.values-table td, table.values-table th {
+            border: 2px solid #bdc3c7;
+            padding: 6px 14px;
+            text-align: center;
+        }
+        
+        table.values-table th { background: #3498db; color: white; }
+        
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .step-card {
+            background: white;
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        
+        .step-card.s1 { border-color: #27ae60; background: #e9f7ef; }
+        .step-card.s2 { border-color: #f39c12; background: #fef9e7; }
+        .step-card.s3 { border-color: #e74c3c; background: #fdedec; }
+        
+        .step-card .num {
+            font-size: 2em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 6px;
+        }
+        
+        .step-card .title { font-weight: bold; margin-bottom: 6px; }
+        .step-card .desc { font-size: 0.92em; color: #34495e; }
+        
+        .tip-box {
+            background: #e8f6f3;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h4 { color: #1abc9c; margin-bottom: 8px; }
+        
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 { color: #f39c12; margin-bottom: 8px; }
+        
+        .scaffolding-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 3px solid #2d3436;
+            box-shadow: 4px 4px 0 #2d3436;
+        }
+        
+        .scaffolding-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .scaffolding-step {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #2d3436;
+            font-size: 1.05em;
+        }
+        
+        ul, ol { margin: 12px 0; padding-left: 30px; }
+        li { margin: 8px 0; }
+        
+        .exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        
+        .exercise h4 { color: #2c3e50; margin-bottom: 10px; }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid #2d3436;
+        }
+        
+        .level-1 { background: #55efc4; color: #2d3436; }
+        .level-2 { background: #74b9ff; color: #2d3436; }
+        .level-3 { background: #a29bfe; color: #2d3436; }
+        
+        .check-answer { margin-top: 15px; }
+        
+        .answer-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border: 2px solid #2d3436;
+            box-shadow: 2px 2px 0 #2d3436;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #2980b9;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #2d3436;
+        }
+        
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #dfe6e9;
+            border-left: 4px solid #00b894;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .answer-content.show { display: block; }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .emoji { margin-right: 5px; }
+        
+        .formula {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 12px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 3px solid #3498db;
+        }
+        
+        footer .legal {
+            font-size: 0.85em;
+            color: #95a5a6;
+            margin-top: 10px;
+        }
+        
+        footer .legal a {
+            color: #95a5a6;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; }
+            .content-block { padding: 20px; }
+            .lesson-nav { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Навигация сверху -->
+        <nav class="lesson-nav">
+            <a href="index.html">← Все уроки</a>
+            <span class="nav-center">Глава 2 • Урок 14</span>
+            <div>
+                <a href="lesson-13.html">← Урок 13</a> |
+                <a href="lesson-15.html">Урок 15 →</a>
+            </div>
+        </nav>
+        
+        <!-- Header -->
+        <header>
+            <div class="chapter-badge">Глава 2 • §4, п. 14</div>
+            <h1>График функции</h1>
+            <p class="subtitle">Как одна линия может рассказать больше, чем таблица из ста строк</p>
+        </header>
+
+        <!-- Введение -->
+        <div class="content-block">
+            <p>Привет! 👋 Представь: врач смотрит на кардиограмму и за секунды понимает, как работает сердце. Метеоролог глядит на график температуры и предсказывает погоду. Биржевой аналитик по одной кривой решает, покупать или продавать акции. Во всех этих случаях люди читают <span class="highlight">график функции</span> — линию, которая показывает, как одна величина зависит от другой. Сегодня ты научишься строить такие линии и «читать» их!</p>
+        </div>
+
+        <!-- Блок 1: определение -->
+        <div class="content-block">
+            <h2><span class="emoji">📈</span> Что такое график функции?</h2>
+            
+            <div class="tip-box">
+                <h4>📌 Определение</h4>
+                <p><span class="highlight">Графиком функции</span> называется множество всех точек координатной плоскости, абсциссы (x) которых равны значениям аргумента, а ординаты (y) — соответствующим значениям функции.</p>
+            </div>
+            
+            <p>Проще говоря: берём каждую пару (x; y) из таблицы и ставим на координатной плоскости точку. Все эти точки вместе образуют линию — <span class="highlight">график</span>.</p>
+            
+            <h3>Пример из учебника: y = 6/(x + 3) на отрезке [−2; 3]</h3>
+            
+            <table class="values-table">
+                <tr><th>x</th><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+                <tr><th>y</th><td>6</td><td>3</td><td>2</td><td>1,5</td><td>1,2</td><td>1</td></tr>
+            </table>
+            
+            <div class="visual-container">
+                <div class="graph-wrap">
+                    <svg class="graph-svg" viewBox="0 0 440 360" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Сетка: шаг 50 px = 1 ед. Начало координат (170; 330) -->
+                        <g stroke="#ecf0f1" stroke-width="1">
+                            <line x1="70" y1="20" x2="70" y2="340"/>
+                            <line x1="120" y1="20" x2="120" y2="340"/>
+                            <line x1="220" y1="20" x2="220" y2="340"/>
+                            <line x1="270" y1="20" x2="270" y2="340"/>
+                            <line x1="320" y1="20" x2="320" y2="340"/>
+                            <line x1="40" y1="280" x2="400" y2="280"/>
+                            <line x1="40" y1="230" x2="400" y2="230"/>
+                            <line x1="40" y1="180" x2="400" y2="180"/>
+                            <line x1="40" y1="130" x2="400" y2="130"/>
+                            <line x1="40" y1="80" x2="400" y2="80"/>
+                            <line x1="40" y1="30" x2="400" y2="30"/>
+                        </g>
+                        <!-- Оси -->
+                        <line x1="40" y1="330" x2="410" y2="330" stroke="#2d3436" stroke-width="2"/>
+                        <line x1="170" y1="350" x2="170" y2="15" stroke="#2d3436" stroke-width="2"/>
+                        <text x="415" y="335" font-family="Courier New" font-size="14">x</text>
+                        <text x="176" y="12" font-family="Courier New" font-size="14">y</text>
+                        <!-- Подписи оси x -->
+                        <text x="70" y="348" font-family="Courier New" font-size="12" text-anchor="middle">−2</text>
+                        <text x="120" y="348" font-family="Courier New" font-size="12" text-anchor="middle">−1</text>
+                        <text x="160" y="348" font-family="Courier New" font-size="12" text-anchor="middle">0</text>
+                        <text x="220" y="348" font-family="Courier New" font-size="12" text-anchor="middle">1</text>
+                        <text x="270" y="348" font-family="Courier New" font-size="12" text-anchor="middle">2</text>
+                        <text x="320" y="348" font-family="Courier New" font-size="12" text-anchor="middle">3</text>
+                        <!-- Подписи оси y -->
+                        <text x="160" y="284" font-family="Courier New" font-size="12" text-anchor="end">1</text>
+                        <text x="160" y="234" font-family="Courier New" font-size="12" text-anchor="end">2</text>
+                        <text x="160" y="184" font-family="Courier New" font-size="12" text-anchor="end">3</text>
+                        <text x="160" y="134" font-family="Courier New" font-size="12" text-anchor="end">4</text>
+                        <text x="160" y="84" font-family="Courier New" font-size="12" text-anchor="end">5</text>
+                        <text x="160" y="34" font-family="Courier New" font-size="12" text-anchor="end">6</text>
+                        <!-- Кривая y = 6/(x+3) через 6 точек таблицы -->
+                        <path d="M 70,30
+                                 C 85,90 100,140 120,180
+                                 C 135,205 150,220 170,230
+                                 C 185,238 200,247 220,255
+                                 C 235,261 250,266 270,270
+                                 C 285,273 300,277 320,280"
+                              stroke="#3498db" stroke-width="3" fill="none"/>
+                        <!-- Точки таблицы -->
+                        <circle cx="70" cy="30" r="5" fill="#e74c3c"/>
+                        <circle cx="120" cy="180" r="5" fill="#e74c3c"/>
+                        <circle cx="170" cy="230" r="5" fill="#e74c3c"/>
+                        <circle cx="220" cy="255" r="5" fill="#e74c3c"/>
+                        <circle cx="270" cy="270" r="5" fill="#e74c3c"/>
+                        <circle cx="320" cy="280" r="5" fill="#e74c3c"/>
+                        <!-- Подписи точек -->
+                        <text x="78" y="26" font-family="Courier New" font-size="11" fill="#e74c3c">(−2; 6)</text>
+                        <text x="128" y="176" font-family="Courier New" font-size="11" fill="#e74c3c">(−1; 3)</text>
+                        <text x="178" y="226" font-family="Courier New" font-size="11" fill="#e74c3c">(0; 2)</text>
+                        <text x="228" y="251" font-family="Courier New" font-size="11" fill="#e74c3c">(1; 1,5)</text>
+                        <text x="278" y="266" font-family="Courier New" font-size="11" fill="#e74c3c">(2; 1,2)</text>
+                        <text x="328" y="276" font-family="Courier New" font-size="11" fill="#e74c3c">(3; 1)</text>
+                    </svg>
+                </div>
+                <p style="color: #7f8c8d; font-size: 0.9em;">График функции y = 6/(x + 3) на отрезке [−2; 3]. Равный масштаб: 1 ед. = 50 px по обеим осям; точки совпадают с таблицей.</p>
+            </div>
+            
+            <p>Чем больше точек отметим — тем точнее получится линия. Для простых функций (например, прямых) достаточно двух точек, а для сложных кривых — десятки.</p>
+        </div>
+
+        <!-- Блок 2: как читать график -->
+        <div class="content-block">
+            <h2><span class="emoji">👀</span> Как читать график: три главных вопроса</h2>
+            
+            <div class="step-grid">
+                <div class="step-card s1">
+                    <div class="num">1</div>
+                    <div class="title">x → y (вперёд)</div>
+                    <div class="desc">Зная аргумент, найти значение функции. Поднять перпендикуляр из точки на оси X до графика, затем провести горизонталь к оси Y.</div>
+                </div>
+                <div class="step-card s2">
+                    <div class="num">2</div>
+                    <div class="title">y → x (назад)</div>
+                    <div class="desc">Зная значение функции, найти аргумент(ы). Провести горизонталь от оси Y до графика, затем опустить перпендикуляр на ось X.</div>
+                </div>
+                <div class="step-card s3">
+                    <div class="num">3</div>
+                    <div class="title">Точка ∈ график?</div>
+                    <div class="desc">Проверить, лежит ли точка (a; b) на графике. Подставить x = a в формулу и проверить, получится ли y = b.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 3: проверка принадлежности -->
+        <div class="content-block">
+            <h2><span class="emoji">✅</span> Принадлежит ли точка графику?</h2>
+            
+            <p>Если известна формула функции, можно обойтись без чертежа. Достаточно <span class="highlight">подставить координаты точки в формулу</span> и проверить равенство.</p>
+            
+            <div class="example-box">
+                <h4>Пример: функция y = 3 − 2x</h4>
+                <p><strong>Точка M(0; 3):</strong> подставляем x = 0: <span class="math">y = 3 − 2·0 = 3</span>. Равенство <span class="math">3 = 3</span> верное → точка <span class="highlight">лежит</span> на графике ✅</p>
+                <p><strong>Точка N(2; 5):</strong> подставляем x = 2: <span class="math">y = 3 − 2·2 = 3 − 4 = -1</span>. Равенство <span class="math">5 = -1</span> неверное → точка <span class="highlight">не лежит</span> на графике 🚫</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Важное правило</h4>
+                <p>Если подстановка дала верное равенство — точка принадлежит графику. Если равенство неверное — точка лежит вне графика. Никаких «примерно» и «почти»!</p>
+            </div>
+        </div>
+
+        <!-- Блок 4: жизненный пример -->
+        <div class="content-block">
+            <h2><span class="emoji">🌡️</span> Где это встречается в жизни?</h2>
+            
+            <div class="example-box">
+                <h4>График температуры воздуха за сутки</h4>
+                <p>Представь, что метеоролог каждый час записывал температуру и построил график. Что можно узнать без формул?</p>
+                <ul>
+                    <li>🔍 <strong>В 9 утра</strong> было около +15°C (смотрим по x = 9)</li>
+                    <li>🌡️ <strong>Самая высокая температура</strong> — около +28°C в 15:00 (ищем «пик» графика)</li>
+                    <li>❄️ <strong>Ниже нуля</strong> температура опускалась с 22:00 до 6:00 (где график ниже оси X)</li>
+                    <li>📈 <strong>Температура росла</strong> с 6:00 до 15:00 (график идёт вверх)</li>
+                    <li>📉 <strong>Температура падала</strong> с 15:00 до 22:00 (график идёт вниз)</li>
+                </ul>
+                <p>Видишь? Одна линия рассказала <span class="highlight">целую историю о сутках</span> — и всё это без единой формулы!</p>
+            </div>
+        </div>
+
+        <!-- Методическая подсказка -->
+        <div class="content-block">
+            <h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+            
+            <div class="scaffolding-box">
+                <h4>🔥 Лайфхак: три чтения любого графика</h4>
+                <p style="margin-bottom: 15px;"><strong>Любой график можно «прочитать» тремя способами. Потренируемся на функции <span class="math">y = x²</span> (парабола) и точке <span class="math">(3; 9)</span>:</strong></p>
+                
+                <div class="scaffolding-step">
+                    <strong>Чтение 1: вперёд (x → y)</strong><br>
+                    Возьми <span class="math">x = 3</span>, подставь в формулу: <span class="math">y = 3² = 9</span>. Значит, при x = 3 значение функции равно 9. На графике это точка <span class="math">(3; 9)</span>.
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Чтение 2: назад (y → x)</strong><br>
+                    Возьми <span class="math">y = 4</span>. Решаем уравнение <span class="math">x² = 4</span> → <span class="math">x = 2</span> или <span class="math">x = -2</span>. Значит, значение y = 4 функция принимает при двух разных x. На графике горизонтальная линия y = 4 пересечёт параболу в двух точках!
+                </div>
+                
+                <div class="scaffolding-step">
+                    <strong>Чтение 3: проверка точки</strong><br>
+                    Точка <span class="math">(3; 9)</span>: подставляем → <span class="math">9 = 3²</span> → <span class="math">9 = 9</span> ✅ точка на графике<br>
+                    Точка <span class="math">(2; 5)</span>: подставляем → <span class="math">5 = 2²</span> → <span class="math">5 = 4</span> 🚫 точка НЕ на графике
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+                    📊 В задании 1 ты проверишь три точки на графике <span class="math">y = 2x - 6</span> — действуй по третьему чтению!
+                </p>
+            </div>
+        </div>
+
+        <!-- Упражнения -->
+        <div class="content-block">
+            <h2><span class="emoji">✏️</span> Проверь себя</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>"Проверить"</strong>, чтобы увидеть ответ!</p>
+            
+            <!-- Уровень 1 -->
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 1 (№284 из учебника)</h4>
+                <p>Принадлежат ли графику функции <span class="math">y = 2x - 6</span> точки: A(4; 2), B(1; −4), C(1; 4)? Назови ещё две точки, принадлежащие этому графику.</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div id="answer1" class="answer-content">
+                        <strong>Решение (подстановка в формулу):</strong><br>
+                        <strong>A(4; 2):</strong> <span class="math">y = 2·4 - 6 = 8 - 6 = 2</span>. Равенство <span class="math">2 = 2</span> верное → точка <strong>принадлежит</strong> ✅<br>
+                        <strong>B(1; −4):</strong> <span class="math">y = 2·1 - 6 = 2 - 6 = -4</span>. Равенство <span class="math">-4 = -4</span> верное → точка <strong>принадлежит</strong> ✅<br>
+                        <strong>C(1; 4):</strong> <span class="math">y = 2·1 - 6 = -4</span>. Равенство <span class="math">4 = -4</span> неверное → точка <strong>не принадлежит</strong> 🚫<br>
+                        <strong>Ещё две точки:</strong> возьмём x = 0: <span class="math">y = 2·0 - 6 = -6</span> → точка <span class="math">(0; -6)</span>; возьмём x = 3: <span class="math">y = 2·3 - 6 = 0</span> → точка <span class="math">(3; 0)</span>.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+                <h4>Задание 2 (адаптация №283 из учебника)</h4>
+                <p>Заполни таблицу для функции <span class="math">y = x(x - 3)</span> на отрезке [−1; 4] и мысленно представь её график:</p>
+                <table class="values-table">
+                    <tr><th>x</th><td>−1</td><td>0</td><td>1</td><td>1,5</td><td>2</td><td>3</td><td>4</td></tr>
+                    <tr><th>y</th><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+                </table>
+                <p>При каком x значение функции равно 0?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div id="answer2" class="answer-content">
+                        <strong>Вычисляем y = x(x - 3):</strong><br>
+                        x = −1: <span class="math">(-1)·(-1 - 3) = (-1)·(-4) = 4</span><br>
+                        x = 0: <span class="math">0·(0 - 3) = 0</span><br>
+                        x = 1: <span class="math">1·(1 - 3) = 1·(-2) = -2</span><br>
+                        x = 1,5: <span class="math">1,5·(1,5 - 3) = 1,5·(-1,5) = -2,25</span><br>
+                        x = 2: <span class="math">2·(2 - 3) = 2·(-1) = -2</span><br>
+                        x = 3: <span class="math">3·(3 - 3) = 3·0 = 0</span><br>
+                        x = 4: <span class="math">4·(4 - 3) = 4·1 = 4</span><br>
+                        <strong>Таблица заполнена:</strong> 4; 0; −2; −2,25; −2; 0; 4<br>
+                        <strong>y = 0</strong> при <span class="math">x = 0</span> и при <span class="math">x = 3</span> (это точки пересечения графика с осью X).
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 2 -->
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 3 (по мотивам №287 из учебника)</h4>
+                <p>Функция задана графиком (парабола). По графику найди:</p>
+                <p>а) значение функции при x = 0; 2; 4;</p>
+                <p>б) при каких x значение функции равно 5;</p>
+                <p>в) при каких x функция принимает отрицательные значения.</p>
+                
+                <div class="visual-container">
+                    <div class="graph-wrap">
+                        <svg class="graph-svg" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Сетка: шаг 80 px по x, 60 px по y. Ось Y на x=90, ось X на y=230 -->
+                            <g stroke="#ecf0f1" stroke-width="1">
+                                <line x1="50" y1="50" x2="450" y2="50"/>
+                                <line x1="50" y1="110" x2="450" y2="110"/>
+                                <line x1="50" y1="170" x2="450" y2="170"/>
+                                <line x1="50" y1="230" x2="450" y2="230"/>
+                                <line x1="50" y1="290" x2="450" y2="290"/>
+                                <line x1="170" y1="30" x2="170" y2="320"/>
+                                <line x1="250" y1="30" x2="250" y2="320"/>
+                                <line x1="330" y1="30" x2="330" y2="320"/>
+                                <line x1="410" y1="30" x2="410" y2="320"/>
+                            </g>
+                            <!-- Оси -->
+                            <line x1="30" y1="230" x2="470" y2="230" stroke="#2d3436" stroke-width="2"/>
+                            <line x1="90" y1="20" x2="90" y2="330" stroke="#2d3436" stroke-width="2"/>
+                            <!-- Подписи осей -->
+                            <text x="475" y="235" font-family="Courier New" font-size="14">x</text>
+                            <text x="80" y="15" font-family="Courier New" font-size="14">y</text>
+                            <!-- Подписи на оси x -->
+                            <text x="78" y="250" font-family="Courier New" font-size="12">0</text>
+                            <text x="165" y="250" font-family="Courier New" font-size="12">1</text>
+                            <text x="245" y="250" font-family="Courier New" font-size="12">2</text>
+                            <text x="325" y="250" font-family="Courier New" font-size="12">3</text>
+                            <text x="405" y="250" font-family="Courier New" font-size="12">4</text>
+                            <!-- Подписи на оси y -->
+                            <text x="78" y="175" font-family="Courier New" font-size="12">1</text>
+                            <text x="78" y="115" font-family="Courier New" font-size="12">2</text>
+                            <text x="78" y="55" font-family="Courier New" font-size="12">3</text>
+                            <text x="78" y="295" font-family="Courier New" font-size="12">−1</text>
+                            <!-- Парабола y = (x-2)² - 1, точные квадратичные Безье через пересечение касательных -->
+                            <path d="M 90,50 Q 170,290 250,290 Q 330,290 410,50" 
+                                  stroke="#3498db" stroke-width="3" fill="none"/>
+                            <!-- Точки-маркеры -->
+                            <circle cx="90" cy="50" r="5" fill="#e74c3c"/>
+                            <circle cx="170" cy="230" r="5" fill="#e74c3c"/>
+                            <circle cx="250" cy="290" r="5" fill="#e74c3c"/>
+                            <circle cx="330" cy="230" r="5" fill="#e74c3c"/>
+                            <circle cx="410" cy="50" r="5" fill="#e74c3c"/>
+                            <!-- Подписи точек -->
+                            <text x="95" y="45" font-family="Courier New" font-size="11" fill="#e74c3c">(0; 3)</text>
+                            <text x="175" y="225" font-family="Courier New" font-size="11" fill="#e74c3c">(1; 0)</text>
+                            <text x="255" y="285" font-family="Courier New" font-size="11" fill="#e74c3c">(2; −1)</text>
+                            <text x="335" y="225" font-family="Courier New" font-size="11" fill="#e74c3c">(3; 0)</text>
+                            <text x="415" y="45" font-family="Courier New" font-size="11" fill="#e74c3c">(4; 3)</text>
+                        </svg>
+                    </div>
+                    <p style="color: #7f8c8d; font-size: 0.9em;">Схема: парабола y = (x − 2)² − 1, проходящая через точки (0; 3), (1; 0), (2; −1), (3; 0), (4; 3)</p>
+                </div>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div id="answer3" class="answer-content">
+                        <strong>Читаем график:</strong><br>
+                        а) При x = 0: y = 3; при x = 2: y = −1; при x = 4: y = 3<br>
+                        б) y = 5: на показанном отрезке [0; 4] значение 5 не достигается (максимум y = 3 в концах). Если продолжить параболу: <span class="math">(x − 2)² − 1 = 5</span> → <span class="math">(x − 2)² = 6</span> → <span class="math">x − 2 = ±√6</span> → <span class="math">x = 2 ± √6</span>, то есть <span class="math">x ≈ −0,45</span> или <span class="math">x ≈ 4,45</span><br>
+                        в) Функция отрицательна, когда график ниже оси X — это при <span class="math">1 &lt; x &lt; 3</span>.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+                <h4>Задание 4 (на основе №289 из учебника)</h4>
+                <p>Измерив рост ребёнка в разные годы, построили график зависимости роста от возраста. Используя таблицу значений, ответь на вопросы:</p>
+                <table class="values-table">
+                    <tr><th>Возраст (лет)</th><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>
+                    <tr><th>Рост (см)</th><td>85</td><td>100</td><td>115</td><td>125</td><td>135</td></tr>
+                </table>
+                <p>а) Каков был рост ребёнка в 3 года; в 6 лет; в 9 лет?</p>
+                <p>б) На сколько сантиметров вырос ребёнок за первые пять лет (с 2 до 7) и за следующие пять (с 7 до 12)?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div id="answer4" class="answer-content">
+                        <strong>Решение (интерполяция по таблице и графику):</strong><br>
+                        а) В 3 года: между 2 годами (85 см) и 4 годами (100 см) — примерно <span class="math">(85 + 100) : 2 ≈ 92,5 см</span><br>
+                        В 6 лет: по таблице точно <span class="math">115 см</span><br>
+                        В 9 лет: между 8 годами (125 см) и 10 годами (135 см) — примерно <span class="math">(125 + 135) : 2 = 130 см</span><br>
+                        б) За первые 5 лет (с 2 до 7 лет): рост в 7 лет — между 6 (115) и 8 (125), примерно 120 см. Прирост: <span class="math">120 - 85 = 35 см</span><br>
+                        За следующие 5 лет (с 7 до 12 лет): рост в 12 лет — экстраполяция графика, примерно 145 см. Прирост: <span class="math">145 - 120 = 25 см</span><br>
+                        <strong>Вывод:</strong> в первые годы дети растут быстрее! График роста в молодости круче, потом становится положе.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Уровень 3 -->
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 5 (№292 из учебника — эксперимент с водой)</h4>
+                <p>Измеряли температуру воды в чайнике при нагревании. Получили таблицу:</p>
+                <table class="values-table">
+                    <tr><th>t (мин)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+                    <tr><th>T (°C)</th><td>14</td><td>28</td><td>41</td><td>54</td><td>66</td><td>76</td><td>85</td><td>93</td><td>98</td><td>100</td><td>100</td></tr>
+                </table>
+                <p>Ответь на вопросы по графику нагревания:</p>
+                <p>а) Какая температура была через 4 мин; через 9 мин?</p>
+                <p>б) Через сколько минут температура стала равна 41°C; 60°C?</p>
+                <p>в) В какой промежуток времени нагревание шло интенсивнее всего?</p>
+                <p>г) Через сколько минут вода закипела?</p>
+                <p>д) Сколько минут продолжалось кипение (до конца наблюдения)?</p>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div id="answer5" class="answer-content">
+                        <strong>Решение (по таблице и графику):</strong><br>
+                        а) Через 4 мин: <span class="math">66°C</span>; через 9 мин: <span class="math">100°C</span><br>
+                        б) 41°C: <span class="math">через 2 мин</span> (точно по таблице)<br>
+                        &nbsp;&nbsp;&nbsp;60°C: между 3 мин (54°C) и 4 мин (66°C). Прирост за минуту 12°C, нужно набрать ещё 6°C от 54°C. Значит, через <span class="math">3 + 6/12 = 3,5 мин</span><br>
+                        в) Считаем приросты по минутам: 14; 13; 13; 12; 10; 9; 8; 5; 2; 0 °C/мин. <strong>Интенсивнее всего</strong> нагревание шло <span class="math">между 0 и 1 минутами</span> (прирост 14°C/мин); затем интенсивность постепенно снижалась<br>
+                        г) По таблице температура достигла 100°C <span class="math">через 9 мин</span> после начала нагревания (в точке t = 9 уже 100°C)<br>
+                        д) Температура 100°C держалась как минимум с 9-й по 10-ю минуту — то есть <span class="math">1 минуту = 60 секунд</span> (в пределах нашего наблюдения)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+                <h4>Задание 6 (№293 — тормозной путь автомобиля)</h4>
+                <p>На рисунке показаны графики зависимости тормозного пути автомобиля от скорости движения на сухом асфальте. По схеме графика ответь:</p>
+                <p>а) Чему равен тормозной путь при скорости 50 км/ч?</p>
+                <p>б) С какой скоростью должен ехать автомобиль, чтобы его тормозной путь не превышал 60 м?</p>
+                <p>в) Как изменяется тормозной путь при увеличении скорости?</p>
+                
+                <div class="visual-container">
+                    <div class="graph-wrap">
+                        <svg class="graph-svg" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Сетка: масштаб по x: 4 px за 1 км/ч; по y: 2,5 px за 1 м -->
+                            <g stroke="#ecf0f1" stroke-width="1">
+                                <line x1="50" y1="50" x2="450" y2="50"/>
+                                <line x1="50" y1="100" x2="450" y2="100"/>
+                                <line x1="50" y1="150" x2="450" y2="150"/>
+                                <line x1="50" y1="200" x2="450" y2="200"/>
+                                <line x1="130" y1="30" x2="130" y2="250"/>
+                                <line x1="210" y1="30" x2="210" y2="250"/>
+                                <line x1="290" y1="30" x2="290" y2="250"/>
+                                <line x1="370" y1="30" x2="370" y2="250"/>
+                                <line x1="450" y1="30" x2="450" y2="250"/>
+                            </g>
+                            <!-- Оси -->
+                            <line x1="50" y1="250" x2="470" y2="250" stroke="#2d3436" stroke-width="2"/>
+                            <line x1="50" y1="30" x2="50" y2="270" stroke="#2d3436" stroke-width="2"/>
+                            <!-- Подписи осей -->
+                            <text x="450" y="275" font-family="Courier New" font-size="12">v, км/ч</text>
+                            <text x="20" y="25" font-family="Courier New" font-size="12">S, м</text>
+                            <!-- Подписи на оси x (v, км/ч): шаг 20 км/ч = 80 px -->
+                            <text x="50" y="268" font-family="Courier New" font-size="11" text-anchor="middle">0</text>
+                            <text x="130" y="268" font-family="Courier New" font-size="11" text-anchor="middle">20</text>
+                            <text x="210" y="268" font-family="Courier New" font-size="11" text-anchor="middle">40</text>
+                            <text x="290" y="268" font-family="Courier New" font-size="11" text-anchor="middle">60</text>
+                            <text x="370" y="268" font-family="Courier New" font-size="11" text-anchor="middle">80</text>
+                            <text x="450" y="268" font-family="Courier New" font-size="11" text-anchor="middle">100</text>
+                            <!-- Подписи на оси y (S, м): шаг 20 м = 50 px -->
+                            <text x="44" y="204" font-family="Courier New" font-size="11" text-anchor="end">20</text>
+                            <text x="44" y="154" font-family="Courier New" font-size="11" text-anchor="end">40</text>
+                            <text x="44" y="104" font-family="Courier New" font-size="11" text-anchor="end">60</text>
+                            <text x="44" y="54" font-family="Courier New" font-size="11" text-anchor="end">80</text>
+                            <!-- Сухой асфальт: S ≈ 0,006·v² — точные точки -->
+                            <polyline points="50,250 130,244 210,226 250,213 290,196 370,154 450,100"
+                                      stroke="#27ae60" stroke-width="3" fill="none" stroke-linejoin="round"/>
+                            <!-- Точка v=50, S=15 -->
+                            <circle cx="250" cy="213" r="5" fill="#e74c3c"/>
+                            <text x="256" y="208" font-family="Courier New" font-size="11" fill="#e74c3c">(50; 15)</text>
+                            <!-- Точка v=100, S=60 -->
+                            <circle cx="450" cy="100" r="4" fill="#3498db"/>
+                            <!-- Подпись кривой -->
+                            <text x="350" y="90" font-family="Courier New" font-size="12" fill="#27ae60">сухой асфальт</text>
+                        </svg>
+                    </div>
+                    <p style="color: #7f8c8d; font-size: 0.9em;">Схема: тормозной путь растёт быстрее скорости (квадратичная зависимость S ≈ 0,006·v²)</p>
+                </div>
+                
+                <div class="check-answer">
+                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div id="answer6" class="answer-content">
+                        <strong>Чтение схемы графика:</strong><br>
+                        а) При скорости 50 км/ч находим точку на графике и смотрим её ординату: <span class="math">S ≈ 15 м</span><br>
+                        б) Находим на оси Y отметку 60 м, проводим горизонталь до графика, затем опускаем перпендикуляр на ось X: получаем скорость около <span class="math">100 км/ч</span>. Значит, чтобы тормозной путь не превышал 60 м, скорость должна быть <strong>не более 100 км/ч</strong> (по схеме)<br>
+                        в) Тормозной путь растёт <strong>быстрее скорости</strong> (по квадратичному закону): при удвоении скорости тормозной путь увеличивается в 4 раза! Именно поэтому превышение скорости так опасно 🚗<br>
+                        <em>Вывод: даже небольшое увеличение скорости резко увеличивает тормозной путь — вот почему на дорогах такие строгие ограничения!</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+            <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+            <ul>
+                <li><span class="highlight">График функции</span> — множество точек (x; y), где x — аргумент, y — значение функции</li>
+                <li>Чтобы построить график: составь таблицу значений → отметь точки → соедини их плавной линией</li>
+                <li>Чем больше точек — тем точнее график</li>
+                <li>График можно читать в обе стороны: x → y и y → x</li>
+                <li>Проверка принадлежности точки: подставь координаты в формулу и проверь равенство</li>
+                <li>Графики помогают понять закономерности без формул (температура, рост, скорость)</li>
+                <li>Форма графика рассказывает о характере зависимости (прямая — равномерный рост; парабола — ускоренный)</li>
+            </ul>
+        </div>
+
+        <!-- Навигация снизу -->
+        <nav class="lesson-nav">
+            <a href="index.html">← Все уроки</a>
+            <span class="nav-center">Глава 2 • Урок 14</span>
+            <div>
+                <a href="lesson-13.html">← Урок 13</a> |
+                <a href="lesson-15.html">Урок 15 →</a>
+            </div>
+        </nav>
+
+        <!-- Footer -->
+        <footer>
+            <p>📖 Учебник: Алгебра 7 класс • Глава 2: Функции</p>
+            <p>§4, п. 14. График функции • Страницы 62-67</p>
+            <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+            <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            const btn = answer.previousElementSibling;
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                btn.textContent = '🔍 Проверить';
+                btn.style.background = '#3498db';
+            } else {
+                answer.classList.add('show');
+                btn.textContent = '🔒 Скрыть ответ';
+                btn.style.background = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>
