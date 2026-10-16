@@ -260,6 +260,14 @@ border-top: 3px solid #3498db;
 background: white;
 }
 footer .legal { font-size: 0.85em; color: #95a5a6; }
+.lesson-nav {
+text-align: center;
+font-size: 0.95em;
+margin: 0 0 16px;
+}
+.lesson-nav a { color: #3498db; text-decoration: none; }
+.lesson-nav a:hover { text-decoration: underline; }
+.lesson-nav .sep { color: #bdc3c7; margin: 0 8px; }
 @media (max-width: 768px) {
 h1 { font-size: 1.6em; }
 h2 { font-size: 1.3em; }
@@ -269,6 +277,9 @@ h2 { font-size: 1.3em; }
 </head>
 <body>
 <div class="container">
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-13.html">← Урок 13</a>
+</nav>
 
 <header>
 <div class="chapter-badge">Глава 2 • §5, п. 15</div>
@@ -364,7 +375,7 @@ h2 { font-size: 1.3em; }
 
 <!-- Блок 3: знак коэффициента k -->
 <div class="content-block">
-<h2><span class="emoji">🎯</span> Как коэффициент k влияет на график?</h2>
+<h2><span class="emoji">🔀</span> Как коэффициент k влияет на график?</h2>
 <p>Посмотри, как ведут себя прямые при разных знаках <span class="math">k</span>:</p>
 
 <div class="graphs-grid">
@@ -540,7 +551,7 @@ D(3; 5): <span class="math">5 = 2 · 3</span> → <span class="math">5 = 6</span
 <!-- Уровень 3 -->
 <div class="exercise">
 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
-<h4>Задание 5 (по мотивам №299 из учебника)</h4>
+<h4>Задание 5 (авторская задача по мотивам №299)</h4>
 <p>На рисунке изображён график функции <span class="math">y = kx</span>. Найди коэффициент <span class="math">k</span> и запиши формулу функции.</p>
 <div class="visual-container">
 <svg class="graph-svg" viewBox="0 0 300 300" aria-label="График прямой пропорциональности, проходящий через точку (2; 3)">
@@ -597,7 +608,7 @@ D(3; 5): <span class="math">5 = 2 · 3</span> → <span class="math">5 = 6</span
 
 <div class="exercise">
 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
-<h4>Задание 6 (задача на сравнение)</h4>
+<h4>Задание 6 (авторская задача на сравнение)</h4>
 <p>На одном рисунке изображены графики двух прямых пропорциональностей <span class="math">y = k₁x</span> и <span class="math">y = k₂x</span>. Первая прямая проходит через точку <span class="math">(2; 8)</span>, а вторая — через точку <span class="math">(3; -6)</span>.</p>
 <p>а) Найди <span class="math">k₁</span> и <span class="math">k₂</span> и запиши формулы функций.</p>
 <p>б) Через какие четверти проходит каждая прямая?</p>
@@ -633,6 +644,9 @@ D(3; 5): <span class="math">5 = 2 · 3</span> → <span class="math">5 = 6</span
 </ul>
 </div>
 
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-13.html">← Урок 13</a>
+</nav>
 <footer>
 <p>📖 Учебник: Алгебра 7 класс • Глава 2: Функции</p>
 <p>§5, п. 15. Прямая пропорциональность и её график • Страницы 69-74</p>
