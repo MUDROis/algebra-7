@@ -220,10 +220,26 @@ font-family: 'Courier New', monospace;
 font-weight: bold;
 font-size: 1.1em;
 }
-.q1 { background: #d5f5e3; border-right: 1px solid #2d3436; border-bottom: 1px solid #2d3436; }
-.q2 { background: #fadbd8; border-bottom: 1px solid #2d3436; }
-.q3 { background: #fadbd8; border-right: 1px solid #2d3436; }
-.q4 { background: #d5f5e3; }
+.q1 { background: #d5f5e3; border-bottom: 1px solid #2d3436; }
+.q2 { background: #fadbd8; border-right: 1px solid #2d3436; border-bottom: 1px solid #2d3436; }
+.q3 { background: #d5f5e3; border-right: 1px solid #2d3436; }
+.q4 { background: #fadbd8; }
+.q-legend {
+margin-top: 12px;
+text-align: center;
+font-size: 0.95em;
+color: #34495e;
+}
+.q-legend .sw {
+display: inline-block;
+width: 14px;
+height: 14px;
+border: 1px solid #2d3436;
+vertical-align: middle;
+margin: 0 4px 0 10px;
+}
+.q-legend .sw-green { background: #d5f5e3; }
+.q-legend .sw-pink { background: #fadbd8; }
 table.values-table {
 margin: 15px auto;
 border-collapse: collapse;
@@ -243,6 +259,7 @@ margin-top: 30px;
 border-top: 3px solid #3498db;
 background: white;
 }
+footer .legal { font-size: 0.85em; color: #95a5a6; }
 @media (max-width: 768px) {
 h1 { font-size: 1.6em; }
 h2 { font-size: 1.3em; }
@@ -297,16 +314,24 @@ h2 { font-size: 1.3em; }
 <p>Отметим точки на координатной плоскости и соединим их прямой:</p>
 <div class="visual-container">
 <svg class="graph-svg" viewBox="0 0 300 300" aria-label="График функции y = 2x — прямая через начало координат, проходящая через I и III четверти">
-<!-- Сетка -->
+<!-- Сетка (1 клетка = 1 единица) -->
 <line x1="30" y1="30" x2="30" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="60" y1="30" x2="60" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="90" y1="30" x2="90" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="120" y1="30" x2="120" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="150" y1="30" x2="150" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="180" y1="30" x2="180" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="210" y1="30" x2="210" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="240" y1="30" x2="240" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="270" y1="30" x2="270" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="30" x2="270" y2="30" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="60" x2="270" y2="60" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="90" x2="270" y2="90" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="120" x2="270" y2="120" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="150" x2="270" y2="150" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="180" x2="270" y2="180" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="210" x2="270" y2="210" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="240" x2="270" y2="240" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="270" x2="270" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <!-- Оси -->
 <line x1="20" y1="150" x2="280" y2="150" stroke="#2d3436" stroke-width="2"/>
@@ -317,16 +342,16 @@ h2 { font-size: 1.3em; }
 <!-- Подписи осей -->
 <text x="278" y="145" font-family="Courier New" font-size="14" font-weight="bold">x</text>
 <text x="155" y="22" font-family="Courier New" font-size="14" font-weight="bold">y</text>
-<!-- Прямая y = 2x -->
-<line x1="60" y1="240" x2="240" y2="60" stroke="#e74c3c" stroke-width="3"/>
-<!-- Точки -->
+<!-- Прямая y = 2x (в масштабе: 1 клетка = 1 единица) -->
+<line x1="90" y1="270" x2="210" y2="30" stroke="#e74c3c" stroke-width="3"/>
+<!-- Точки по таблице: (0;0), (1;2), (2;4), (−1;−2), (−2;−4) -->
 <circle cx="150" cy="150" r="4" fill="#2d3436"/>
-<circle cx="180" cy="120" r="4" fill="#2d3436"/>
-<circle cx="210" cy="90" r="4" fill="#2d3436"/>
-<circle cx="120" cy="180" r="4" fill="#2d3436"/>
-<circle cx="90" cy="210" r="4" fill="#2d3436"/>
+<circle cx="180" cy="90" r="4" fill="#2d3436"/>
+<circle cx="210" cy="30" r="4" fill="#2d3436"/>
+<circle cx="120" cy="210" r="4" fill="#2d3436"/>
+<circle cx="90" cy="270" r="4" fill="#2d3436"/>
 <!-- Подпись -->
-<text x="225" y="75" font-family="Courier New" font-size="14" font-weight="bold" fill="#e74c3c">y = 2x</text>
+<text x="200" y="70" font-family="Courier New" font-size="14" font-weight="bold" fill="#e74c3c">y = 2x</text>
 </svg>
 <p style="color: #7f8c8d; font-size: 0.9em;">График функции <span class="math">y = 2x</span> — прямая, проходящая через начало координат</p>
 </div>
@@ -355,6 +380,7 @@ h2 { font-size: 1.3em; }
 <text x="210" y="55" font-family="Courier New" font-size="13" font-weight="bold" fill="#27ae60">k &gt; 0</text>
 </svg>
 <p style="font-size: 0.9em; color: #27ae60;">I и III четверти — прямая «идёт вверх»</p>
+<p style="font-size: 0.8em; color: #95a5a6; margin-top: 4px;">Схема: масштаб по осям не соблюдён</p>
 </div>
 <div class="graph-card">
 <div class="gc-title">y = -2x (k = -2 &lt; 0)</div>
@@ -368,6 +394,7 @@ h2 { font-size: 1.3em; }
 <text x="200" y="55" font-family="Courier New" font-size="13" font-weight="bold" fill="#8e44ad">k &lt; 0</text>
 </svg>
 <p style="font-size: 0.9em; color: #8e44ad;">II и IV четверти — прямая «идёт вниз»</p>
+<p style="font-size: 0.8em; color: #95a5a6; margin-top: 4px;">Схема: масштаб по осям не соблюдён</p>
 </div>
 </div>
 
@@ -378,6 +405,7 @@ h2 { font-size: 1.3em; }
 <div class="q3">III: x &lt; 0, y &lt; 0</div>
 <div class="q4">IV: x &gt; 0, y &lt; 0</div>
 </div>
+<p class="q-legend"><span class="sw sw-green"></span> k &gt; 0 → I и III четверти&nbsp;&nbsp;&nbsp;<span class="sw sw-pink"></span> k &lt; 0 → II и IV четверти</p>
 
 <div class="tip-box">
 <h4>💡 Правило для запоминания</h4>
@@ -516,16 +544,24 @@ D(3; 5): <span class="math">5 = 2 · 3</span> → <span class="math">5 = 6</span
 <p>На рисунке изображён график функции <span class="math">y = kx</span>. Найди коэффициент <span class="math">k</span> и запиши формулу функции.</p>
 <div class="visual-container">
 <svg class="graph-svg" viewBox="0 0 300 300" aria-label="График прямой пропорциональности, проходящий через точку (2; 3)">
-<!-- Сетка -->
+<!-- Сетка (1 клетка = 1 единица) -->
 <line x1="30" y1="30" x2="30" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="60" y1="30" x2="60" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="90" y1="30" x2="90" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="120" y1="30" x2="120" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="150" y1="30" x2="150" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="180" y1="30" x2="180" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="210" y1="30" x2="210" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="240" y1="30" x2="240" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="270" y1="30" x2="270" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="30" x2="270" y2="30" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="60" x2="270" y2="60" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="90" x2="270" y2="90" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="120" x2="270" y2="120" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="150" x2="270" y2="150" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="180" x2="270" y2="180" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="210" x2="270" y2="210" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="240" x2="270" y2="240" stroke="#bdc3c7" stroke-width="1"/>
 <line x1="30" y1="270" x2="270" y2="270" stroke="#bdc3c7" stroke-width="1"/>
 <!-- Оси -->
 <line x1="20" y1="150" x2="280" y2="150" stroke="#2d3436" stroke-width="2"/>
@@ -534,14 +570,14 @@ D(3; 5): <span class="math">5 = 2 · 3</span> → <span class="math">5 = 6</span
 <polygon points="150,20 146,28 154,28" fill="#2d3436"/>
 <text x="278" y="145" font-family="Courier New" font-size="14" font-weight="bold">x</text>
 <text x="155" y="22" font-family="Courier New" font-size="14" font-weight="bold">y</text>
-<!-- Подписи делений -->
-<text x="207" y="168" font-family="Courier New" font-size="12" fill="#2d3436">2</text>
-<text x="155" y="93" font-family="Courier New" font-size="12" fill="#2d3436">3</text>
-<!-- Прямая -->
-<line x1="60" y1="240" x2="240" y2="60" stroke="#3498db" stroke-width="3"/>
+<!-- Подписи делений (1 клетка = 1 единица) -->
+<text x="205" y="167" font-family="Courier New" font-size="12" fill="#2d3436">2</text>
+<text x="154" y="63" font-family="Courier New" font-size="12" fill="#2d3436">3</text>
+<!-- Прямая y = 1,5x (в масштабе) -->
+<line x1="70" y1="270" x2="230" y2="30" stroke="#3498db" stroke-width="3"/>
 <!-- Точка (2; 3) -->
-<circle cx="210" cy="90" r="5" fill="#e74c3c"/>
-<text x="218" y="85" font-family="Courier New" font-size="13" font-weight="bold" fill="#e74c3c">(2; 3)</text>
+<circle cx="210" cy="60" r="5" fill="#e74c3c"/>
+<text x="218" y="76" font-family="Courier New" font-size="13" font-weight="bold" fill="#e74c3c">(2; 3)</text>
 </svg>
 </div>
 <div class="check-answer">
@@ -600,6 +636,8 @@ D(3; 5): <span class="math">5 = 2 · 3</span> → <span class="math">5 = 6</span
 <footer>
 <p>📖 Учебник: Алгебра 7 класс • Глава 2: Функции</p>
 <p>§5, п. 15. Прямая пропорциональность и её график • Страницы 69-74</p>
+<p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+<p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
 </footer>
 
 </div>
