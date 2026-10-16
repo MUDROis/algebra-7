@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Прямая пропорциональность и её график — Алгебра 7 класс | Глава 2, §5, п. 15</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #2c3e50;
+background-color: #fafafa;
+background-image:
+linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px),
+linear-gradient(90deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
+background-size: 20px 20px;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+header {
+background: white;
+padding: 30px;
+margin-bottom: 30px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+border-left: 5px solid #3498db;
+}
+.chapter-badge {
+display: inline-block;
+background: #3498db;
+color: white;
+padding: 5px 15px;
+border-radius: 3px;
+font-size: 14px;
+margin-bottom: 10px;
+}
+h1 { font-size: 2em; color: #2c3e50; margin-bottom: 10px; }
+.subtitle { font-size: 1.1em; color: #7f8c8d; }
+.content-block {
+background: white;
+padding: 30px;
+margin-bottom: 25px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+h2 {
+color: #2c3e50;
+font-size: 1.6em;
+margin-bottom: 20px;
+padding-bottom: 8px;
+border-bottom: 2px solid #ecf0f1;
+}
+h3 { color: #34495e; font-size: 1.3em; margin: 20px 0 12px 0; }
+.highlight {
+background: linear-gradient(120deg, #fff59d 0%, #fff59d 100%);
+background-repeat: no-repeat;
+background-size: 100% 45%;
+background-position: 0 85%;
+padding: 2px 6px;
+font-weight: 600;
+}
+.example-box {
+background: #f8f9fa;
+border-left: 4px solid #3498db;
+padding: 15px 20px;
+margin: 15px 0;
+}
+.example-box h4 { color: #3498db; margin-bottom: 8px; font-size: 1.1em; }
+.math {
+font-family: 'Courier New', monospace;
+background: #ecf0f1;
+padding: 3px 8px;
+border-radius: 3px;
+font-size: 1.05em;
+}
+.visual-container {
+text-align: center;
+margin: 25px 0;
+padding: 20px;
+background: #fafafa;
+border: 2px dashed #bdc3c7;
+}
+.graph-svg {
+width: 100%;
+max-width: 340px;
+height: auto;
+display: block;
+margin: 10px auto;
+}
+.graphs-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 15px;
+margin: 20px 0;
+}
+.graph-card {
+background: white;
+border: 2px solid #d5dbdb;
+border-radius: 8px;
+padding: 12px;
+text-align: center;
+}
+.graph-card .gc-title {
+font-weight: bold;
+color: #34495e;
+margin-bottom: 6px;
+font-family: 'Courier New', monospace;
+}
+.tip-box {
+background: #e8f6f3;
+border-left: 4px solid #1abc9c;
+padding: 15px 20px;
+margin: 20px 0;
+}
+.tip-box h4 { color: #1abc9c; margin-bottom: 8px; }
+.warning-box {
+background: #fef9e7;
+border-left: 4px solid #f39c12;
+padding: 15px 20px;
+margin: 20px 0;
+}
+.warning-box h4 { color: #f39c12; margin-bottom: 8px; }
+.scaffolding-box {
+background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+color: #2d3436;
+padding: 25px;
+border-radius: 8px;
+margin: 25px 0;
+border: 3px solid #2d3436;
+box-shadow: 4px 4px 0 #2d3436;
+}
+.scaffolding-box h4 {
+font-size: 1.3em;
+margin-bottom: 15px;
+color: #2d3436;
+font-weight: bold;
+}
+.scaffolding-step {
+background: white;
+padding: 12px;
+margin: 10px 0;
+border-radius: 5px;
+border: 2px solid #2d3436;
+font-size: 1.05em;
+}
+ul, ol { margin: 12px 0; padding-left: 30px; }
+li { margin: 8px 0; }
+.exercise {
+background: #f8f9fa;
+padding: 20px;
+margin: 15px 0;
+border: 2px solid #d5dbdb;
+border-radius: 5px;
+}
+.exercise h4 { color: #2c3e50; margin-bottom: 10px; }
+.level-badge {
+display: inline-block;
+padding: 3px 12px;
+border-radius: 12px;
+font-size: 0.85em;
+font-weight: bold;
+margin-bottom: 10px;
+border: 2px solid #2d3436;
+}
+.level-1 { background: #55efc4; color: #2d3436; }
+.level-2 { background: #74b9ff; color: #2d3436; }
+.level-3 { background: #a29bfe; color: #2d3436; }
+.check-answer { margin-top: 15px; }
+.answer-btn {
+background: #3498db;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1em;
+border: 2px solid #2d3436;
+box-shadow: 2px 2px 0 #2d3436;
+transition: all 0.3s;
+font-weight: 600;
+}
+.answer-btn:hover {
+background: #2980b9;
+transform: translate(1px, 1px);
+box-shadow: 1px 1px 0 #2d3436;
+}
+.answer-content {
+display: none;
+margin-top: 15px;
+padding: 15px;
+background: #dfe6e9;
+border-left: 4px solid #00b894;
+border-radius: 5px;
+animation: slideDown 0.3s ease-out;
+}
+.answer-content.show { display: block; }
+@keyframes slideDown {
+from { opacity: 0; transform: translateY(-10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.emoji { margin-right: 5px; }
+.formula {
+text-align: center;
+font-size: 1.2em;
+margin: 15px 0;
+padding: 12px;
+background: #ecf0f1;
+border-radius: 5px;
+}
+.quadrants {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 0;
+max-width: 280px;
+margin: 15px auto;
+border: 2px solid #2d3436;
+}
+.quadrant {
+padding: 14px 8px;
+text-align: center;
+font-family: 'Courier New', monospace;
+font-weight: bold;
+font-size: 1.1em;
+}
+.q1 { background: #d5f5e3; border-right: 1px solid #2d3436; border-bottom: 1px solid #2d3436; }
+.q2 { background: #fadbd8; border-bottom: 1px solid #2d3436; }
+.q3 { background: #fadbd8; border-right: 1px solid #2d3436; }
+.q4 { background: #d5f5e3; }
+table.values-table {
+margin: 15px auto;
+border-collapse: collapse;
+font-family: 'Courier New', monospace;
+}
+table.values-table td, table.values-table th {
+border: 2px solid #bdc3c7;
+padding: 6px 14px;
+text-align: center;
+}
+table.values-table th { background: #ecf0f1; }
+footer {
+text-align: center;
+color: #7f8c8d;
+padding: 20px;
+margin-top: 30px;
+border-top: 3px solid #3498db;
+background: white;
+}
+@media (max-width: 768px) {
+h1 { font-size: 1.6em; }
+h2 { font-size: 1.3em; }
+.content-block { padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<div class="chapter-badge">Глава 2 • §5, п. 15</div>
+<h1>Прямая пропорциональность и её график</h1>
+<p class="subtitle">Функция y = kx — прямая, проходящая через начало координат</p>
+</header>
+
+<!-- Введение -->
+<div class="content-block">
+<p>Привет! 👋 Сегодня ты познакомишься с <span class="highlight">прямой пропорциональностью</span> — самой простой и красивой функцией. Вспомни: если автомобиль едет со скоростью 60 км/ч, то путь <span class="math">s</span> зависит от времени <span class="math">t</span> по формуле <span class="math">s = 60t</span>. Это и есть прямая пропорциональность! А её график — всегда прямая линия, проходящая через начало координат. Удивительно просто! 🚀</p>
+</div>
+
+<!-- Блок 1: определение -->
+<div class="content-block">
+<h2><span class="emoji">📐</span> Что такое прямая пропорциональность?</h2>
+<div class="example-box">
+<h4>📌 Определение</h4>
+<p><span class="highlight">Прямой пропорциональностью</span> называется функция, заданная формулой <span class="math">y = kx</span>, где <span class="math">x</span> — независимая переменная, а <span class="math">k</span> — некоторое ненулевое число.</p>
+<p>Число <span class="math">k</span> называют <span class="highlight">коэффициентом пропорциональности</span>.</p>
+</div>
+
+<h3>Примеры из жизни</h3>
+<ul>
+<li><strong>Путь и время:</strong> <span class="math">s = 60t</span> (здесь <span class="math">k = 60</span>)</li>
+<li><strong>Стоимость и количество:</strong> <span class="math">C = 25n</span> — стоимость <span class="math">n</span> тетрадей по 25 руб. (<span class="math">k = 25</span>)</li>
+<li><strong>Масса и объём:</strong> <span class="math">m = ρV</span> — масса тела через плотность и объём (<span class="math">k = ρ</span>)</li>
+</ul>
+
+<div class="tip-box">
+<h4>💡 Главное свойство</h4>
+<p>Если <span class="math">x</span> увеличить в несколько раз, то и <span class="math">y</span> увеличится во столько же раз! Именно поэтому зависимость называется «пропорциональной».</p>
+</div>
+</div>
+
+<!-- Блок 2: график -->
+<div class="content-block">
+<h2><span class="emoji">📈</span> График прямой пропорциональности</h2>
+<p>Построим график функции <span class="math">y = 2x</span>. Составим таблицу значений:</p>
+<table class="values-table">
+<tr><th>x</th><td>-2</td><td>-1</td><td>0</td><td>1</td><td>2</td></tr>
+<tr><th>y</th><td>-4</td><td>-2</td><td>0</td><td>2</td><td>4</td></tr>
+</table>
+<p>Отметим точки на координатной плоскости и соединим их прямой:</p>
+<div class="visual-container">
+<svg class="graph-svg" viewBox="0 0 300 300" aria-label="График функции y = 2x — прямая через начало координат, проходящая через I и III четверти">
+<!-- Сетка -->
+<line x1="30" y1="30" x2="30" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="90" y1="30" x2="90" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="150" y1="30" x2="150" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="210" y1="30" x2="210" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="270" y1="30" x2="270" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="30" x2="270" y2="30" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="90" x2="270" y2="90" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="150" x2="270" y2="150" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="210" x2="270" y2="210" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="270" x2="270" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<!-- Оси -->
+<line x1="20" y1="150" x2="280" y2="150" stroke="#2d3436" stroke-width="2"/>
+<line x1="150" y1="20" x2="150" y2="280" stroke="#2d3436" stroke-width="2"/>
+<!-- Стрелки -->
+<polygon points="280,150 272,146 272,154" fill="#2d3436"/>
+<polygon points="150,20 146,28 154,28" fill="#2d3436"/>
+<!-- Подписи осей -->
+<text x="278" y="145" font-family="Courier New" font-size="14" font-weight="bold">x</text>
+<text x="155" y="22" font-family="Courier New" font-size="14" font-weight="bold">y</text>
+<!-- Прямая y = 2x -->
+<line x1="60" y1="240" x2="240" y2="60" stroke="#e74c3c" stroke-width="3"/>
+<!-- Точки -->
+<circle cx="150" cy="150" r="4" fill="#2d3436"/>
+<circle cx="180" cy="120" r="4" fill="#2d3436"/>
+<circle cx="210" cy="90" r="4" fill="#2d3436"/>
+<circle cx="120" cy="180" r="4" fill="#2d3436"/>
+<circle cx="90" cy="210" r="4" fill="#2d3436"/>
+<!-- Подпись -->
+<text x="225" y="75" font-family="Courier New" font-size="14" font-weight="bold" fill="#e74c3c">y = 2x</text>
+</svg>
+<p style="color: #7f8c8d; font-size: 0.9em;">График функции <span class="math">y = 2x</span> — прямая, проходящая через начало координат</p>
+</div>
+
+<div class="warning-box">
+<h4>📌 Запомни!</h4>
+<p><span class="highlight">Графиком прямой пропорциональности является прямая, проходящая через начало координат</span> (через точку <span class="math">(0; 0)</span>).</p>
+</div>
+</div>
+
+<!-- Блок 3: знак коэффициента k -->
+<div class="content-block">
+<h2><span class="emoji">🎯</span> Как коэффициент k влияет на график?</h2>
+<p>Посмотри, как ведут себя прямые при разных знаках <span class="math">k</span>:</p>
+
+<div class="graphs-grid">
+<div class="graph-card">
+<div class="gc-title">y = 2x (k = 2 &gt; 0)</div>
+<svg class="graph-svg" viewBox="0 0 260 260" aria-label="Прямая y=2x проходит через I и III четверти">
+<line x1="20" y1="20" x2="240" y2="20" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="20" y1="130" x2="240" y2="130" stroke="#2d3436" stroke-width="2"/>
+<line x1="130" y1="20" x2="130" y2="240" stroke="#2d3436" stroke-width="2"/>
+<polygon points="240,130 232,126 232,134" fill="#2d3436"/>
+<polygon points="130,20 126,28 134,28" fill="#2d3436"/>
+<line x1="40" y1="220" x2="220" y2="40" stroke="#27ae60" stroke-width="3"/>
+<text x="210" y="55" font-family="Courier New" font-size="13" font-weight="bold" fill="#27ae60">k &gt; 0</text>
+</svg>
+<p style="font-size: 0.9em; color: #27ae60;">I и III четверти — прямая «идёт вверх»</p>
+</div>
+<div class="graph-card">
+<div class="gc-title">y = -2x (k = -2 &lt; 0)</div>
+<svg class="graph-svg" viewBox="0 0 260 260" aria-label="Прямая y=-2x проходит через II и IV четверти">
+<line x1="20" y1="20" x2="240" y2="20" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="20" y1="130" x2="240" y2="130" stroke="#2d3436" stroke-width="2"/>
+<line x1="130" y1="20" x2="130" y2="240" stroke="#2d3436" stroke-width="2"/>
+<polygon points="240,130 232,126 232,134" fill="#2d3436"/>
+<polygon points="130,20 126,28 134,28" fill="#2d3436"/>
+<line x1="40" y1="40" x2="220" y2="220" stroke="#8e44ad" stroke-width="3"/>
+<text x="200" y="55" font-family="Courier New" font-size="13" font-weight="bold" fill="#8e44ad">k &lt; 0</text>
+</svg>
+<p style="font-size: 0.9em; color: #8e44ad;">II и IV четверти — прямая «идёт вниз»</p>
+</div>
+</div>
+
+<h3>Четверти координатной плоскости</h3>
+<div class="quadrants">
+<div class="q2">II: x &lt; 0, y &gt; 0</div>
+<div class="q1">I: x &gt; 0, y &gt; 0</div>
+<div class="q3">III: x &lt; 0, y &lt; 0</div>
+<div class="q4">IV: x &gt; 0, y &lt; 0</div>
+</div>
+
+<div class="tip-box">
+<h4>💡 Правило для запоминания</h4>
+<p>• Если <span class="math">k &gt; 0</span> → прямая проходит через <strong>I и III</strong> четверти (функция возрастает).</p>
+<p>• Если <span class="math">k &lt; 0</span> → прямая проходит через <strong>II и IV</strong> четверти (функция убывает).</p>
+</div>
+</div>
+
+<!-- Методическая подсказка -->
+<div class="content-block">
+<h2><span class="emoji">🎯</span> Методическая подсказка</h2>
+<div class="scaffolding-box">
+<h4>🔥 Лайфхак: для построения графика y = kx достаточно ДВУХ точек</h4>
+<p style="margin-bottom: 15px;"><strong>График прямой пропорциональности — это прямая. А прямая однозначно определяется двумя точками. Значит, для построения достаточно найти всего две точки!</strong></p>
+
+<div class="scaffolding-step">
+<strong>Шаг 1.</strong> Первая точка — всегда начало координат: <span class="math">(0; 0)</span>.<br>
+Проверим: <span class="math">y = k · 0 = 0</span> ✅ — всегда верно.
+</div>
+<div class="scaffolding-step">
+<strong>Шаг 2.</strong> Вторая точка — самая удобная: возьми <span class="math">x = 1</span>.<br>
+Тогда <span class="math">y = k · 1 = k</span>. Получили точку <span class="math">(1; k)</span>.
+</div>
+<div class="scaffolding-step">
+<strong>Шаг 3.</strong> Отметь обе точки на координатной плоскости и проведи через них прямую с помощью линейки. Готово!
+</div>
+
+<p style="margin: 15px 0;"><strong>Пример (не из заданий):</strong> построим <span class="math">y = 3x</span>.</p>
+<div class="scaffolding-step">
+Точка 1: <span class="math">(0; 0)</span>. Точка 2: при <span class="math">x = 1</span> получаем <span class="math">y = 3</span> → <span class="math">(1; 3)</span>.<br>
+Проводим прямую через <span class="math">(0; 0)</span> и <span class="math">(1; 3)</span> ✅
+</div>
+
+<div class="scaffolding-step">
+<strong>А как по готовому графику найти k?</strong><br>
+Возьми любую точку графика, кроме <span class="math">(0; 0)</span>, и подставь её координаты в формулу <span class="math">y = kx</span>. Вырази <span class="math">k = y / x</span>.<br>
+Например, на графике есть точка <span class="math">(2; 6)</span>: <span class="math">k = 6 / 2 = 3</span> → формула <span class="math">y = 3x</span> ✅
+</div>
+
+<p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
+📏 Две точки — и весь график готов!
+</p>
+
+<p style="margin-top: 15px; font-size: 1em; text-align: center;">
+🧩 В задании 1 построишь прямые <span class="math">y = 3x</span> и <span class="math">y = -2x</span> — как раз по этому алгоритму!
+</p>
+</div>
+</div>
+
+<!-- Упражнения -->
+<div class="content-block">
+<h2><span class="emoji">✏️</span> Проверь себя</h2>
+<p style="margin-bottom: 20px; font-size: 1.1em;">Задания идут от простого к сложному. Нажми <strong>«Проверить»</strong>, чтобы увидеть ответ!</p>
+
+<!-- Уровень 1 -->
+<div class="exercise">
+<span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+<h4>Задание 1 (№297 из учебника)</h4>
+<p>Построй график функции:</p>
+<p>а) <span class="math">y = 3x</span>; &nbsp; б) <span class="math">y = -2x</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+<div id="answer1" class="answer-content">
+<strong>Решение (используем две точки):</strong><br>
+а) <span class="math">y = 3x</span> (<span class="math">k = 3 &gt; 0</span>):<br>
+• Точка 1: <span class="math">(0; 0)</span><br>
+• Точка 2: при <span class="math">x = 1</span> → <span class="math">y = 3</span> → <span class="math">(1; 3)</span><br>
+Проводим прямую через эти точки — она идёт через I и III четверти.<br><br>
+б) <span class="math">y = -2x</span> (<span class="math">k = -2 &lt; 0</span>):<br>
+• Точка 1: <span class="math">(0; 0)</span><br>
+• Точка 2: при <span class="math">x = 1</span> → <span class="math">y = -2</span> → <span class="math">(1; -2)</span><br>
+Проводим прямую — она идёт через II и IV четверти.
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
+<h4>Задание 2 (№300 из учебника)</h4>
+<p>Прямая пропорциональность задана формулой <span class="math">y = kx</span>. Известно, что при <span class="math">x = 4</span> значение <span class="math">y</span> равно 8. Найди коэффициент <span class="math">k</span> и запиши формулу.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+<div id="answer2" class="answer-content">
+<strong>Решение:</strong><br>
+Подставим <span class="math">x = 4, y = 8</span> в формулу <span class="math">y = kx</span>:<br>
+<span class="math">8 = k · 4</span><br>
+<span class="math">k = 8 : 4 = 2</span><br>
+Формула: <span class="math">y = 2x</span><br><br>
+<strong>Проверка:</strong> при <span class="math">x = 4</span> → <span class="math">y = 2 · 4 = 8</span> ✅<br>
+<strong>Ответ:</strong> <span class="math">k = 2</span>, формула <span class="math">y = 2x</span>
+</div>
+</div>
+</div>
+
+<!-- Уровень 2 -->
+<div class="exercise">
+<span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+<h4>Задание 3 (№301 из учебника)</h4>
+<p>Принадлежат ли графику функции <span class="math">y = 2x</span> точки:</p>
+<p><span class="math">A(1; 2)</span>, <span class="math">B(-1; -2)</span>, <span class="math">C(0,5; 1)</span>, <span class="math">D(3; 5)</span>?</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+<div id="answer3" class="answer-content">
+<strong>Решение (подставляем координаты в формулу):</strong><br>
+A(1; 2): <span class="math">2 = 2 · 1</span> → <span class="math">2 = 2</span> ✅ <strong>принадлежит</strong><br>
+B(-1; -2): <span class="math">-2 = 2 · (-1)</span> → <span class="math">-2 = -2</span> ✅ <strong>принадлежит</strong><br>
+C(0,5; 1): <span class="math">1 = 2 · 0,5</span> → <span class="math">1 = 1</span> ✅ <strong>принадлежит</strong><br>
+D(3; 5): <span class="math">5 = 2 · 3</span> → <span class="math">5 = 6</span> ❌ <strong>не принадлежит</strong><br><br>
+<strong>Ответ:</strong> A, B, C принадлежат графику; D — не принадлежит
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-2">🔵 Уровень 2: Средний</span>
+<h4>Задание 4 (№303 из учебника)</h4>
+<p>Не выполняя построения, определи, через какие четверти координатной плоскости проходит график функции:</p>
+<p>а) <span class="math">y = 5x</span>; &nbsp; б) <span class="math">y = -3x</span>; &nbsp; в) <span class="math">y = 0,5x</span>; &nbsp; г) <span class="math">y = -x</span>.</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+<div id="answer4" class="answer-content">
+<strong>Решение (смотрим на знак k):</strong><br>
+а) <span class="math">y = 5x</span>, <span class="math">k = 5 &gt; 0</span> → <strong>I и III четверти</strong><br>
+б) <span class="math">y = -3x</span>, <span class="math">k = -3 &lt; 0</span> → <strong>II и IV четверти</strong><br>
+в) <span class="math">y = 0,5x</span>, <span class="math">k = 0,5 &gt; 0</span> → <strong>I и III четверти</strong><br>
+г) <span class="math">y = -x</span>, <span class="math">k = -1 &lt; 0</span> → <strong>II и IV четверти</strong><br><br>
+<em>Заметь: знак коэффициента k определяет четверти, а его модуль — наклон прямой!</em>
+</div>
+</div>
+</div>
+
+<!-- Уровень 3 -->
+<div class="exercise">
+<span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+<h4>Задание 5 (по мотивам №299 из учебника)</h4>
+<p>На рисунке изображён график функции <span class="math">y = kx</span>. Найди коэффициент <span class="math">k</span> и запиши формулу функции.</p>
+<div class="visual-container">
+<svg class="graph-svg" viewBox="0 0 300 300" aria-label="График прямой пропорциональности, проходящий через точку (2; 3)">
+<!-- Сетка -->
+<line x1="30" y1="30" x2="30" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="90" y1="30" x2="90" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="150" y1="30" x2="150" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="210" y1="30" x2="210" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="270" y1="30" x2="270" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="30" x2="270" y2="30" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="90" x2="270" y2="90" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="150" x2="270" y2="150" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="210" x2="270" y2="210" stroke="#bdc3c7" stroke-width="1"/>
+<line x1="30" y1="270" x2="270" y2="270" stroke="#bdc3c7" stroke-width="1"/>
+<!-- Оси -->
+<line x1="20" y1="150" x2="280" y2="150" stroke="#2d3436" stroke-width="2"/>
+<line x1="150" y1="20" x2="150" y2="280" stroke="#2d3436" stroke-width="2"/>
+<polygon points="280,150 272,146 272,154" fill="#2d3436"/>
+<polygon points="150,20 146,28 154,28" fill="#2d3436"/>
+<text x="278" y="145" font-family="Courier New" font-size="14" font-weight="bold">x</text>
+<text x="155" y="22" font-family="Courier New" font-size="14" font-weight="bold">y</text>
+<!-- Подписи делений -->
+<text x="207" y="168" font-family="Courier New" font-size="12" fill="#2d3436">2</text>
+<text x="155" y="93" font-family="Courier New" font-size="12" fill="#2d3436">3</text>
+<!-- Прямая -->
+<line x1="60" y1="240" x2="240" y2="60" stroke="#3498db" stroke-width="3"/>
+<!-- Точка (2; 3) -->
+<circle cx="210" cy="90" r="5" fill="#e74c3c"/>
+<text x="218" y="85" font-family="Courier New" font-size="13" font-weight="bold" fill="#e74c3c">(2; 3)</text>
+</svg>
+</div>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+<div id="answer5" class="answer-content">
+<strong>Решение:</strong><br>
+На графике видим точку <span class="math">(2; 3)</span>, которая принадлежит прямой.<br>
+Подставим в формулу <span class="math">y = kx</span>:<br>
+<span class="math">3 = k · 2</span><br>
+<span class="math">k = 3 : 2 = 1,5</span><br>
+Формула функции: <span class="math">y = 1,5x</span><br><br>
+<strong>Проверка:</strong> при <span class="math">x = 2</span> → <span class="math">y = 1,5 · 2 = 3</span> ✅<br>
+<strong>Ответ:</strong> <span class="math">k = 1,5</span>, формула <span class="math">y = 1,5x</span>
+</div>
+</div>
+</div>
+
+<div class="exercise">
+<span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
+<h4>Задание 6 (задача на сравнение)</h4>
+<p>На одном рисунке изображены графики двух прямых пропорциональностей <span class="math">y = k₁x</span> и <span class="math">y = k₂x</span>. Первая прямая проходит через точку <span class="math">(2; 8)</span>, а вторая — через точку <span class="math">(3; -6)</span>.</p>
+<p>а) Найди <span class="math">k₁</span> и <span class="math">k₂</span> и запиши формулы функций.</p>
+<p>б) Через какие четверти проходит каждая прямая?</p>
+<p>в) В какой точке эти прямые пересекаются?</p>
+<div class="check-answer">
+<button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+<div id="answer6" class="answer-content">
+<strong>Решение:</strong><br>
+а) Для первой прямой: <span class="math">8 = k₁ · 2</span> → <span class="math">k₁ = 8 : 2 = 4</span> → <span class="math">y = 4x</span><br>
+&nbsp;&nbsp;&nbsp;Для второй прямой: <span class="math">-6 = k₂ · 3</span> → <span class="math">k₂ = -6 : 3 = -2</span> → <span class="math">y = -2x</span><br><br>
+б) <span class="math">y = 4x</span>: <span class="math">k₁ = 4 &gt; 0</span> → <strong>I и III четверти</strong><br>
+&nbsp;&nbsp;&nbsp;<span class="math">y = -2x</span>: <span class="math">k₂ = -2 &lt; 0</span> → <strong>II и IV четверти</strong><br><br>
+в) Любая прямая <span class="math">y = kx</span> проходит через начало координат. Значит, обе прямые пересекаются в точке <span class="math">(0; 0)</span>.<br><br>
+<strong>Проверка:</strong> при <span class="math">x = 0</span>: <span class="math">y = 4 · 0 = 0</span> и <span class="math">y = -2 · 0 = 0</span> ✅<br>
+<strong>Ответ:</strong> а) <span class="math">k₁ = 4, y = 4x; k₂ = -2, y = -2x</span>; б) I и III, II и IV; в) <span class="math">(0; 0)</span>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Итоги -->
+<div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
+<h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
+<ul>
+<li><span class="highlight">Прямая пропорциональность</span> — это функция вида <span class="math">y = kx</span>, где <span class="math">k ≠ 0</span></li>
+<li>Число <span class="math">k</span> называется <span class="highlight">коэффициентом пропорциональности</span></li>
+<li>График прямой пропорциональности — <span class="highlight">прямая, проходящая через начало координат</span></li>
+<li>Для построения графика достаточно <span class="highlight">двух точек</span>: <span class="math">(0; 0)</span> и <span class="math">(1; k)</span></li>
+<li>Если <span class="math">k &gt; 0</span> → прямая проходит через <strong>I и III</strong> четверти (функция возрастает)</li>
+<li>Если <span class="math">k &lt; 0</span> → прямая проходит через <strong>II и IV</strong> четверти (функция убывает)</li>
+<li>Чтобы найти <span class="math">k</span> по графику — подставь координаты любой точки (кроме <span class="math">(0; 0)</span>) в формулу <span class="math">k = y / x</span></li>
+</ul>
+</div>
+
+<footer>
+<p>📖 Учебник: Алгебра 7 класс • Глава 2: Функции</p>
+<p>§5, п. 15. Прямая пропорциональность и её график • Страницы 69-74</p>
+</footer>
+
+</div>
+
+<script>
+function toggleAnswer(id) {
+const answer = document.getElementById(id);
+const btn = answer.previousElementSibling;
+if (answer.classList.contains('show')) {
+answer.classList.remove('show');
+btn.textContent = '🔍 Проверить';
+btn.style.background = '#3498db';
+} else {
+answer.classList.add('show');
+btn.textContent = '🔒 Скрыть ответ';
+btn.style.background = '#e74c3c';
+}
+}
+</script>
+</body>
+</html>
