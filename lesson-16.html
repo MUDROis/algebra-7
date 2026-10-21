@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Линейная функция и её график — Алгебра 7 класс | Глава 2, §5, п. 16</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    /* ===== Навигация (как на скриншоте: ссылки по центру на фоне-клетке) ===== */
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    /* ===== Шапка урока: карточка с синей левой рамкой и синим бейджем ===== */
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    /* ===== Обычные карточки блоков ===== */
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    /* ===== Визуалы ===== */
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-box { width: 22px; height: 4px; border-radius: 2px; }
+    .color-box.dashed {
+        height: 0;
+        border-top: 3px dashed #95a5a6;
+        background: none;
+    }
+    .color-dot {
+        width: 10px; height: 10px; border-radius: 50%;
+    }
+
+    /* ===== Методическая подсказка ===== */
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    /* ===== Задания ===== */
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #ffffff;
+        border: 2px solid #2d3436;
+        color: #2d3436;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Итоги ===== */
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    /* ===== Подвал ===== */
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-15.html">← Урок 15</a><span class="sep">|</span><a href="lesson-17.html">Урок 17 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 2 • §5, п. 16</span>
+    <h1>Линейная функция и её график</h1>
+    <p class="subtitle">Функция y = kx + b — прямая, параллельная прямой y = kx и проходящая через точку (0; b)</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 В прошлом уроке ты изучил прямую пропорциональность <span class="math">y = kx</span>. Но в жизни всё редко начинается строго с нуля.</p>
+    <p>Смотри сам: мотоциклист выехал из пункта B, удалённого от пункта A на 20 км, со скоростью 50 км/ч. Его расстояние от пункта A выражается формулой <span class="math">s = 50t + 20</span>. А если у тебя было 50 рублей и ты покупаешь тетради по 30 рублей, то стоимость покупки равна <span class="math">y = 30x + 50</span>.</p>
+    <p>Обе формулы — это уже не пропорциональность, а более общая и мощная функция — <span class="highlight">линейная</span>! Сегодня разберёмся, как устроен её график, и научимся строить любую прямую за пару секунд. 🚀</p>
+</section>
+
+<section class="card page-block">
+    <h2>📐 Что такое линейная функция?</h2>
+    <p><b>Определение.</b> <span class="highlight">Линейной функцией</span> называется функция, которую можно задать формулой вида</p>
+    <p style="text-align: center; font-size: 1.25em; margin: 18px 0;"><span class="math">y = kx + b</span>,</p>
+    <p>где <span class="math">x</span> — независимая переменная, <span class="math">k</span> и <span class="math">b</span> — некоторые числа.</p>
+    <ul>
+        <li><span class="math">k</span> — число при <span class="math">x</span>, его называют <span class="highlight">угловым коэффициентом</span> прямой;</li>
+        <li><span class="math">b</span> — <span class="highlight">свободный член</span>, он показывает сдвиг графика вдоль оси y.</li>
+    </ul>
+    <p>💡 Прямая пропорциональность <span class="math">y = kx</span> — это <b>частный случай</b> линейной функции: при <span class="math">b = 0</span> формула <span class="math">y = kx + b</span> превращается в <span class="math">y = kx</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>📈 График линейной функции — прямая</h2>
+    <p>Выясним, как выглядит график функции <span class="math">y = 0,5x + 2</span>. Сравним её значения со значениями функции <span class="math">y = 0,5x</span> при тех же <span class="math">x</span>:</p>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; margin: 15px auto; text-align: center;">
+        <tr><td><span class="math">x</span></td><td>-4</td><td>-2</td><td>0</td><td>2</td><td>4</td><td>6</td></tr>
+        <tr><td><span class="math">y = 0,5x</span></td><td>-2</td><td>-1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td><span class="math">y = 0,5x + 2</span></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    </table>
+    <p>При каждом <span class="math">x</span> значение <span class="math">y = 0,5x + 2</span> ровно <b>на 2 больше</b>. Значит, график <span class="math">y = 0,5x + 2</span> — это график <span class="math">y = 0,5x</span>, <span class="highlight">сдвинутый на 2 единицы вверх</span> вдоль оси y.</p>
+
+    <div class="visual-container">
+        <svg viewBox="0 0 320 240" class="graph-svg" width="320" height="240" role="img" aria-label="Сдвиг прямой y = kx на b единиц вверх">
+            <defs>
+                <marker id="arrowB" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L7,3 z" fill="#2d3436"/>
+                </marker>
+                <marker id="arrowR" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L7,3 z" fill="#c0392b"/>
+                </marker>
+            </defs>
+            <!-- оси -->
+            <line x1="20" y1="190" x2="300" y2="190" stroke="#2d3436" stroke-width="2" marker-end="url(#arrowB)"/>
+            <line x1="60" y1="220" x2="60" y2="20" stroke="#2d3436" stroke-width="2" marker-end="url(#arrowB)"/>
+            <text x="303" y="195" font-size="14" font-family="sans-serif">x</text>
+            <text x="66" y="18" font-size="14" font-family="sans-serif">y</text>
+            <text x="48" y="205" font-size="12" font-family="sans-serif">0</text>
+            <!-- y = kx (пунктир) -->
+            <line x1="60" y1="190" x2="240" y2="70" stroke="#95a5a6" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="244" y="68" font-size="13" fill="#95a5a6" font-family="sans-serif">y = kx</text>
+            <!-- y = kx + b (сплошная) -->
+            <line x1="60" y1="130" x2="240" y2="10" stroke="#3498db" stroke-width="3"/>
+            <text x="244" y="16" font-size="13" fill="#3498db" font-family="sans-serif">y = kx + b</text>
+            <!-- стрелка сдвига b -->
+            <line x1="120" y1="150" x2="120" y2="94" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowR)"/>
+            <text x="128" y="126" font-size="14" fill="#c0392b" font-weight="bold" font-family="sans-serif">b</text>
+            <!-- точка (0; b) -->
+            <circle cx="60" cy="130" r="4" fill="#c0392b"/>
+            <text x="4" y="124" font-size="12" fill="#c0392b" font-family="sans-serif">(0; b)</text>
+        </svg>
+    </div>
+    <p class="fig-caption">Схема: масштаб по осям не соблюдён</p>
+    <div class="legend">
+        <div class="legend-item"><div class="color-box dashed"></div> y = kx</div>
+        <div class="legend-item"><div class="color-box" style="background: #3498db;"></div> y = kx + b</div>
+        <div class="legend-item"><div class="color-box" style="background: #c0392b;"></div> сдвиг на b вдоль оси y</div>
+    </div>
+
+    <p style="margin-top: 16px;">📌 <b>Запомни!</b> Графиком линейной функции <span class="math">y = kx + b</span> является <span class="highlight">прямая</span>, параллельная прямой <span class="math">y = kx</span>. При <span class="math">x = 0</span> получаем <span class="math">y = b</span>, значит, график пересекает ось y в точке <span class="math">(0; b)</span>.</p>
+    <p>Для построения прямой достаточно найти координаты <b>двух её точек</b>, отметить их и провести через них прямую по линейке.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔀 Как k и b управляют прямой?</h2>
+    <p>Расположение прямой на плоскости зависит от обоих коэффициентов:</p>
+    <ul>
+        <li><b>Угловой коэффициент <span class="math">k</span></b> задаёт <span class="highlight">наклон</span>: если <span class="math">k &gt; 0</span> — угол наклона прямой к оси x острый (прямая «идёт вверх»); если <span class="math">k &lt; 0</span> — тупой (прямая «идёт вниз»). Прямые с одинаковыми <span class="math">k</span> и разными <span class="math">b</span> <b>параллельны</b>.</li>
+        <li><b>Свободный член <span class="math">b</span></b> задаёт <span class="highlight">сдвиг по вертикали</span>: все прямые с одинаковым <span class="math">b</span> и разными <span class="math">k</span> пересекаются в одной точке на оси y — в точке <span class="math">(0; b)</span>.</li>
+        <li>Особый случай: при <span class="math">k = 0</span> формула принимает вид <span class="math">y = b</span> — это прямая, <b>параллельная оси x</b> (а при <span class="math">b = 0</span> — сама ось x).</li>
+    </ul>
+
+    <div class="visual-container">
+        <svg viewBox="0 0 320 220" class="graph-svg" width="320" height="220" role="img" aria-label="Наклон прямой при k больше нуля и k меньше нуля">
+            <defs>
+                <marker id="arrowB2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L7,3 z" fill="#2d3436"/>
+                </marker>
+            </defs>
+            <!-- оси -->
+            <line x1="20" y1="150" x2="300" y2="150" stroke="#2d3436" stroke-width="2" marker-end="url(#arrowB2)"/>
+            <line x1="160" y1="200" x2="160" y2="15" stroke="#2d3436" stroke-width="2" marker-end="url(#arrowB2)"/>
+            <text x="303" y="155" font-size="14" font-family="sans-serif">x</text>
+            <text x="166" y="14" font-size="14" font-family="sans-serif">y</text>
+            <text x="148" y="165" font-size="12" font-family="sans-serif">0</text>
+            <!-- k > 0 -->
+            <line x1="60" y1="140" x2="260" y2="20" stroke="#3498db" stroke-width="3"/>
+            <text x="238" y="42" font-size="13" fill="#3498db" font-family="sans-serif">k &gt; 0</text>
+            <!-- k < 0 -->
+            <line x1="60" y1="20" x2="260" y2="140" stroke="#c0392b" stroke-width="3"/>
+            <text x="238" y="128" font-size="13" fill="#c0392b" font-family="sans-serif">k &lt; 0</text>
+            <!-- общая точка (0; b) -->
+            <circle cx="160" cy="80" r="4" fill="#f39c12"/>
+            <text x="170" y="76" font-size="12" fill="#f39c12" font-weight="bold" font-family="sans-serif">(0; b)</text>
+        </svg>
+    </div>
+    <p class="fig-caption">Схема: масштаб по осям не соблюдён</p>
+    <div class="legend">
+        <div class="legend-item"><div class="color-box" style="background: #3498db;"></div> k &gt; 0 — прямая «идёт вверх»</div>
+        <div class="legend-item"><div class="color-box" style="background: #c0392b;"></div> k &lt; 0 — прямая «идёт вниз»</div>
+        <div class="legend-item"><div class="color-dot" style="background: #f39c12;"></div> общая точка (0; b) на оси y</div>
+    </div>
+
+    <p style="margin-top: 16px;">📌 <b>Правило пересечения:</b> если угловые коэффициенты двух прямых <b>различны</b> — прямые пересекаются; если <b>одинаковы</b> — прямые параллельны.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: метод «Якорь и Шаг»</h3>
+    <p>Как построить прямую <span class="math">y = kx + b</span> быстро и без неудобных вычислений? Не подставляй случайные <span class="math">x</span> вроде <span class="math">x = 1,7</span>! Используй два «магических» числа формулы:</p>
+    <ol>
+        <li><b>⚓ Якорь</b> — точка на оси y. Её даже считать не надо: смотри на <span class="math">b</span> и ставь точку <span class="math">(0; b)</span>.</li>
+        <li><b>👣 Шаг</b> — смотри на <span class="math">k</span>: сдвинься из якоря на <b>1 вправо</b> и на <b><span class="math">k</span> вверх</b> (если <span class="math">k</span> отрицательный — вниз). Получишь вторую точку <span class="math">(1; k + b)</span>.</li>
+    </ol>
+    <p><b>Пример (не из заданий):</b> <span class="math">y = 3x - 2</span>.</p>
+    <ul>
+        <li>Якорь: <span class="math">b = -2</span> → точка <span class="math">(0; -2)</span>. ✅</li>
+        <li>Шаг: <span class="math">k = 3</span> → 1 вправо, 3 вверх → точка <span class="math">(1; 1)</span>. ✅</li>
+    </ul>
+    <p>Провели прямую через две точки — готово! А теперь контраст: если взять «случайный» <span class="math">x = 1,7</span>, придётся считать <span class="math">3 · 1,7 - 2 = 3,1</span> и откладывать дробную точку на глаз — долго и легко ошибиться. 🚫 Метод «Якорь и Шаг» считает всё устно.</p>
+    <p>🌉 <b>Мостик:</b> в задании 1 ты построишь две прямые именно этим методом — якорь найдёшь по <span class="math">b</span>, а шаг подскажет <span class="math">k</span>.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№319 а, б из учебника)</div>
+    <p>Построй график функции:</p>
+    <p>а) <span class="math">y = -2x + 1</span>; &nbsp;&nbsp; б) <span class="math">y = 0,2x + 5</span>.</p>
+    <button class="btn-check" onclick="toggleAnswer('ans1')">🔍 Проверить</button>
+    <div id="ans1" class="answer">
+        <p><b>а) <span class="math">y = -2x + 1</span></b> (здесь <span class="math">k = -2</span>, <span class="math">b = 1</span>):</p>
+        <ol>
+            <li>Якорь: <span class="math">b = 1</span> → точка <span class="math">(0; 1)</span>.</li>
+            <li>Шаг: <span class="math">k = -2</span> → 1 вправо, 2 вниз → точка <span class="math">(1; -1)</span>.</li>
+            <li>Проводим прямую через <span class="math">(0; 1)</span> и <span class="math">(1; -1)</span>: она «идёт вниз».</li>
+        </ol>
+        <p><b>б) <span class="math">y = 0,2x + 5</span></b> (здесь <span class="math">k = 0,2 = 1/5</span>, <span class="math">b = 5</span>):</p>
+        <ol>
+            <li>Якорь: <span class="math">b = 5</span> → точка <span class="math">(0; 5)</span>.</li>
+            <li>Шаг: <span class="math">k = 1/5</span> → удобно взять 5 вправо и 1 вверх → точка <span class="math">(5; 6)</span>.</li>
+            <li>Проводим прямую через <span class="math">(0; 5)</span> и <span class="math">(5; 6)</span>: она «идёт вверх», пологая.</li>
+        </ol>
+        <p><b>Проверка подстановкой:</b> а) при <span class="math">x = 1</span>: <span class="math">y = -2 · 1 + 1 = -1</span> ✅; б) при <span class="math">x = 5</span>: <span class="math">y = 0,2 · 5 + 5 = 1 + 5 = 6</span> ✅.</p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№322 а из учебника)</div>
+    <p>Не выполняя построения, найди координаты точек пересечения с осями координат графика функции <span class="math">y = -2,4x + 9,6</span>.</p>
+    <button class="btn-check" onclick="toggleAnswer('ans2')">🔍 Проверить</button>
+    <div id="ans2" class="answer">
+        <ol>
+            <li><b>Пересечение с осью y</b> (якорь): при <span class="math">x = 0</span> получаем <span class="math">y = -2,4 · 0 + 9,6 = 9,6</span>. Точка <span class="math">(0; 9,6)</span>.</li>
+            <li><b>Пересечение с осью x:</b> там <span class="math">y = 0</span>, значит <span class="math">-2,4x + 9,6 = 0</span>.</li>
+            <li><span class="math">2,4x = 9,6</span> → <span class="math">x = 9,6 : 2,4 = 96 : 24 = 4</span>. Точка <span class="math">(4; 0)</span>.</li>
+        </ol>
+        <p><b>Проверка:</b> <span class="math">-2,4 · 4 + 9,6 = -9,6 + 9,6 = 0</span> ✅.</p>
+        <p><b>Ответ:</b> <span class="math">(0; 9,6)</span> и <span class="math">(4; 0)</span>.</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№327 а из учебника)</div>
+    <p>Найди координаты точки пересечения графиков функций <span class="math">y = 10x - 8</span> и <span class="math">y = -3x + 5</span>.</p>
+    <button class="btn-check" onclick="toggleAnswer('ans3')">🔍 Проверить</button>
+    <div id="ans3" class="answer">
+        <ol>
+            <li>В точке пересечения обе формулы дают одно и то же <span class="math">y</span>, поэтому приравниваем: <span class="math">10x - 8 = -3x + 5</span>.</li>
+            <li>Переносим <span class="math">-3x</span> влево, <span class="math">-8</span> вправо с противоположными знаками: <span class="math">10x + 3x = 5 + 8</span>.</li>
+            <li><span class="math">13x = 13</span> → <span class="math">x = 1</span>.</li>
+            <li>Подставляем в первую формулу: <span class="math">y = 10 · 1 - 8 = 2</span>.</li>
+        </ol>
+        <p><b>Проверка по второй формуле:</b> <span class="math">y = -3 · 1 + 5 = 2</span> — совпало ✅.</p>
+        <p><b>Ответ:</b> точка пересечения <span class="math">(1; 2)</span>.</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№328 из учебника)</div>
+    <p>График функции <span class="math">y = -1,4x + b</span> проходит через точку <span class="math">(-4; 10)</span>. Найди число <span class="math">b</span>.</p>
+    <button class="btn-check" onclick="toggleAnswer('ans4')">🔍 Проверить</button>
+    <div id="ans4" class="answer">
+        <ol>
+            <li>Точка лежит на графике, значит её координаты удовлетворяют формуле: <span class="math">10 = -1,4 · (-4) + b</span>.</li>
+            <li>Считаем произведение (минус на минус — плюс): <span class="math">-1,4 · (-4) = 5,6</span>.</li>
+            <li>Получаем <span class="math">10 = 5,6 + b</span> → <span class="math">b = 10 - 5,6 = 4,4</span>.</li>
+        </ol>
+        <p><b>Проверка:</b> <span class="math">y = -1,4 · (-4) + 4,4 = 5,6 + 4,4 = 10</span> ✅.</p>
+        <p><b>Ответ:</b> <span class="math">b = 4,4</span>.</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№320 а, г из учебника, задача-исследование)</div>
+    <p>Дана линейная функция <span class="math">y = kx + 4</span>. При каком значении <span class="math">k</span> график этой функции:</p>
+    <p>а) параллелен графику прямой пропорциональности <span class="math">y = -x</span>;</p>
+    <p>г) проходит через точку пересечения графиков функций <span class="math">y = 12 - x</span> и <span class="math">y = x + 4</span>?</p>
+    <button class="btn-check" onclick="toggleAnswer('ans5')">🔍 Проверить</button>
+    <div id="ans5" class="answer">
+        <p><b>а)</b> Прямые параллельны тогда и только тогда, когда их угловые коэффициенты равны. У прямой <span class="math">y = -x</span> коэффициент <span class="math">k = -1</span>.</p>
+        <p><b>Ответ а):</b> <span class="math">k = -1</span> (прямые <span class="math">y = -x + 4</span> и <span class="math">y = -x</span> параллельны, т. к. <span class="math">b</span> различны: 4 ≠ 0).</p>
+        <hr style="border: none; border-top: 1px dashed #bdc3c7; margin: 14px 0;">
+        <p><b>г)</b> Действуем в два шага:</p>
+        <ol>
+            <li>Находим точку пересечения прямых <span class="math">y = 12 - x</span> и <span class="math">y = x + 4</span>:<br>
+                <span class="math">12 - x = x + 4</span> → <span class="math">12 - 4 = x + x</span> → <span class="math">8 = 2x</span> → <span class="math">x = 4</span>.<br>
+                Тогда <span class="math">y = 12 - 4 = 8</span>. Точка пересечения: <span class="math">(4; 8)</span>.</li>
+            <li>График <span class="math">y = kx + 4</span> должен пройти через <span class="math">(4; 8)</span>:<br>
+                <span class="math">8 = k · 4 + 4</span> → <span class="math">4k = 8 - 4 = 4</span> → <span class="math">k = 1</span>.</li>
+        </ol>
+        <p><b>Проверка:</b> при <span class="math">k = 1</span>: <span class="math">y = 1 · 4 + 4 = 8</span> ✅.</p>
+        <p><b>Ответ г):</b> <span class="math">k = 1</span>.</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№337 из учебника, сюжетная задача)</div>
+    <p>В бак налили воду, температура которой 10 °C, и начали её нагревать до 100 °C, причём через каждую минуту температура повышалась на 1,5 °C. Задай формулой зависимость температуры воды T (в градусах Цельсия) от времени нагревания t (в минутах). Узнай:</p>
+    <p>а) какую температуру имела вода через 5 мин; через 10 мин после начала нагревания;</p>
+    <p>б) через какое время вода нагрелась до 85 °C.</p>
+    <button class="btn-check" onclick="toggleAnswer('ans6')">🔍 Проверить</button>
+    <div id="ans6" class="answer">
+        <ol>
+            <li><b>Формула.</b> Начальная температура — это «якорь» <span class="math">b = 10</span>, а прибавка 1,5 °C за минуту — это «шаг» <span class="math">k = 1,5</span>. Получаем линейную функцию: <span class="math">T = 1,5t + 10</span>.</li>
+            <li><b>а)</b> При <span class="math">t = 5</span>: <span class="math">T = 1,5 · 5 + 10 = 7,5 + 10 = 17,5</span> °C.<br>
+                При <span class="math">t = 10</span>: <span class="math">T = 1,5 · 10 + 10 = 15 + 10 = 25</span> °C.</li>
+            <li><b>б)</b> Нужно <span class="math">T = 85</span>: <span class="math">1,5t + 10 = 85</span> → <span class="math">1,5t = 75</span> → <span class="math">t = 75 : 1,5 = 750 : 15 = 50</span> (мин).</li>
+        </ol>
+        <p><b>Проверка:</b> <span class="math">1,5 · 50 + 10 = 75 + 10 = 85</span> ✅; и 85 °C &lt; 100 °C, значит вода ещё не закипела — ответ согласуется с условием.</p>
+        <p><b>Ответ:</b> <span class="math">T = 1,5t + 10</span>; а) 17,5 °C и 25 °C; б) через 50 мин.</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li><b>Линейная функция</b> — функция вида <span class="math">y = kx + b</span>, где <span class="math">x</span> — переменная, <span class="math">k</span> и <span class="math">b</span> — числа.</li>
+        <li>Прямая пропорциональность <span class="math">y = kx</span> — частный случай линейной функции при <span class="math">b = 0</span>.</li>
+        <li>График линейной функции — <b>прямая</b>; для построения достаточно <b>двух точек</b>.</li>
+        <li>График <span class="math">y = kx + b</span> параллелен прямой <span class="math">y = kx</span> и пересекает ось y в точке <span class="math">(0; b)</span>.</li>
+        <li><span class="math">k</span> — угловой коэффициент: <span class="math">k &gt; 0</span> — прямая «идёт вверх» (угол острый), <span class="math">k &lt; 0</span> — «идёт вниз» (угол тупой).</li>
+        <li>Метод «Якорь и Шаг»: первая точка <span class="math">(0; b)</span>, вторая — <span class="math">(1; k + b)</span>.</li>
+        <li>У прямых одинаковые <span class="math">k</span> → они параллельны; разные <span class="math">k</span> → пересекаются (точку пересечения находим приравниванием формул).</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 2: Функции<br>
+    §5, п. 16. Линейная функция и её график • Страницы 74-79</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-15.html">← Урок 15</a><span class="sep">|</span><a href="lesson-17.html">Урок 17 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+        } else {
+            el.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
