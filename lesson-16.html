@@ -525,10 +525,17 @@
 <script>
     function toggleAnswer(id) {
         var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
         if (el.style.display === 'block') {
             el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#ffffff';
+            btn.style.color = '#2d3436';
         } else {
             el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
         }
     }
 </script>
