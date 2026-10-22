@@ -1,0 +1,87 @@
+/* Общие стили курса «Алгебра 7 класс» */
+:root{
+  --blue:#3498db;--green:#1abc9c;--orange:#f39c12;--red:#c0392b;
+  --ink:#2c3e50;--paper:#fafafa;
+}
+.katex{white-space:nowrap;}
+.formula{overflow-x:auto;}
+.formula .katex{white-space:nowrap;}
+
+/* Логотип в шапке главной */
+.course-logo{display:inline-block;height:60px;width:auto;max-width:100%;vertical-align:middle;border-radius:10px;}
+
+/* ===== Поиск (index.html) ===== */
+#course-search{
+  width:100%;max-width:600px;display:block;margin:0 auto 4px;
+  padding:11px 16px;font-family:inherit;font-size:1em;
+  border:2px solid var(--blue);border-radius:8px;
+  background:#fff;color:var(--ink);outline:none;
+}
+#course-search:focus{box-shadow:0 0 0 3px rgba(52,152,219,.25);}
+.topic-card.hidden{display:none !important;}
+
+/* ===== Самопроверка ===== */
+.check-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;}
+.check-input{
+  flex:1 1 160px;padding:7px 12px;font-family:inherit;font-size:.95em;
+  border:2px solid #b2bec3;border-radius:6px;background:#fff;color:var(--ink);outline:none;
+}
+.check-input:focus{border-color:var(--blue);}
+.check-btn{
+  font-family:inherit;font-size:.9em;font-weight:700;cursor:pointer;
+  background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:6px;
+  padding:6px 14px;box-shadow:2px 2px 0 var(--ink);
+  transition:transform .05s,box-shadow .05s;
+}
+.check-btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink);}
+.check-feedback{font-weight:700;font-size:.95em;}
+.check-feedback.ok{color:#1e8449;}
+.check-feedback.bad{color:var(--red);}
+
+/* ===== Виджеты ===== */
+.widget{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  margin:14px 0;padding:12px;background:#fff;border:2px solid #e5e8e8;border-radius:8px;
+}
+.widget svg{touch-action:manipulation;max-width:100%;height:auto;}
+.widget .w-prompt{font-weight:700;text-align:center;}
+.widget .w-grid{cursor:crosshair;}
+.widget .w-point{pointer-events:none;}
+.widget .w-hint{font-size:.9em;color:#7f8c8d;text-align:center;}
+.widget .w-feedback{font-weight:700;}
+.widget .w-feedback.ok{color:#1e8449;}
+.widget .w-feedback.bad{color:var(--red);}
+.widget .w-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.widget .w-actions button{
+  font-family:inherit;font-size:.9em;font-weight:700;cursor:pointer;
+  background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:6px;
+  padding:6px 14px;box-shadow:2px 2px 0 var(--ink);
+  transition:transform .05s,box-shadow .05s;
+}
+.widget .w-actions button:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink);}
+
+/* ===== Оглавление (scroll-spy) ===== */
+.content-block h2[id]{scroll-margin-top:16px;}
+@media (min-width:1150px){
+  .toc-sidebar{
+    position:fixed;top:24px;right:18px;width:220px;max-height:80vh;overflow-y:auto;
+    background:#fff;border:1px solid #e5e8e8;border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.07);padding:12px 14px;font-size:.9em;
+  }
+  .toc-sidebar h3{margin:0 0 8px;font-size:.85em;text-transform:uppercase;letter-spacing:.5px;color:#7f8c8d;}
+  .toc-sidebar a{
+    display:block;padding:4px 8px;margin:2px 0;color:var(--ink);text-decoration:none;
+    border-left:3px solid transparent;border-radius:0 6px 6px 0;
+  }
+  .toc-sidebar a:hover{background:#eaf6fd;}
+  .toc-sidebar a.active{background:#eaf6fd;border-left-color:var(--blue);font-weight:700;}
+}
+
+/* ===== Печать ===== */
+@media print{
+  .answer-btn,.check-row,.widget,.lesson-nav,.toc-sidebar,#course-search,.go-btn{display:none !important;}
+  .answer-content{display:block !important;}
+  .content-block,header,footer,.chapter{box-shadow:none !important;border:1px solid #ccc !important;page-break-inside:avoid;}
+  body{background:#fff !important;}
+  .container{max-width:100% !important;padding:0 !important;}
+}

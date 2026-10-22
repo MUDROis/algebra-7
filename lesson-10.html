@@ -295,6 +295,23 @@ margin: 0 0 16px;
             .content-block { padding: 20px; }
         }
     </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Как читать Jules Verne на языке математики и выводить новые формулы из старых">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Формулы — Алгебра 7 класс | Глава 1, §3, п. 10">
+<meta property="og:description" content="Как читать Jules Verne на языке математики и выводить новые формулы из старых">
+<meta property="og:image" content="https://MUDROis.github.io/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://MUDROis.github.io/algebra-7/lesson-10.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Формулы — Алгебра 7 класс | Глава 1, §3, п. 10">
+<meta name="twitter:description" content="Как читать Jules Verne на языке математики и выводить новые формулы из старых">
+<meta name="twitter:image" content="https://MUDROis.github.io/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://MUDROis.github.io/algebra-7/lesson-10.html">
 </head>
 <body>
     <div class="container">
@@ -343,7 +360,7 @@ margin: 0 0 16px;
                 <p>Рост птицы: <span class="math">b = 30,48 · 5 = 152,4 ≈ 152 см</span> (≈ 1,5 м)</p>
                 <p>Клюв: <span class="math">l = 2,54 · 18 = 45,72 ≈ 46 см</span> (≈ 0,5 м)</p>
                 <p>Скорость яхты: <span class="math">p = 1,853 · 17 = 31,501 ≈ 32 км/ч</span></p>
-                <p>Температура: <span class="math">c = 5 · (74 - 32) : 9 = 210 : 9 ≈ 23 °C</span></p>
+                <p>Температура: <span class="math">\(c = 5 \cdot{} (74 - 32) : 9 = 210 : 9 ≈ 23 ^{\circ}C\)</span></p>
             </div>
             
             <div class="tip-box">
@@ -357,7 +374,7 @@ margin: 0 0 16px;
             <h2><span class="emoji">📈</span> Формулы в задачах на проценты</h2>
             
             <h3>Пример 1 из учебника: площадь прямоугольника</h3>
-            <p>Пусть длина прямоугольника <span class="math">a</span> см, ширина <span class="math">b</span> см, площадь <span class="math">S = ab</span>. Увеличим длину и ширину на 10%:</p>
+            <p>Пусть длина прямоугольника <span class="math">\(a\)</span> см, ширина <span class="math">\(b\)</span> см, площадь <span class="math">\(S = ab\)</span>. Увеличим длину и ширину на 10%:</p>
             
             <div class="rect-compare">
                 <div class="rect-wrap">
@@ -371,9 +388,9 @@ margin: 0 0 16px;
             </div>
             
             <ol>
-                <li>Новая длина: <span class="math">a + 0,1a = 1,1a</span>; новая ширина: <span class="math">1,1b</span></li>
-                <li>Новая площадь: <span class="math">1,1a · 1,1b = 1,21ab</span></li>
-                <li>Прирост: <span class="math">1,21ab - ab = 0,21ab</span>, то есть <span class="math">(0,21ab : ab) · 100% = 21%</span></li>
+                <li>Новая длина: <span class="math">\(a + 0,1a = 1,1a\)</span>; новая ширина: <span class="math">\(1,1b\)</span></li>
+                <li>Новая площадь: <span class="math">\(1,1a \cdot{} 1,1b = 1,21ab\)</span></li>
+                <li>Прирост: <span class="math">\(1,21ab - ab = 0,21ab\)</span>, то есть <span class="math">\((0,21ab : ab) \cdot{} 100\% = 21\%\)</span></li>
             </ol>
             <p><strong>Ответ:</strong> площадь увеличится на 21% — а не на 20%, как подсказывает интуиция! 🎯</p>
         </div>
@@ -382,18 +399,18 @@ margin: 0 0 16px;
         <div class="content-block">
             <h2><span class="emoji">🔁</span> Из одной формулы — другую!</h2>
             
-            <p>Свойства равенств позволяют из формулы, связывающей несколько переменных, получать новые формулы. Выразим из <span class="math">c = 5(f - 32) : 9</span> переменную <span class="math">f</span> (чтобы переводить °C в °F):</p>
+            <p>Свойства равенств позволяют из формулы, связывающей несколько переменных, получать новые формулы. Выразим из <span class="math">\(c = 5(f - 32) : 9\)</span> переменную <span class="math">\(f\)</span> (чтобы переводить °C в °F):</p>
             
             <ol>
-                <li>Умножим обе части на 9: <span class="math">9c = 5(f - 32)</span></li>
-                <li>Раскроем скобки: <span class="math">9c = 5f - 160</span></li>
-                <li>Перенесём -160 влево с другим знаком: <span class="math">5f = 9c + 160</span></li>
-                <li>Разделим обе части на 5: <span class="math">f = (9c + 160) : 5</span>, то есть <span class="math">f = 1,8c + 32</span></li>
+                <li>Умножим обе части на 9: <span class="math">\(9c = 5(f - 32)\)</span></li>
+                <li>Раскроем скобки: <span class="math">\(9c = 5f - 160\)</span></li>
+                <li>Перенесём -160 влево с другим знаком: <span class="math">\(5f = 9c + 160\)</span></li>
+                <li>Разделим обе части на 5: <span class="math">\(f = (9c + 160) : 5\)</span>, то есть <span class="math">\(f = 1,8c + 32\)</span></li>
             </ol>
             
             <div class="tip-box">
                 <h4>📌 Проверка новой формулы</h4>
-                <p>Подставим <span class="math">c = 23</span>: <span class="math">f = 1,8 · 23 + 32 = 41,4 + 32 = 73,4 ≈ 74 °F</span> — сошлось с условием книги! ✅ Выведенная формула работает.</p>
+                <p>Подставим <span class="math">\(c = 23\)</span>: <span class="math">\(f = 1,8 \cdot{} 23 + 32 = 41,4 + 32 = 73,4 ≈ 74 ^{\circ}F\)</span> — сошлось с условием книги! ✅ Выведенная формула работает.</p>
             </div>
         </div>
 
@@ -406,20 +423,20 @@ margin: 0 0 16px;
                 <p style="margin-bottom: 15px;"><strong>Любое изменение на p% — это просто умножение на коэффициент:</strong></p>
                 
                 <div class="scaffolding-step">
-                    <strong>Увеличение на p%:</strong> умножь на <span class="math">1 + 0,01p</span>. Пример: +10% → <span class="math">· 1,1</span>
+                    <strong>Увеличение на p%:</strong> умножь на <span class="math">\(1 + 0,01p\)</span>. Пример: +10% → <span class="math">\(\cdot{} 1,1\)</span>
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Уменьшение на p%:</strong> умножь на <span class="math">1 - 0,01p</span>. Пример: -10% → <span class="math">· 0,9</span>
+                    <strong>Уменьшение на p%:</strong> умножь на <span class="math">\(1 - 0,01p\)</span>. Пример: -10% → <span class="math">\(\cdot{} 0,9\)</span>
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Ловушка:</strong> товар стоил 200 р. Цену подняли на 10%: <span class="math">200 · 1,1 = 220</span>. Потом снизили на 10%: <span class="math">220 · 0,9 = 198</span>.<br>
-                    Интуиция кричит: «вернулась цена 200!» 🚫 Нет: <span class="math">198 ≠ 200</span> ✅ Проценты считались от РАЗНЫХ баз!
+                    <strong>Ловушка:</strong> товар стоил 200 р. Цену подняли на 10%: <span class="math">\(200 \cdot{} 1,1 = 220\)</span>. Потом снизили на 10%: <span class="math">\(220 \cdot{} 0,9 = 198\)</span>.<br>
+                    Интуиция кричит: «вернулась цена 200!» 🚫 Нет: <span class="math">\(198 ≠ 200\)</span> ✅ Проценты считались от РАЗНЫХ баз!
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Итог одним действием:</strong> <span class="math">200 · 1,1 · 0,9 = 200 · 0,99 = 198</span> — суммарный множитель 0,99 показывает: цена упала на 1%.
+                    <strong>Итог одним действием:</strong> <span class="math">\(200 \cdot{} 1,1 \cdot{} 0,9 = 200 \cdot{} 0,99 = 198\)</span> — суммарный множитель 0,99 показывает: цена упала на 1%.
                 </div>
                 
                 <p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
@@ -437,11 +454,12 @@ margin: 0 0 16px;
             <div class="exercise">
                 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
                 <h4>Задание 1 (№187 а, б из учебника)</h4>
-                <p>Пользуясь формулой <span class="math">b = 1,067a</span> (a — расстояние в верстах, b — в километрах), вырази в километрах расстояние, равное:</p>
+                <p>Пользуясь формулой <span class="math">\(b = 1,067a\)</span> (a — расстояние в верстах, b — в километрах), вырази в километрах расстояние, равное:</p>
                 <p>а) 6 верстам; &nbsp; б) 12,5 версты.</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение (подставляем в формулу): а) b = 1,067 · 6 = 6,402 км б) b = 1,067 · 12,5 = 13,3375 км"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
                     <div id="answer1" class="answer-content">
                         <strong>Решение (подставляем в формулу):</strong><br>
                         а) <span class="math">b = 1,067 · 6 = 6,402 км</span><br>
@@ -453,10 +471,11 @@ margin: 0 0 16px;
             <div class="exercise">
                 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
                 <h4>Задание 2 (№190 из учебника)</h4>
-                <p>Пройденное расстояние считают по формуле <span class="math">s = nl</span> (s — в метрах, n — число шагов, l — длина шага). Сколько километров прошёл человек, если длина шага 60 см, а шагов сделано 1800?</p>
+                <p>Пройденное расстояние считают по формуле <span class="math">\(s = nl\)</span> (s — в метрах, n — число шагов, l — длина шага). Сколько километров прошёл человек, если длина шага 60 см, а шагов сделано 1800?</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="1,08 км. Единицы измерения — половина успеха!"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
                     <div id="answer2" class="answer-content">
                         <strong>Решение:</strong><br>
                         Переведём шаг в метры: <span class="math">l = 60 см = 0,6 м</span><br>
@@ -476,11 +495,12 @@ margin: 0 0 16px;
                 <p>б) его длину увеличить на 30%, а ширину уменьшить на 30%?</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение (процентные множители): а) 0,9a \cdot{} 0,9b = 0,81ab → площадь уменьшится на 19% б) 1,3a \cdot{} 0,7b = 0,91ab → площадь уменьшится на 9% «+30% и -30%» не компенсируют друг друга!"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
                     <div id="answer3" class="answer-content">
                         <strong>Решение (процентные множители):</strong><br>
-                        а) <span class="math">0,9a · 0,9b = 0,81ab</span> → площадь <strong>уменьшится на 19%</strong><br>
-                        б) <span class="math">1,3a · 0,7b = 0,91ab</span> → площадь <strong>уменьшится на 9%</strong><br>
+                        а) <span class="math">\(0,9a \cdot{} 0,9b = 0,81ab\)</span> → площадь <strong>уменьшится на 19%</strong><br>
+                        б) <span class="math">\(1,3a \cdot{} 0,7b = 0,91ab\)</span> → площадь <strong>уменьшится на 9%</strong><br>
                         <em>«+30% и -30%» не компенсируют друг друга!</em>
                     </div>
                 </div>
@@ -489,15 +509,16 @@ margin: 0 0 16px;
             <div class="exercise">
                 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
                 <h4>Задание 4 (№195а из учебника)</h4>
-                <p>Какой температуре по Фаренгейту соответствует <span class="math">4 °C</span>; <span class="math">-15 °C</span>; <span class="math">0 °C</span>? (Используй формулу <span class="math">f = 1,8c + 32</span>.)</p>
+                <p>Какой температуре по Фаренгейту соответствует <span class="math">\(4 ^{\circ}C\)</span>; <span class="math">\(-15 ^{\circ}C\)</span>; <span class="math">\(0 ^{\circ}C\)</span>? (Используй формулу <span class="math">\(f = 1,8c + 32\)</span>.)</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: c = 4: f = 1,8 \cdot{} 4 + 32 = 7,2 + 32 = 39,2 ^{\circ}F c = -15: f = 1,8 \cdot{} (-15) + 32 = -27 + 32 = 5 ^{\circ}F (число в скобках!) c = 0: f = 1,8 \cdot{} 0 + 32 = 32 ^{\circ}F"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
                     <div id="answer4" class="answer-content">
                         <strong>Решение:</strong><br>
-                        c = 4: <span class="math">f = 1,8 · 4 + 32 = 7,2 + 32 = 39,2 °F</span><br>
-                        c = -15: <span class="math">f = 1,8 · (-15) + 32 = -27 + 32 = 5 °F</span> (число в скобках!)<br>
-                        c = 0: <span class="math">f = 1,8 · 0 + 32 = 32 °F</span>
+                        c = 4: <span class="math">\(f = 1,8 \cdot{} 4 + 32 = 7,2 + 32 = 39,2 ^{\circ}F\)</span><br>
+                        c = -15: <span class="math">\(f = 1,8 \cdot{} (-15) + 32 = -27 + 32 = 5 ^{\circ}F\)</span> (число в скобках!)<br>
+                        c = 0: <span class="math">\(f = 1,8 \cdot{} 0 + 32 = 32 ^{\circ}F\)</span>
                     </div>
                 </div>
             </div>
@@ -507,15 +528,16 @@ margin: 0 0 16px;
                 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
                 <h4>Задание 5 (№197 а, б из учебника)</h4>
                 <p>Вырази из формулы:</p>
-                <p>а) <span class="math">s = at</span> — переменную t;</p>
-                <p>б) <span class="math">b = u + at</span> — переменную a.</p>
+                <p>а) <span class="math">\(s = at\)</span> — переменную t;</p>
+                <p>б) <span class="math">\(b = u + at\)</span> — переменную a.</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: а) Разделим обе части на a (a ≠ 0): t = s : a б) Перенесём u: b - u = at; разделим на t (t ≠ 0): a = (b - u) : t Не забудь указать, что делитель не равен нулю!"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
                     <div id="answer5" class="answer-content">
                         <strong>Решение:</strong><br>
-                        а) Разделим обе части на a (a ≠ 0): <span class="math">t = s : a</span><br>
-                        б) Перенесём u: <span class="math">b - u = at</span>; разделим на t (t ≠ 0): <span class="math">a = (b - u) : t</span><br>
+                        а) Разделим обе части на a (a ≠ 0): <span class="math">\(t = s : a\)</span><br>
+                        б) Перенесём u: <span class="math">\(b - u = at\)</span>; разделим на t (t ≠ 0): <span class="math">\(a = (b - u) : t\)</span><br>
                         <em>Не забудь указать, что делитель не равен нулю!</em>
                     </div>
                 </div>
@@ -524,14 +546,15 @@ margin: 0 0 16px;
             <div class="exercise">
                 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
                 <h4>Задание 6 (№193 из учебника)</h4>
-                <p>Цену товара сначала повысили на 15%, а затем снизили на 15%. Первоначальная цена — <span class="math">a</span> р., окончательная — <span class="math">b</span> р. Сравни числа a и b (выбери верный ответ): 1) a &gt; b; 2) a &lt; b; 3) a = b; 4) сравнить нельзя.</p>
+                <p>Цену товара сначала повысили на 15%, а затем снизили на 15%. Первоначальная цена — <span class="math">\(a\)</span> р., окончательная — <span class="math">\(b\)</span> р. Сравни числа a и b (выбери верный ответ): 1) a &gt; b; 2) a &lt; b; 3) a = b; 4) сравнить нельзя.</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="вариант 1. Цена в итоге стала НИЖЕ первоначальной — ловушка из подсказки!"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
                     <div id="answer6" class="answer-content">
                         <strong>Решение (множители):</strong><br>
-                        <span class="math">b = a · 1,15 · 0,85 = a · 0,9775 = 0,9775a</span><br>
-                        Так как 0,9775 &lt; 1, то <span class="math">b &lt; a</span>, то есть <span class="math">a &gt; b</span>.<br>
+                        <span class="math">\(b = a \cdot{} 1,15 \cdot{} 0,85 = a \cdot{} 0,9775 = 0,9775a\)</span><br>
+                        Так как 0,9775 &lt; 1, то <span class="math">\(b \lt a\)</span>, то есть <span class="math">\(a \gt b\)</span>.<br>
                         <strong>Ответ: вариант 1.</strong> Цена в итоге стала НИЖЕ первоначальной — ловушка из подсказки! 
                     </div>
                 </div>
@@ -548,11 +571,12 @@ margin: 0 0 16px;
                 <p>а) кратного 11; &nbsp; б) кратного 21.</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('bonus1')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) m = 11n, где n — целое число б) m = 21n, где n — целое число Проверка: n = 2 → m = 42, делится на 21 ✅"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('bonus1')">🔍 Проверить</button>
                     <div id="bonus1" class="answer-content">
                         <strong>Ответ:</strong><br>
-                        а) <span class="math">m = 11n</span>, где n — целое число<br>
-                        б) <span class="math">m = 21n</span>, где n — целое число<br>
+                        а) <span class="math">\(m = 11n\)</span>, где n — целое число<br>
+                        б) <span class="math">\(m = 21n\)</span>, где n — целое число<br>
                         <em>Проверка: n = 2 → m = 42, делится на 21 ✅</em>
                     </div>
                 </div>
@@ -560,10 +584,11 @@ margin: 0 0 16px;
             
             <div class="exercise" style="background: white;">
                 <span class="level-badge level-star">⭐ Доп. №209</span>
-                <h4>Вырази в километрах расстояния 10 миль, 50 миль, 250 миль, пользуясь формулой <span class="math">y = 1,853x</span> (x — морские мили, y — километры).</h4>
+                <h4>Вырази в километрах расстояния 10 миль, 50 миль, 250 миль, пользуясь формулой <span class="math">\(y = 1,853x\)</span> (x — морские мили, y — километры).</h4>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('bonus2')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: y = 1,853 · 10 = 18,53 км y = 1,853 · 50 = 92,65 км y = 1,853 · 250 = 463,25 км"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('bonus2')">🔍 Проверить</button>
                     <div id="bonus2" class="answer-content">
                         <strong>Решение:</strong><br>
                         <span class="math">y = 1,853 · 10 = 18,53 км</span><br>
@@ -578,11 +603,12 @@ margin: 0 0 16px;
                 <h4>Если к задуманному числу прибавить 7, полученную сумму умножить на 3 и из произведения вычесть 47, то получится задуманное число. Какое число задумано?</h4>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('bonus3')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="13."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('bonus3')">🔍 Проверить</button>
                     <div id="bonus3" class="answer-content">
                         <strong>Решение:</strong><br>
-                        Пусть задумано x. По условию: <span class="math">3(x + 7) - 47 = x</span><br>
-                        <span class="math">3x + 21 - 47 = x</span> → <span class="math">3x - 26 = x</span> → <span class="math">2x = 26</span> → <span class="math">x = 13</span><br>
+                        Пусть задумано x. По условию: <span class="math">\(3(x + 7) - 47 = x\)</span><br>
+                        <span class="math">\(3x + 21 - 47 = x\)</span> → <span class="math">\(3x - 26 = x\)</span> → <span class="math">\(2x = 26\)</span> → <span class="math">\(x = 13\)</span><br>
                         <em>Проверка: 13 + 7 = 20; 20 · 3 = 60; 60 - 47 = 13 ✅</em><br>
                         <strong>Ответ:</strong> 13.
                     </div>
@@ -632,5 +658,10 @@ margin: 0 0 16px;
             }
         }
     </script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
 </body>
 </html>

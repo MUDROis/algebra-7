@@ -351,6 +351,23 @@ margin: 0 0 16px;
             .machine-arrow { transform: rotate(90deg); align-self: center; }
         }
     </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Буквы, которые работают как числа">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Выражения с переменными — Алгебра 7 класс | Глава 1, §1">
+<meta property="og:description" content="Буквы, которые работают как числа">
+<meta property="og:image" content="https://MUDROis.github.io/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://MUDROis.github.io/algebra-7/lesson-03.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Выражения с переменными — Алгебра 7 класс | Глава 1, §1">
+<meta name="twitter:description" content="Буквы, которые работают как числа">
+<meta name="twitter:image" content="https://MUDROis.github.io/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://MUDROis.github.io/algebra-7/lesson-03.html">
 </head>
 <body>
     <div class="container">
@@ -383,21 +400,21 @@ margin: 0 0 16px;
                     <div class="car-row"><span>за 5,5 ч:</span><span>60 · 5,5 = 330 км</span></div>
                     <div class="car-row total"><span>за t ч:</span><span>60 · t = 60t км</span></div>
                 </div>
-                <p style="margin-top: 10px; color: #7f8c8d; font-size: 0.9em;">Одна запись <span class="math">60t</span> заменяет все строки таблицы!</p>
+                <p style="margin-top: 10px; color: #7f8c8d; font-size: 0.9em;">Одна запись <span class="math">\(60t\)</span> заменяет все строки таблицы!</p>
             </div>
             
             <div class="machine">
-                <div class="machine-part input">📥 ВХОД<br>значение <span class="math">t</span><br>2; 3; 5,5...</div>
+                <div class="machine-part input">📥 ВХОД<br>значение <span class="math">\(t\)</span><br>2; 3; 5,5...</div>
                 <div class="machine-arrow">→</div>
-                <div class="machine-part body">⚙️ МАШИНА<br><span class="math">60t</span><br>(умножь на 60)</div>
+                <div class="machine-part body">⚙️ МАШИНА<br><span class="math">\(60t\)</span><br>(умножь на 60)</div>
                 <div class="machine-arrow">→</div>
                 <div class="machine-part output">📤 ВЫХОД<br>значение выражения<br>120; 180; 330...</div>
             </div>
             
             <div class="tip-box">
                 <h4>💡 Новые слова</h4>
-                <p><span class="highlight">Переменная</span> — буква, значение которой можно менять (здесь это <span class="math">t</span>).</p>
-                <p><span class="highlight">Выражение с переменной</span> — выражение, в котором есть такие буквы (здесь это <span class="math">60t</span>).</p>
+                <p><span class="highlight">Переменная</span> — буква, значение которой можно менять (здесь это <span class="math">\(t\)</span>).</p>
+                <p><span class="highlight">Выражение с переменной</span> — выражение, в котором есть такие буквы (здесь это <span class="math">\(60t\)</span>).</p>
             </div>
         </div>
 
@@ -408,12 +425,12 @@ margin: 0 0 16px;
             <p>Если вместо каждой переменной подставить число, получится обычное числовое выражение. Его значение и называют <span class="highlight">значением выражения с переменными</span>.</p>
             
             <h3>Пример: площадь прямоугольника</h3>
-            <p>Стороны прямоугольника — <span class="math">a</span> см и <span class="math">b</span> см. Его площадь: <span class="math">ab</span> (кв. см). Здесь <strong>две</strong> переменные!</p>
+            <p>Стороны прямоугольника — <span class="math">\(a\)</span> см и <span class="math">\(b\)</span> см. Его площадь: <span class="math">\(ab\)</span> (кв. см). Здесь <strong>две</strong> переменные!</p>
             
             <div class="example-box">
                 <h4>📝 Подставляем значения</h4>
-                <p>Если <span class="math">a = 8</span> и <span class="math">b = 11</span>, то <span class="math">ab = 8 · 11 = 88</span></p>
-                <p>Если <span class="math">a = 25</span> и <span class="math">b = 4</span>, то <span class="math">ab = 25 · 4 = 100</span></p>
+                <p>Если <span class="math">\(a = 8\)</span> и <span class="math">\(b = 11\)</span>, то <span class="math">\(ab = 8 \cdot{} 11 = 88\)</span></p>
+                <p>Если <span class="math">\(a = 25\)</span> и <span class="math">\(b = 4\)</span>, то <span class="math">\(ab = 25 \cdot{} 4 = 100\)</span></p>
             </div>
             
             <h3>Алгоритм из 3 шагов:</h3>
@@ -428,17 +445,17 @@ margin: 0 0 16px;
         <div class="content-block">
             <h2><span class="emoji">⚠️</span> Когда выражение «ломается»?</h2>
             
-            <p>Рассмотрим выражение <span class="math">b / (b - 3)</span>.</p>
+            <p>Рассмотрим выражение <span class="math">\(b / (b - 3)\)</span>.</p>
             
             <div class="example-box">
-                <p>При <span class="math">b = 13</span>: &nbsp; <span class="math">13 / (13 - 3) = 13 / 10 = 1,3</span> ✅ всё работает</p>
-                <p>При <span class="math">b = 3</span>: &nbsp; знаменатель <span class="math">3 - 3 = 0</span> → деление на ноль! 🚫</p>
+                <p>При <span class="math">\(b = 13\)</span>: &nbsp; <span class="math">\(13 / (13 - 3) = 13 / 10 = 1,3\)</span> ✅ всё работает</p>
+                <p>При <span class="math">\(b = 3\)</span>: &nbsp; знаменатель <span class="math">\(3 - 3 = 0\)</span> → деление на ноль! 🚫</p>
             </div>
             
             <div class="warning-box">
                 <h4>🚫 Запомни</h4>
-                <p>Говорят: при <span class="math">b = 3</span> выражение <span class="highlight">не имеет смысла</span>.</p>
-                <p>А вот выражения <span class="math">a² - 10</span>, <span class="math">x(x + 1)</span>, <span class="math">ay - 4,3</span> имеют смысл <strong>при любых</strong> значениях переменных — в них нельзя получить деление на ноль.</p>
+                <p>Говорят: при <span class="math">\(b = 3\)</span> выражение <span class="highlight">не имеет смысла</span>.</p>
+                <p>А вот выражения <span class="math">\(a^{2} - 10\)</span>, <span class="math">\(x(x + 1)\)</span>, <span class="math">\(ay - 4,3\)</span> имеют смысл <strong>при любых</strong> значениях переменных — в них нельзя получить деление на ноль.</p>
             </div>
         </div>
 
@@ -449,14 +466,14 @@ margin: 0 0 16px;
             <p>Выражения с переменными используют для записи <span class="highlight">формул</span> — правил, которые верны всегда.</p>
             
             <div class="formula">
-                <span class="math">m = 2n</span> — формула <strong>чётного</strong> числа (n — целое)<br><br>
-                <span class="math">m = 2n + 1</span> — формула <strong>нечётного</strong> числа<br><br>
-                <span class="math">m = 3n</span> — формула числа, <strong>кратного 3</strong>
+                <span class="math">\(m = 2n\)</span> — формула <strong>чётного</strong> числа (n — целое)<br><br>
+                <span class="math">\(m = 2n + 1\)</span> — формула <strong>нечётного</strong> числа<br><br>
+                <span class="math">\(m = 3n\)</span> — формула числа, <strong>кратного 3</strong>
             </div>
             
             <div class="tip-box">
                 <h4>💡 Проверь себя</h4>
-                <p>Подставь в <span class="math">m = 2n</span> числа <span class="math">n = 5; -2; 10</span>. Получатся <span class="math">10; -4; 20</span> — все чётные! Формула работает как закон природы. ✨</p>
+                <p>Подставь в <span class="math">\(m = 2n\)</span> числа <span class="math">\(n = 5; -2; 10\)</span>. Получатся <span class="math">\(10; -4; 20\)</span> — все чётные! Формула работает как закон природы. ✨</p>
             </div>
         </div>
 
@@ -469,19 +486,19 @@ margin: 0 0 16px;
                 <p style="margin-bottom: 15px;"><strong>Самая частая ошибка в 7 классе — потерянный минус при подстановке. Вот как её избежать:</strong></p>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 1:</strong> Выражение: <span class="math">4x - 12</span>, нужно подставить <span class="math">x = -5</span>
+                    <strong>Шаг 1:</strong> Выражение: <span class="math">\(4x - 12\)</span>, нужно подставить <span class="math">\(x = -5\)</span>
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 2:</strong> Ставим число <em>в скобках</em>: <span class="math">4 · (-5) - 12</span>
+                    <strong>Шаг 2:</strong> Ставим число <em>в скобках</em>: <span class="math">\(4 \cdot{} (-5) - 12\)</span>
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 3:</strong> Умножаем: <span class="math">4 · (-5) = -20</span>
+                    <strong>Шаг 3:</strong> Умножаем: <span class="math">\(4 \cdot{} (-5) = -20\)</span>
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 4:</strong> Вычитаем: <span class="math">-20 - 12 = -32</span>
+                    <strong>Шаг 4:</strong> Вычитаем: <span class="math">\(-20 - 12 = -32\)</span>
                 </div>
                 
                 <p style="margin-top: 15px; font-size: 1.1em; text-align: center; font-weight: bold;">
@@ -499,15 +516,16 @@ margin: 0 0 16px;
             <div class="exercise">
                 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
                 <h4>Задание 1 (№37а из учебника)</h4>
-                <p>Найди значения выражения <span class="math">4x - 12</span> при <span class="math">x = 7; 0; -5</span></p>
+                <p>Найди значения выражения <span class="math">\(4x - 12\)</span> при <span class="math">\(x = 7; 0; -5\)</span></p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: При x = 7: 4 \cdot{} 7 - 12 = 28 - 12 = 16 При x = 0: 4 \cdot{} 0 - 12 = -12 При x = -5: 4 \cdot{} (-5) - 12 = -20 - 12 = -32 (число в скобках!)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
                     <div id="answer1" class="answer-content">
                         <strong>Решение:</strong><br>
-                        При x = 7: <span class="math">4 · 7 - 12 = 28 - 12 = 16</span><br>
-                        При x = 0: <span class="math">4 · 0 - 12 = -12</span><br>
-                        При x = -5: <span class="math">4 · (-5) - 12 = -20 - 12 = -32</span> (число в скобках!)
+                        При x = 7: <span class="math">\(4 \cdot{} 7 - 12 = 28 - 12 = 16\)</span><br>
+                        При x = 0: <span class="math">\(4 \cdot{} 0 - 12 = -12\)</span><br>
+                        При x = -5: <span class="math">\(4 \cdot{} (-5) - 12 = -20 - 12 = -32\)</span> (число в скобках!)
                     </div>
                 </div>
             </div>
@@ -515,17 +533,18 @@ margin: 0 0 16px;
             <div class="exercise">
                 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
                 <h4>Задание 2 (№53 из учебника)</h4>
-                <p>Длина прямоугольника <span class="math">a</span> см, ширина <span class="math">b</span> см. Что означают выражения?</p>
-                <p><span class="math">ab</span>; &nbsp;<span class="math">2a + 2b</span>; &nbsp;<span class="math">a + b</span>; &nbsp;<span class="math">2a</span></p>
+                <p>Длина прямоугольника <span class="math">\(a\)</span> см, ширина <span class="math">\(b\)</span> см. Что означают выражения?</p>
+                <p><span class="math">\(ab\)</span>; &nbsp;<span class="math">\(2a + 2b\)</span>; &nbsp;<span class="math">\(a + b\)</span>; &nbsp;<span class="math">\(2a\)</span></p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="ab — площадь прямоугольника 2a + 2b — периметр a + b — полупериметр (сумма длины и ширины) 2a — удвоенная длина (сумма двух длин)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
                     <div id="answer2" class="answer-content">
                         <strong>Ответ:</strong><br>
-                        <span class="math">ab</span> — площадь прямоугольника<br>
-                        <span class="math">2a + 2b</span> — периметр<br>
-                        <span class="math">a + b</span> — полупериметр (сумма длины и ширины)<br>
-                        <span class="math">2a</span> — удвоенная длина (сумма двух длин)
+                        <span class="math">\(ab\)</span> — площадь прямоугольника<br>
+                        <span class="math">\(2a + 2b\)</span> — периметр<br>
+                        <span class="math">\(a + b\)</span> — полупериметр (сумма длины и ширины)<br>
+                        <span class="math">\(2a\)</span> — удвоенная длина (сумма двух длин)
                     </div>
                 </div>
             </div>
@@ -534,7 +553,7 @@ margin: 0 0 16px;
             <div class="exercise">
                 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
                 <h4>Задание 3 (№38 из учебника)</h4>
-                <p>Заполни таблицу для выражений <span class="math">3x - 1</span> и <span class="math">-3x + 1</span> и сделай вывод:</p>
+                <p>Заполни таблицу для выражений <span class="math">\(3x - 1\)</span> и <span class="math">\(-3x + 1\)</span> и сделай вывод:</p>
                 <table class="values-table">
                     <tr><th>x</th><th>-2</th><th>-1</th><th>0</th><th>1</th><th>2</th></tr>
                     <tr><td>3x - 1</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
@@ -542,11 +561,12 @@ margin: 0 0 16px;
                 </table>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="3x - 1: -7; -4; -1; 2; 5 -3x + 1: 7; 4; 1; -2; -5 Вывод: соответствующие значения — противоположные числа! ✨"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
                     <div id="answer3" class="answer-content">
                         <strong>Ответ:</strong><br>
-                        <span class="math">3x - 1</span>: &nbsp;-7; -4; -1; 2; 5<br>
-                        <span class="math">-3x + 1</span>: &nbsp;7; 4; 1; -2; -5<br>
+                        <span class="math">\(3x - 1\)</span>: &nbsp;-7; -4; -1; 2; 5<br>
+                        <span class="math">\(-3x + 1\)</span>: &nbsp;7; 4; 1; -2; -5<br>
                         <strong>Вывод:</strong> соответствующие значения — <em>противоположные числа</em>! ✨
                     </div>
                 </div>
@@ -555,14 +575,15 @@ margin: 0 0 16px;
             <div class="exercise">
                 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
                 <h4>Задание 4 (№47 из учебника)</h4>
-                <p>С первого участка (a га) собирают по 32 ц пшеницы с гектара, со второго (b га) — по 40 ц. Составь выражение и вычисли его при <span class="math">a = 120</span>, <span class="math">b = 80</span>.</p>
+                <p>С первого участка (a га) собирают по 32 ц пшеницы с гектара, со второго (b га) — по 40 ц. Составь выражение и вычисли его при <span class="math">\(a = 120\)</span>, <span class="math">\(b = 80\)</span>.</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="7040 центнеров пшеницы"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
                     <div id="answer4" class="answer-content">
                         <strong>Решение:</strong><br>
-                        Выражение: <span class="math">32a + 40b</span><br>
-                        <span class="math">32 · 120 + 40 · 80 = 3840 + 3200 = 7040</span><br>
+                        Выражение: <span class="math">\(32a + 40b\)</span><br>
+                        <span class="math">\(32 \cdot{} 120 + 40 \cdot{} 80 = 3840 + 3200 = 7040\)</span><br>
                         <strong>Ответ:</strong> 7040 центнеров пшеницы
                     </div>
                 </div>
@@ -573,14 +594,15 @@ margin: 0 0 16px;
                 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
                 <h4>Задание 5 (№58 из учебника)</h4>
                 <p>Какое из выражений имеет смысл при <strong>любом</strong> значении a?</p>
-                <p><span class="math">14 / (a² + 1)</span> &nbsp;или&nbsp; <span class="math">14 / (a² - 1)</span></p>
+                <p><span class="math">\(14 / (a^{2} + 1)\)</span> &nbsp;или&nbsp; <span class="math">\(14 / (a^{2} - 1)\)</span></p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="14 / (a^{2} + 1) Потому что a^{2} ≥ 0, значит a^{2} + 1 ≥ 1 — никогда не ноль! ✅ А вот a^{2} - 1 = 0 при a = 1 и a = -1 — там выражение не имеет смысла. 🚫"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
                     <div id="answer5" class="answer-content">
-                        <strong>Ответ:</strong> <span class="math">14 / (a² + 1)</span><br>
-                        Потому что <span class="math">a² ≥ 0</span>, значит <span class="math">a² + 1 ≥ 1</span> — никогда не ноль! ✅<br>
-                        А вот <span class="math">a² - 1 = 0</span> при <span class="math">a = 1</span> и <span class="math">a = -1</span> — там выражение не имеет смысла. 🚫
+                        <strong>Ответ:</strong> <span class="math">\(14 / (a^{2} + 1)\)</span><br>
+                        Потому что <span class="math">\(a^{2} ≥ 0\)</span>, значит <span class="math">\(a^{2} + 1 ≥ 1\)</span> — никогда не ноль! ✅<br>
+                        А вот <span class="math">\(a^{2} - 1 = 0\)</span> при <span class="math">\(a = 1\)</span> и <span class="math">\(a = -1\)</span> — там выражение не имеет смысла. 🚫
                     </div>
                 </div>
             </div>
@@ -591,12 +613,13 @@ margin: 0 0 16px;
                 <p>Напиши формулу числа, кратного 7, и найди по ней два трёхзначных числа, кратных 7.</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Формула: m = 7n, где n — целое число При n = 15: m = 105 ✅ При n = 100: m = 700 ✅ Оба числа трёхзначные и делятся на 7!"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
                     <div id="answer6" class="answer-content">
                         <strong>Ответ:</strong><br>
-                        Формула: <span class="math">m = 7n</span>, где n — целое число<br>
-                        При <span class="math">n = 15</span>: <span class="math">m = 105</span> ✅<br>
-                        При <span class="math">n = 100</span>: <span class="math">m = 700</span> ✅<br>
+                        Формула: <span class="math">\(m = 7n\)</span>, где n — целое число<br>
+                        При <span class="math">\(n = 15\)</span>: <span class="math">\(m = 105\)</span> ✅<br>
+                        При <span class="math">\(n = 100\)</span>: <span class="math">\(m = 700\)</span> ✅<br>
                         <em>Оба числа трёхзначные и делятся на 7!</em>
                     </div>
                 </div>
@@ -612,7 +635,7 @@ margin: 0 0 16px;
                 <li>Чтобы найти значение выражения — <span class="highlight">подставь число и вычисли</span></li>
                 <li>Отрицательные числа подставляем <span class="highlight">только в скобках</span>!</li>
                 <li>Если при подстановке получается деление на ноль — выражение <span class="highlight">не имеет смысла</span></li>
-                <li>Формулы: чётное <span class="math">m = 2n</span>, нечётное <span class="math">m = 2n + 1</span>, кратное k: <span class="math">m = kn</span></li>
+                <li>Формулы: чётное <span class="math">\(m = 2n\)</span>, нечётное <span class="math">\(m = 2n + 1\)</span>, кратное k: <span class="math">\(m = kn\)</span></li>
             </ul>
         </div>
 
@@ -644,5 +667,10 @@ margin: 0 0 16px;
             }
         }
     </script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
 </body>
 </html>
