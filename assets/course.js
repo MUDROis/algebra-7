@@ -295,10 +295,16 @@
         var href = a.getAttribute('href');
         if (seen[href]) return;
         seen[href] = true;
-        var h4 = card.querySelector('.info h4');
+        var h4 = card.querySelector('.topic-info h4');
+        var label = href;
+        if (h4) {
+          var clone = h4.cloneNode(true);
+          if (clone.querySelectorAll) clone.querySelectorAll('.page, .ready-badge, em').forEach(function (n) { n.remove(); });
+          label = clone.textContent.replace(/\s+/g, ' ').trim();
+        }
         var link = document.createElement('a');
         link.href = href;
-        link.textContent = h4 ? h4.textContent.replace(/\s+/g, ' ').trim() : href;
+        link.textContent = label;
         body.appendChild(link);
       });
       det.appendChild(body);
