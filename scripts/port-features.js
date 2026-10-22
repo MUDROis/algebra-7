@@ -5,7 +5,7 @@ const path = require('path');
 const { convertMathText } = require('./katex-convert');
 
 const DIR = 'C:/Users/Lenovo/Downloads/algebra-7';
-const BASE = 'https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/algebra-7';
+const BASE = 'https://интерактивнаяшкола.рф/algebra-7';
 const SITE = 'Алгебра 7 класс';
 
 const files = ['index.html'].concat(
