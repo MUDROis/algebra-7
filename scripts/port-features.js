@@ -5,14 +5,14 @@ const path = require('path');
 const { convertMathText } = require('./katex-convert');
 
 const DIR = 'C:/Users/Lenovo/Downloads/algebra-7';
-const BASE = 'https://MUDROis.github.io/algebra-7';
+const BASE = 'https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/algebra-7';
 const SITE = 'Алгебра 7 класс';
 
 const files = ['index.html'].concat(
   fs.readdirSync(DIR).filter(f => /^lesson-\d+\.html$/.test(f)).sort(
     (a, b) => parseInt(a.slice(7)) - parseInt(b.slice(7))));
 
-const WIDGET_PLAN = { 11: 'widget-num-11', 15: 'widget-coord-15', 16: 'widget-coord-16' };
+const WIDGET_PLAN = { 4: 'widget-num-4', 11: 'widget-num-11', 14: 'widget-coord-14', 15: 'widget-coord-15', 16: 'widget-coord-16' };
 const ANCHOR_CHECK = '<span class="emoji">✏️</span> Проверь себя';
 
 function esc(s) {

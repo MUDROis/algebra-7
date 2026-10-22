@@ -91,10 +91,20 @@
   }
 
   var WIDGET_DATA = {
+    'widget-num-4': { kind: 'numberline', min: -5, max: 5, step: 1, exercises: [
+      { prompt: 'Отметь число −3.', correct: -3 },
+      { prompt: 'Отметь число 2.', correct: 2 },
+      { prompt: 'Отметь число 0.', correct: 0 }
+    ] },
     'widget-num-11': { kind: 'numberline', min: -5, max: 5, step: 1, exercises: [
       { prompt: 'Отметь точку с координатой −2.', correct: -2 },
       { prompt: 'Отметь точку с координатой 3.', correct: 3 },
       { prompt: 'Отметь точку с координатой 0.', correct: 0 }
+    ] },
+    'widget-coord-14': { kind: 'coordinate', exercises: [
+      { prompt: 'Построй точку графика y = x² (x = 2).', correct: [2, 4] },
+      { prompt: 'Построй точку графика y = x² (x = −1).', correct: [-1, 1] },
+      { prompt: 'Построй точку графика y = x² (x = 0).', correct: [0, 0] }
     ] },
     'widget-coord-15': { kind: 'coordinate', exercises: [
       { prompt: 'Построй точку на графике y = 2x (x = 1).', correct: [1, 2] },
