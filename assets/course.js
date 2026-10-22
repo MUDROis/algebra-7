@@ -60,6 +60,7 @@
   }
 
   function initToc() {
+    if (document.querySelector('section.chapter')) return;
     var headings = Array.prototype.slice.call(document.querySelectorAll('.content-block h2'));
     if (headings.length < 2) return;
     var toc = document.createElement('div');
@@ -269,6 +270,43 @@
     }
   }
 
+  function initContentsSidebar() {
+    var chapters = document.querySelectorAll('section.chapter');
+    if (!chapters.length) return;
+    var toc = document.createElement('div');
+    toc.className = 'toc-sidebar';
+    var h3 = document.createElement('h3');
+    h3.textContent = 'Содержание';
+    toc.appendChild(h3);
+    var seen = {};
+    chapters.forEach(function (ch) {
+      var btn = ch.querySelector('.chapter-header');
+      if (!btn) return;
+      var title = btn.textContent.replace(/\s+/g, ' ').replace(/^[IVXLC]+\s*/, '').trim();
+      var det = document.createElement('details');
+      det.open = true;
+      var sum = document.createElement('summary');
+      sum.textContent = title || 'Глава';
+      det.appendChild(sum);
+      var body = document.createElement('div');
+      ch.querySelectorAll('.topic-card').forEach(function (card) {
+        var a = card.querySelector('a.go-btn[href]');
+        if (!a) return;
+        var href = a.getAttribute('href');
+        if (seen[href]) return;
+        seen[href] = true;
+        var h4 = card.querySelector('.info h4');
+        var link = document.createElement('a');
+        link.href = href;
+        link.textContent = h4 ? h4.textContent.replace(/\s+/g, ' ').trim() : href;
+        body.appendChild(link);
+      });
+      det.appendChild(body);
+      toc.appendChild(det);
+    });
+    document.body.appendChild(toc);
+  }
+
   window.Course = {
     init: function () {
       renderKatexIfPresent();
@@ -276,6 +314,7 @@
       initWidgets();
       initSearch();
       initToc();
+      initContentsSidebar();
     }
   };
 

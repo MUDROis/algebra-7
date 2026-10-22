@@ -75,6 +75,9 @@
   }
   .toc-sidebar a:hover{background:#eaf6fd;}
   .toc-sidebar a.active{background:#eaf6fd;border-left-color:var(--blue);font-weight:700;}
+  .toc-sidebar details{border-top:1px solid #ecf0f1;margin-top:6px;}
+  .toc-sidebar summary{cursor:pointer;font-weight:700;font-size:.85rem;padding:4px 0;color:var(--ink);list-style:none;}
+  .toc-sidebar summary::-webkit-details-marker{display:none;}
 }
 
 /* ===== Печать ===== */
