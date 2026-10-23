@@ -261,6 +261,23 @@ h2 { font-size: 1.3em; }
 .machine-arrow { transform: rotate(90deg); align-self: center; }
 }
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Зависимость одной величины от другой — язык математики">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Что такое функция — Алгебра 7 класс | Глава 2, §4, п. 12">
+<meta property="og:description" content="Зависимость одной величины от другой — язык математики">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-12.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Что такое функция — Алгебра 7 класс | Глава 2, §4, п. 12">
+<meta name="twitter:description" content="Зависимость одной величины от другой — язык математики">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-12.html">
 </head>
 <body>
 <div class="container">
@@ -283,22 +300,22 @@ h2 { font-size: 1.3em; }
 <div class="content-block">
 <h2><span class="emoji">🌍</span> Зависимости вокруг нас</h2>
 <h3>Пример 1: площадь квадрата</h3>
-<p>Площадь квадрата зависит от длины его стороны. Если сторона равна <span class="math">a</span> см, то площадь <span class="math">S = a²</span> см².</p>
+<p>Площадь квадрата зависит от длины его стороны. Если сторона равна <span class="math">\(a\)</span> см, то площадь <span class="math">\(S = a^{2}\)</span> см².</p>
 <div class="example-box">
-<p>При <span class="math">a = 3</span> → <span class="math">S = 9</span>; при <span class="math">a = 15</span> → <span class="math">S = 225</span>; при <span class="math">a = 0,08</span> → <span class="math">S = 0,0064</span>.</p>
-<p>Каждому значению <span class="math">a</span> соответствует <strong>ровно одно</strong> значение <span class="math">S</span>.</p>
+<p>При <span class="math">\(a = 3\)</span> → <span class="math">\(S = 9\)</span>; при <span class="math">\(a = 15\)</span> → <span class="math">\(S = 225\)</span>; при <span class="math">\(a = 0,08\)</span> → <span class="math">\(S = 0,0064\)</span>.</p>
+<p>Каждому значению <span class="math">\(a\)</span> соответствует <strong>ровно одно</strong> значение <span class="math">\(S\)</span>.</p>
 </div>
 
 <h3>Пример 2: путь автомобиля</h3>
-<p>Автомобиль едет со скоростью 50 км/ч. Путь <span class="math">s</span> зависит от времени <span class="math">t</span>:</p>
-<div class="formula"><span class="math">s(t) = 50t</span></div>
-<p>При <span class="math">t = 2</span> ч → <span class="math">s = 100</span> км; при <span class="math">t = 3,5</span> ч → <span class="math">s = 175</span> км.</p>
+<p>Автомобиль едет со скоростью 50 км/ч. Путь <span class="math">\(s\)</span> зависит от времени <span class="math">\(t\)</span>:</p>
+<div class="formula"><span class="math">\(s(t) = 50t\)</span></div>
+<p>При <span class="math">\(t = 2\)</span> ч → <span class="math">\(s = 100\)</span> км; при <span class="math">\(t = 3,5\)</span> ч → <span class="math">\(s = 175\)</span> км.</p>
 
 <h3>Пример 3: температура воздуха</h3>
-<p>На графике показана температура в течение суток. Каждому моменту времени <span class="math">t</span> (от 0 до 24 ч) соответствует <strong>одно</strong> значение температуры <span class="math">p</span>.</p>
+<p>На графике показана температура в течение суток. Каждому моменту времени <span class="math">\(t\)</span> (от 0 до 24 ч) соответствует <strong>одно</strong> значение температуры <span class="math">\(p\)</span>.</p>
 
 <h3>Пример 4: стоимость проезда</h3>
-<p>Стоимость проезда <span class="math">m</span> зависит от номера зоны <span class="math">n</span>:</p>
+<p>Стоимость проезда <span class="math">\(m\)</span> зависит от номера зоны <span class="math">\(n\)</span>:</p>
 <table class="values-table">
 <tr><th>n</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
 <tr><td>m (руб.)</td><td>26</td><td>52</td><td>78</td><td>104</td><td>130</td></tr>
@@ -315,23 +332,23 @@ h2 { font-size: 1.3em; }
 
 <h3>Кто есть кто?</h3>
 <ul>
-<li><span class="highlight">Независимая переменная</span> (аргумент) — та, которую мы выбираем сами (в примерах выше: <span class="math">a, t, n</span>)</li>
-<li><span class="highlight">Зависимая переменная</span> (функция) — та, значение которой получается (в примерах: <span class="math">S, s, m</span>)</li>
+<li><span class="highlight">Независимая переменная</span> (аргумент) — та, которую мы выбираем сами (в примерах выше: <span class="math">\(a, t, n\)</span>)</li>
+<li><span class="highlight">Зависимая переменная</span> (функция) — та, значение которой получается (в примерах: <span class="math">\(S, s, m\)</span>)</li>
 <li><span class="highlight">Значение функции</span> — результат подстановки конкретного аргумента</li>
 </ul>
 
 <div class="machine">
-<div class="machine-part input">📥 ВХОД<br>аргумент <span class="math">x</span><br>(независимая)</div>
+<div class="machine-part input">📥 ВХОД<br>аргумент <span class="math">\(x\)</span><br>(независимая)</div>
 <div class="machine-arrow">→</div>
-<div class="machine-part body">⚙️ ФУНКЦИЯ<br><span class="math">y = f(x)</span><br>«правило»</div>
+<div class="machine-part body">⚙️ ФУНКЦИЯ<br><span class="math">\(y = f(x)\)</span><br>«правило»</div>
 <div class="machine-arrow">→</div>
-<div class="machine-part output">📤 ВЫХОД<br>значение <span class="math">y</span><br>(зависимая)</div>
+<div class="machine-part output">📤 ВЫХОД<br>значение <span class="math">\(y\)</span><br>(зависимая)</div>
 </div>
 
 <div class="tip-box">
 <h4>💡 Как записывают</h4>
-<p>Вместо длинных слов пишут коротко: <span class="math">y = f(x)</span> (читается: «эф от икс»). Это значит: <em>«y — функция от x»</em>.</p>
-<p>Например: <span class="math">S(a) = a²</span>, <span class="math">s(t) = 50t</span>, <span class="math">m(n) = 26n</span>.</p>
+<p>Вместо длинных слов пишут коротко: <span class="math">\(y = f(x)\)</span> (читается: «эф от икс»). Это значит: <em>«y — функция от x»</em>.</p>
+<p>Например: <span class="math">\(S(a) = a^{2}\)</span>, <span class="math">\(s(t) = 50t\)</span>, <span class="math">\(m(n) = 26n\)</span>.</p>
 </div>
 </div>
 
@@ -342,9 +359,9 @@ h2 { font-size: 1.3em; }
 
 <div class="example-box">
 <h4>📝 Примеры</h4>
-<p>• В примере с площадью квадрата: <span class="math">a > 0</span> (сторона не может быть отрицательной или нулём).</p>
-<p>• В примере с температурой: <span class="math">0 ≤ t ≤ 24</span> (в сутках 24 часа).</p>
-<p>• В примере с зонами: <span class="math">n = 1, 2, 3, …, 9</span> (зон всего 9).</p>
+<p>• В примере с площадью квадрата: <span class="math">\(a > 0\)</span> (сторона не может быть отрицательной или нулём).</p>
+<p>• В примере с температурой: <span class="math">\(0 ≤ t ≤ 24\)</span> (в сутках 24 часа).</p>
+<p>• В примере с зонами: <span class="math">\(n = 1, 2, 3, …, 9\)</span> (зон всего 9).</p>
 </div>
 
 <div class="warning-box">
@@ -362,7 +379,7 @@ h2 { font-size: 1.3em; }
 <div class="way-card formula">
 <div class="way-icon">📝</div>
 <div class="way-name">Аналитический</div>
-<div class="way-example">формулой<br><span class="math">y = 3x - 1</span></div>
+<div class="way-example">формулой<br><span class="math">\(y = 3x - 1\)</span></div>
 </div>
 <div class="way-card graph">
 <div class="way-icon">📈</div>
@@ -377,7 +394,7 @@ h2 { font-size: 1.3em; }
 </div>
 
 <h3>Пример: аналитический способ</h3>
-<p>Пусть <span class="math">y(x) = (3x - 1) / 2</span>, где <span class="math">-3 ≤ x ≤ 3</span>. Найдём значения при целых <span class="math">x</span>:</p>
+<p>Пусть <span class="math">\(y(x) = (3x - 1) / 2\)</span>, где <span class="math">\(-3 ≤ x ≤ 3\)</span>. Найдём значения при целых <span class="math">\(x\)</span>:</p>
 <table class="values-table">
 <tr><th>x</th><th>-3</th><th>-2</th><th>-1</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
 <tr><td>y</td><td>-5</td><td>-3,5</td><td>-2</td><td>-0,5</td><td>1</td><td>2,5</td><td>4</td></tr>
@@ -396,16 +413,16 @@ h2 { font-size: 1.3em; }
 <strong>Шаг 1.</strong> Возьми зависимость. Например: «y — это число, квадрат которого равен x».
 </div>
 <div class="scaffolding-step">
-<strong>Шаг 2.</strong> Подставь <span class="math">x = 4</span>. Какие y подходят? <span class="math">y = 2</span> (потому что 2² = 4) и <span class="math">y = -2</span> (потому что (-2)² = 4).
+<strong>Шаг 2.</strong> Подставь <span class="math">\(x = 4\)</span>. Какие y подходят? <span class="math">\(y = 2\)</span> (потому что 2² = 4) и <span class="math">\(y = -2\)</span> (потому что (-2)² = 4).
 </div>
 <div class="scaffolding-step">
 <strong>Шаг 3.</strong> Одному x = 4 соответствуют <strong>два</strong> значения y → это <strong>НЕ функция</strong> 🚫
 </div>
 
-<p style="margin: 15px 0;"><strong>А теперь проверим функцию:</strong> <span class="math">y = x²</span>.</p>
+<p style="margin: 15px 0;"><strong>А теперь проверим функцию:</strong> <span class="math">\(y = x^{2}\)</span>.</p>
 
 <div class="scaffolding-step">
-<strong>Шаг 1.</strong> Подставь <span class="math">x = 4</span>: <span class="math">y = 4² = 16</span>.
+<strong>Шаг 1.</strong> Подставь <span class="math">\(x = 4\)</span>: <span class="math">\(y = 4^{2} = 16\)</span>.
 </div>
 <div class="scaffolding-step">
 <strong>Шаг 2.</strong> Другого значения y при x = 4 <strong>нет</strong> → это <strong>функция</strong> ✅
@@ -430,16 +447,17 @@ h2 { font-size: 1.3em; }
 <div class="exercise">
 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
 <h4>Задание 1 (№258 из учебника)</h4>
-<p>Площадь прямоугольника <span class="math">S</span> со сторонами 9 см и <span class="math">x</span> см равна <span class="math">S</span> см². Вырази формулой зависимость <span class="math">S</span> от <span class="math">x</span>. Найди значение функции при <span class="math">x = 4; 6; 15</span>.</p>
+<p>Площадь прямоугольника <span class="math">\(S\)</span> со сторонами 9 см и <span class="math">\(x\)</span> см равна <span class="math">\(S\)</span> см². Вырази формулой зависимость <span class="math">\(S\)</span> от <span class="math">\(x\)</span>. Найди значение функции при <span class="math">\(x = 4; 6; 15\)</span>.</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="S(x) = 9x; S(4) = 36; S(6) = 54; S(15) = 135"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
 <div id="answer1" class="answer-content">
 <strong>Решение:</strong><br>
-Формула: <span class="math">S(x) = 9x</span><br>
-• При x = 4: <span class="math">S(4) = 9 · 4 = 36</span> см²<br>
-• При x = 6: <span class="math">S(6) = 9 · 6 = 54</span> см²<br>
-• При x = 15: <span class="math">S(15) = 9 · 15 = 135</span> см²<br>
-<strong>Ответ:</strong> <span class="math">S(x) = 9x</span>; S(4) = 36; S(6) = 54; S(15) = 135
+Формула: <span class="math">\(S(x) = 9x\)</span><br>
+• При x = 4: <span class="math">\(S(4) = 9 \cdot{} 4 = 36\)</span> см²<br>
+• При x = 6: <span class="math">\(S(6) = 9 \cdot{} 6 = 54\)</span> см²<br>
+• При x = 15: <span class="math">\(S(15) = 9 \cdot{} 15 = 135\)</span> см²<br>
+<strong>Ответ:</strong> <span class="math">\(S(x) = 9x\)</span>; S(4) = 36; S(6) = 54; S(15) = 135
 </div>
 </div>
 </div>
@@ -447,15 +465,16 @@ h2 { font-size: 1.3em; }
 <div class="exercise">
 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
 <h4>Задание 2 (№259 из учебника)</h4>
-<p>Поезд, двигаясь со скоростью 70 км/ч, проходит за <span class="math">t</span> ч расстояние <span class="math">s</span> км. Задай формулой зависимость <span class="math">s</span> от <span class="math">t</span>. Найди значение функции при <span class="math">t = 2; 4</span>.</p>
+<p>Поезд, двигаясь со скоростью 70 км/ч, проходит за <span class="math">\(t\)</span> ч расстояние <span class="math">\(s\)</span> км. Задай формулой зависимость <span class="math">\(s\)</span> от <span class="math">\(t\)</span>. Найди значение функции при <span class="math">\(t = 2; 4\)</span>.</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="s(t) = 70t; s(2) = 140; s(4) = 280"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
 <div id="answer2" class="answer-content">
 <strong>Решение:</strong><br>
-Формула: <span class="math">s(t) = 70t</span><br>
-• При t = 2: <span class="math">s(2) = 70 · 2 = 140</span> км<br>
-• При t = 4: <span class="math">s(4) = 70 · 4 = 280</span> км<br>
-<strong>Ответ:</strong> <span class="math">s(t) = 70t</span>; s(2) = 140; s(4) = 280
+Формула: <span class="math">\(s(t) = 70t\)</span><br>
+• При t = 2: <span class="math">\(s(2) = 70 \cdot{} 2 = 140\)</span> км<br>
+• При t = 4: <span class="math">\(s(4) = 70 \cdot{} 4 = 280\)</span> км<br>
+<strong>Ответ:</strong> <span class="math">\(s(t) = 70t\)</span>; s(2) = 140; s(4) = 280
 </div>
 </div>
 </div>
@@ -464,17 +483,18 @@ h2 { font-size: 1.3em; }
 <div class="exercise">
 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
 <h4>Задание 3 (№260 из учебника)</h4>
-<p>Объём куба зависит от длины его ребра. Пусть <span class="math">a</span> см — длина ребра куба, а <span class="math">V</span> см³ — его объём. Задай формулой зависимость <span class="math">V</span> от <span class="math">a</span>. Возьми два каких-нибудь значения аргумента и вычисли соответствующие им значения функции.</p>
+<p>Объём куба зависит от длины его ребра. Пусть <span class="math">\(a\)</span> см — длина ребра куба, а <span class="math">\(V\)</span> см³ — его объём. Задай формулой зависимость <span class="math">\(V\)</span> от <span class="math">\(a\)</span>. Возьми два каких-нибудь значения аргумента и вычисли соответствующие им значения функции.</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="V(a) = a^{3}; например, V(2) = 8, V(3) = 27"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
 <div id="answer3" class="answer-content">
 <strong>Решение:</strong><br>
-Формула объёма куба: <span class="math">V(a) = a³</span><br>
+Формула объёма куба: <span class="math">\(V(a) = a^{3}\)</span><br>
 Возьмём два значения:<br>
-• При a = 2: <span class="math">V(2) = 2³ = 8</span> см³<br>
-• При a = 3: <span class="math">V(3) = 3³ = 27</span> см³<br>
+• При a = 2: <span class="math">\(V(2) = 2^{3} = 8\)</span> см³<br>
+• При a = 3: <span class="math">\(V(3) = 3^{3} = 27\)</span> см³<br>
 <em>(Можно взять любые другие значения — например, a = 5 → V = 125)</em><br>
-<strong>Ответ:</strong> <span class="math">V(a) = a³</span>; например, V(2) = 8, V(3) = 27
+<strong>Ответ:</strong> <span class="math">\(V(a) = a^{3}\)</span>; например, V(2) = 8, V(3) = 27
 </div>
 </div>
 </div>
@@ -482,18 +502,19 @@ h2 { font-size: 1.3em; }
 <div class="exercise">
 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
 <h4>Задание 4 (№261 из учебника)</h4>
-<p>По озеру плыла яхта. Расстояние <span class="math">S</span> (в км), на которое удалялась яхта от базы, менялось с течением времени <span class="math">t</span> (в мин). По графику найди:</p>
+<p>По озеру плыла яхта. Расстояние <span class="math">\(S\)</span> (в км), на которое удалялась яхта от базы, менялось с течением времени <span class="math">\(t\)</span> (в мин). По графику найди:</p>
 <p>• На каком расстоянии от базы находилась яхта через 20 мин; 40 мин; 60 мин?</p>
 <p>• Какова область определения рассматриваемой функции?</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="4 км; 6 км; 8 км; область определения [0; 90]"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
 <div id="answer4" class="answer-content">
 <strong>Решение (по графику из учебника):</strong><br>
-• Через 20 мин → <span class="math">S = 4</span> км<br>
-• Через 40 мин → <span class="math">S = 6</span> км<br>
-• Через 60 мин → <span class="math">S = 8</span> км<br>
-• Область определения: <span class="math">0 ≤ t ≤ 90</span> (яхта плыла 90 минут)<br>
-<strong>Ответ:</strong> 4 км; 6 км; 8 км; область определения <span class="math">[0; 90]</span>
+• Через 20 мин → <span class="math">\(S = 4\)</span> км<br>
+• Через 40 мин → <span class="math">\(S = 6\)</span> км<br>
+• Через 60 мин → <span class="math">\(S = 8\)</span> км<br>
+• Область определения: <span class="math">\(0 ≤ t ≤ 90\)</span> (яхта плыла 90 минут)<br>
+<strong>Ответ:</strong> 4 км; 6 км; 8 км; область определения <span class="math">\([0; 90]\)</span>
 </div>
 </div>
 </div>
@@ -502,23 +523,24 @@ h2 { font-size: 1.3em; }
 <div class="exercise">
 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
 <h4>Задание 5 (№263 из учебника)</h4>
-<p>Каждому натуральному числу <span class="math">n</span> ставится в соответствие остаток <span class="math">r</span> от деления этого числа на 4.</p>
-<p>а) Найди <span class="math">r</span>, если <span class="math">n</span> равно 13, 34, 43, 100.</p>
+<p>Каждому натуральному числу <span class="math">\(n\)</span> ставится в соответствие остаток <span class="math">\(r\)</span> от деления этого числа на 4.</p>
+<p>а) Найди <span class="math">\(r\)</span>, если <span class="math">\(n\)</span> равно 13, 34, 43, 100.</p>
 <p>б) В рассматриваемой функциональной зависимости укажи аргумент.</p>
 <p>в) Какова область определения этой функции?</p>
 <p>г) Какие числа служат значениями функции?</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) 1; 2; 3; 0; б) n; в) все натуральные числа; г) 0, 1, 2, 3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
 <div id="answer5" class="answer-content">
 <strong>Решение:</strong><br>
 а) Делим каждое число на 4 и находим остаток:<br>
-• <span class="math">13 : 4 = 3</span> (ост. 1) → <span class="math">r = 1</span><br>
-• <span class="math">34 : 4 = 8</span> (ост. 2) → <span class="math">r = 2</span><br>
-• <span class="math">43 : 4 = 10</span> (ост. 3) → <span class="math">r = 3</span><br>
-• <span class="math">100 : 4 = 25</span> (ост. 0) → <span class="math">r = 0</span><br>
-б) Аргумент (независимая переменная) — число <span class="math">n</span>.<br>
-в) Область определения — <strong>все натуральные числа</strong> (<span class="math">1, 2, 3, …</span>).<br>
-г) Значения функции — числа <span class="math">0, 1, 2, 3</span> (других остатков от деления на 4 не бывает).<br>
+• <span class="math">\(13 : 4 = 3\)</span> (ост. 1) → <span class="math">\(r = 1\)</span><br>
+• <span class="math">\(34 : 4 = 8\)</span> (ост. 2) → <span class="math">\(r = 2\)</span><br>
+• <span class="math">\(43 : 4 = 10\)</span> (ост. 3) → <span class="math">\(r = 3\)</span><br>
+• <span class="math">\(100 : 4 = 25\)</span> (ост. 0) → <span class="math">\(r = 0\)</span><br>
+б) Аргумент (независимая переменная) — число <span class="math">\(n\)</span>.<br>
+в) Область определения — <strong>все натуральные числа</strong> (<span class="math">\(1, 2, 3, …\)</span>).<br>
+г) Значения функции — числа <span class="math">\(0, 1, 2, 3\)</span> (других остатков от деления на 4 не бывает).<br>
 <strong>Ответ:</strong> а) 1; 2; 3; 0; б) n; в) все натуральные числа; г) 0, 1, 2, 3
 </div>
 </div>
@@ -527,7 +549,7 @@ h2 { font-size: 1.3em; }
 <div class="exercise">
 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
 <h4>Задание 6 (№264 из учебника)</h4>
-<p>В таблице, составленной в результате измерений, показана зависимость атмосферного давления <span class="math">p</span> от высоты <span class="math">h</span>:</p>
+<p>В таблице, составленной в результате измерений, показана зависимость атмосферного давления <span class="math">\(p\)</span> от высоты <span class="math">\(h\)</span>:</p>
 <table class="values-table">
 <tr><th>h, км</th><th>0</th><th>0,5</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
 <tr><td>p, мм рт. ст.</td><td>760,0</td><td>716,0</td><td>614,0</td><td>596,7</td><td>525,7</td><td>462,2</td><td>404,8</td></tr>
@@ -536,13 +558,14 @@ h2 { font-size: 1.3em; }
 <p>б) На какой высоте атмосферное давление равно 596,7 мм рт. ст.; 404,8 мм рт. ст.?</p>
 <p>в) Как изменяется давление в зависимости от высоты?</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) 614,0; 462,2; б) 2 км; 5 км; в) давление падает с ростом высоты"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
 <div id="answer6" class="answer-content">
 <strong>Решение (по таблице):</strong><br>
-а) На высоте 1 км → <span class="math">p = 614,0</span> мм рт. ст.<br>
-&nbsp;&nbsp;&nbsp;На высоте 4 км → <span class="math">p = 462,2</span> мм рт. ст.<br>
-б) Давлению 596,7 соответствует высота <span class="math">h = 2</span> км.<br>
-&nbsp;&nbsp;&nbsp;Давлению 404,8 соответствует высота <span class="math">h = 5</span> км.<br>
+а) На высоте 1 км → <span class="math">\(p = 614,0\)</span> мм рт. ст.<br>
+&nbsp;&nbsp;&nbsp;На высоте 4 км → <span class="math">\(p = 462,2\)</span> мм рт. ст.<br>
+б) Давлению 596,7 соответствует высота <span class="math">\(h = 2\)</span> км.<br>
+&nbsp;&nbsp;&nbsp;Давлению 404,8 соответствует высота <span class="math">\(h = 5\)</span> км.<br>
 в) С ростом высоты атмосферное давление <strong>уменьшается</strong>.<br>
 <strong>Ответ:</strong> а) 614,0; 462,2; б) 2 км; 5 км; в) давление падает с ростом высоты
 </div>
@@ -557,7 +580,7 @@ h2 { font-size: 1.3em; }
 <ul>
 <li><span class="highlight">Функция</span> — это зависимость, при которой каждому значению аргумента соответствует <strong>ровно одно</strong> значение функции</li>
 <li><span class="highlight">Аргумент</span> (независимая переменная) — то, что мы выбираем; <span class="highlight">функция</span> (зависимая переменная) — то, что получается</li>
-<li>Запись <span class="math">y = f(x)</span> читается: «y — функция от x»</li>
+<li>Запись <span class="math">\(y = f(x)\)</span> читается: «y — функция от x»</li>
 <li><span class="highlight">Область определения</span> — все допустимые значения аргумента</li>
 <li>Три способа задать функцию: <span class="highlight">формулой</span> (аналитически), <span class="highlight">графиком</span>, <span class="highlight">таблицей</span></li>
 <li>Тест на функцию: «одному x — одно y». Если одному x соответствует два или больше y — это не функция</li>
@@ -592,5 +615,10 @@ btn.style.background = '#e74c3c';
 }
 }
 </script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
 </body>
 </html>

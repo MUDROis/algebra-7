@@ -245,6 +245,23 @@
         .btn-check { width: 100%; }
     }
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Функция y = kx + b — прямая, параллельная прямой y = kx и проходящая через точку (0; b)">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Линейная функция и её график — Алгебра 7 класс | Глава 2, §5, п. 16">
+<meta property="og:description" content="Функция y = kx + b — прямая, параллельная прямой y = kx и проходящая через точку (0; b)">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-16.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Линейная функция и её график — Алгебра 7 класс | Глава 2, §5, п. 16">
+<meta name="twitter:description" content="Функция y = kx + b — прямая, параллельная прямой y = kx и проходящая через точку (0; b)">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-16.html">
 </head>
 <body>
 
@@ -259,32 +276,32 @@
 </header>
 
 <section class="card page-block">
-    <p>Привет! 👋 В прошлом уроке ты изучил прямую пропорциональность <span class="math">y = kx</span>. Но в жизни всё редко начинается строго с нуля.</p>
-    <p>Смотри сам: мотоциклист выехал из пункта B, удалённого от пункта A на 20 км, со скоростью 50 км/ч. Его расстояние от пункта A выражается формулой <span class="math">s = 50t + 20</span>. А если у тебя было 50 рублей и ты покупаешь тетради по 30 рублей, то стоимость покупки равна <span class="math">y = 30x + 50</span>.</p>
+    <p>Привет! 👋 В прошлом уроке ты изучил прямую пропорциональность <span class="math">\(y = kx\)</span>. Но в жизни всё редко начинается строго с нуля.</p>
+    <p>Смотри сам: мотоциклист выехал из пункта B, удалённого от пункта A на 20 км, со скоростью 50 км/ч. Его расстояние от пункта A выражается формулой <span class="math">\(s = 50t + 20\)</span>. А если у тебя было 50 рублей и ты покупаешь тетради по 30 рублей, то стоимость покупки равна <span class="math">\(y = 30x + 50\)</span>.</p>
     <p>Обе формулы — это уже не пропорциональность, а более общая и мощная функция — <span class="highlight">линейная</span>! Сегодня разберёмся, как устроен её график, и научимся строить любую прямую за пару секунд. 🚀</p>
 </section>
 
 <section class="card page-block">
     <h2>📐 Что такое линейная функция?</h2>
     <p><b>Определение.</b> <span class="highlight">Линейной функцией</span> называется функция, которую можно задать формулой вида</p>
-    <p style="text-align: center; font-size: 1.25em; margin: 18px 0;"><span class="math">y = kx + b</span>,</p>
-    <p>где <span class="math">x</span> — независимая переменная, <span class="math">k</span> и <span class="math">b</span> — некоторые числа.</p>
+    <p style="text-align: center; font-size: 1.25em; margin: 18px 0;"><span class="math">\(y = kx + b\)</span>,</p>
+    <p>где <span class="math">\(x\)</span> — независимая переменная, <span class="math">\(k\)</span> и <span class="math">\(b\)</span> — некоторые числа.</p>
     <ul>
-        <li><span class="math">k</span> — число при <span class="math">x</span>, его называют <span class="highlight">угловым коэффициентом</span> прямой;</li>
-        <li><span class="math">b</span> — <span class="highlight">свободный член</span>, он показывает сдвиг графика вдоль оси y.</li>
+        <li><span class="math">\(k\)</span> — число при <span class="math">\(x\)</span>, его называют <span class="highlight">угловым коэффициентом</span> прямой;</li>
+        <li><span class="math">\(b\)</span> — <span class="highlight">свободный член</span>, он показывает сдвиг графика вдоль оси y.</li>
     </ul>
-    <p>💡 Прямая пропорциональность <span class="math">y = kx</span> — это <b>частный случай</b> линейной функции: при <span class="math">b = 0</span> формула <span class="math">y = kx + b</span> превращается в <span class="math">y = kx</span>.</p>
+    <p>💡 Прямая пропорциональность <span class="math">\(y = kx\)</span> — это <b>частный случай</b> линейной функции: при <span class="math">\(b = 0\)</span> формула <span class="math">\(y = kx + b\)</span> превращается в <span class="math">\(y = kx\)</span>.</p>
 </section>
 
 <section class="card page-block">
     <h2>📈 График линейной функции — прямая</h2>
-    <p>Выясним, как выглядит график функции <span class="math">y = 0,5x + 2</span>. Сравним её значения со значениями функции <span class="math">y = 0,5x</span> при тех же <span class="math">x</span>:</p>
+    <p>Выясним, как выглядит график функции <span class="math">\(y = 0,5x + 2\)</span>. Сравним её значения со значениями функции <span class="math">\(y = 0,5x\)</span> при тех же <span class="math">\(x\)</span>:</p>
     <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; margin: 15px auto; text-align: center;">
-        <tr><td><span class="math">x</span></td><td>-4</td><td>-2</td><td>0</td><td>2</td><td>4</td><td>6</td></tr>
-        <tr><td><span class="math">y = 0,5x</span></td><td>-2</td><td>-1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
-        <tr><td><span class="math">y = 0,5x + 2</span></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        <tr><td><span class="math">\(x\)</span></td><td>-4</td><td>-2</td><td>0</td><td>2</td><td>4</td><td>6</td></tr>
+        <tr><td><span class="math">\(y = 0,5x\)</span></td><td>-2</td><td>-1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td><span class="math">\(y = 0,5x + 2\)</span></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
     </table>
-    <p>При каждом <span class="math">x</span> значение <span class="math">y = 0,5x + 2</span> ровно <b>на 2 больше</b>. Значит, график <span class="math">y = 0,5x + 2</span> — это график <span class="math">y = 0,5x</span>, <span class="highlight">сдвинутый на 2 единицы вверх</span> вдоль оси y.</p>
+    <p>При каждом <span class="math">\(x\)</span> значение <span class="math">\(y = 0,5x + 2\)</span> ровно <b>на 2 больше</b>. Значит, график <span class="math">\(y = 0,5x + 2\)</span> — это график <span class="math">\(y = 0,5x\)</span>, <span class="highlight">сдвинутый на 2 единицы вверх</span> вдоль оси y.</p>
 
     <div class="visual-container">
         <svg viewBox="0 0 320 240" class="graph-svg" width="320" height="240" role="img" aria-label="Сдвиг прямой y = kx на b единиц вверх">
@@ -323,7 +340,7 @@
         <div class="legend-item"><div class="color-box" style="background: #c0392b;"></div> сдвиг на b вдоль оси y</div>
     </div>
 
-    <p style="margin-top: 16px;">📌 <b>Запомни!</b> Графиком линейной функции <span class="math">y = kx + b</span> является <span class="highlight">прямая</span>, параллельная прямой <span class="math">y = kx</span>. При <span class="math">x = 0</span> получаем <span class="math">y = b</span>, значит, график пересекает ось y в точке <span class="math">(0; b)</span>.</p>
+    <p style="margin-top: 16px;">📌 <b>Запомни!</b> Графиком линейной функции <span class="math">\(y = kx + b\)</span> является <span class="highlight">прямая</span>, параллельная прямой <span class="math">\(y = kx\)</span>. При <span class="math">\(x = 0\)</span> получаем <span class="math">\(y = b\)</span>, значит, график пересекает ось y в точке <span class="math">\((0; b)\)</span>.</p>
     <p>Для построения прямой достаточно найти координаты <b>двух её точек</b>, отметить их и провести через них прямую по линейке.</p>
 </section>
 
@@ -331,9 +348,9 @@
     <h2>🔀 Как k и b управляют прямой?</h2>
     <p>Расположение прямой на плоскости зависит от обоих коэффициентов:</p>
     <ul>
-        <li><b>Угловой коэффициент <span class="math">k</span></b> задаёт <span class="highlight">наклон</span>: если <span class="math">k &gt; 0</span> — угол наклона прямой к оси x острый (прямая «идёт вверх»); если <span class="math">k &lt; 0</span> — тупой (прямая «идёт вниз»). Прямые с одинаковыми <span class="math">k</span> и разными <span class="math">b</span> <b>параллельны</b>.</li>
-        <li><b>Свободный член <span class="math">b</span></b> задаёт <span class="highlight">сдвиг по вертикали</span>: все прямые с одинаковым <span class="math">b</span> и разными <span class="math">k</span> пересекаются в одной точке на оси y — в точке <span class="math">(0; b)</span>.</li>
-        <li>Особый случай: при <span class="math">k = 0</span> формула принимает вид <span class="math">y = b</span> — это прямая, <b>параллельная оси x</b> (а при <span class="math">b = 0</span> — сама ось x).</li>
+        <li><b>Угловой коэффициент <span class="math">\(k\)</span></b> задаёт <span class="highlight">наклон</span>: если <span class="math">\(k \gt 0\)</span> — угол наклона прямой к оси x острый (прямая «идёт вверх»); если <span class="math">\(k \lt 0\)</span> — тупой (прямая «идёт вниз»). Прямые с одинаковыми <span class="math">\(k\)</span> и разными <span class="math">\(b\)</span> <b>параллельны</b>.</li>
+        <li><b>Свободный член <span class="math">\(b\)</span></b> задаёт <span class="highlight">сдвиг по вертикали</span>: все прямые с одинаковым <span class="math">\(b\)</span> и разными <span class="math">\(k\)</span> пересекаются в одной точке на оси y — в точке <span class="math">\((0; b)\)</span>.</li>
+        <li>Особый случай: при <span class="math">\(k = 0\)</span> формула принимает вид <span class="math">\(y = b\)</span> — это прямая, <b>параллельная оси x</b> (а при <span class="math">\(b = 0\)</span> — сама ось x).</li>
     </ul>
 
     <div class="visual-container">
@@ -372,111 +389,117 @@
 
 <section class="scaffolding-box page-block">
     <h3>🎯 Методическая подсказка: метод «Якорь и Шаг»</h3>
-    <p>Как построить прямую <span class="math">y = kx + b</span> быстро и без неудобных вычислений? Не подставляй случайные <span class="math">x</span> вроде <span class="math">x = 1,7</span>! Используй два «магических» числа формулы:</p>
+    <p>Как построить прямую <span class="math">\(y = kx + b\)</span> быстро и без неудобных вычислений? Не подставляй случайные <span class="math">\(x\)</span> вроде <span class="math">\(x = 1,7\)</span>! Используй два «магических» числа формулы:</p>
     <ol>
-        <li><b>⚓ Якорь</b> — точка на оси y. Её даже считать не надо: смотри на <span class="math">b</span> и ставь точку <span class="math">(0; b)</span>.</li>
-        <li><b>👣 Шаг</b> — смотри на <span class="math">k</span>: сдвинься из якоря на <b>1 вправо</b> и на <b><span class="math">k</span> вверх</b> (если <span class="math">k</span> отрицательный — вниз). Получишь вторую точку <span class="math">(1; k + b)</span>.</li>
+        <li><b>⚓ Якорь</b> — точка на оси y. Её даже считать не надо: смотри на <span class="math">\(b\)</span> и ставь точку <span class="math">\((0; b)\)</span>.</li>
+        <li><b>👣 Шаг</b> — смотри на <span class="math">\(k\)</span>: сдвинься из якоря на <b>1 вправо</b> и на <b><span class="math">\(k\)</span> вверх</b> (если <span class="math">\(k\)</span> отрицательный — вниз). Получишь вторую точку <span class="math">\((1; k + b)\)</span>.</li>
     </ol>
-    <p><b>Пример (не из заданий):</b> <span class="math">y = 3x - 2</span>.</p>
+    <p><b>Пример (не из заданий):</b> <span class="math">\(y = 3x - 2\)</span>.</p>
     <ul>
-        <li>Якорь: <span class="math">b = -2</span> → точка <span class="math">(0; -2)</span>. ✅</li>
-        <li>Шаг: <span class="math">k = 3</span> → 1 вправо, 3 вверх → точка <span class="math">(1; 1)</span>. ✅</li>
+        <li>Якорь: <span class="math">\(b = -2\)</span> → точка <span class="math">\((0; -2)\)</span>. ✅</li>
+        <li>Шаг: <span class="math">\(k = 3\)</span> → 1 вправо, 3 вверх → точка <span class="math">\((1; 1)\)</span>. ✅</li>
     </ul>
-    <p>Провели прямую через две точки — готово! А теперь контраст: если взять «случайный» <span class="math">x = 1,7</span>, придётся считать <span class="math">3 · 1,7 - 2 = 3,1</span> и откладывать дробную точку на глаз — долго и легко ошибиться. 🚫 Метод «Якорь и Шаг» считает всё устно.</p>
-    <p>🌉 <b>Мостик:</b> в задании 1 ты построишь две прямые именно этим методом — якорь найдёшь по <span class="math">b</span>, а шаг подскажет <span class="math">k</span>.</p>
+    <p>Провели прямую через две точки — готово! А теперь контраст: если взять «случайный» <span class="math">\(x = 1,7\)</span>, придётся считать <span class="math">\(3 \cdot{} 1,7 - 2 = 3,1\)</span> и откладывать дробную точку на глаз — долго и легко ошибиться. 🚫 Метод «Якорь и Шаг» считает всё устно.</p>
+    <p>🌉 <b>Мостик:</b> в задании 1 ты построишь две прямые именно этим методом — якорь найдёшь по <span class="math">\(b\)</span>, а шаг подскажет <span class="math">\(k\)</span>.</p>
 </section>
 
+<div class="content-block"><h2>🖱 Потренируйся на координатной плоскости</h2><div class="widget" id="widget-coord-16" data-widget="coordinate"></div></div>
 <h2 class="tasks-title page-block">✏️ Проверь себя</h2>
 <p class="tasks-note">Задания идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
 
 <div class="task page-block level-1">
     <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№319 а, б из учебника)</div>
     <p>Построй график функции:</p>
-    <p>а) <span class="math">y = -2x + 1</span>; &nbsp;&nbsp; б) <span class="math">y = 0,2x + 5</span>.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans1')">🔍 Проверить</button>
+    <p>а) <span class="math">\(y = -2x + 1\)</span>; &nbsp;&nbsp; б) <span class="math">\(y = 0,2x + 5\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) y = -2x + 1 (здесь k = -2, b = 1): Якорь: b = 1 → точка (0; 1). Шаг: k = -2 → 1 вправо, 2 вниз → точка (1; -1). Проводим прямую через (0; 1) и (1; -1): она «идёт вниз». б) y = 0,2x + 5 (здесь k = 0,2 = \frac{1}{5}, b = 5): Якорь: b = 5 → точка (0; 5). Шаг: k = \frac{1}{5} → удобно взять 5 вправо и 1 вверх → точка (5; 6). Проводим прямую через (0; 5) и (5; 6): она «идёт вверх», пологая. Проверка подстановкой: а) при x = 1: y = -2 \cdot{} 1 + 1 = -1 ✅; б) при x = 5: y = 0,2 \cdot{} 5 + 5 = 1 + 5 = 6 ✅."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans1')">🔍 Проверить</button>
     <div id="ans1" class="answer">
-        <p><b>а) <span class="math">y = -2x + 1</span></b> (здесь <span class="math">k = -2</span>, <span class="math">b = 1</span>):</p>
+        <p><b>а) <span class="math">\(y = -2x + 1\)</span></b> (здесь <span class="math">\(k = -2\)</span>, <span class="math">\(b = 1\)</span>):</p>
         <ol>
-            <li>Якорь: <span class="math">b = 1</span> → точка <span class="math">(0; 1)</span>.</li>
-            <li>Шаг: <span class="math">k = -2</span> → 1 вправо, 2 вниз → точка <span class="math">(1; -1)</span>.</li>
-            <li>Проводим прямую через <span class="math">(0; 1)</span> и <span class="math">(1; -1)</span>: она «идёт вниз».</li>
+            <li>Якорь: <span class="math">\(b = 1\)</span> → точка <span class="math">\((0; 1)\)</span>.</li>
+            <li>Шаг: <span class="math">\(k = -2\)</span> → 1 вправо, 2 вниз → точка <span class="math">\((1; -1)\)</span>.</li>
+            <li>Проводим прямую через <span class="math">\((0; 1)\)</span> и <span class="math">\((1; -1)\)</span>: она «идёт вниз».</li>
         </ol>
-        <p><b>б) <span class="math">y = 0,2x + 5</span></b> (здесь <span class="math">k = 0,2 = 1/5</span>, <span class="math">b = 5</span>):</p>
+        <p><b>б) <span class="math">\(y = 0,2x + 5\)</span></b> (здесь <span class="math">\(k = 0,2 = \frac{1}{5}\)</span>, <span class="math">\(b = 5\)</span>):</p>
         <ol>
-            <li>Якорь: <span class="math">b = 5</span> → точка <span class="math">(0; 5)</span>.</li>
-            <li>Шаг: <span class="math">k = 1/5</span> → удобно взять 5 вправо и 1 вверх → точка <span class="math">(5; 6)</span>.</li>
-            <li>Проводим прямую через <span class="math">(0; 5)</span> и <span class="math">(5; 6)</span>: она «идёт вверх», пологая.</li>
+            <li>Якорь: <span class="math">\(b = 5\)</span> → точка <span class="math">\((0; 5)\)</span>.</li>
+            <li>Шаг: <span class="math">\(k = \frac{1}{5}\)</span> → удобно взять 5 вправо и 1 вверх → точка <span class="math">\((5; 6)\)</span>.</li>
+            <li>Проводим прямую через <span class="math">\((0; 5)\)</span> и <span class="math">\((5; 6)\)</span>: она «идёт вверх», пологая.</li>
         </ol>
-        <p><b>Проверка подстановкой:</b> а) при <span class="math">x = 1</span>: <span class="math">y = -2 · 1 + 1 = -1</span> ✅; б) при <span class="math">x = 5</span>: <span class="math">y = 0,2 · 5 + 5 = 1 + 5 = 6</span> ✅.</p>
+        <p><b>Проверка подстановкой:</b> а) при <span class="math">\(x = 1\)</span>: <span class="math">\(y = -2 \cdot{} 1 + 1 = -1\)</span> ✅; б) при <span class="math">\(x = 5\)</span>: <span class="math">\(y = 0,2 \cdot{} 5 + 5 = 1 + 5 = 6\)</span> ✅.</p>
     </div>
 </div>
 
 <div class="task page-block level-1">
     <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№322 а из учебника)</div>
-    <p>Не выполняя построения, найди координаты точек пересечения с осями координат графика функции <span class="math">y = -2,4x + 9,6</span>.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans2')">🔍 Проверить</button>
+    <p>Не выполняя построения, найди координаты точек пересечения с осями координат графика функции <span class="math">\(y = -2,4x + 9,6\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(0; 9,6) и (4; 0)."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans2')">🔍 Проверить</button>
     <div id="ans2" class="answer">
         <ol>
-            <li><b>Пересечение с осью y</b> (якорь): при <span class="math">x = 0</span> получаем <span class="math">y = -2,4 · 0 + 9,6 = 9,6</span>. Точка <span class="math">(0; 9,6)</span>.</li>
-            <li><b>Пересечение с осью x:</b> там <span class="math">y = 0</span>, значит <span class="math">-2,4x + 9,6 = 0</span>.</li>
-            <li><span class="math">2,4x = 9,6</span> → <span class="math">x = 9,6 : 2,4 = 96 : 24 = 4</span>. Точка <span class="math">(4; 0)</span>.</li>
+            <li><b>Пересечение с осью y</b> (якорь): при <span class="math">\(x = 0\)</span> получаем <span class="math">\(y = -2,4 \cdot{} 0 + 9,6 = 9,6\)</span>. Точка <span class="math">\((0; 9,6)\)</span>.</li>
+            <li><b>Пересечение с осью x:</b> там <span class="math">\(y = 0\)</span>, значит <span class="math">\(-2,4x + 9,6 = 0\)</span>.</li>
+            <li><span class="math">\(2,4x = 9,6\)</span> → <span class="math">\(x = 9,6 : 2,4 = 96 : 24 = 4\)</span>. Точка <span class="math">\((4; 0)\)</span>.</li>
         </ol>
-        <p><b>Проверка:</b> <span class="math">-2,4 · 4 + 9,6 = -9,6 + 9,6 = 0</span> ✅.</p>
-        <p><b>Ответ:</b> <span class="math">(0; 9,6)</span> и <span class="math">(4; 0)</span>.</p>
+        <p><b>Проверка:</b> <span class="math">\(-2,4 \cdot{} 4 + 9,6 = -9,6 + 9,6 = 0\)</span> ✅.</p>
+        <p><b>Ответ:</b> <span class="math">\((0; 9,6)\)</span> и <span class="math">\((4; 0)\)</span>.</p>
     </div>
 </div>
 
 <div class="task page-block level-2">
     <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№327 а из учебника)</div>
-    <p>Найди координаты точки пересечения графиков функций <span class="math">y = 10x - 8</span> и <span class="math">y = -3x + 5</span>.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans3')">🔍 Проверить</button>
+    <p>Найди координаты точки пересечения графиков функций <span class="math">\(y = 10x - 8\)</span> и <span class="math">\(y = -3x + 5\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="точка пересечения (1; 2)."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans3')">🔍 Проверить</button>
     <div id="ans3" class="answer">
         <ol>
-            <li>В точке пересечения обе формулы дают одно и то же <span class="math">y</span>, поэтому приравниваем: <span class="math">10x - 8 = -3x + 5</span>.</li>
-            <li>Переносим <span class="math">-3x</span> влево, <span class="math">-8</span> вправо с противоположными знаками: <span class="math">10x + 3x = 5 + 8</span>.</li>
-            <li><span class="math">13x = 13</span> → <span class="math">x = 1</span>.</li>
-            <li>Подставляем в первую формулу: <span class="math">y = 10 · 1 - 8 = 2</span>.</li>
+            <li>В точке пересечения обе формулы дают одно и то же <span class="math">\(y\)</span>, поэтому приравниваем: <span class="math">\(10x - 8 = -3x + 5\)</span>.</li>
+            <li>Переносим <span class="math">\(-3x\)</span> влево, <span class="math">\(-8\)</span> вправо с противоположными знаками: <span class="math">\(10x + 3x = 5 + 8\)</span>.</li>
+            <li><span class="math">\(13x = 13\)</span> → <span class="math">\(x = 1\)</span>.</li>
+            <li>Подставляем в первую формулу: <span class="math">\(y = 10 \cdot{} 1 - 8 = 2\)</span>.</li>
         </ol>
-        <p><b>Проверка по второй формуле:</b> <span class="math">y = -3 · 1 + 5 = 2</span> — совпало ✅.</p>
-        <p><b>Ответ:</b> точка пересечения <span class="math">(1; 2)</span>.</p>
+        <p><b>Проверка по второй формуле:</b> <span class="math">\(y = -3 \cdot{} 1 + 5 = 2\)</span> — совпало ✅.</p>
+        <p><b>Ответ:</b> точка пересечения <span class="math">\((1; 2)\)</span>.</p>
     </div>
 </div>
 
 <div class="task page-block level-2">
     <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№328 из учебника)</div>
-    <p>График функции <span class="math">y = -1,4x + b</span> проходит через точку <span class="math">(-4; 10)</span>. Найди число <span class="math">b</span>.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans4')">🔍 Проверить</button>
+    <p>График функции <span class="math">\(y = -1,4x + b\)</span> проходит через точку <span class="math">\((-4; 10)\)</span>. Найди число <span class="math">\(b\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="b = 4,4."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans4')">🔍 Проверить</button>
     <div id="ans4" class="answer">
         <ol>
-            <li>Точка лежит на графике, значит её координаты удовлетворяют формуле: <span class="math">10 = -1,4 · (-4) + b</span>.</li>
-            <li>Считаем произведение (минус на минус — плюс): <span class="math">-1,4 · (-4) = 5,6</span>.</li>
-            <li>Получаем <span class="math">10 = 5,6 + b</span> → <span class="math">b = 10 - 5,6 = 4,4</span>.</li>
+            <li>Точка лежит на графике, значит её координаты удовлетворяют формуле: <span class="math">\(10 = -1,4 \cdot{} (-4) + b\)</span>.</li>
+            <li>Считаем произведение (минус на минус — плюс): <span class="math">\(-1,4 \cdot{} (-4) = 5,6\)</span>.</li>
+            <li>Получаем <span class="math">\(10 = 5,6 + b\)</span> → <span class="math">\(b = 10 - 5,6 = 4,4\)</span>.</li>
         </ol>
-        <p><b>Проверка:</b> <span class="math">y = -1,4 · (-4) + 4,4 = 5,6 + 4,4 = 10</span> ✅.</p>
-        <p><b>Ответ:</b> <span class="math">b = 4,4</span>.</p>
+        <p><b>Проверка:</b> <span class="math">\(y = -1,4 \cdot{} (-4) + 4,4 = 5,6 + 4,4 = 10\)</span> ✅.</p>
+        <p><b>Ответ:</b> <span class="math">\(b = 4,4\)</span>.</p>
     </div>
 </div>
 
 <div class="task page-block level-3">
     <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№320 а, г из учебника, задача-исследование)</div>
-    <p>Дана линейная функция <span class="math">y = kx + 4</span>. При каком значении <span class="math">k</span> график этой функции:</p>
-    <p>а) параллелен графику прямой пропорциональности <span class="math">y = -x</span>;</p>
-    <p>г) проходит через точку пересечения графиков функций <span class="math">y = 12 - x</span> и <span class="math">y = x + 4</span>?</p>
-    <button class="btn-check" onclick="toggleAnswer('ans5')">🔍 Проверить</button>
+    <p>Дана линейная функция <span class="math">\(y = kx + 4\)</span>. При каком значении <span class="math">\(k\)</span> график этой функции:</p>
+    <p>а) параллелен графику прямой пропорциональности <span class="math">\(y = -x\)</span>;</p>
+    <p>г) проходит через точку пересечения графиков функций <span class="math">\(y = 12 - x\)</span> и <span class="math">\(y = x + 4\)</span>?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="k = -1 (прямые y = -x + 4 и y = -x параллельны, т. к. b различны: 4 ≠ 0). г) Действуем в два шага: Находим точку пересечения прямых y = 12 - x и y = x + 4: 12 - x = x + 4 → 12 - 4 = x + x → 8 = 2x → x = 4. Тогда y = 12 - 4 = 8. Точка пересечения: (4; 8). График y = kx + 4 должен пройти через (4; 8): 8 = k \cdot{} 4 + 4 → 4k = 8 - 4 = 4 → k = 1. Проверка: при k = 1: y = 1 \cdot{} 4 + 4 = 8 ✅. Ответ г): k = 1."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans5')">🔍 Проверить</button>
     <div id="ans5" class="answer">
-        <p><b>а)</b> Прямые параллельны тогда и только тогда, когда их угловые коэффициенты равны. У прямой <span class="math">y = -x</span> коэффициент <span class="math">k = -1</span>.</p>
-        <p><b>Ответ а):</b> <span class="math">k = -1</span> (прямые <span class="math">y = -x + 4</span> и <span class="math">y = -x</span> параллельны, т. к. <span class="math">b</span> различны: 4 ≠ 0).</p>
+        <p><b>а)</b> Прямые параллельны тогда и только тогда, когда их угловые коэффициенты равны. У прямой <span class="math">\(y = -x\)</span> коэффициент <span class="math">\(k = -1\)</span>.</p>
+        <p><b>Ответ а):</b> <span class="math">\(k = -1\)</span> (прямые <span class="math">\(y = -x + 4\)</span> и <span class="math">\(y = -x\)</span> параллельны, т. к. <span class="math">\(b\)</span> различны: 4 ≠ 0).</p>
         <hr style="border: none; border-top: 1px dashed #bdc3c7; margin: 14px 0;">
         <p><b>г)</b> Действуем в два шага:</p>
         <ol>
-            <li>Находим точку пересечения прямых <span class="math">y = 12 - x</span> и <span class="math">y = x + 4</span>:<br>
-                <span class="math">12 - x = x + 4</span> → <span class="math">12 - 4 = x + x</span> → <span class="math">8 = 2x</span> → <span class="math">x = 4</span>.<br>
-                Тогда <span class="math">y = 12 - 4 = 8</span>. Точка пересечения: <span class="math">(4; 8)</span>.</li>
-            <li>График <span class="math">y = kx + 4</span> должен пройти через <span class="math">(4; 8)</span>:<br>
-                <span class="math">8 = k · 4 + 4</span> → <span class="math">4k = 8 - 4 = 4</span> → <span class="math">k = 1</span>.</li>
+            <li>Находим точку пересечения прямых <span class="math">\(y = 12 - x\)</span> и <span class="math">\(y = x + 4\)</span>:<br>
+                <span class="math">\(12 - x = x + 4\)</span> → <span class="math">\(12 - 4 = x + x\)</span> → <span class="math">\(8 = 2x\)</span> → <span class="math">\(x = 4\)</span>.<br>
+                Тогда <span class="math">\(y = 12 - 4 = 8\)</span>. Точка пересечения: <span class="math">\((4; 8)\)</span>.</li>
+            <li>График <span class="math">\(y = kx + 4\)</span> должен пройти через <span class="math">\((4; 8)\)</span>:<br>
+                <span class="math">\(8 = k \cdot{} 4 + 4\)</span> → <span class="math">\(4k = 8 - 4 = 4\)</span> → <span class="math">\(k = 1\)</span>.</li>
         </ol>
-        <p><b>Проверка:</b> при <span class="math">k = 1</span>: <span class="math">y = 1 · 4 + 4 = 8</span> ✅.</p>
-        <p><b>Ответ г):</b> <span class="math">k = 1</span>.</p>
+        <p><b>Проверка:</b> при <span class="math">\(k = 1\)</span>: <span class="math">\(y = 1 \cdot{} 4 + 4 = 8\)</span> ✅.</p>
+        <p><b>Ответ г):</b> <span class="math">\(k = 1\)</span>.</p>
     </div>
 </div>
 
@@ -485,29 +508,30 @@
     <p>В бак налили воду, температура которой 10 °C, и начали её нагревать до 100 °C, причём через каждую минуту температура повышалась на 1,5 °C. Задай формулой зависимость температуры воды T (в градусах Цельсия) от времени нагревания t (в минутах). Узнай:</p>
     <p>а) какую температуру имела вода через 5 мин; через 10 мин после начала нагревания;</p>
     <p>б) через какое время вода нагрелась до 85 °C.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans6')">🔍 Проверить</button>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="T = 1,5t + 10; а) 17,5 °C и 25 °C; б) через 50 мин."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans6')">🔍 Проверить</button>
     <div id="ans6" class="answer">
         <ol>
-            <li><b>Формула.</b> Начальная температура — это «якорь» <span class="math">b = 10</span>, а прибавка 1,5 °C за минуту — это «шаг» <span class="math">k = 1,5</span>. Получаем линейную функцию: <span class="math">T = 1,5t + 10</span>.</li>
-            <li><b>а)</b> При <span class="math">t = 5</span>: <span class="math">T = 1,5 · 5 + 10 = 7,5 + 10 = 17,5</span> °C.<br>
-                При <span class="math">t = 10</span>: <span class="math">T = 1,5 · 10 + 10 = 15 + 10 = 25</span> °C.</li>
-            <li><b>б)</b> Нужно <span class="math">T = 85</span>: <span class="math">1,5t + 10 = 85</span> → <span class="math">1,5t = 75</span> → <span class="math">t = 75 : 1,5 = 750 : 15 = 50</span> (мин).</li>
+            <li><b>Формула.</b> Начальная температура — это «якорь» <span class="math">\(b = 10\)</span>, а прибавка 1,5 °C за минуту — это «шаг» <span class="math">\(k = 1,5\)</span>. Получаем линейную функцию: <span class="math">\(T = 1,5t + 10\)</span>.</li>
+            <li><b>а)</b> При <span class="math">\(t = 5\)</span>: <span class="math">\(T = 1,5 \cdot{} 5 + 10 = 7,5 + 10 = 17,5\)</span> °C.<br>
+                При <span class="math">\(t = 10\)</span>: <span class="math">\(T = 1,5 \cdot{} 10 + 10 = 15 + 10 = 25\)</span> °C.</li>
+            <li><b>б)</b> Нужно <span class="math">\(T = 85\)</span>: <span class="math">\(1,5t + 10 = 85\)</span> → <span class="math">\(1,5t = 75\)</span> → <span class="math">\(t = 75 : 1,5 = 750 : 15 = 50\)</span> (мин).</li>
         </ol>
-        <p><b>Проверка:</b> <span class="math">1,5 · 50 + 10 = 75 + 10 = 85</span> ✅; и 85 °C &lt; 100 °C, значит вода ещё не закипела — ответ согласуется с условием.</p>
-        <p><b>Ответ:</b> <span class="math">T = 1,5t + 10</span>; а) 17,5 °C и 25 °C; б) через 50 мин.</p>
+        <p><b>Проверка:</b> <span class="math">\(1,5 \cdot{} 50 + 10 = 75 + 10 = 85\)</span> ✅; и 85 °C &lt; 100 °C, значит вода ещё не закипела — ответ согласуется с условием.</p>
+        <p><b>Ответ:</b> <span class="math">\(T = 1,5t + 10\)</span>; а) 17,5 °C и 25 °C; б) через 50 мин.</p>
     </div>
 </div>
 
 <section class="summary-box page-block">
     <h2>📝 Главное, что нужно запомнить</h2>
     <ul>
-        <li><b>Линейная функция</b> — функция вида <span class="math">y = kx + b</span>, где <span class="math">x</span> — переменная, <span class="math">k</span> и <span class="math">b</span> — числа.</li>
-        <li>Прямая пропорциональность <span class="math">y = kx</span> — частный случай линейной функции при <span class="math">b = 0</span>.</li>
+        <li><b>Линейная функция</b> — функция вида <span class="math">\(y = kx + b\)</span>, где <span class="math">\(x\)</span> — переменная, <span class="math">\(k\)</span> и <span class="math">\(b\)</span> — числа.</li>
+        <li>Прямая пропорциональность <span class="math">\(y = kx\)</span> — частный случай линейной функции при <span class="math">\(b = 0\)</span>.</li>
         <li>График линейной функции — <b>прямая</b>; для построения достаточно <b>двух точек</b>.</li>
-        <li>График <span class="math">y = kx + b</span> параллелен прямой <span class="math">y = kx</span> и пересекает ось y в точке <span class="math">(0; b)</span>.</li>
-        <li><span class="math">k</span> — угловой коэффициент: <span class="math">k &gt; 0</span> — прямая «идёт вверх» (угол острый), <span class="math">k &lt; 0</span> — «идёт вниз» (угол тупой).</li>
-        <li>Метод «Якорь и Шаг»: первая точка <span class="math">(0; b)</span>, вторая — <span class="math">(1; k + b)</span>.</li>
-        <li>У прямых одинаковые <span class="math">k</span> → они параллельны; разные <span class="math">k</span> → пересекаются (точку пересечения находим приравниванием формул).</li>
+        <li>График <span class="math">\(y = kx + b\)</span> параллелен прямой <span class="math">\(y = kx\)</span> и пересекает ось y в точке <span class="math">\((0; b)\)</span>.</li>
+        <li><span class="math">\(k\)</span> — угловой коэффициент: <span class="math">\(k \gt 0\)</span> — прямая «идёт вверх» (угол острый), <span class="math">\(k \lt 0\)</span> — «идёт вниз» (угол тупой).</li>
+        <li>Метод «Якорь и Шаг»: первая точка <span class="math">\((0; b)\)</span>, вторая — <span class="math">\((1; k + b)\)</span>.</li>
+        <li>У прямых одинаковые <span class="math">\(k\)</span> → они параллельны; разные <span class="math">\(k\)</span> → пересекаются (точку пересечения находим приравниванием формул).</li>
     </ul>
 </section>
 
@@ -540,5 +564,10 @@
     }
 </script>
 
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
 </body>
 </html>

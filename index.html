@@ -233,19 +233,37 @@
             h1 { font-size: 1.7em; }
         }
     </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Выражения, функции, степени, многочлены и системы уравнений — вся программа года на одной странице">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Алгебра 7 класс — главная страница курса">
+<meta property="og:description" content="Выражения, функции, степени, многочлены и системы уравнений — вся программа года на одной странице">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Алгебра 7 класс — главная страница курса">
+<meta name="twitter:description" content="Выражения, функции, степени, многочлены и системы уравнений — вся программа года на одной странице">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/">
 </head>
 <body>
     <div class="container">
         <!-- Шапка курса -->
         <header>
             <div class="course-badge">Учебный курс • Алгебра, 7 класс</div>
-            <h1>Алгебра 7 класс</h1>
+            <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;"><img class="course-logo" src="assets/logo.png" alt="Логотип курса «Алгебра 7 класс»"><h1 style="margin:0;">Алгебра 7 класс</h1></div>
             <p class="subtitle">Выражения, функции, степени, многочлены и системы уравнений — вся программа года на одной странице</p>
             <p class="legend">👇 Нажми на заголовок главы, чтобы раскрыть её состав. Значок <span class="ready-badge">✅ урок готов</span> означает готовый интерактивный урок.</p>
         </header>
 
         <!-- ================= ГЛАВА I ================= -->
-        <section class="chapter c1">
+        <div style="background:#fff;padding:16px;margin-bottom:22px;box-shadow:0 2px 6px rgba(0,0,0,.08);border-left:6px solid #3498db;"><input id="course-search" type="search" placeholder="Поиск по курсу…"></div>
+<section class="chapter c1">
             <button class="chapter-header open" onclick="toggleChapter('ch1')" aria-expanded="true">
                 <span class="ch-num n1">I</span>
                 <span>Выражения, тождества, уравнения</span>
@@ -735,5 +753,10 @@
             header.setAttribute('aria-expanded', isOpen);
         }
     </script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
 </body>
 </html>

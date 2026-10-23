@@ -250,6 +250,23 @@
         .piecewise-brace { font-size: 2em; }
     }
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Когда одной формулы мало: собираем функцию из разных правил для разных промежутков 🧩">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Кусочно-заданные функции — Алгебра 7 класс | Глава 2, §5, п. 17">
+<meta property="og:description" content="Когда одной формулы мало: собираем функцию из разных правил для разных промежутков 🧩">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-17.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Кусочно-заданные функции — Алгебра 7 класс | Глава 2, §5, п. 17">
+<meta name="twitter:description" content="Когда одной формулы мало: собираем функцию из разных правил для разных промежутков 🧩">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-17.html">
 </head>
 <body>
 
@@ -264,20 +281,20 @@
 </header>
 
 <section class="card page-block">
-    <p>Привет! 👋 До сих пор мы рассматривали функции, которые на всей области определения задавались одной формулой (например, <span class="math">y = 2x</span> или <span class="math">y = -3x + 1</span>). Но в реальной жизни правило часто меняется «на ходу».</p>
+    <p>Привет! 👋 До сих пор мы рассматривали функции, которые на всей области определения задавались одной формулой (например, <span class="math">\(y = 2x\)</span> или <span class="math">\(y = -3x + 1\)</span>). Но в реальной жизни правило часто меняется «на ходу».</p>
     <p>Турист из учебника шёл полтора часа со скоростью 6 км/ч, потом полчаса отдыхал, а затем шёл дальше со скоростью 5 км/ч. Одна формула такое не опишет — а три легко! Сегодня разберёмся, как устроены <span class="highlight">кусочно-заданные функции</span> и как строить их графики без обидных ошибок на стыках. 🚀</p>
 </section>
 
 <section class="card page-block">
     <h2>📐 Что такое кусочно-заданная функция?</h2>
     <p><b>Определение.</b> Функция называется <span class="highlight">кусочно-заданной</span>, если её область определения разбита на промежутки и на каждом из них функция задаётся своей формулой.</p>
-    <p><b>Пример 1 из учебника (турист).</b> Пока <span class="math">0 ≤ t &lt; 1,5</span>, турист идёт со скоростью 6 км/ч: <span class="math">s = 6t</span>. Во время привала (<span class="math">1,5 ≤ t ≤ 2</span>) расстояние не меняется: он уже прошёл <span class="math">6 · 1,5 = 9</span> км, значит <span class="math">s = 9</span>. После привала (<span class="math">2 &lt; t ≤ 3</span>) он идёт со скоростью 5 км/ч: <span class="math">s = 9 + 5(t - 2) = 5t - 1</span>. Короче:</p>
+    <p><b>Пример 1 из учебника (турист).</b> Пока <span class="math">\(0 ≤ t \lt 1,5\)</span>, турист идёт со скоростью 6 км/ч: <span class="math">\(s = 6t\)</span>. Во время привала (<span class="math">\(1,5 ≤ t ≤ 2\)</span>) расстояние не меняется: он уже прошёл <span class="math">\(6 \cdot{} 1,5 = 9\)</span> км, значит <span class="math">\(s = 9\)</span>. После привала (<span class="math">\(2 \lt t ≤ 3\)</span>) он идёт со скоростью 5 км/ч: <span class="math">\(s = 9 + 5(t - 2) = 5t - 1\)</span>. Короче:</p>
     <div style="text-align: center; margin: 20px 0; font-size: 1.1em;">
         <span class="piecewise-brace">{</span>
         <span class="piecewise-table">
-            <div><span class="math">6t</span>, если <span class="math">0 ≤ t &lt; 1,5</span></div>
-            <div><span class="math">9</span>, если <span class="math">1,5 ≤ t ≤ 2</span></div>
-            <div><span class="math">5t - 1</span>, если <span class="math">2 &lt; t ≤ 3</span></div>
+            <div><span class="math">\(6t\)</span>, если <span class="math">\(0 ≤ t \lt 1,5\)</span></div>
+            <div><span class="math">\(9\)</span>, если <span class="math">\(1,5 ≤ t ≤ 2\)</span></div>
+            <div><span class="math">\(5t - 1\)</span>, если <span class="math">\(2 \lt t ≤ 3\)</span></div>
         </span>
     </div>
 
@@ -317,16 +334,16 @@
 
 <section class="card page-block">
     <h2>🔓 Модуль — это спрятанная кусочно-заданная функция</h2>
-    <p><b>Пример 2 из учебника.</b> Построим график функции <span class="math">y = x + 0,5|x|</span>. Освободимся от знака модуля по определению:</p>
+    <p><b>Пример 2 из учебника.</b> Построим график функции <span class="math">\(y = x + 0,5|x|\)</span>. Освободимся от знака модуля по определению:</p>
     <ol>
-        <li>Если <span class="math">x &lt; 0</span>, то <span class="math">|x| = -x</span>, значит <span class="math">y = x - 0,5x = 0,5x</span>.</li>
-        <li>Если <span class="math">x ≥ 0</span>, то <span class="math">|x| = x</span>, значит <span class="math">y = x + 0,5x = 1,5x</span>.</li>
+        <li>Если <span class="math">\(x \lt 0\)</span>, то <span class="math">\(|x| = -x\)</span>, значит <span class="math">\(y = x - 0,5x = 0,5x\)</span>.</li>
+        <li>Если <span class="math">\(x ≥ 0\)</span>, то <span class="math">\(|x| = x\)</span>, значит <span class="math">\(y = x + 0,5x = 1,5x\)</span>.</li>
     </ol>
     <div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
         <span class="piecewise-brace">{</span>
         <span class="piecewise-table">
-            <div><span class="math">0,5x</span>, если <span class="math">x &lt; 0</span></div>
-            <div><span class="math">1,5x</span>, если <span class="math">x ≥ 0</span></div>
+            <div><span class="math">\(0,5x\)</span>, если <span class="math">\(x \lt 0\)</span></div>
+            <div><span class="math">\(1,5x\)</span>, если <span class="math">\(x ≥ 0\)</span></div>
         </span>
     </div>
     <div class="visual-container">
@@ -351,26 +368,26 @@
         </svg>
     </div>
     <p class="fig-caption">Схема: масштаб по осям соблюдён — луч слева (k = 0,5) положе луча справа (k = 1,5). Обрати внимание: при x &lt; 0 значение y = 0,5x отрицательно, поэтому луч уходит вниз-влево.</p>
-    <p>График состоит из двух лучей, выходящих из начала координат: влево — пологий луч <span class="math">y = 0,5x</span>, вправо — крутой луч <span class="math">y = 1,5x</span>.</p>
+    <p>График состоит из двух лучей, выходящих из начала координат: влево — пологий луч <span class="math">\(y = 0,5x\)</span>, вправо — крутой луч <span class="math">\(y = 1,5x\)</span>.</p>
 </section>
 
 <section class="card page-block">
     <h2>⚠️ Ловушка: одному x — только одно y</h2>
-    <p>Задавая функцию несколькими формулами, следи, чтобы промежутки <b>не перекрывались</b>. Иначе одному значению переменной будут соответствовать два значения <span class="math">y</span> — и это уже не функция!</p>
-    <p>🚫 <b>Не функция:</b> <span class="math">y = x</span> при <span class="math">x ≤ 3</span> и <span class="math">y = 2x</span> при <span class="math">x ≥ 3</span>. Число <span class="math">x = 3</span> — общее значение переменной для обеих формул: получаем <span class="math">y = 3</span> и <span class="math">y = 6</span> сразу. Так не бывает!</p>
-    <p>✅ <b>Функция:</b> <span class="math">y = x + 1</span> при <span class="math">x ≤ 2</span> и <span class="math">y = 2x - 2</span> при <span class="math">x &gt; 2</span>. Граница <span class="math">x = 2</span> входит только в первый промежуток, значит у каждого <span class="math">x</span> ровно одно значение <span class="math">y</span>.</p>
+    <p>Задавая функцию несколькими формулами, следи, чтобы промежутки <b>не перекрывались</b>. Иначе одному значению переменной будут соответствовать два значения <span class="math">\(y\)</span> — и это уже не функция!</p>
+    <p>🚫 <b>Не функция:</b> <span class="math">\(y = x\)</span> при <span class="math">\(x ≤ 3\)</span> и <span class="math">\(y = 2x\)</span> при <span class="math">\(x ≥ 3\)</span>. Число <span class="math">\(x = 3\)</span> — общее значение переменной для обеих формул: получаем <span class="math">\(y = 3\)</span> и <span class="math">\(y = 6\)</span> сразу. Так не бывает!</p>
+    <p>✅ <b>Функция:</b> <span class="math">\(y = x + 1\)</span> при <span class="math">\(x ≤ 2\)</span> и <span class="math">\(y = 2x - 2\)</span> при <span class="math">\(x \gt 2\)</span>. Граница <span class="math">\(x = 2\)</span> входит только в первый промежуток, значит у каждого <span class="math">\(x\)</span> ровно одно значение <span class="math">\(y\)</span>.</p>
 </section>
 
 <section class="scaffolding-box page-block">
     <h3>🎯 Методическая подсказка: алгоритм «Граница и Заклёпка»</h3>
     <p>Самые частые ошибки в кусочно-заданных функциях случаются на <b>границе промежутков</b>. Действуй по алгоритму:</p>
     <ol>
-        <li><b>📍 Найди границу.</b> Это значение переменной, где формула-switch переключается (например, <span class="math">x = 2</span>).</li>
+        <li><b>📍 Найди границу.</b> Это значение переменной, где формула-switch переключается (например, <span class="math">\(x = 2\)</span>).</li>
         <li><b>🧮 Посчитай y с обеих сторон.</b> Подставь границу в левую и в правую формулу.</li>
         <li><b>🔘 Поставь заклёпки по знакам неравенства:</b>
             <ul>
-                <li>нестрогий знак (<span class="math">≤</span>, <span class="math">≥</span>) — точка принадлежит графику → <b>закрашенный кружок</b>;</li>
-                <li>строгий знак (<span class="math">&lt;</span>, <span class="math">&gt;</span>) — точка не принадлежит графику → <b>выколотый кружок</b>.</li>
+                <li>нестрогий знак (<span class="math">\(≤\)</span>, <span class="math">\(≥\)</span>) — точка принадлежит графику → <b>закрашенный кружок</b>;</li>
+                <li>строгий знак (<span class="math">\(\lt\)</span>, <span class="math">\(\gt\)</span>) — точка не принадлежит графику → <b>выколотый кружок</b>.</li>
             </ul>
         </li>
         <li><b> Сшей или не сшивай.</b> Если значения y с обеих сторон совпали — куски стыкуются в одной точке (график непрерывен). Если не совпали — это <b>скачок</b>: две точки на одной вертикали, соединять их отрезком нельзя!</li>
@@ -402,8 +419,8 @@
     </div>
     <p class="fig-caption">Схема: масштаб по осям соблюдён — скачок на границе x = 2 для y = x + 1 (x ≤ 2) и y = 2x - 2 (x &gt; 2)</p>
 
-    <p>💡 <b>Контраст на одном примере:</b> для <span class="math">y = x + 1</span> (при <span class="math">x ≤ 2</span>) и <span class="math">y = 2x - 2</span> (при <span class="math">x &gt; 2</span>): слева <span class="math">y = 2 + 1 = 3</span> → точка <span class="math">(2; 3)</span> закрашена ✅; справа предел <span class="math">2 · 2 - 2 = 2</span> → точка <span class="math">(2; 2)</span> выколота ✅. Значения не совпали — рисуем скачок и <b>не соединяем</b> точки. 🚫 Ошибка — закрасить обе точки или провести между ними отрезок.</p>
-    <p>🌉 <b>Мостик:</b> в задании 5 (№346) граница прячется в точке <span class="math">x = -1</span>, а в задании 6 (№344) границу ты найдёшь сам из условия — примени алгоритм и расставь заклёпки правильно!</p>
+    <p>💡 <b>Контраст на одном примере:</b> для <span class="math">\(y = x + 1\)</span> (при <span class="math">\(x ≤ 2\)</span>) и <span class="math">\(y = 2x - 2\)</span> (при <span class="math">\(x \gt 2\)</span>): слева <span class="math">\(y = 2 + 1 = 3\)</span> → точка <span class="math">\((2; 3)\)</span> закрашена ✅; справа предел <span class="math">\(2 \cdot{} 2 - 2 = 2\)</span> → точка <span class="math">\((2; 2)\)</span> выколота ✅. Значения не совпали — рисуем скачок и <b>не соединяем</b> точки. 🚫 Ошибка — закрасить обе точки или провести между ними отрезок.</p>
+    <p>🌉 <b>Мостик:</b> в задании 5 (№346) граница прячется в точке <span class="math">\(x = -1\)</span>, а в задании 6 (№344) границу ты найдёшь сам из условия — примени алгоритм и расставь заклёпки правильно!</p>
 </section>
 
 <h2 class="tasks-title page-block">✏️ Проверь себя</h2>
@@ -415,18 +432,19 @@
     <div style="text-align: center; margin: 10px 0; font-size: 1.1em;">
         <span class="piecewise-brace" style="font-size: 2em;">{</span>
         <span class="piecewise-table">
-            <div><span class="math">y = -x</span>, если <span class="math">x &lt; -1</span></div>
-            <div><span class="math">y = x</span>, если <span class="math">x ≥ -1</span></div>
+            <div><span class="math">\(y = -x\)</span>, если <span class="math">\(x \lt -1\)</span></div>
+            <div><span class="math">\(y = x\)</span>, если <span class="math">\(x ≥ -1\)</span></div>
         </span>
     </div>
-    <button class="btn-check" onclick="toggleAnswer('ans1')">🔍 Проверить</button>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Кусок 1 (x \lt -1): луч прямой y = -x. Точки: (-3; 3), (-2; 2). На границе x = -1 получаем y = -(-1) = 1, но условие строгое (x \lt -1) — точка (-1; 1) выколота 🚫. Кусок 2 (x ≥ -1): луч прямой y = x из точки (-1; -1) (закрашена, потому что знак нестрогий) через (0; 0), (1; 1). Стык: при x = -1 слева y = 1, справа y = -1 — значения не совпали, значит это скачок: точки (-1; 1) и (-1; -1) отрезком не соединяем 🚫. Итог: график — «галочка» со скачком: левая ветвь спускается из верхнего левого угла к выколотой точке (-1; 1), а правая ветвь идёт из закрашенной точки (-1; -1) вверх-вправо через (0; 0) и (1; 1)."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans1')">🔍 Проверить</button>
     <div id="ans1" class="answer">
         <ol>
-            <li><b>Кусок 1 (<span class="math">x &lt; -1</span>):</b> луч прямой <span class="math">y = -x</span>. Точки: <span class="math">(-3; 3)</span>, <span class="math">(-2; 2)</span>. На границе <span class="math">x = -1</span> получаем <span class="math">y = -(-1) = 1</span>, но условие строгое (<span class="math">x &lt; -1</span>) — точка <span class="math">(-1; 1)</span> <b>выколота</b> 🚫.</li>
-            <li><b>Кусок 2 (<span class="math">x ≥ -1</span>):</b> луч прямой <span class="math">y = x</span> из точки <span class="math">(-1; -1)</span> (закрашена, потому что знак нестрогий) через <span class="math">(0; 0)</span>, <span class="math">(1; 1)</span>.</li>
+            <li><b>Кусок 1 (<span class="math">\(x \lt -1\)</span>):</b> луч прямой <span class="math">\(y = -x\)</span>. Точки: <span class="math">\((-3; 3)\)</span>, <span class="math">\((-2; 2)\)</span>. На границе <span class="math">\(x = -1\)</span> получаем <span class="math">\(y = -(-1) = 1\)</span>, но условие строгое (<span class="math">\(x \lt -1\)</span>) — точка <span class="math">\((-1; 1)\)</span> <b>выколота</b> 🚫.</li>
+            <li><b>Кусок 2 (<span class="math">\(x ≥ -1\)</span>):</b> луч прямой <span class="math">\(y = x\)</span> из точки <span class="math">\((-1; -1)\)</span> (закрашена, потому что знак нестрогий) через <span class="math">\((0; 0)\)</span>, <span class="math">\((1; 1)\)</span>.</li>
         </ol>
-        <p><b>Стык:</b> при <span class="math">x = -1</span> слева <span class="math">y = 1</span>, справа <span class="math">y = -1</span> — значения <b>не совпали</b>, значит это скачок: точки <span class="math">(-1; 1)</span> и <span class="math">(-1; -1)</span> отрезком <b>не соединяем</b> 🚫.</p>
-        <p><b>Итог:</b> график — «галочка» со скачком: левая ветвь спускается из верхнего левого угла к выколотой точке <span class="math">(-1; 1)</span>, а правая ветвь идёт из закрашенной точки <span class="math">(-1; -1)</span> вверх-вправо через <span class="math">(0; 0)</span> и <span class="math">(1; 1)</span>.</p>
+        <p><b>Стык:</b> при <span class="math">\(x = -1\)</span> слева <span class="math">\(y = 1\)</span>, справа <span class="math">\(y = -1\)</span> — значения <b>не совпали</b>, значит это скачок: точки <span class="math">\((-1; 1)\)</span> и <span class="math">\((-1; -1)\)</span> отрезком <b>не соединяем</b> 🚫.</p>
+        <p><b>Итог:</b> график — «галочка» со скачком: левая ветвь спускается из верхнего левого угла к выколотой точке <span class="math">\((-1; 1)\)</span>, а правая ветвь идёт из закрашенной точки <span class="math">\((-1; -1)\)</span> вверх-вправо через <span class="math">\((0; 0)\)</span> и <span class="math">\((1; 1)\)</span>.</p>
     </div>
 </div>
 
@@ -436,42 +454,44 @@
     <div style="text-align: center; margin: 10px 0; font-size: 1.1em;">
         <span class="piecewise-brace" style="font-size: 2em;">{</span>
         <span class="piecewise-table">
-            <div><span class="math">y = 2x</span>, если <span class="math">-1 ≤ x &lt; 1</span></div>
-            <div><span class="math">y = 3 - x</span>, если <span class="math">1 ≤ x ≤ 4</span></div>
+            <div><span class="math">\(y = 2x\)</span>, если <span class="math">\(-1 ≤ x \lt 1\)</span></div>
+            <div><span class="math">\(y = 3 - x\)</span>, если <span class="math">\(1 ≤ x ≤ 4\)</span></div>
         </span>
     </div>
-    <button class="btn-check" onclick="toggleAnswer('ans2')">🔍 Проверить</button>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Кусок 1 (-1 ≤ x \lt 1): отрезок прямой y = 2x: левый конец (-1; -2) закрашен; точки (0; 0); правый конец на границе: 2 \cdot{} 1 = 2 → точка (1; 2) выколота. Кусок 2 (1 ≤ x ≤ 4): отрезок прямой y = 3 - x: левый конец 3 - 1 = 2 → точка (1; 2) закрашена; правый конец 3 - 4 = -1 → точка (4; -1) закрашена. Стык: при x = 1 оба куска дают y = 2 — график непрерывен, «галочка» с вершиной в точке (1; 2) ✅. Итог: отрезок вверх от (-1; -2) до (1; 2), затем отрезок вниз до (4; -1)."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans2')">🔍 Проверить</button>
     <div id="ans2" class="answer">
         <ol>
-            <li><b>Кусок 1 (<span class="math">-1 ≤ x &lt; 1</span>):</b> отрезок прямой <span class="math">y = 2x</span>: левый конец <span class="math">(-1; -2)</span> закрашен; точки <span class="math">(0; 0)</span>; правый конец на границе: <span class="math">2 · 1 = 2</span> → точка <span class="math">(1; 2)</span> выколота.</li>
-            <li><b>Кусок 2 (<span class="math">1 ≤ x ≤ 4</span>):</b> отрезок прямой <span class="math">y = 3 - x</span>: левый конец <span class="math">3 - 1 = 2</span> → точка <span class="math">(1; 2)</span> закрашена; правый конец <span class="math">3 - 4 = -1</span> → точка <span class="math">(4; -1)</span> закрашена.</li>
+            <li><b>Кусок 1 (<span class="math">\(-1 ≤ x \lt 1\)</span>):</b> отрезок прямой <span class="math">\(y = 2x\)</span>: левый конец <span class="math">\((-1; -2)\)</span> закрашен; точки <span class="math">\((0; 0)\)</span>; правый конец на границе: <span class="math">\(2 \cdot{} 1 = 2\)</span> → точка <span class="math">\((1; 2)\)</span> выколота.</li>
+            <li><b>Кусок 2 (<span class="math">\(1 ≤ x ≤ 4\)</span>):</b> отрезок прямой <span class="math">\(y = 3 - x\)</span>: левый конец <span class="math">\(3 - 1 = 2\)</span> → точка <span class="math">\((1; 2)\)</span> закрашена; правый конец <span class="math">\(3 - 4 = -1\)</span> → точка <span class="math">\((4; -1)\)</span> закрашена.</li>
         </ol>
-        <p><b>Стык:</b> при <span class="math">x = 1</span> оба куска дают <span class="math">y = 2</span> — график непрерывен, «галочка» с вершиной в точке <span class="math">(1; 2)</span> ✅.</p>
-        <p><b>Итог:</b> отрезок вверх от <span class="math">(-1; -2)</span> до <span class="math">(1; 2)</span>, затем отрезок вниз до <span class="math">(4; -1)</span>.</p>
+        <p><b>Стык:</b> при <span class="math">\(x = 1\)</span> оба куска дают <span class="math">\(y = 2\)</span> — график непрерывен, «галочка» с вершиной в точке <span class="math">\((1; 2)\)</span> ✅.</p>
+        <p><b>Итог:</b> отрезок вверх от <span class="math">\((-1; -2)\)</span> до <span class="math">\((1; 2)\)</span>, затем отрезок вниз до <span class="math">\((4; -1)\)</span>.</p>
     </div>
 </div>
 
 <div class="task page-block level-2">
     <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№348 б из учебника)</div>
-    <p>Построй график функции <span class="math">y = |x| + 0,5x</span>. Сначала раскрой модуль и запиши функцию кусочно.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans3')">🔍 Проверить</button>
+    <p>Построй график функции <span class="math">\(y = |x| + 0,5x\)</span>. Сначала раскрой модуль и запиши функцию кусочно.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Раскрываем модуль. Если x \lt 0, то |x| = -x: y = -x + 0,5x = -0,5x. Если x ≥ 0, то |x| = x: y = x + 0,5x = 1,5x. Кусочная запись: { -0,5x, если x \lt 0"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans3')">🔍 Проверить</button>
     <div id="ans3" class="answer">
         <ol>
-            <li><b>Раскрываем модуль.</b> Если <span class="math">x &lt; 0</span>, то <span class="math">|x| = -x</span>: <span class="math">y = -x + 0,5x = -0,5x</span>.<br>
-            Если <span class="math">x ≥ 0</span>, то <span class="math">|x| = x</span>: <span class="math">y = x + 0,5x = 1,5x</span>.</li>
+            <li><b>Раскрываем модуль.</b> Если <span class="math">\(x \lt 0\)</span>, то <span class="math">\(|x| = -x\)</span>: <span class="math">\(y = -x + 0,5x = -0,5x\)</span>.<br>
+            Если <span class="math">\(x ≥ 0\)</span>, то <span class="math">\(|x| = x\)</span>: <span class="math">\(y = x + 0,5x = 1,5x\)</span>.</li>
             <li><b>Кусочная запись:</b></li>
         </ol>
         <div style="text-align: center; margin: 10px 0; font-size: 1.1em;">
             <span class="piecewise-brace" style="font-size: 2em;">{</span>
             <span class="piecewise-table">
-                <div><span class="math">-0,5x</span>, если <span class="math">x &lt; 0</span></div>
-                <div><span class="math">1,5x</span>, если <span class="math">x ≥ 0</span></div>
+                <div><span class="math">\(-0,5x\)</span>, если <span class="math">\(x \lt 0\)</span></div>
+                <div><span class="math">\(1,5x\)</span>, если <span class="math">\(x ≥ 0\)</span></div>
             </span>
         </div>
         <ol start="3">
-            <li><b>Строим два луча из начала координат.</b> Левый луч (<span class="math">x &lt; 0</span>): через точку <span class="math">(-4; 2)</span> (проверка: <span class="math">-0,5 · (-4) = 2</span> ✅). Правый луч (<span class="math">x ≥ 0</span>): через точку <span class="math">(2; 3)</span> (проверка: <span class="math">1,5 · 2 = 3</span> ✅).</li>
+            <li><b>Строим два луча из начала координат.</b> Левый луч (<span class="math">\(x \lt 0\)</span>): через точку <span class="math">\((-4; 2)\)</span> (проверка: <span class="math">\(-0,5 \cdot{} (-4) = 2\)</span> ✅). Правый луч (<span class="math">\(x ≥ 0\)</span>): через точку <span class="math">\((2; 3)\)</span> (проверка: <span class="math">\(1,5 \cdot{} 2 = 3\)</span> ✅).</li>
         </ol>
-        <p><b>Итог:</b> «уголок» с вершиной в точке <span class="math">(0; 0)</span>: влево — пологий луч вверх, вправо — крутой луч вверх. Не перепутай с примером 2 из теории: там модуль стоял при втором слагаемом, поэтому левый луч был другим!</p>
+        <p><b>Итог:</b> «уголок» с вершиной в точке <span class="math">\((0; 0)\)</span>: влево — пологий луч вверх, вправо — крутой луч вверх. Не перепутай с примером 2 из теории: там модуль стоял при втором слагаемом, поэтому левый луч был другим!</p>
     </div>
 </div>
 
@@ -481,20 +501,21 @@
     <div style="text-align: center; margin: 10px 0; font-size: 1.1em;">
         <span class="piecewise-brace" style="font-size: 2em;">{</span>
         <span class="piecewise-table">
-            <div><span class="math">y = -x + 2</span>, если <span class="math">x &lt; 0</span></div>
-            <div><span class="math">y = x + 2</span>, если <span class="math">x ≥ 0</span></div>
+            <div><span class="math">\(y = -x + 2\)</span>, если <span class="math">\(x \lt 0\)</span></div>
+            <div><span class="math">\(y = x + 2\)</span>, если <span class="math">\(x ≥ 0\)</span></div>
         </span>
     </div>
     <p>Задай эту функцию одной формулой, используя знак модуля.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans4')">🔍 Проверить</button>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="y = |x| + 2."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans4')">🔍 Проверить</button>
     <div id="ans4" class="answer">
         <ol>
-            <li><b>Сравниваем куски.</b> Оба куска отличаются только знаком при <span class="math">x</span>: слева <span class="math">-x</span>, справа <span class="math">x</span>, а «+2» общее.</li>
-            <li><b>Вспоминаем модуль:</b> <span class="math">|x| = x</span> при <span class="math">x ≥ 0</span> и <span class="math">|x| = -x</span> при <span class="math">x &lt; 0</span> — в точности как наши куски!</li>
-            <li><b>Собираем формулу:</b> <span class="math">y = |x| + 2</span>.</li>
+            <li><b>Сравниваем куски.</b> Оба куска отличаются только знаком при <span class="math">\(x\)</span>: слева <span class="math">\(-x\)</span>, справа <span class="math">\(x\)</span>, а «+2» общее.</li>
+            <li><b>Вспоминаем модуль:</b> <span class="math">\(|x| = x\)</span> при <span class="math">\(x ≥ 0\)</span> и <span class="math">\(|x| = -x\)</span> при <span class="math">\(x \lt 0\)</span> — в точности как наши куски!</li>
+            <li><b>Собираем формулу:</b> <span class="math">\(y = |x| + 2\)</span>.</li>
         </ol>
-        <p><b>Проверка:</b> при <span class="math">x = -5</span>: <span class="math">|-5| + 2 = 5 + 2 = 7</span> и по куску <span class="math">-(-5) + 2 = 7</span> ✅; при <span class="math">x = 3</span>: <span class="math">|3| + 2 = 5</span> и по куску <span class="math">3 + 2 = 5</span> ✅.</p>
-        <p><b>Ответ:</b> <span class="math">y = |x| + 2</span>.</p>
+        <p><b>Проверка:</b> при <span class="math">\(x = -5\)</span>: <span class="math">\(|-5| + 2 = 5 + 2 = 7\)</span> и по куску <span class="math">\(-(-5) + 2 = 7\)</span> ✅; при <span class="math">\(x = 3\)</span>: <span class="math">\(|3| + 2 = 5\)</span> и по куску <span class="math">\(3 + 2 = 5\)</span> ✅.</p>
+        <p><b>Ответ:</b> <span class="math">\(y = |x| + 2\)</span>.</p>
     </div>
 </div>
 
@@ -504,46 +525,48 @@
     <div style="text-align: center; margin: 10px 0; font-size: 1.1em;">
         <span class="piecewise-brace" style="font-size: 2em;">{</span>
         <span class="piecewise-table">
-            <div><span class="math">y = -x - 2</span>, если <span class="math">x &lt; -1</span></div>
-            <div><span class="math">y = 2x + 1</span>, если <span class="math">x ≥ -1</span></div>
+            <div><span class="math">\(y = -x - 2\)</span>, если <span class="math">\(x \lt -1\)</span></div>
+            <div><span class="math">\(y = 2x + 1\)</span>, если <span class="math">\(x ≥ -1\)</span></div>
         </span>
     </div>
-    <p>Определи, при каких значениях <span class="math">m</span> прямая <span class="math">y = m</span> и график данной функции: а) не имеют общих точек; б) имеют ровно одну общую точку; в) имеют ровно две общие точки.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans5')">🔍 Проверить</button>
+    <p>Определи, при каких значениях <span class="math">\(m\)</span> прямая <span class="math">\(y = m\)</span> и график данной функции: а) не имеют общих точек; б) имеют ровно одну общую точку; в) имеют ровно две общие точки.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) m \lt -1; б) m = -1; в) m \gt -1."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans5')">🔍 Проверить</button>
     <div id="ans5" class="answer">
         <ol>
-            <li><b>Граница <span class="math">x = -1</span>:</b> слева <span class="math">-(-1) - 2 = -1</span> (точка выколота), справа <span class="math">2 · (-1) + 1 = -1</span> (точка закрашена). Значения совпали → вершина «галочки» в точке <span class="math">(-1; -1)</span> ✅.</li>
-            <li><b>Лучи:</b> левый (<span class="math">x &lt; -1</span>) идёт вверх-влево, например через <span class="math">(-4; 2)</span> (проверка: <span class="math">-(-4) - 2 = 2</span> ✅); правый (<span class="math">x ≥ -1</span>) идёт вверх-вправо, например через <span class="math">(2; 5)</span> (проверка: <span class="math">2 · 2 + 1 = 5</span> ✅).</li>
-            <li><b>Множество значений:</b> левый луч даёт все <span class="math">y &gt; -1</span>, правый — все <span class="math">y ≥ -1</span>. Значит наименьшее значение функции равно <span class="math">-1</span>.</li>
-            <li><b>Пересечения с горизонтальной прямой <span class="math">y = m</span>:</b><br>
-            а) при <span class="math">m &lt; -1</span> прямая проходит ниже графика — общих точек нет;<br>
-            б) при <span class="math">m = -1</span> прямая касается вершины — ровно одна общая точка <span class="math">(-1; -1)</span>;<br>
-            в) при <span class="math">m &gt; -1</span> прямая пересекает оба луча — ровно две общие точки.</li>
+            <li><b>Граница <span class="math">\(x = -1\)</span>:</b> слева <span class="math">\(-(-1) - 2 = -1\)</span> (точка выколота), справа <span class="math">\(2 \cdot{} (-1) + 1 = -1\)</span> (точка закрашена). Значения совпали → вершина «галочки» в точке <span class="math">\((-1; -1)\)</span> ✅.</li>
+            <li><b>Лучи:</b> левый (<span class="math">\(x \lt -1\)</span>) идёт вверх-влево, например через <span class="math">\((-4; 2)\)</span> (проверка: <span class="math">\(-(-4) - 2 = 2\)</span> ✅); правый (<span class="math">\(x ≥ -1\)</span>) идёт вверх-вправо, например через <span class="math">\((2; 5)\)</span> (проверка: <span class="math">\(2 \cdot{} 2 + 1 = 5\)</span> ✅).</li>
+            <li><b>Множество значений:</b> левый луч даёт все <span class="math">\(y \gt -1\)</span>, правый — все <span class="math">\(y ≥ -1\)</span>. Значит наименьшее значение функции равно <span class="math">\(-1\)</span>.</li>
+            <li><b>Пересечения с горизонтальной прямой <span class="math">\(y = m\)</span>:</b><br>
+            а) при <span class="math">\(m \lt -1\)</span> прямая проходит ниже графика — общих точек нет;<br>
+            б) при <span class="math">\(m = -1\)</span> прямая касается вершины — ровно одна общая точка <span class="math">\((-1; -1)\)</span>;<br>
+            в) при <span class="math">\(m \gt -1\)</span> прямая пересекает оба луча — ровно две общие точки.</li>
         </ol>
-        <p><b>Ответ:</b> а) <span class="math">m &lt; -1</span>; б) <span class="math">m = -1</span>; в) <span class="math">m &gt; -1</span>.</p>
+        <p><b>Ответ:</b> а) <span class="math">\(m \lt -1\)</span>; б) <span class="math">\(m = -1\)</span>; в) <span class="math">\(m \gt -1\)</span>.</p>
     </div>
 </div>
 
 <div class="task page-block level-3">
     <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№344 из учебника, сюжетная задача)</div>
-    <p>Из бака ёмкостью 20 л, заполненного водой, через открытый кран равномерно вытекает вода со скоростью 2 л в минуту. Через кран может вытечь 0,9 всего объёма воды в баке, так как кран расположен выше дна бака. Объём воды <span class="math">V</span> (в литрах) в баке зависит от времени <span class="math">x</span> (в минутах), когда кран открыт. Задай зависимость <span class="math">V</span> от <span class="math">x</span> аналитически, если известно, что кран был открыт в течение 12 мин.</p>
-    <button class="btn-check" onclick="toggleAnswer('ans6')">🔍 Проверить</button>
+    <p>Из бака ёмкостью 20 л, заполненного водой, через открытый кран равномерно вытекает вода со скоростью 2 л в минуту. Через кран может вытечь 0,9 всего объёма воды в баке, так как кран расположен выше дна бака. Объём воды <span class="math">\(V\)</span> (в литрах) в баке зависит от времени <span class="math">\(x\)</span> (в минутах), когда кран открыт. Задай зависимость <span class="math">\(V\)</span> от <span class="math">\(x\)</span> аналитически, если известно, что кран был открыт в течение 12 мин.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Сколько воды может вытечь? 0,9 \cdot{} 20 = 18 (л) — больше кран вылить не может. За какое время вытечет 18 л? 18 : 2 = 9 (мин). Значит первые 9 минут уровень падает, а с 9-й по 12-ю минуту из крана не капает — под ним остаётся 20 - 18 = 2 л. Первый кусок (0 ≤ x ≤ 9): за x минут вытекло 2x литров, осталось V = 20 - 2x. Проверка: x = 0 → 20 ✅; x = 9 → 20 - 18 = 2 ✅. Второй кусок (9 \lt x ≤ 12): объём не меняется: V = 2. { V = 20 - 2x, если 0 ≤ x ≤ 9"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans6')">🔍 Проверить</button>
     <div id="ans6" class="answer">
         <ol>
-            <li><b>Сколько воды может вытечь?</b> <span class="math">0,9 · 20 = 18</span> (л) — больше кран вылить не может.</li>
-            <li><b>За какое время вытечет 18 л?</b> <span class="math">18 : 2 = 9</span> (мин). Значит первые 9 минут уровень падает, а с 9-й по 12-ю минуту из крана не капает — под ним остаётся <span class="math">20 - 18 = 2</span> л.</li>
-            <li><b>Первый кусок (<span class="math">0 ≤ x ≤ 9</span>):</b> за <span class="math">x</span> минут вытекло <span class="math">2x</span> литров, осталось <span class="math">V = 20 - 2x</span>. Проверка: <span class="math">x = 0 → 20</span> ✅; <span class="math">x = 9 → 20 - 18 = 2</span> ✅.</li>
-            <li><b>Второй кусок (<span class="math">9 &lt; x ≤ 12</span>):</b> объём не меняется: <span class="math">V = 2</span>.</li>
+            <li><b>Сколько воды может вытечь?</b> <span class="math">\(0,9 \cdot{} 20 = 18\)</span> (л) — больше кран вылить не может.</li>
+            <li><b>За какое время вытечет 18 л?</b> <span class="math">\(18 : 2 = 9\)</span> (мин). Значит первые 9 минут уровень падает, а с 9-й по 12-ю минуту из крана не капает — под ним остаётся <span class="math">\(20 - 18 = 2\)</span> л.</li>
+            <li><b>Первый кусок (<span class="math">\(0 ≤ x ≤ 9\)</span>):</b> за <span class="math">\(x\)</span> минут вытекло <span class="math">\(2x\)</span> литров, осталось <span class="math">\(V = 20 - 2x\)</span>. Проверка: <span class="math">\(x = 0 → 20\)</span> ✅; <span class="math">\(x = 9 → 20 - 18 = 2\)</span> ✅.</li>
+            <li><b>Второй кусок (<span class="math">\(9 \lt x ≤ 12\)</span>):</b> объём не меняется: <span class="math">\(V = 2\)</span>.</li>
         </ol>
         <div style="text-align: center; margin: 15px 0; font-size: 1.1em;">
             <span class="piecewise-brace" style="font-size: 2em;">{</span>
             <span class="piecewise-table">
-                <div><span class="math">V = 20 - 2x</span>, если <span class="math">0 ≤ x ≤ 9</span></div>
-                <div><span class="math">V = 2</span>, если <span class="math">9 &lt; x ≤ 12</span></div>
+                <div><span class="math">\(V = 20 - 2x\)</span>, если <span class="math">\(0 ≤ x ≤ 9\)</span></div>
+                <div><span class="math">\(V = 2\)</span>, если <span class="math">\(9 \lt x ≤ 12\)</span></div>
             </span>
         </div>
-        <p><b>Граница и заклёпка:</b> при <span class="math">x = 9</span> оба куска дают <span class="math">V = 2</span> — график непрерывен: отрезок вниз от <span class="math">(0; 20)</span> до <span class="math">(9; 2)</span>, затем горизонтальный отрезок до <span class="math">(12; 2)</span>.</p>
-        <p><b>Ответ:</b> <span class="math">V = 20 - 2x</span> при <span class="math">0 ≤ x ≤ 9</span>; <span class="math">V = 2</span> при <span class="math">9 &lt; x ≤ 12</span>.</p>
+        <p><b>Граница и заклёпка:</b> при <span class="math">\(x = 9\)</span> оба куска дают <span class="math">\(V = 2\)</span> — график непрерывен: отрезок вниз от <span class="math">\((0; 20)\)</span> до <span class="math">\((9; 2)\)</span>, затем горизонтальный отрезок до <span class="math">\((12; 2)\)</span>.</p>
+        <p><b>Ответ:</b> <span class="math">\(V = 20 - 2x\)</span> при <span class="math">\(0 ≤ x ≤ 9\)</span>; <span class="math">\(V = 2\)</span> при <span class="math">\(9 \lt x ≤ 12\)</span>.</p>
     </div>
 </div>
 
@@ -552,8 +575,8 @@
     <ul>
         <li><b>Кусочно-заданная функция</b> — функция, заданная разными формулами на разных промежутках области определения.</li>
         <li>Чтобы найти значение функции, сначала определи, в какой промежуток попала переменная, и только потом применяй формулу.</li>
-        <li>Знак модуля часто «прячет» кусочно-заданную функцию: раскрывай его по определению (<span class="math">|x| = x</span> при <span class="math">x ≥ 0</span>, <span class="math">|x| = -x</span> при <span class="math">x &lt; 0</span>).</li>
-        <li>Каждому значению переменной должно соответствовать <b>ровно одно</b> значение <span class="math">y</span> — промежутки не должны перекрываться.</li>
+        <li>Знак модуля часто «прячет» кусочно-заданную функцию: раскрывай его по определению (<span class="math">\(|x| = x\)</span> при <span class="math">\(x ≥ 0\)</span>, <span class="math">\(|x| = -x\)</span> при <span class="math">\(x \lt 0\)</span>).</li>
+        <li>Каждому значению переменной должно соответствовать <b>ровно одно</b> значение <span class="math">\(y\)</span> — промежутки не должны перекрываться.</li>
         <li>На границе промежутков ставь «заклёпки»: нестрогий знак — точка закрашена, строгий — выколота.</li>
         <li>Если значения кусков на границе совпали — график непрерывен; не совпали — скачок, точки не соединяем.</li>
         <li>График кусочно-заданной функции собирается из лучей, отрезков и точек — строй каждый кусок отдельно на своём промежутке.</li>
@@ -589,5 +612,10 @@
     }
 </script>
 
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
 </body>
 </html>

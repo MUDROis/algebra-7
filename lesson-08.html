@@ -267,6 +267,23 @@ margin: 0 0 16px;
             .content-block { padding: 20px; }
         }
     </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Один корень, ни одного или миллион — всё решает коэффициент">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Линейное уравнение с одной переменной — Алгебра 7 класс | Глава 1, §3">
+<meta property="og:description" content="Один корень, ни одного или миллион — всё решает коэффициент">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-08.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Линейное уравнение с одной переменной — Алгебра 7 класс | Глава 1, §3">
+<meta name="twitter:description" content="Один корень, ни одного или миллион — всё решает коэффициент">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-08.html">
 </head>
 <body>
     <div class="container">
@@ -291,9 +308,9 @@ margin: 0 0 16px;
             
             <p>Посмотри на эти уравнения:</p>
             <div class="formula">
-                <span class="math">5x = -4</span> &nbsp; <span class="math">-0,2x = 0</span> &nbsp; <span class="math">-x = -6,5</span>
+                <span class="math">\(5x = -4\)</span> &nbsp; <span class="math">\(-0,2x = 0\)</span> &nbsp; <span class="math">\(-x = -6,5\)</span>
             </div>
-            <p>Все они имеют вид <span class="math">ax = b</span>, где <span class="math">x</span> — переменная, а <span class="math">a</span> и <span class="math">b</span> — числа. В первом: <span class="math">a = 5, b = -4</span>; во втором: <span class="math">a = -0,2, b = 0</span>; в третьем: <span class="math">a = -1, b = -6,5</span>.</p>
+            <p>Все они имеют вид <span class="math">\(ax = b\)</span>, где <span class="math">\(x\)</span> — переменная, а <span class="math">\(a\)</span> и <span class="math">\(b\)</span> — числа. В первом: <span class="math">\(a = 5, b = -4\)</span>; во втором: <span class="math">\(a = -0,2, b = 0\)</span>; в третьем: <span class="math">\(a = -1, b = -6,5\)</span>.</p>
             
             <div class="tip-box">
                 <h4>📌 Определение</h4>
@@ -305,26 +322,26 @@ margin: 0 0 16px;
         <div class="content-block">
             <h2><span class="emoji">🎰</span> Три случая: сколько корней у ax = b?</h2>
             
-            <p>Всё зависит от того, чему равен коэффициент <span class="math">a</span>:</p>
+            <p>Всё зависит от того, чему равен коэффициент <span class="math">\(a\)</span>:</p>
             
             <div class="case-grid">
                 <div class="case-card one">
                     <div class="cond">a ≠ 0</div>
-                    <p class="res"><strong>Один корень</strong><br><span class="math">x = b : a</span><br>делим обе части на a</p>
+                    <p class="res"><strong>Один корень</strong><br><span class="math">\(x = b : a\)</span><br>делим обе части на a</p>
                 </div>
                 <div class="case-card none">
                     <div class="cond">a = 0, b ≠ 0</div>
-                    <p class="res"><strong>Корней нет</strong><br><span class="math">0x = b</span> — неверно<br>ни при каком x 🚫</p>
+                    <p class="res"><strong>Корней нет</strong><br><span class="math">\(0x = b\)</span> — неверно<br>ни при каком x 🚫</p>
                 </div>
                 <div class="case-card all">
                     <div class="cond">a = 0, b = 0</div>
-                    <p class="res"><strong>Корень — любое число</strong><br><span class="math">0x = 0</span> — верно<br>при любом x ✅</p>
+                    <p class="res"><strong>Корень — любое число</strong><br><span class="math">\(0x = 0\)</span> — верно<br>при любом x ✅</p>
                 </div>
             </div>
             
             <div class="warning-box">
                 <h4>⚠️ Главная идея</h4>
-                <p>Если при решении ты дошёл до строки <span class="math">0x = ...</span> — <strong>не дели</strong>! Остановись и посмотри на правую часть: не ноль — корней нет, ноль — корень любое число.</p>
+                <p>Если при решении ты дошёл до строки <span class="math">\(0x = ...\)</span> — <strong>не дели</strong>! Остановись и посмотри на правую часть: не ноль — корней нет, ноль — корень любое число.</p>
             </div>
         </div>
 
@@ -334,22 +351,22 @@ margin: 0 0 16px;
             
             <h3>Пример из учебника: решим 4(x + 7) = 3 - x</h3>
             <ol>
-                <li>Раскроем скобки: <span class="math">4x + 28 = 3 - x</span></li>
-                <li>Перенесём <span class="math">-x</span> влево, а <span class="math">28</span> вправо с противоположными знаками: <span class="math">4x + x = 3 - 28</span></li>
-                <li>Приведём подобные: <span class="math">5x = -25</span></li>
-                <li>Разделим обе части на 5: <span class="math">x = -5</span></li>
+                <li>Раскроем скобки: <span class="math">\(4x + 28 = 3 - x\)</span></li>
+                <li>Перенесём <span class="math">\(-x\)</span> влево, а <span class="math">\(28\)</span> вправо с противоположными знаками: <span class="math">\(4x + x = 3 - 28\)</span></li>
+                <li>Приведём подобные: <span class="math">\(5x = -25\)</span></li>
+                <li>Разделим обе части на 5: <span class="math">\(x = -5\)</span></li>
             </ol>
             <p>Каждый шаг мы заменяли уравнение <span class="highlight">равносильным</span> — корни не терялись и не появлялись лишние.</p>
             
             <h3>А если коэффициент стал нулём?</h3>
             <div class="example-box">
                 <h4>Случай «корней нет»</h4>
-                <p><span class="math">2x + 5 = 2(x + 6)</span> → <span class="math">2x + 5 = 2x + 12</span> → <span class="math">2x - 2x = 12 - 5</span> → <span class="math">0x = 7</span> 🚫</p>
+                <p><span class="math">\(2x + 5 = 2(x + 6)\)</span> → <span class="math">\(2x + 5 = 2x + 12\)</span> → <span class="math">\(2x - 2x = 12 - 5\)</span> → <span class="math">\(0x = 7\)</span> 🚫</p>
                 <p>Равенство неверно ни при каком x — значит, уравнение не имеет корней.</p>
             </div>
             <div class="example-box">
                 <h4>Случай «корень — любое число»</h4>
-                <p><span class="math">3(x + 2) + x = 6 + 4x</span> → <span class="math">4x + 6 = 6 + 4x</span> → <span class="math">0x = 0</span> ✅</p>
+                <p><span class="math">\(3(x + 2) + x = 6 + 4x\)</span> → <span class="math">\(4x + 6 = 6 + 4x\)</span> → <span class="math">\(0x = 0\)</span> ✅</p>
                 <p>Равенство верно при любом x — значит, корнем является каждое число.</p>
             </div>
         </div>
@@ -367,9 +384,9 @@ margin: 0 0 16px;
                     <tr><td>Ящик</td><td>2x</td><td>2x + 10</td></tr>
                 </table>
                 <div class="formula">
-                    <span class="math">5(x - 10) = 2x + 10</span> → <span class="math">5x - 50 = 2x + 10</span> → <span class="math">3x = 60</span> → <span class="math">x = 20</span>
+                    <span class="math">\(5(x - 10) = 2x + 10\)</span> → <span class="math">\(5x - 50 = 2x + 10\)</span> → <span class="math">\(3x = 60\)</span> → <span class="math">\(x = 20\)</span>
                 </div>
-                <p>В корзине было 20 яблок, в ящике <span class="math">2 · 20 = 40</span>. <em>Проверка: стало 10 и 50 — действительно в 5 раз больше!</em> ✅</p>
+                <p>В корзине было 20 яблок, в ящике <span class="math">\(2 \cdot{} 20 = 40\)</span>. <em>Проверка: стало 10 и 50 — действительно в 5 раз больше!</em> ✅</p>
             </div>
         </div>
 
@@ -379,30 +396,30 @@ margin: 0 0 16px;
             
             <div class="scaffolding-box">
                 <h4>🔥 Лайфхак: универсальные 4 шага решения любого линейного уравнения</h4>
-                <p style="margin-bottom: 15px;"><strong>Не знаешь, с чего начать? Действуй по алгоритму — он работает всегда. Покажем на уравнении, которого нет в заданиях: <span class="math">3(x - 2) = 2x + 1</span></strong></p>
+                <p style="margin-bottom: 15px;"><strong>Не знаешь, с чего начать? Действуй по алгоритму — он работает всегда. Покажем на уравнении, которого нет в заданиях: <span class="math">\(3(x - 2) = 2x + 1\)</span></strong></p>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 1. Раскрой скобки</strong> (если они есть): <span class="math">3x - 6 = 2x + 1</span>
+                    <strong>Шаг 1. Раскрой скобки</strong> (если они есть): <span class="math">\(3x - 6 = 2x + 1\)</span>
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 2. Перенеси</strong> слагаемые с буквой — влево, числа — вправо, <em>меняя знак</em>: <span class="math">3x - 2x = 1 + 6</span>
+                    <strong>Шаг 2. Перенеси</strong> слагаемые с буквой — влево, числа — вправо, <em>меняя знак</em>: <span class="math">\(3x - 2x = 1 + 6\)</span>
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 3. Приведи подобные</strong> — получи вид ax = b: <span class="math">1x = 7</span>, то есть <span class="math">x = 7</span>
+                    <strong>Шаг 3. Приведи подобные</strong> — получи вид ax = b: <span class="math">\(1x = 7\)</span>, то есть <span class="math">\(x = 7\)</span>
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Шаг 4. Проверь коэффициент a:</strong> если a ≠ 0 — дели и записывай корень; если получилось <span class="math">0x = 5</span> — корней нет 🚫; если <span class="math">0x = 0</span> — корень любое число ✅
+                    <strong>Шаг 4. Проверь коэффициент a:</strong> если a ≠ 0 — дели и записывай корень; если получилось <span class="math">\(0x = 5\)</span> — корней нет 🚫; если <span class="math">\(0x = 0\)</span> — корень любое число ✅
                 </div>
                 
                 <div class="scaffolding-step">
-                    <strong>Проверка подстановкой:</strong> левая: <span class="math">3 · (7 - 2) = 15</span>; правая: <span class="math">2 · 7 + 1 = 15</span> → совпало ✅
+                    <strong>Проверка подстановкой:</strong> левая: <span class="math">\(3 \cdot{} (7 - 2) = 15\)</span>; правая: <span class="math">\(2 \cdot{} 7 + 1 = 15\)</span> → совпало ✅
                 </div>
                 
                 <p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
-                    🪜 В задании 4 применишь тот же алгоритм к уравнению <span class="math">5x + (3x - 3) = 6x + 11</span> — попробуй сам(а), а потом сверься!
+                    🪜 В задании 4 применишь тот же алгоритм к уравнению <span class="math">\(5x + (3x - 3) = 6x + 11\)</span> — попробуй сам(а), а потом сверься!
                 </p>
             </div>
         </div>
@@ -417,15 +434,16 @@ margin: 0 0 16px;
                 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
                 <h4>Задание 1 (№145 а, е, и из учебника)</h4>
                 <p>Найди корень уравнения:</p>
-                <p>а) <span class="math">5x = -60</span>; &nbsp; е) <span class="math">0,5x = 1,2</span>; &nbsp; и) <span class="math">0,7x = 0</span></p>
+                <p>а) <span class="math">\(5x = -60\)</span>; &nbsp; е) <span class="math">\(0,5x = 1,2\)</span>; &nbsp; и) <span class="math">\(0,7x = 0\)</span></p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение (делим обе части на a): а) x = -60 : 5 = -12 е) x = 1,2 : 0,5 = 2,4 и) x = 0 : 0,7 = 0 Во всех случаях a ≠ 0 — значит, корень единственный."><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
                     <div id="answer1" class="answer-content">
                         <strong>Решение (делим обе части на a):</strong><br>
-                        а) <span class="math">x = -60 : 5 = -12</span><br>
-                        е) <span class="math">x = 1,2 : 0,5 = 2,4</span><br>
-                        и) <span class="math">x = 0 : 0,7 = 0</span><br>
+                        а) <span class="math">\(x = -60 : 5 = -12\)</span><br>
+                        е) <span class="math">\(x = 1,2 : 0,5 = 2,4\)</span><br>
+                        и) <span class="math">\(x = 0 : 0,7 = 0\)</span><br>
                         <em>Во всех случаях a ≠ 0 — значит, корень единственный.</em>
                     </div>
                 </div>
@@ -435,14 +453,15 @@ margin: 0 0 16px;
                 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
                 <h4>Задание 2 (№147 а, б из учебника)</h4>
                 <p>Найди корень уравнения:</p>
-                <p>а) <span class="math">5x - 150 = 0</span>; &nbsp; б) <span class="math">48 - 3x = 0</span></p>
+                <p>а) <span class="math">\(5x - 150 = 0\)</span>; &nbsp; б) <span class="math">\(48 - 3x = 0\)</span></p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: а) 5x = 150 → x = 150 : 5 = 30 б) -3x = -48 → x = -48 : (-3) = 16 Проверка б): 48 - 3 · 16 = 48 - 48 = 0 ✅"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
                     <div id="answer2" class="answer-content">
                         <strong>Решение:</strong><br>
-                        а) <span class="math">5x = 150</span> → <span class="math">x = 150 : 5 = 30</span><br>
-                        б) <span class="math">-3x = -48</span> → <span class="math">x = -48 : (-3) = 16</span><br>
+                        а) <span class="math">\(5x = 150\)</span> → <span class="math">\(x = 150 : 5 = 30\)</span><br>
+                        б) <span class="math">\(-3x = -48\)</span> → <span class="math">\(x = -48 : (-3) = 16\)</span><br>
                         <em>Проверка б): 48 - 3 · 16 = 48 - 48 = 0 ✅</em>
                     </div>
                 </div>
@@ -453,14 +472,15 @@ margin: 0 0 16px;
                 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
                 <h4>Задание 3 (№148 а, в из учебника)</h4>
                 <p>Реши уравнение:</p>
-                <p>а) <span class="math">2x + 9 = 13 - x</span>; &nbsp; в) <span class="math">0,5a + 11 = 4 - 3a</span></p>
+                <p>а) <span class="math">\(2x + 9 = 13 - x\)</span>; &nbsp; в) <span class="math">\(0,5a + 11 = 4 - 3a\)</span></p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: а) 2x + x = 13 - 9 → 3x = 4 → x = 4 : 3 = 1\frac{1}{3} в) 0,5a + 3a = 4 - 11 → 3,5a = -7 → a = -7 : 3,5 = -2 Корень может быть и дробным — это нормально!"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
                     <div id="answer3" class="answer-content">
                         <strong>Решение:</strong><br>
-                        а) <span class="math">2x + x = 13 - 9</span> → <span class="math">3x = 4</span> → <span class="math">x = 4 : 3 = 1 1/3</span><br>
-                        в) <span class="math">0,5a + 3a = 4 - 11</span> → <span class="math">3,5a = -7</span> → <span class="math">a = -7 : 3,5 = -2</span><br>
+                        а) <span class="math">\(2x + x = 13 - 9\)</span> → <span class="math">\(3x = 4\)</span> → <span class="math">\(x = 4 : 3 = 1\frac{1}{3}\)</span><br>
+                        в) <span class="math">\(0,5a + 3a = 4 - 11\)</span> → <span class="math">\(3,5a = -7\)</span> → <span class="math">\(a = -7 : 3,5 = -2\)</span><br>
                         <em>Корень может быть и дробным — это нормально!</em>
                     </div>
                 </div>
@@ -470,14 +490,15 @@ margin: 0 0 16px;
                 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
                 <h4>Задание 4 (№152 а, в из учебника)</h4>
                 <p>Реши уравнение:</p>
-                <p>а) <span class="math">5x + (3x - 3) = 6x + 11</span>; &nbsp; в) <span class="math">(x - 7) - (2x + 9) = -13</span></p>
+                <p>а) <span class="math">\(5x + (3x - 3) = 6x + 11\)</span>; &nbsp; в) <span class="math">\((x - 7) - (2x + 9) = -13\)</span></p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: а) 5x + 3x - 3 = 6x + 11 → 8x - 6x = 11 + 3 → 2x = 14 → x = 7 в) x - 7 - 2x - 9 = -13 (минус перед скобкой поменял знаки!) → -x - 16 = -13 → -x = 3 → x = -3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
                     <div id="answer4" class="answer-content">
                         <strong>Решение:</strong><br>
-                        а) <span class="math">5x + 3x - 3 = 6x + 11</span> → <span class="math">8x - 6x = 11 + 3</span> → <span class="math">2x = 14</span> → <span class="math">x = 7</span><br>
-                        в) <span class="math">x - 7 - 2x - 9 = -13</span> (минус перед скобкой поменял знаки!) → <span class="math">-x - 16 = -13</span> → <span class="math">-x = 3</span> → <span class="math">x = -3</span>
+                        а) <span class="math">\(5x + 3x - 3 = 6x + 11\)</span> → <span class="math">\(8x - 6x = 11 + 3\)</span> → <span class="math">\(2x = 14\)</span> → <span class="math">\(x = 7\)</span><br>
+                        в) <span class="math">\(x - 7 - 2x - 9 = -13\)</span> (минус перед скобкой поменял знаки!) → <span class="math">\(-x - 16 = -13\)</span> → <span class="math">\(-x = 3\)</span> → <span class="math">\(x = -3\)</span>
                     </div>
                 </div>
             </div>
@@ -487,14 +508,15 @@ margin: 0 0 16px;
                 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
                 <h4>Задание 5 (№156 а, б из учебника)</h4>
                 <p>Реши уравнение:</p>
-                <p>а) <span class="math">2x + 5 = 2(x + 1) + 11</span>; &nbsp; б) <span class="math">5(2y - 4) = 2(5y - 10)</span></p>
+                <p>а) <span class="math">\(2x + 5 = 2(x + 1) + 11\)</span>; &nbsp; б) <span class="math">\(5(2y - 4) = 2(5y - 10)\)</span></p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: а) 2x + 5 = 2x + 2 + 11 → 2x - 2x = 13 - 5 → 0x = 8 → корней нет 🚫 б) 10y - 20 = 10y - 20 → 10y - 10y = -20 + 20 → 0y = 0 → корень — любое число ✅ Вот они, два особых случая из карточек!"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
                     <div id="answer5" class="answer-content">
                         <strong>Решение:</strong><br>
-                        а) <span class="math">2x + 5 = 2x + 2 + 11</span> → <span class="math">2x - 2x = 13 - 5</span> → <span class="math">0x = 8</span> → <strong>корней нет</strong> 🚫<br>
-                        б) <span class="math">10y - 20 = 10y - 20</span> → <span class="math">10y - 10y = -20 + 20</span> → <span class="math">0y = 0</span> → <strong>корень — любое число</strong> ✅<br>
+                        а) <span class="math">\(2x + 5 = 2x + 2 + 11\)</span> → <span class="math">\(2x - 2x = 13 - 5\)</span> → <span class="math">\(0x = 8\)</span> → <strong>корней нет</strong> 🚫<br>
+                        б) <span class="math">\(10y - 20 = 10y - 20\)</span> → <span class="math">\(10y - 10y = -20 + 20\)</span> → <span class="math">\(0y = 0\)</span> → <strong>корень — любое число</strong> ✅<br>
                         <em>Вот они, два особых случая из карточек!</em>
                     </div>
                 </div>
@@ -504,17 +526,18 @@ margin: 0 0 16px;
                 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
                 <h4>Задание 6 (№154а и №155а из учебника)</h4>
                 <p>При каком значении переменной:</p>
-                <p>а) значения выражений <span class="math">2m - 13</span> и <span class="math">m + 3</span> равны;</p>
-                <p>б) значение выражения <span class="math">5y + 3</span> равно значению выражения <span class="math">36 - y</span>?</p>
+                <p>а) значения выражений <span class="math">\(2m - 13\)</span> и <span class="math">\(m + 3\)</span> равны;</p>
+                <p>б) значение выражения <span class="math">\(5y + 3\)</span> равно значению выражения <span class="math">\(36 - y\)</span>?</p>
                 
                 <div class="check-answer">
-                    <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
+                    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение (составляем уравнение): а) 2m - 13 = m + 3 → 2m - m = 3 + 13 → m = 16 Проверка: 2 \cdot{} 16 - 13 = 19 и 16 + 3 = 19 ✅ б) 5y + 3 = 36 - y → 5y + y = 36 - 3 → 6y = 33 → y = 5,5 Проверка: 5 \cdot{} 5,5 + 3 = 30,5 и 36 - 5,5 = 30,5 ✅"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
                     <div id="answer6" class="answer-content">
                         <strong>Решение (составляем уравнение):</strong><br>
-                        а) <span class="math">2m - 13 = m + 3</span> → <span class="math">2m - m = 3 + 13</span> → <span class="math">m = 16</span><br>
-                        &nbsp;&nbsp;&nbsp;Проверка: <span class="math">2 · 16 - 13 = 19</span> и <span class="math">16 + 3 = 19</span> ✅<br>
-                        б) <span class="math">5y + 3 = 36 - y</span> → <span class="math">5y + y = 36 - 3</span> → <span class="math">6y = 33</span> → <span class="math">y = 5,5</span><br>
-                        &nbsp;&nbsp;&nbsp;Проверка: <span class="math">5 · 5,5 + 3 = 30,5</span> и <span class="math">36 - 5,5 = 30,5</span> ✅
+                        а) <span class="math">\(2m - 13 = m + 3\)</span> → <span class="math">\(2m - m = 3 + 13\)</span> → <span class="math">\(m = 16\)</span><br>
+                        &nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(2 \cdot{} 16 - 13 = 19\)</span> и <span class="math">\(16 + 3 = 19\)</span> ✅<br>
+                        б) <span class="math">\(5y + 3 = 36 - y\)</span> → <span class="math">\(5y + y = 36 - 3\)</span> → <span class="math">\(6y = 33\)</span> → <span class="math">\(y = 5,5\)</span><br>
+                        &nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(5 \cdot{} 5,5 + 3 = 30,5\)</span> и <span class="math">\(36 - 5,5 = 30,5\)</span> ✅
                     </div>
                 </div>
             </div>
@@ -524,12 +547,12 @@ margin: 0 0 16px;
         <div class="content-block" style="background: #e8f6f3; border: 3px solid #1abc9c;">
             <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
             <ul>
-                <li><span class="highlight">Линейное уравнение</span> — уравнение вида <span class="math">ax = b</span> (x — переменная, a и b — числа)</li>
-                <li>Если <span class="highlight">a ≠ 0</span> — один корень: <span class="math">x = b : a</span></li>
-                <li>Если <span class="highlight">a = 0 и b ≠ 0</span> — корней нет (<span class="math">0x = b</span> неверно)</li>
-                <li>Если <span class="highlight">a = 0 и b = 0</span> — корень любое число (<span class="math">0x = 0</span> верно)</li>
+                <li><span class="highlight">Линейное уравнение</span> — уравнение вида <span class="math">\(ax = b\)</span> (x — переменная, a и b — числа)</li>
+                <li>Если <span class="highlight">a ≠ 0</span> — один корень: <span class="math">\(x = b : a\)</span></li>
+                <li>Если <span class="highlight">a = 0 и b ≠ 0</span> — корней нет (<span class="math">\(0x = b\)</span> неверно)</li>
+                <li>Если <span class="highlight">a = 0 и b = 0</span> — корень любое число (<span class="math">\(0x = 0\)</span> верно)</li>
                 <li>Алгоритм: раскрыть скобки → перенести с изменением знака → привести подобные → разделить на a</li>
-                <li>Дошёл до <span class="math">0x = ...</span> — остановись и истолкуй по трём случаям, не дели на ноль!</li>
+                <li>Дошёл до <span class="math">\(0x = ...\)</span> — остановись и истолкуй по трём случаям, не дели на ноль!</li>
                 <li>Найденный корень проверяй подстановкой в обе части</li>
             </ul>
         </div>
@@ -562,5 +585,10 @@ margin: 0 0 16px;
             }
         }
     </script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
 </body>
 </html>

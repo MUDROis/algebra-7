@@ -233,6 +233,23 @@ h2 { font-size: 1.3em; }
 table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9em; }
 }
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Таблицы, области определения и «обратные» задачи">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Вычисление значений функции по формуле — Алгебра 7 класс | Глава 2, §4, п. 13">
+<meta property="og:description" content="Таблицы, области определения и «обратные» задачи">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-13.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Вычисление значений функции по формуле — Алгебра 7 класс | Глава 2, §4, п. 13">
+<meta name="twitter:description" content="Таблицы, области определения и «обратные» задачи">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-13.html">
 </head>
 <body>
 <div class="container">
@@ -256,34 +273,34 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <h2><span class="emoji">📊</span> Таблица значений функции</h2>
 <p>Формула — это <span class="highlight">аналитический способ</span> задания функции. Она позволяет для любого значения аргумента вычислить значение функции. Результаты удобно записывать в виде таблицы.</p>
 <h3>Пример из учебника</h3>
-<p>Пусть функция задана формулой <span class="math">y(x) = (3x - 1) / 2</span>, где <span class="math">-3 ≤ x ≤ 3</span>. Найдём значения <span class="math">y</span> при целых <span class="math">x</span>:</p>
+<p>Пусть функция задана формулой <span class="math">\(y(x) = (3x - 1) / 2\)</span>, где <span class="math">\(-3 ≤ x ≤ 3\)</span>. Найдём значения <span class="math">\(y\)</span> при целых <span class="math">\(x\)</span>:</p>
 <div class="example-box">
-<p>Если <span class="math">x = -3</span>, то <span class="math">y = (3 · (-3) - 1) / 2 = (-9 - 1) / 2 = -10 / 2 = -5</span></p>
-<p>Если <span class="math">x = -2</span>, то <span class="math">y = (3 · (-2) - 1) / 2 = (-6 - 1) / 2 = -7 / 2 = -3,5</span></p>
-<p>Если <span class="math">x = 0</span>, то <span class="math">y = (3 · 0 - 1) / 2 = -1 / 2 = -0,5</span></p>
+<p>Если <span class="math">\(x = -3\)</span>, то <span class="math">\(y = (3 \cdot{} (-3) - 1) / 2 = (-9 - 1) / 2 = -10 / 2 = -5\)</span></p>
+<p>Если <span class="math">\(x = -2\)</span>, то <span class="math">\(y = (3 \cdot{} (-2) - 1) / 2 = (-6 - 1) / 2 = -7 / 2 = -3,5\)</span></p>
+<p>Если <span class="math">\(x = 0\)</span>, то <span class="math">\(y = (3 \cdot{} 0 - 1) / 2 = -1 / 2 = -0,5\)</span></p>
 </div>
-<p>Записываем результаты в таблицу (шаг изменения <span class="math">x</span> равен 1):</p>
+<p>Записываем результаты в таблицу (шаг изменения <span class="math">\(x\)</span> равен 1):</p>
 <table class="values-table">
 <tr><th>x</th><td>-3</td><td>-2</td><td>-1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
 <tr><th>y</th><td>-5</td><td>-3,5</td><td>-2</td><td>-0,5</td><td>1</td><td>2,5</td><td>4</td></tr>
 </table>
 <div class="tip-box">
 <h4>💡 Как читать таблицу</h4>
-<p>В верхней строке — значения <span class="highlight">аргумента</span> <span class="math">x</span>, в нижней — соответствующие значения <span class="highlight">функции</span> <span class="math">y</span>. Каждая пара <span class="math">(x; y)</span> — это «вход → выход» нашей машины-функции.</p>
+<p>В верхней строке — значения <span class="highlight">аргумента</span> <span class="math">\(x\)</span>, в нижней — соответствующие значения <span class="highlight">функции</span> <span class="math">\(y\)</span>. Каждая пара <span class="math">\((x; y)\)</span> — это «вход → выход» нашей машины-функции.</p>
 </div>
 </div>
 
 <!-- Блок 2: Область определения -->
 <div class="content-block">
 <h2><span class="emoji">🎯</span> Область определения: где формула «работает»?</h2>
-<p>Если функция задана формулой и область определения не указана явно, то считается, что она состоит из <span class="highlight">всех значений <span class="math">x</span>, при которых формула имеет смысл</span>.</p>
+<p>Если функция задана формулой и область определения не указана явно, то считается, что она состоит из <span class="highlight">всех значений <span class="math">\(x\)</span>, при которых формула имеет смысл</span>.</p>
 <div class="example-box">
 <h4>📝 Пример 1</h4>
-<p><span class="math">y = x(x + 5)</span> — можно подставить любое число: умножение и сложение определены всегда. Область определения — <span class="highlight">все числа</span>.</p>
+<p><span class="math">\(y = x(x + 5)\)</span> — можно подставить любое число: умножение и сложение определены всегда. Область определения — <span class="highlight">все числа</span>.</p>
 </div>
 <div class="example-box">
 <h4>📝 Пример 2</h4>
-<p><span class="math">y = 1 / (x - 2)</span> — делить на ноль нельзя! Значит, <span class="math">x - 2 ≠ 0</span>, то есть <span class="math">x ≠ 2</span>. Область определения — <span class="highlight">все числа, кроме 2</span>.</p>
+<p><span class="math">\(y = 1 / (x - 2)\)</span> — делить на ноль нельзя! Значит, <span class="math">\(x - 2 ≠ 0\)</span>, то есть <span class="math">\(x ≠ 2\)</span>. Область определения — <span class="highlight">все числа, кроме 2</span>.</p>
 </div>
 <div class="warning-box">
 <h4>⚠️ Запомни «запрещённые» операции</h4>
@@ -298,22 +315,22 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <!-- Блок 3: Обратная задача -->
 <div class="content-block">
 <h2><span class="emoji">🔄</span> Обратная задача: по значению функции — найти аргумент</h2>
-<p>Иногда нам нужно решить задачу «наоборот»: известно значение функции, а нужно найти, при каком <span class="math">x</span> оно получилось. Тогда мы <span class="highlight">подставляем известное значение в формулу и решаем уравнение</span>.</p>
+<p>Иногда нам нужно решить задачу «наоборот»: известно значение функции, а нужно найти, при каком <span class="math">\(x\)</span> оно получилось. Тогда мы <span class="highlight">подставляем известное значение в формулу и решаем уравнение</span>.</p>
 <h3>Пример из учебника</h3>
-<p>Функция задана формулой <span class="math">y = 12x - 3,6</span>. При каком <span class="math">x</span> значение функции равно 2,4?</p>
+<p>Функция задана формулой <span class="math">\(y = 12x - 3,6\)</span>. При каком <span class="math">\(x\)</span> значение функции равно 2,4?</p>
 <div class="example-box">
 <h4>📝 Решение</h4>
-<p>Подставляем <span class="math">y = 2,4</span> в формулу:</p>
+<p>Подставляем <span class="math">\(y = 2,4\)</span> в формулу:</p>
 <div class="formula">
-<span class="math">2,4 = 12x - 3,6</span>
+<span class="math">\(2,4 = 12x - 3,6\)</span>
 </div>
 <p>Решаем уравнение:</p>
 <ol>
-<li><span class="math">12x = 2,4 + 3,6</span></li>
-<li><span class="math">12x = 6</span></li>
-<li><span class="math">x = 6 : 12 = 0,5</span></li>
+<li><span class="math">\(12x = 2,4 + 3,6\)</span></li>
+<li><span class="math">\(12x = 6\)</span></li>
+<li><span class="math">\(x = 6 : 12 = 0,5\)</span></li>
 </ol>
-<p>Ответ: <span class="math">y = 2,4</span> при <span class="math">x = 0,5</span>. Проверка: <span class="math">12 · 0,5 - 3,6 = 6 - 3,6 = 2,4</span> ✅</p>
+<p>Ответ: <span class="math">\(y = 2,4\)</span> при <span class="math">\(x = 0,5\)</span>. Проверка: <span class="math">\(12 \cdot{} 0,5 - 3,6 = 6 - 3,6 = 2,4\)</span> ✅</p>
 </div>
 <div class="visual-container">
 <h4 style="margin-bottom: 15px;">Два направления работы с формулой</h4>
@@ -321,20 +338,20 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <div class="task-card direct">
 <div class="tc-title">🟢 Прямая задача</div>
 <div class="tc-arrow">⬇️</div>
-<div class="tc-formula">Знаем <span class="math">x</span></div>
+<div class="tc-formula">Знаем <span class="math">\(x\)</span></div>
 <div class="tc-arrow">⬇️</div>
 <div class="tc-formula">Подставляем в формулу</div>
 <div class="tc-arrow">⬇️</div>
-<div class="tc-formula">Вычисляем <span class="math">y</span></div>
+<div class="tc-formula">Вычисляем <span class="math">\(y\)</span></div>
 </div>
 <div class="task-card reverse">
 <div class="tc-title">🟣 Обратная задача</div>
 <div class="tc-arrow">⬇️</div>
-<div class="tc-formula">Знаем <span class="math">y</span></div>
+<div class="tc-formula">Знаем <span class="math">\(y\)</span></div>
 <div class="tc-arrow">⬇️</div>
 <div class="tc-formula">Подставляем в формулу</div>
 <div class="tc-arrow">⬇️</div>
-<div class="tc-formula">Решаем уравнение → <span class="math">x</span></div>
+<div class="tc-formula">Решаем уравнение → <span class="math">\(x\)</span></div>
 </div>
 </div>
 </div>
@@ -348,27 +365,27 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <p style="margin-bottom: 15px;"><strong>Главное — понять, ЧТО тебе известно, а ЧТО нужно найти. От этого зависит направление действий:</strong></p>
 <div class="scaffolding-step">
 <strong>Шаг 1. Определи тип задачи.</strong><br>
-• Дали <span class="math">x</span>, спрашивают <span class="math">y</span> → <strong>прямая</strong> (подставь и вычисли)<br>
-• Дали <span class="math">y</span>, спрашивают <span class="math">x</span> → <strong>обратная</strong> (подставь и реши уравнение)
+• Дали <span class="math">\(x\)</span>, спрашивают <span class="math">\(y\)</span> → <strong>прямая</strong> (подставь и вычисли)<br>
+• Дали <span class="math">\(y\)</span>, спрашивают <span class="math">\(x\)</span> → <strong>обратная</strong> (подставь и реши уравнение)
 </div>
 <div class="scaffolding-step">
 <strong>Шаг 2. Прямая задача — пример, которого нет в заданиях.</strong><br>
-Формула: <span class="math">y = 4x + 1</span>. Найти <span class="math">y</span> при <span class="math">x = 3</span>.<br>
-Подставляем: <span class="math">y = 4 · 3 + 1 = 12 + 1 = 13</span> ✅
+Формула: <span class="math">\(y = 4x + 1\)</span>. Найти <span class="math">\(y\)</span> при <span class="math">\(x = 3\)</span>.<br>
+Подставляем: <span class="math">\(y = 4 \cdot{} 3 + 1 = 12 + 1 = 13\)</span> ✅
 </div>
 <div class="scaffolding-step">
 <strong>Шаг 3. Обратная задача — тот же пример «наоборот».</strong><br>
-Формула: <span class="math">y = 4x + 1</span>. Найти <span class="math">x</span>, при котором <span class="math">y = 13</span>.<br>
-Подставляем <span class="math">y</span>: <span class="math">13 = 4x + 1</span><br>
-Решаем: <span class="math">4x = 13 - 1 = 12</span> → <span class="math">x = 3</span> ✅<br>
+Формула: <span class="math">\(y = 4x + 1\)</span>. Найти <span class="math">\(x\)</span>, при котором <span class="math">\(y = 13\)</span>.<br>
+Подставляем <span class="math">\(y\)</span>: <span class="math">\(13 = 4x + 1\)</span><br>
+Решаем: <span class="math">\(4x = 13 - 1 = 12\)</span> → <span class="math">\(x = 3\)</span> ✅<br>
 <em>Видишь? Получили тот же ответ — это и есть проверка!</em>
 </div>
 <div class="scaffolding-step">
 <strong>Шаг 4. Проверка — подставь найденное значение в исходную формулу.</strong><br>
-Если при <span class="math">x = 3</span> получилось <span class="math">y = 13</span> — всё верно ✅
+Если при <span class="math">\(x = 3\)</span> получилось <span class="math">\(y = 13\)</span> — всё верно ✅
 </div>
 <p style="margin-top: 15px; font-size: 1.05em; text-align: center; font-weight: bold;">
-🔄 В задании 4 сделаешь то же самое: подставишь значение <span class="math">y</span> в формулу <span class="math">y = -5x + 6</span> и решишь уравнение!
+🔄 В задании 4 сделаешь то же самое: подставишь значение <span class="math">\(y\)</span> в формулу <span class="math">\(y = -5x + 6\)</span> и решишь уравнение!
 </p>
 </div>
 </div>
@@ -382,15 +399,16 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <div class="exercise">
 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
 <h4>Задание 1 (№267 из учебника)</h4>
-<p>Функция задана формулой <span class="math">y = 2x + 7</span>. Найди значение функции, соответствующее значению аргумента:</p>
-<p>а) <span class="math">x = 1</span>; &nbsp; б) <span class="math">x = -20</span>; &nbsp; в) <span class="math">x = 43</span>.</p>
+<p>Функция задана формулой <span class="math">\(y = 2x + 7\)</span>. Найди значение функции, соответствующее значению аргумента:</p>
+<p>а) <span class="math">\(x = 1\)</span>; &nbsp; б) <span class="math">\(x = -20\)</span>; &nbsp; в) <span class="math">\(x = 43\)</span>.</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) 9; б) -33; в) 93"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer1')">🔍 Проверить</button>
 <div id="answer1" class="answer-content">
-<strong>Решение (прямая задача — подставляем <span class="math">x</span>):</strong><br>
-а) <span class="math">y = 2 · 1 + 7 = 2 + 7 = 9</span><br>
-б) <span class="math">y = 2 · (-20) + 7 = -40 + 7 = -33</span> (отрицательное — в скобках!)<br>
-в) <span class="math">y = 2 · 43 + 7 = 86 + 7 = 93</span><br>
+<strong>Решение (прямая задача — подставляем <span class="math">\(x\)</span>):</strong><br>
+а) <span class="math">\(y = 2 \cdot{} 1 + 7 = 2 + 7 = 9\)</span><br>
+б) <span class="math">\(y = 2 \cdot{} (-20) + 7 = -40 + 7 = -33\)</span> (отрицательное — в скобках!)<br>
+в) <span class="math">\(y = 2 \cdot{} 43 + 7 = 86 + 7 = 93\)</span><br>
 <strong>Ответ:</strong> а) 9; б) -33; в) 93
 </div>
 </div>
@@ -399,15 +417,16 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <div class="exercise">
 <span class="level-badge level-1">🟢 Уровень 1: Лёгкий</span>
 <h4>Задание 2 (№268 из учебника)</h4>
-<p>Функция задана формулой <span class="math">y = 0,1x + 5</span>. Найди значение функции при значении аргумента:</p>
-<p>а) <span class="math">x = 10</span>; &nbsp; б) <span class="math">x = 50</span>; &nbsp; в) <span class="math">x = 120</span>.</p>
+<p>Функция задана формулой <span class="math">\(y = 0,1x + 5\)</span>. Найди значение функции при значении аргумента:</p>
+<p>а) <span class="math">\(x = 10\)</span>; &nbsp; б) <span class="math">\(x = 50\)</span>; &nbsp; в) <span class="math">\(x = 120\)</span>.</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) 6; б) 10; в) 17"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer2')">🔍 Проверить</button>
 <div id="answer2" class="answer-content">
 <strong>Решение:</strong><br>
-а) <span class="math">y = 0,1 · 10 + 5 = 1 + 5 = 6</span><br>
-б) <span class="math">y = 0,1 · 50 + 5 = 5 + 5 = 10</span><br>
-в) <span class="math">y = 0,1 · 120 + 5 = 12 + 5 = 17</span><br>
+а) <span class="math">\(y = 0,1 \cdot{} 10 + 5 = 1 + 5 = 6\)</span><br>
+б) <span class="math">\(y = 0,1 \cdot{} 50 + 5 = 5 + 5 = 10\)</span><br>
+в) <span class="math">\(y = 0,1 \cdot{} 120 + 5 = 12 + 5 = 17\)</span><br>
 <strong>Ответ:</strong> а) 6; б) 10; в) 17
 </div>
 </div>
@@ -418,16 +437,17 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
 <h4>Задание 3 (№272 из учебника)</h4>
 <p>Найди область определения функции, заданной формулой:</p>
-<p>а) <span class="math">y = x + 8</span>; &nbsp; б) <span class="math">y = 1/x</span>; &nbsp; в) <span class="math">y = 1/(x - 4)</span>; &nbsp; г) <span class="math">y = 1/(x + 6)</span>.</p>
+<p>а) <span class="math">\(y = x + 8\)</span>; &nbsp; б) <span class="math">\(y = 1/x\)</span>; &nbsp; в) <span class="math">\(y = 1/(x - 4)\)</span>; &nbsp; г) <span class="math">\(y = 1/(x + 6)\)</span>.</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) все числа; б) x ≠ 0; в) x ≠ 4; г) x ≠ -6"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer3')">🔍 Проверить</button>
 <div id="answer3" class="answer-content">
 <strong>Решение:</strong><br>
-а) <span class="math">y = x + 8</span> — нет деления, подставлять можно любое число → <strong>все числа</strong><br>
-б) <span class="math">y = 1/x</span> — знаменатель <span class="math">x ≠ 0</span> → <strong>все числа, кроме 0</strong><br>
-в) <span class="math">y = 1/(x - 4)</span> — знаменатель <span class="math">x - 4 ≠ 0</span>, значит <span class="math">x ≠ 4</span> → <strong>все числа, кроме 4</strong><br>
-г) <span class="math">y = 1/(x + 6)</span> — знаменатель <span class="math">x + 6 ≠ 0</span>, значит <span class="math">x ≠ -6</span> → <strong>все числа, кроме -6</strong><br>
-<strong>Ответ:</strong> а) все числа; б) <span class="math">x ≠ 0</span>; в) <span class="math">x ≠ 4</span>; г) <span class="math">x ≠ -6</span>
+а) <span class="math">\(y = x + 8\)</span> — нет деления, подставлять можно любое число → <strong>все числа</strong><br>
+б) <span class="math">\(y = 1/x\)</span> — знаменатель <span class="math">\(x ≠ 0\)</span> → <strong>все числа, кроме 0</strong><br>
+в) <span class="math">\(y = 1/(x - 4)\)</span> — знаменатель <span class="math">\(x - 4 ≠ 0\)</span>, значит <span class="math">\(x ≠ 4\)</span> → <strong>все числа, кроме 4</strong><br>
+г) <span class="math">\(y = 1/(x + 6)\)</span> — знаменатель <span class="math">\(x + 6 ≠ 0\)</span>, значит <span class="math">\(x ≠ -6\)</span> → <strong>все числа, кроме -6</strong><br>
+<strong>Ответ:</strong> а) все числа; б) <span class="math">\(x ≠ 0\)</span>; в) <span class="math">\(x ≠ 4\)</span>; г) <span class="math">\(x ≠ -6\)</span>
 </div>
 </div>
 </div>
@@ -435,18 +455,19 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <div class="exercise">
 <span class="level-badge level-2">🔵 Уровень 2: Средний</span>
 <h4>Задание 4 (№273 из учебника)</h4>
-<p>Формула <span class="math">y = -5x + 6</span> задаёт функцию. При каком значении аргумента значение функции равно:</p>
+<p>Формула <span class="math">\(y = -5x + 6\)</span> задаёт функцию. При каком значении аргумента значение функции равно:</p>
 <p>а) 6; &nbsp; б) 8; &nbsp; в) 100?</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) 0; б) -0,4; в) -18,8"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer4')">🔍 Проверить</button>
 <div id="answer4" class="answer-content">
-<strong>Решение (обратная задача — подставляем <span class="math">y</span> и решаем уравнение):</strong><br>
-а) <span class="math">6 = -5x + 6</span> → <span class="math">-5x = 6 - 6 = 0</span> → <span class="math">x = 0</span><br>
-&nbsp;&nbsp;&nbsp;Проверка: <span class="math">-5 · 0 + 6 = 6</span> ✅<br>
-б) <span class="math">8 = -5x + 6</span> → <span class="math">-5x = 8 - 6 = 2</span> → <span class="math">x = 2 : (-5) = -0,4</span><br>
-&nbsp;&nbsp;&nbsp;Проверка: <span class="math">-5 · (-0,4) + 6 = 2 + 6 = 8</span> ✅<br>
-в) <span class="math">100 = -5x + 6</span> → <span class="math">-5x = 100 - 6 = 94</span> → <span class="math">x = 94 : (-5) = -18,8</span><br>
-&nbsp;&nbsp;&nbsp;Проверка: <span class="math">-5 · (-18,8) + 6 = 94 + 6 = 100</span> ✅<br>
+<strong>Решение (обратная задача — подставляем <span class="math">\(y\)</span> и решаем уравнение):</strong><br>
+а) <span class="math">\(6 = -5x + 6\)</span> → <span class="math">\(-5x = 6 - 6 = 0\)</span> → <span class="math">\(x = 0\)</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(-5 \cdot{} 0 + 6 = 6\)</span> ✅<br>
+б) <span class="math">\(8 = -5x + 6\)</span> → <span class="math">\(-5x = 8 - 6 = 2\)</span> → <span class="math">\(x = 2 : (-5) = -0,4\)</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(-5 \cdot{} (-0,4) + 6 = 2 + 6 = 8\)</span> ✅<br>
+в) <span class="math">\(100 = -5x + 6\)</span> → <span class="math">\(-5x = 100 - 6 = 94\)</span> → <span class="math">\(x = 94 : (-5) = -18,8\)</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(-5 \cdot{} (-18,8) + 6 = 94 + 6 = 100\)</span> ✅<br>
 <strong>Ответ:</strong> а) 0; б) -0,4; в) -18,8
 </div>
 </div>
@@ -460,16 +481,17 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <p>а) массу куска пробки, объём которого равен <span class="math">240 см³</span>;</p>
 <p>б) объём куска пробки, масса которого равна <span class="math">64,8 г</span>.</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: Плотность = масса ÷ объём, значит масса = плотность · объём: m = 0,18 \cdot{} V (где m — масса в г, V — объём в см³)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer5')">🔍 Проверить</button>
 <div id="answer5" class="answer-content">
 <strong>Решение:</strong><br>
 Плотность = масса ÷ объём, значит масса = плотность · объём:<br>
-<div class="formula"><span class="math">m = 0,18 · V</span> (где <span class="math">m</span> — масса в г, <span class="math">V</span> — объём в см³)</div>
-а) <span class="math">V = 240</span>: <span class="math">m = 0,18 · 240 = 43,2 г</span><br>
-&nbsp;&nbsp;&nbsp;Проверка: <span class="math">43,2 : 240 = 0,18</span> ✅<br>
-б) <span class="math">m = 64,8</span>: <span class="math">64,8 = 0,18 · V</span> → <span class="math">V = 64,8 : 0,18 = 6480 : 18 = 360 см³</span><br>
-&nbsp;&nbsp;&nbsp;Проверка: <span class="math">0,18 · 360 = 64,8</span> ✅<br>
-<strong>Ответ:</strong> формула <span class="math">m = 0,18V</span>; а) 43,2 г; б) 360 см³
+<div class="formula"><span class="math">\(m = 0,18 \cdot{} V\)</span> (где <span class="math">\(m\)</span> — масса в г, <span class="math">\(V\)</span> — объём в см³)</div>
+а) <span class="math">\(V = 240\)</span>: <span class="math">m = 0,18 · 240 = 43,2 г</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(43,2 : 240 = 0,18\)</span> ✅<br>
+б) <span class="math">\(m = 64,8\)</span>: <span class="math">\(64,8 = 0,18 \cdot{} V\)</span> → <span class="math">V = 64,8 : 0,18 = 6480 : 18 = 360 см³</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(0,18 \cdot{} 360 = 64,8\)</span> ✅<br>
+<strong>Ответ:</strong> формула <span class="math">\(m = 0,18V\)</span>; а) 43,2 г; б) 360 см³
 </div>
 </div>
 </div>
@@ -477,20 +499,21 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <div class="exercise">
 <span class="level-badge level-3">🟣 Уровень 3: Сложный</span>
 <h4>Задание 6 (№277 из учебника — задача на движение)</h4>
-<p>Велосипедист ехал со скоростью <span class="math">v км/ч</span> в течение <span class="math">6 ч</span> и проехал путь <span class="math">S км</span>. Задай формулой зависимость <span class="math">S(v)</span>. Пользуясь этой формулой:</p>
-<p>а) найди <span class="math">S</span>, если <span class="math">v = 65</span>;</p>
-<p>б) найди <span class="math">v</span>, если <span class="math">S = 363</span>.</p>
+<p>Велосипедист ехал со скоростью <span class="math">v км/ч</span> в течение <span class="math">6 ч</span> и проехал путь <span class="math">S км</span>. Задай формулой зависимость <span class="math">\(S(v)\)</span>. Пользуясь этой формулой:</p>
+<p>а) найди <span class="math">\(S\)</span>, если <span class="math">\(v = 65\)</span>;</p>
+<p>б) найди <span class="math">\(v\)</span>, если <span class="math">\(S = 363\)</span>.</p>
 <div class="check-answer">
+<div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="Решение: Путь = скорость · время, значит: S = 6v (где S — путь в км, v — скорость в км/ч)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
 <button class="answer-btn" onclick="toggleAnswer('answer6')">🔍 Проверить</button>
 <div id="answer6" class="answer-content">
 <strong>Решение:</strong><br>
 Путь = скорость · время, значит:<br>
-<div class="formula"><span class="math">S = 6v</span> (где <span class="math">S</span> — путь в км, <span class="math">v</span> — скорость в км/ч)</div>
-а) <span class="math">v = 65</span>: <span class="math">S = 6 · 65 = 390 км</span><br>
-&nbsp;&nbsp;&nbsp;Проверка: <span class="math">390 : 6 = 65</span> ✅<br>
-б) <span class="math">S = 363</span>: <span class="math">363 = 6v</span> → <span class="math">v = 363 : 6 = 60,5 км/ч</span><br>
-&nbsp;&nbsp;&nbsp;Проверка: <span class="math">6 · 60,5 = 363</span> ✅<br>
-<strong>Ответ:</strong> формула <span class="math">S = 6v</span>; а) 390 км; б) 60,5 км/ч
+<div class="formula"><span class="math">\(S = 6v\)</span> (где <span class="math">\(S\)</span> — путь в км, <span class="math">\(v\)</span> — скорость в км/ч)</div>
+а) <span class="math">\(v = 65\)</span>: <span class="math">S = 6 · 65 = 390 км</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(390 : 6 = 65\)</span> ✅<br>
+б) <span class="math">\(S = 363\)</span>: <span class="math">\(363 = 6v\)</span> → <span class="math">v = 363 : 6 = 60,5 км/ч</span><br>
+&nbsp;&nbsp;&nbsp;Проверка: <span class="math">\(6 \cdot{} 60,5 = 363\)</span> ✅<br>
+<strong>Ответ:</strong> формула <span class="math">\(S = 6v\)</span>; а) 390 км; б) 60,5 км/ч
 </div>
 </div>
 </div>
@@ -502,11 +525,11 @@ table.values-table td, table.values-table th { padding: 5px 8px; font-size: 0.9e
 <h2><span class="emoji">📝</span> Главное, что нужно запомнить</h2>
 <ul>
 <li><span class="highlight">Аналитический способ</span> задания функции — формулой — самый распространённый</li>
-<li>Таблица значений: в верхней строке — аргумент <span class="math">x</span>, в нижней — функция <span class="math">y</span></li>
-<li>Если область определения не указана — берём все <span class="math">x</span>, при которых формула имеет смысл</li>
+<li>Таблица значений: в верхней строке — аргумент <span class="math">\(x\)</span>, в нижней — функция <span class="math">\(y\)</span></li>
+<li>Если область определения не указана — берём все <span class="math">\(x\)</span>, при которых формула имеет смысл</li>
 <li>Главная ловушка — <span class="highlight">деление на ноль</span>: знаменатель ≠ 0</li>
-<li><span class="highlight">Прямая задача:</span> знаем <span class="math">x</span> → подставляем → вычисляем <span class="math">y</span></li>
-<li><span class="highlight">Обратная задача:</span> знаем <span class="math">y</span> → подставляем → решаем уравнение → находим <span class="math">x</span></li>
+<li><span class="highlight">Прямая задача:</span> знаем <span class="math">\(x\)</span> → подставляем → вычисляем <span class="math">\(y\)</span></li>
+<li><span class="highlight">Обратная задача:</span> знаем <span class="math">\(y\)</span> → подставляем → решаем уравнение → находим <span class="math">\(x\)</span></li>
 <li>Физические формулы (плотность, путь) — тоже функции: одна величина зависит от другой</li>
 <li>Всегда проверяй ответ подстановкой в исходную формулу</li>
 </ul>
@@ -539,5 +562,10 @@ btn.style.background = '#e74c3c';
 }
 }
 </script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
 </body>
 </html>
