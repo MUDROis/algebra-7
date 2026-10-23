@@ -80,6 +80,9 @@
   .toc-sidebar summary::-webkit-details-marker{display:none;}
 }
 
+/* ===== Блоки контента (в т.ч. карточка виджета) ===== */
+.content-block{background:#fff;border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+
 /* ===== Печать ===== */
 @media print{
   .answer-btn,.check-row,.widget,.lesson-nav,.toc-sidebar,#course-search,.go-btn{display:none !important;}
