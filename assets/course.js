@@ -320,7 +320,6 @@
       initWidgets();
       initSearch();
       initToc();
-      initContentsSidebar();
     }
   };
 
