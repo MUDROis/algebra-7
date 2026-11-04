@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Умножение и деление степеней — Алгебра 7 класс | Глава 3, §6, п. 19</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .rule-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 14px 20px;
+        margin: 18px 0;
+        border-radius: 0 6px 6px 0;
+    }
+    .rule-box b { color: #16a085; }
+
+    .def-box {
+        background: #eaf6fd;
+        border-left: 6px solid #3498db;
+        padding: 14px 20px;
+        margin: 18px 0;
+        border-radius: 0 6px 6px 0;
+    }
+    .def-box b { color: #2980b9; }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+
+    .contrast-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+        margin: 16px 0 8px;
+    }
+    .contrast-card {
+        flex: 1 1 240px;
+        max-width: 300px;
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 14px 16px;
+        text-align: center;
+        border: 2px solid;
+    }
+    .contrast-card .cc-title {
+        font-weight: 700;
+        font-size: 1.15em;
+        font-family: 'Courier New', Courier, monospace;
+        margin-bottom: 6px;
+    }
+    .contrast-card.good { border-color: #1abc9c; background: #eafaf1; }
+    .contrast-card.good .cc-title { color: #16a085; }
+    .contrast-card.bad { border-color: #c0392b; background: #fdedec; }
+    .contrast-card.bad .cc-title { color: #c0392b; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .katex { white-space: nowrap; }
+    .formula { overflow-x: auto; }
+    .formula .katex { white-space: nowrap; }
+
+    /* Самопроверка (те же правила, что в assets/course.css сайта) */
+    .check-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;}
+    .check-input{
+        flex:1 1 160px;padding:7px 12px;font-family:inherit;font-size:.95em;
+        border:2px solid #b2bec3;border-radius:6px;background:#fff;color:#2c3e50;outline:none;
+    }
+    .check-input:focus{border-color:#3498db;}
+    .check-btn{
+        font-family:inherit;font-size:.9em;font-weight:700;cursor:pointer;
+        background:#fff;color:#2c3e50;border:2px solid #2c3e50;border-radius:6px;
+        padding:6px 14px;box-shadow:2px 2px 0 #2c3e50;
+        transition:transform .05s,box-shadow .05s;
+    }
+    .check-btn:active{transform:translate(2px,2px);box-shadow:0 0 0 #2c3e50;}
+    .check-feedback{font-weight:700;font-size:.95em;}
+    .check-feedback.ok{color:#1e8449;}
+    .check-feedback.bad{color:#c0392b;}
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+    }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Почему при умножении степеней показатели складываются, при делении — вычитаются, и чему равна нулевая степень 🚀">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Умножение и деление степеней — Алгебра 7 класс | Глава 3, §6, п. 19">
+<meta property="og:description" content="Почему при умножении степеней показатели складываются, при делении — вычитаются, и чему равна нулевая степень 🚀">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-19.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Умножение и деление степеней — Алгебра 7 класс | Глава 3, §6, п. 19">
+<meta name="twitter:description" content="Почему при умножении степеней показатели складываются, при делении — вычитаются, и чему равна нулевая степень 🚀">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-19.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-18.html">← Урок 18</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 3 • §6, п. 19</span>
+    <h1>Умножение и деление степеней</h1>
+    <p class="subtitle">Показатели складываются и вычитаются: два главных правила главы 🚀</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Компьютерная память измеряется степенями двойки: 1 Кбайт = <span class="math">\(2^{10}\)</span> байт = 1024 байта, а 1 Мбайт = <span class="math">\(2^{10}\)</span> Кбайт. Сколько же байтов в одном мегабайте? Перемножать 1024 · 1024 столбиком — долго и обидно. Но у степеней с одинаковыми основаниями есть суперспособность: при умножении <span class="highlight">показатели складываются</span>: <span class="math">\(2^{10} \cdot{} 2^{10} = 2^{20} = 1\,048\,576\)</span> байт. Одна строка — и ответ готов!</p>
+    <p>Сегодня выведем два главных правила этой главы — умножение и деление степеней с одинаковыми основаниями — и разберёмся, зачем нужна «странная» степень с показателем 0. 🚀</p>
+</section>
+
+<section class="card page-block">
+    <h2>✖️ Умножение степеней: показатели складываются</h2>
+    <p>Начнём с примера из учебника. Выражение <span class="math">\(a^2a^3\)</span> — это произведение двух степеней с одинаковыми основаниями. Его можно записать в виде степени с тем же основанием:</p>
+    <p class="formula" style="text-align:center; font-size:1.15em;"><span class="math">\(a^2a^3 = (aa) \cdot{} (aaa) = aaaaa = a^5\)</span></p>
+    <p>Значит, <span class="math">\(a^2a^3 = a^{2+3}\)</span>. Мы видим, что произведение <span class="math">\(a^2a^3\)</span> равно степени с тем же основанием и показателем, равным <span class="highlight">сумме показателей</span> перемножаемых степеней. Склейка видна на картинке:</p>
+
+    <div class="visual-container">
+        <svg class="graph-svg" viewBox="0 0 470 150" width="470" role="img" aria-label="Два множителя a и три множителя a склеиваются в пять множителей: a во второй умножить на a в третьей равно a в пятой">
+            <!-- первая группа: 2 карточки -->
+            <rect x="70" y="18" width="38" height="38" rx="4" fill="#eaf6fd" stroke="#3498db" stroke-width="2"/>
+            <rect x="116" y="18" width="38" height="38" rx="4" fill="#eaf6fd" stroke="#3498db" stroke-width="2"/>
+            <text x="89" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="135" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="170" y="45" text-anchor="middle" font-family="Courier New" font-size="24" font-weight="bold" fill="#2c3e50">·</text>
+            <!-- вторая группа: 3 карточки -->
+            <rect x="186" y="18" width="38" height="38" rx="4" fill="#e8f8f5" stroke="#1abc9c" stroke-width="2"/>
+            <rect x="232" y="18" width="38" height="38" rx="4" fill="#e8f8f5" stroke="#1abc9c" stroke-width="2"/>
+            <rect x="278" y="18" width="38" height="38" rx="4" fill="#e8f8f5" stroke="#1abc9c" stroke-width="2"/>
+            <text x="205" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="251" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="297" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <!-- равенство и результат -->
+            <text x="342" y="45" text-anchor="middle" font-family="Courier New" font-size="24" font-weight="bold" fill="#2c3e50">=</text>
+            <text x="372" y="45" text-anchor="middle" font-family="Courier New" font-size="26" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="390" y="32" text-anchor="middle" font-family="Courier New" font-size="18" font-weight="bold" fill="#f39c12">5</text>
+            <!-- скобка первой группы -->
+            <path d="M70,64 L70,70 Q70,76 78,76 L104,76 Q112,76 112,84 Q112,76 120,76 L146,76 Q154,76 154,70 L154,64" fill="none" stroke="#3498db" stroke-width="2"/>
+            <text x="112" y="102" text-anchor="middle" font-family="Courier New" font-size="13" font-weight="bold" fill="#3498db">2 множителя</text>
+            <text x="112" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#7f8c8d">это a²</text>
+            <!-- скобка второй группы -->
+            <path d="M186,64 L186,70 Q186,76 194,76 L243,76 Q251,76 251,84 Q251,76 259,76 L308,76 Q316,76 316,70 L316,64" fill="none" stroke="#1abc9c" stroke-width="2"/>
+            <text x="251" y="102" text-anchor="middle" font-family="Courier New" font-size="13" font-weight="bold" fill="#16a085">3 множителя</text>
+            <text x="251" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#7f8c8d">это a³</text>
+            <!-- итоговая строка -->
+            <text x="235" y="142" text-anchor="middle" font-family="Courier New" font-size="16" font-weight="bold" fill="#2c3e50">a<tspan dy="-7" font-size="11">2</tspan><tspan dy="7"> · a</tspan><tspan dy="-7" font-size="11">3</tspan><tspan dy="7"> = a</tspan><tspan dy="-7" font-size="11">2+3</tspan><tspan dy="7"> = a</tspan><tspan dy="-7" font-size="11">5</tspan></text>
+        </svg>
+    </div>
+    <p class="fig-caption">Схема: 2 + 3 = 5 множителей — показатели складываются: a²⁺³ = a⁵</p>
+
+    <div class="rule-box">
+        <b>Основное свойство степени.</b> Для любого числа <span class="math">\(a\)</span> и произвольных натуральных чисел <span class="math">\(m\)</span> и <span class="math">\(n\)</span>:
+        <p style="text-align:center; margin:8px 0 0;"><span class="math">\(a^m a^n = a^{m+n}\)</span></p>
+    </div>
+
+    <p>Для доказательства используем определение степени и свойства умножения. Представим выражение <span class="math">\(a^m a^n\)</span> сначала в виде произведения множителей, каждый из которых равен <span class="math">\(a\)</span>, а затем в виде степени:</p>
+    <p class="formula" style="text-align:center;"><span class="math">\(a^m a^n = \underbrace{(a \cdot{} a \cdot{} \ldots \cdot{} a)}_{m\ \text{раз}} \cdot{} \underbrace{(a \cdot{} a \cdot{} \ldots \cdot{} a)}_{n\ \text{раз}} = \underbrace{a \cdot{} a \cdot{} \ldots \cdot{} a}_{m+n\ \text{раз}} = a^{m+n}\)</span></p>
+    <p>Таким образом, <span class="math">\(a^m a^n = a^{m+n}\)</span>. ◄ Доказанное равенство выражает <span class="highlight">основное свойство степени</span>. Оно распространяется на произведение трёх и более степеней:</p>
+    <p class="formula" style="text-align:center;"><span class="math">\(a^m a^n a^k = a^{m+n} a^k = a^{(m+n)+k} = a^{m+n+k}\)</span></p>
+
+    <div class="rule-box">
+        <b>Запомни.</b> При умножении степеней с одинаковыми основаниями <b>основание оставляют прежним</b>, а <b>показатели степеней складывают</b>.
+    </div>
+
+    <p>Приведём примеры из учебника:</p>
+    <p style="text-align:center;"><span class="math">\(x^8 x^7 = x^{8+7} = x^{15}\)</span>, &nbsp;&nbsp; <span class="math">\(yy^5 = y^1 y^5 = y^{1+5} = y^6\)</span>, &nbsp;&nbsp; <span class="math">\(b^2 b^4 b^3 = b^{2+4+3} = b^9\)</span></p>
+    <p>Проверим правило на числах: <span class="math">\(2^2 \cdot{} 2^3 = 4 \cdot{} 8 = 32\)</span>, и одновременно <span class="math">\(2^5 = 32\)</span> ✅ — показатели действительно сложились: 2 + 3 = 5.</p>
+</section>
+
+<section class="card page-block">
+    <h2>➗ Деление степеней: показатели вычитаются</h2>
+    <p>Выражение <span class="math">\(a^7 : a^3\)</span> — частное двух степеней с одинаковыми основаниями. Оно <span class="highlight">имеет смысл при <span class="math">\(a \neq 0\)</span></span> (делить на нуль нельзя). Если <span class="math">\(a \neq 0\)</span>, то это частное можно представить в виде степени с тем же основанием. Действительно, так как <span class="math">\(a^3 \cdot{} a^4 = a^7\)</span>, то по определению частного:</p>
+    <p style="text-align:center; font-size:1.15em;"><span class="math">\(a^7 : a^3 = a^4\)</span>, &nbsp;&nbsp; т. е. <span class="math">\(a^7 : a^3 = a^{7-3}\)</span></p>
+    <p>Частное равно степени с тем же основанием и показателем, равным <span class="highlight">разности показателей</span> делимого и делителя. На картинке это вычёркивание лишних множителей:</p>
+
+    <div class="visual-container">
+        <svg class="graph-svg" viewBox="0 0 470 155" width="470" role="img" aria-label="Семь множителей a, из них три зачёркнуты, осталось четыре: a в седьмой разделить на a в третьей равно a в четвёртой">
+            <!-- 7 карточек -->
+            <rect x="24" y="18" width="38" height="38" rx="4" fill="#eaf6fd" stroke="#3498db" stroke-width="2"/>
+            <rect x="70" y="18" width="38" height="38" rx="4" fill="#eaf6fd" stroke="#3498db" stroke-width="2"/>
+            <rect x="116" y="18" width="38" height="38" rx="4" fill="#eaf6fd" stroke="#3498db" stroke-width="2"/>
+            <rect x="162" y="18" width="38" height="38" rx="4" fill="#eaf6fd" stroke="#3498db" stroke-width="2"/>
+            <rect x="208" y="18" width="38" height="38" rx="4" fill="#fdedec" stroke="#c0392b" stroke-width="2"/>
+            <rect x="254" y="18" width="38" height="38" rx="4" fill="#fdedec" stroke="#c0392b" stroke-width="2"/>
+            <rect x="300" y="18" width="38" height="38" rx="4" fill="#fdedec" stroke="#c0392b" stroke-width="2"/>
+            <text x="43" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="89" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="135" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="181" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="227" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="273" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <text x="319" y="45" text-anchor="middle" font-family="Courier New" font-size="20" font-weight="bold" fill="#2c3e50">a</text>
+            <!-- вычёркивание трёх -->
+            <line x1="210" y1="20" x2="244" y2="54" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+            <line x1="244" y1="20" x2="210" y2="54" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+            <line x1="256" y1="20" x2="290" y2="54" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+            <line x1="290" y1="20" x2="256" y2="54" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+            <line x1="302" y1="20" x2="336" y2="54" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+            <line x1="336" y1="20" x2="302" y2="54" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+            <!-- деление на a в третьей -->
+            <text x="358" y="45" text-anchor="middle" font-family="Courier New" font-size="24" font-weight="bold" fill="#2c3e50">:</text>
+            <text x="384" y="45" text-anchor="middle" font-family="Courier New" font-size="26" font-weight="bold" fill="#c0392b">a</text>
+            <text x="402" y="32" text-anchor="middle" font-family="Courier New" font-size="18" font-weight="bold" fill="#c0392b">3</text>
+            <!-- скобка остатка -->
+            <path d="M24,64 L24,70 Q24,76 32,76 L98,76 Q106,76 106,84 Q106,76 114,76 L180,76 Q188,76 188,70 L188,64" fill="none" stroke="#3498db" stroke-width="2"/>
+            <text x="106" y="102" text-anchor="middle" font-family="Courier New" font-size="13" font-weight="bold" fill="#3498db">осталось 4 множителя</text>
+            <text x="106" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#7f8c8d">это a⁴</text>
+            <!-- скобка вычеркнутых -->
+            <path d="M208,64 L208,70 Q208,76 216,76 L265,76 Q273,76 273,84 Q273,76 281,76 L330,76 Q338,76 338,70 L338,64" fill="none" stroke="#c0392b" stroke-width="2"/>
+            <text x="273" y="102" text-anchor="middle" font-family="Courier New" font-size="13" font-weight="bold" fill="#c0392b">вычеркнули 3</text>
+            <text x="273" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#7f8c8d">столько вычитаем</text>
+            <!-- итоговая строка -->
+            <text x="213" y="142" text-anchor="middle" font-family="Courier New" font-size="16" font-weight="bold" fill="#2c3e50">a<tspan dy="-7" font-size="11">7</tspan><tspan dy="7"> : a</tspan><tspan dy="-7" font-size="11">3</tspan><tspan dy="7"> = a</tspan><tspan dy="-7" font-size="11">7−3</tspan><tspan dy="7"> = a</tspan><tspan dy="-7" font-size="11">4</tspan></text>
+        </svg>
+    </div>
+    <p class="fig-caption">Схема: из 7 множителей вычеркнули 3, осталось 4: a⁷⁻³ = a⁴</p>
+
+    <div class="rule-box">
+        <b>Свойство деления степеней.</b> Для любого числа <span class="math">\(a \neq 0\)</span> и произвольных натуральных чисел <span class="math">\(m\)</span> и <span class="math">\(n\)</span> таких, что <span class="math">\(m > n\)</span>:
+        <p style="text-align:center; margin:8px 0 0;"><span class="math">\(a^m : a^n = a^{m-n}\)</span></p>
+    </div>
+
+    <p>Равенство будет доказано, если мы установим, что произведение <span class="math">\(a^{m-n}\)</span> и <span class="math">\(a^n\)</span> равно <span class="math">\(a^m\)</span>. Применив к произведению <span class="math">\(a^{m-n} a^n\)</span> основное свойство степени, получим:</p>
+    <p style="text-align:center;"><span class="math">\(a^{m-n} a^n = a^{(m-n)+n} = a^{m-n+n} = a^m\)</span></p>
+    <p>Значит, по определению частного <span class="math">\(a^m : a^n = a^{m-n}\)</span>. ◄ Отсюда следует правило:</p>
+
+    <div class="rule-box">
+        <b>Запомни.</b> При делении степеней с одинаковыми основаниями <b>основание оставляют прежним</b>, а из <b>показателя степени делимого вычитают</b> показатель степени делителя.
+    </div>
+
+    <p>Приведём примеры из учебника:</p>
+    <p style="text-align:center;"><span class="math">\(c^{10} : c^2 = c^{10-2} = c^8\)</span>, &nbsp;&nbsp; <span class="math">\(p^7 : p = p^7 : p^1 = p^{7-1} = p^6\)</span></p>
+    <p>Проверим на числах: <span class="math">\(3^5 : 3^2 = 243 : 9 = 27\)</span>, и одновременно <span class="math">\(3^3 = 27\)</span> ✅ — показатели действительно вычлись: 5 − 2 = 3. Обрати внимание на <span class="math">\(p^7 : p\)</span>: множитель без показателя — это первая степень, <span class="math">\(p = p^1\)</span>, поэтому показатели складывают или вычитают и с единицей.</p>
+</section>
+
+<section class="card page-block">
+    <h2>0️⃣ А если показатели равны? Степень с нулевым показателем</h2>
+    <p>Мы вывели правило деления <span class="math">\(a^m\)</span> на <span class="math">\(a^n\)</span> для случая <span class="math">\(m > n\)</span>. А что будет, если показатели равны? Применим правило к частному <span class="math">\(a^n : a^n\)</span>:</p>
+    <p style="text-align:center; font-size:1.15em;"><span class="math">\(a^n : a^n = a^{n-n} = a^0\)</span></p>
+    <p>Степень с нулевым показателем пока не была определена. Но с другой стороны, при всяком <span class="math">\(a \neq 0\)</span> и любом натуральном <span class="math">\(n\)</span> число <span class="math">\(a^n\)</span> делится само на себя и получается единица: <span class="math">\(a^n : a^n = 1\)</span>. Значит, считают, что при <span class="math">\(a \neq 0\)</span>:</p>
+    <p style="text-align:center; font-size:1.15em;"><span class="math">\(a^0 = 1\)</span></p>
+
+    <div class="def-box">
+        <b>Определение.</b> Степень числа <span class="math">\(a\)</span>, не равного нулю, с нулевым показателем равна единице.
+    </div>
+
+    <p>Например, <span class="math">\(2^0 = 1\)</span>, <span class="math">\((-3,5)^0 = 1\)</span>. А вот выражение <span class="math">\(0^0\)</span> <span class="highlight">не имеет смысла</span>!</p>
+
+    <div class="contrast-grid">
+        <div class="contrast-card good">
+            <div class="cc-title">\(5^0\)</div>
+            основание <b>не равно нулю</b><br>
+            <span class="math">\(5^0 = 1\)</span>, <span class="math">\(2^0 = 1\)</span>, <span class="math">\((-3,5)^0 = 1\)</span><br>
+            <b>✅ любое a ≠ 0 даёт единицу</b>
+        </div>
+        <div class="contrast-card bad">
+            <div class="cc-title">\(0^0\)</div>
+            основание и показатель — нули<br>
+            выражение <b>не имеет смысла</b><br>
+            <b>🚫 считать, что 0⁰ = 0 или 0⁰ = 1, — ошибка</b>
+        </div>
+    </div>
+    <p class="fig-caption">Слева — нулевая степень любого ненулевого основания, справа — единственный запретный случай</p>
+
+    <p>Теперь после введения нулевой степени формулу <span class="math">\(a^m a^n = a^{m+n}\)</span> (при <span class="math">\(a \neq 0\)</span>) можно применять и в том случае, когда <span class="math">\(m = 0\)</span> или <span class="math">\(n = 0\)</span>: например, <span class="math">\(a^0 \cdot{} a^5 = a^{0+5} = a^5\)</span> ✅. А формулу <span class="math">\(a^m : a^n = a^{m-n}\)</span> (при <span class="math">\(a \neq 0\)</span>) — при любых целых неотрицательных числах <span class="math">\(m\)</span> и <span class="math">\(n\)</span>, удовлетворяющих условию <span class="math">\(m \geq n\)</span>.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: показатель — это счётчик множителей</h3>
+    <p>Правила «сложи показатели» и «вычти показатели» легко перепутать. Надёжнее понимать, что <b>за показателем всегда стоит количество</b>: запись <span class="math">\(a^n\)</span> — это <span class="highlight">n штук</span> множителей <span class="math">\(a\)</span>. Показатель — обычный счётчик, а счётчики при склейке групп складываются, при вычёркивании — вычитаются.</p>
+    <ol>
+        <li><b>🧩 Увидь группы.</b> В произведении <span class="math">\(a^m a^n\)</span> лежат две группы: m множителей и n множителей. Группы склеились в одну — в ней m + n штук: <span class="math">\(a^m a^n = a^{m+n}\)</span>. Например, <span class="math">\(x^4 x^3\)</span>: 4 множителя плюс 3 — всего 7.</li>
+        <li><b>✂️ Увидь вычёркивание.</b> В частном <span class="math">\(a^m : a^n\)</span> из группы в m штук вычёркиваем n штук — остаётся m − n: <span class="math">\(a^m : a^n = a^{m-n}\)</span>. Например, <span class="math">\(c^6 : c^2\)</span>: было 6 множителей, вычеркнули 2 — осталось 4.</li>
+        <li><b>🔍 Пересчитай счётчик.</b> Основание не трогай вовсе — меняется только счётчик. Прежде чем писать ответ, устно проверь количество множителей.</li>
+    </ol>
+
+    <div class="contrast-grid">
+        <div class="contrast-card good">
+            <div class="cc-title">\(x^4 x^3\)</div>
+            группы <b>склеиваются</b>: 4 + 3 = 7 множителей<br>
+            <span class="math">\(x^4 x^3 = x^7\)</span><br>
+            <b>✅ показатели сложились</b>
+        </div>
+        <div class="contrast-card bad">
+            <div class="cc-title">\(x^4 x^3\)</div>
+            «перемножил показатели»: 4 · 3 = 12<br>
+            <span class="math">\(x^{12}\)</span> — неверно!<br>
+            <b>🚫 показатели при умножении не перемножают</b>
+        </div>
+    </div>
+    <p class="fig-caption">Одинаковые числа 4 и 3 — но операции разные: множители склеиваются (4 + 3), а не перемножаются (4 · 3)</p>
+
+    <p>💡 <b>Проверь себя за 5 секунд:</b> спроси «что я делаю с группами множителей?». Склеиваю — складываю показатели. Вычёркиваю — вычитаю. Перемножать или делить сами показатели не нужно!</p>
+    <p>🌉 <b>Мостик:</b> в задании 2 будешь вычитать счётчики — там встретится деление на просто <span class="math">\(a\)</span> и на просто <span class="math">\(c\)</span>, а это степени с показателем 1! А в задании 6 счётчики придётся сначала склеить, а потом уменьшить — следи, чтобы ни один множитель не потерялся.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 19) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№418: а, б, д, ж из учебника)</div>
+    <p>Представь произведение в виде степени:</p>
+    <p>а) <span class="math">\(x^5 x^8\)</span>; &nbsp;&nbsp; б) <span class="math">\(a^6 a^3\)</span>; &nbsp;&nbsp; д) <span class="math">\(x^9 x\)</span>; &nbsp;&nbsp; ж) <span class="math">\(2^6 \cdot{} 2^4\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x^13; a^9; x^10; 2^10"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+    <button class="btn-check" onclick="toggleAnswer('ans1')">🔍 Проверить</button>
+    <div id="ans1" class="answer">
+        <ol>
+            <li><b>Правило:</b> основания одинаковые — оставляем прежним, показатели складываем.</li>
+            <li>а) <span class="math">\(x^5 x^8 = x^{5+8} = x^{13}\)</span>;</li>
+            <li>б) <span class="math">\(a^6 a^3 = a^{6+3} = a^9\)</span>;</li>
+            <li>д) <span class="math">\(x^9 x = x^9 \cdot{} x^1 = x^{9+1} = x^{10}\)</span> — множитель без показателя это <span class="math">\(x^1\)</span>;</li>
+            <li>ж) <span class="math">\(2^6 \cdot{} 2^4 = 2^{6+4} = 2^{10}\)</span>. Проверка «в лоб»: <span class="math">\(64 \cdot{} 16 = 1024\)</span> и <span class="math">\(2^{10} = 1024\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> а) <span class="math">\(x^{13}\)</span>; б) <span class="math">\(a^9\)</span>; д) <span class="math">\(x^{10}\)</span>; ж) <span class="math">\(2^{10}\)</span> (= 1024).</p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№429: а, в, д, ж из учебника)</div>
+    <p>Представь в виде степени частное:</p>
+    <p>а) <span class="math">\(x^5 : x^3\)</span>; &nbsp;&nbsp; в) <span class="math">\(a^{21} : a\)</span>; &nbsp;&nbsp; д) <span class="math">\(c^{12} : c^3\)</span>; &nbsp;&nbsp; ж) <span class="math">\(3^8 : 3^5\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ (степенью)" data-answer="x^2; a^20; c^9; 3^3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+    <button class="btn-check" onclick="toggleAnswer('ans2')">🔍 Проверить</button>
+    <div id="ans2" class="answer">
+        <ol>
+            <li><b>Правило:</b> основание оставляем прежним, из показателя делимого вычитаем показатель делителя (все основания не равны нулю).</li>
+            <li>а) <span class="math">\(x^5 : x^3 = x^{5-3} = x^2\)</span>;</li>
+            <li>в) <span class="math">\(a^{21} : a = a^{21} : a^1 = a^{21-1} = a^{20}\)</span>;</li>
+            <li>д) <span class="math">\(c^{12} : c^3 = c^{12-3} = c^9\)</span>;</li>
+            <li>ж) <span class="math">\(3^8 : 3^5 = 3^{8-5} = 3^3 = 27\)</span>. Проверка «в лоб»: <span class="math">\(6561 : 243 = 27\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> а) <span class="math">\(x^2\)</span>; в) <span class="math">\(a^{20}\)</span>; д) <span class="math">\(c^9\)</span>; ж) <span class="math">\(3^3 = 27\)</span>.</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№423: а, в, д, е из учебника)</div>
+    <p>Представь в виде степени произведение (множителей больше двух!):</p>
+    <p>а) <span class="math">\(x^2 x^5 x^4\)</span>; &nbsp;&nbsp; в) <span class="math">\(mm^3 m^2 m^5\)</span>; &nbsp;&nbsp; д) <span class="math">\(10^2 \cdot{} 10^3 \cdot{} 10^5\)</span>; &nbsp;&nbsp; е) <span class="math">\(3^4 \cdot{} 3^2 \cdot{} 3^3 \cdot{} 3\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x^11; m^11; 10^10; 3^10"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+    <button class="btn-check" onclick="toggleAnswer('ans3')">🔍 Проверить</button>
+    <div id="ans3" class="answer">
+        <ol>
+            <li><b>Правило:</b> основное свойство степени работает для трёх и более степеней — складываем все показатели подряд.</li>
+            <li>а) <span class="math">\(x^2 x^5 x^4 = x^{2+5+4} = x^{11}\)</span>;</li>
+            <li>в) <span class="math">\(mm^3 m^2 m^5 = m^{1+3+2+5} = m^{11}\)</span> — четыре множителя, и первый <span class="math">\(m\)</span> это <span class="math">\(m^1\)</span>;</li>
+            <li>д) <span class="math">\(10^2 \cdot{} 10^3 \cdot{} 10^5 = 10^{2+3+5} = 10^{10}\)</span>;</li>
+            <li>е) <span class="math">\(3^4 \cdot{} 3^2 \cdot{} 3^3 \cdot{} 3 = 3^{4+2+3+1} = 3^{10}\)</span>.</li>
+        </ol>
+        <p><b>Проверка д):</b> <span class="math">\(100 \cdot{} 1000 \cdot{} 100\,000 = 10\,000\,000\,000 = 10^{10}\)</span> ✅</p>
+        <p><b>Ответ:</b> а) <span class="math">\(x^{11}\)</span>; в) <span class="math">\(m^{11}\)</span>; д) <span class="math">\(10^{10}\)</span>; е) <span class="math">\(3^{10}\)</span>.</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№425: а, б, д, е из учебника)</div>
+    <p>Представь в виде степени. Подвох: некоторые множители «замаскированы» под обычные числа!</p>
+    <p>а) <span class="math">\(5^8 \cdot{} 25\)</span>; &nbsp;&nbsp; б) <span class="math">\(3^{12} \cdot{} 27\)</span>; &nbsp;&nbsp; д) <span class="math">\(0,4^5 \cdot{} 0,16\)</span>; &nbsp;&nbsp; е) <span class="math">\(0,001 \cdot{} 0,1^4\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="5^10; 3^15; 0,4^7; 0,1^7"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+    <button class="btn-check" onclick="toggleAnswer('ans4')">🔍 Проверить</button>
+    <div id="ans4" class="answer">
+        <ol>
+            <li><b>Шаг-разведка:</b> сначала разоблачим маскировку: <span class="math">\(25 = 5^2\)</span>, <span class="math">\(27 = 3^3\)</span>, <span class="math">\(0,16 = 0,4^2\)</span>, <span class="math">\(0,001 = 0,1^3\)</span>.</li>
+            <li>а) <span class="math">\(5^8 \cdot{} 25 = 5^8 \cdot{} 5^2 = 5^{8+2} = 5^{10}\)</span>;</li>
+            <li>б) <span class="math">\(3^{12} \cdot{} 27 = 3^{12} \cdot{} 3^3 = 3^{15}\)</span>;</li>
+            <li>д) <span class="math">\(0,4^5 \cdot{} 0,16 = 0,4^5 \cdot{} 0,4^2 = 0,4^7\)</span> (проверка маски: <span class="math">\(0,4^2 = 0,16\)</span> ✅);</li>
+            <li>е) <span class="math">\(0,001 \cdot{} 0,1^4 = 0,1^3 \cdot{} 0,1^4 = 0,1^7\)</span> (проверка маски: <span class="math">\(0,1^3 = 0,001\)</span> ✅).</li>
+        </ol>
+        <p><b>Ответ:</b> а) <span class="math">\(5^{10}\)</span>; б) <span class="math">\(3^{15}\)</span>; д) <span class="math">\(0,4^7\)</span>; е) <span class="math">\(0,1^7\)</span>.</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№432: а, б, в, г из учебника)</div>
+    <p>Найди значение дроби (дробная черта — это то же деление!):</p>
+    <p>а) <span class="math">\(\dfrac{8^6}{8^4}\)</span>; &nbsp;&nbsp; б) <span class="math">\(\dfrac{0,8^7}{0,8^4}\)</span>; &nbsp;&nbsp; в) <span class="math">\(\dfrac{(-0,3)^5}{(-0,3)^3}\)</span>; &nbsp;&nbsp; г) <span class="math">\(\dfrac{\left(1\dfrac{1}{2}\right)^{4}}{\left(1\dfrac{1}{2}\right)^{2}}\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ (числом)" data-answer="64; 0,512; 0,09; 2,25"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+    <button class="btn-check" onclick="toggleAnswer('ans5')">🔍 Проверить</button>
+    <div id="ans5" class="answer">
+        <ol>
+            <li>а) <span class="math">\(\dfrac{8^6}{8^4} = 8^{6-4} = 8^2 = 64\)</span>. Проверка «в лоб»: <span class="math">\(262\,144 : 4\,096 = 64\)</span> ✅;</li>
+            <li>б) <span class="math">\(\dfrac{0,8^7}{0,8^4} = 0,8^{7-4} = 0,8^3 = 0,512\)</span>;</li>
+            <li>в) <span class="math">\(\dfrac{(-0,3)^5}{(-0,3)^3} = (-0,3)^{5-3} = (-0,3)^2 = 0,09\)</span>. <b>Ловушка со знаком:</b> показатель 5 − 3 = 2 — <b>чётный</b>, поэтому ответ положительный (минус на минус при делении даёт «+») ✅;</li>
+            <li>г) переведём <span class="math">\(1\dfrac{1}{2} = \dfrac{3}{2}\)</span>: <span class="math">\(\dfrac{\left(\dfrac{3}{2}\right)^{4}}{\left(\dfrac{3}{2}\right)^{2}} = \left(\dfrac{3}{2}\right)^{4-2} = \left(\dfrac{3}{2}\right)^{2} = \dfrac{9}{4} = 2,25\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> а) 64; б) 0,512; в) 0,09; г) 9/4 = 2,25.</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№433: а, б, в, г из учебника)</div>
+    <p>Вычисли. Здесь в одном примере и умножение, и деление степеней:</p>
+    <p>а) <span class="math">\(\dfrac{7^9 \cdot{} 7^5}{7^{12}}\)</span>; &nbsp;&nbsp; б) <span class="math">\(\dfrac{3^{15}}{3^5 \cdot{} 3^6}\)</span>; &nbsp;&nbsp; в) <span class="math">\(\dfrac{5^{16} \cdot{} 5^4}{5^{18}}\)</span>; &nbsp;&nbsp; г) <span class="math">\(\dfrac{0,6^{12}}{0,6^4 \cdot{} 0,6^5}\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ (числом)" data-answer="49; 81; 25; 0,216"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+    <button class="btn-check" onclick="toggleAnswer('ans6')">🔍 Проверить</button>
+    <div id="ans6" class="answer">
+        <ol>
+            <li><b>Порядок работы:</b> сначала склеиваем группы множителей (умножение), потом вычитаем счётчик делителя.</li>
+            <li>а) числитель: <span class="math">\(7^9 \cdot{} 7^5 = 7^{14}\)</span>; затем <span class="math">\(7^{14} : 7^{12} = 7^2 = 49\)</span>;</li>
+            <li>б) знаменатель: <span class="math">\(3^5 \cdot{} 3^6 = 3^{11}\)</span>; затем <span class="math">\(3^{15} : 3^{11} = 3^4 = 81\)</span>;</li>
+            <li>в) числитель: <span class="math">\(5^{16} \cdot{} 5^4 = 5^{20}\)</span>; затем <span class="math">\(5^{20} : 5^{18} = 5^2 = 25\)</span>;</li>
+            <li>г) знаменатель: <span class="math">\(0,6^4 \cdot{} 0,6^5 = 0,6^9\)</span>; затем <span class="math">\(0,6^{12} : 0,6^9 = 0,6^3 = 0,216\)</span>.</li>
+        </ol>
+        <p><b>Проверка а) «в лоб»:</b> <span class="math">\(7^9 \cdot{} 7^5 = 40\,353\,607 \cdot{} 16\,807\)</span> — огромные числа, а через свойства степеней всё считается устно: <span class="math">\(7^2 = 49\)</span> ✅</p>
+        <p><b>Ответ:</b> а) 49; б) 81; в) 25; г) 0,216.</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li><b>Основное свойство степени:</b> <span class="math">\(a^m a^n = a^{m+n}\)</span> — для любого числа <span class="math">\(a\)</span> и натуральных <span class="math">\(m\)</span>, <span class="math">\(n\)</span>.</li>
+        <li>При <b>умножении</b> степеней с одинаковыми основаниями основание оставляют прежним, а <b>показатели складывают</b>.</li>
+        <li>Свойство работает и для трёх и более степеней: <span class="math">\(a^m a^n a^k = a^{m+n+k}\)</span>.</li>
+        <li>При <b>делении</b> степеней с одинаковыми основаниями (при <span class="math">\(a \neq 0\)</span>, <span class="math">\(m > n\)</span>): <span class="math">\(a^m : a^n = a^{m-n}\)</span> — <b>показатели вычитают</b>.</li>
+        <li>Множитель без показателя — первая степень: <span class="math">\(x = x^1\)</span>, поэтому <span class="math">\(x^9 x = x^{10}\)</span> и <span class="math">\(p^7 : p = p^6\)</span>.</li>
+        <li><b>Нулевая степень:</b> <span class="math">\(a^0 = 1\)</span> при <span class="math">\(a \neq 0\)</span>; выражение <span class="math">\(0^0\)</span> не имеет смысла.</li>
+        <li>После введения нулевой степени формулы работают и при <span class="math">\(m = 0\)</span> или <span class="math">\(n = 0\)</span> (при <span class="math">\(a \neq 0\)</span>); для деления достаточно <span class="math">\(m \geq n\)</span>.</li>
+        <li>Показатель — <b>счётчик множителей</b>: склеиваем группы — складываем, вычёркиваем — вычитаем. Перемножать показатели при умножении — ошибка!</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 3: Степень с натуральным показателем<br>
+    §6, п. 19. Умножение и деление степеней • Страницы 101-105</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-18.html">← Урок 18</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+
+<script>
+    /* Самодостаточная инициализация: сравнение ответов + KaTeX (замена assets/answer-core.js и части assets/course.js) */
+    (function () {
+        'use strict';
+
+        function normalizeAnswer(s) {
+            s = String(s).toLowerCase().replace(/[−–]/g, '-').trim();
+            var nums = [];
+            var re = /-?\d+(?:[.,]\d+)?/g;
+            var m;
+            while ((m = re.exec(s)) !== null) {
+                nums.push(m[0].replace(',', '.'));
+            }
+            nums.sort(function (a, b) { return parseFloat(a) - parseFloat(b); });
+            return { raw: s, nums: nums };
+        }
+
+        function checkAnswer(userInput, expectedStr) {
+            var u = normalizeAnswer(userInput);
+            var e = normalizeAnswer(expectedStr);
+            if (e.nums.length > 0) {
+                if (u.nums.length !== e.nums.length) return false;
+                for (var i = 0; i < u.nums.length; i++) {
+                    if (u.nums[i] !== e.nums[i]) return false;
+                }
+                return true;
+            }
+            return u.raw === e.raw;
+        }
+
+        function initSelfCheck() {
+            var btns = document.querySelectorAll('.check-btn');
+            for (var i = 0; i < btns.length; i++) {
+                (function (btn) {
+                    function run() {
+                        var row = btn.closest ? btn.closest('.check-row') : null;
+                        if (!row) return;
+                        var input = row.querySelector('.check-input');
+                        var fb = row.querySelector('.check-feedback');
+                        if (!input || !fb) return;
+                        var expected = input.getAttribute('data-answer') || '';
+                        var ok = checkAnswer(input.value, expected);
+                        fb.classList.remove('ok', 'bad');
+                        if (ok) { fb.textContent = '✅ Верно!'; fb.classList.add('ok'); }
+                        else { fb.textContent = '❌ Попробуй ещё'; fb.classList.add('bad'); }
+                    }
+                    btn.addEventListener('click', run);
+                    var input = btn.previousElementSibling;
+                    if (input && input.classList && input.classList.contains('check-input')) {
+                        input.addEventListener('keydown', function (e) {
+                            if (e.key === 'Enter') { e.preventDefault(); run(); }
+                        });
+                    }
+                })(btns[i]);
+            }
+        }
+
+        function renderKatexIfPresent() {
+            if (window.renderMathInElement && document.querySelector('.math')) {
+                try {
+                    window.renderMathInElement(document.body, {
+                        delimiters: [{ left: '\\(', right: '\\)', display: false }],
+                        throwOnError: false,
+                        strict: 'ignore'
+                    });
+                } catch (e) {
+                    if (window.console && console.error) console.error('KaTeX render error:', e);
+                }
+            }
+        }
+
+        function init() {
+            initSelfCheck();
+            renderKatexIfPresent();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>
