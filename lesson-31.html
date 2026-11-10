@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Деление с остатком — Алгебра 7 класс | Глава 4, §10, п. 31</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Бонус-глава «Для тех, кто хочет знать больше»: что делать, когда нацело не делится 🧭">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Деление с остатком — Алгебра 7 класс | Глава 4, §10, п. 31">
+<meta property="og:description" content="Бонус-глава «Для тех, кто хочет знать больше»: что делать, когда нацело не делится 🧭">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-31.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Деление с остатком — Алгебра 7 класс | Глава 4, §10, п. 31">
+<meta name="twitter:description" content="Бонус-глава «Для тех, кто хочет знать больше»: что делать, когда нацело не делится 🧭">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-31.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-30.html">← Урок 30</a><span class="sep">|</span><a href="lesson-32.html">Урок 32 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 4 • §10, п. 31</span>
+    <h1>Деление с остатком</h1>
+    <p class="subtitle">Бонус-глава «Для тех, кто хочет знать больше»: что делать, когда нацело не делится 🧭</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Ты добрался до пункта, который в учебнике помечен словами «Для тех, кто хочет знать больше», — это дополнительная глава для любознательных. Начнём с вопроса из жизни: какой день недели будет через 100 дней? Календарь не нужен — хватит деления с остатком: <span class="math">\(100 : 7 = 14\)</span> (ост. <span class="math">\(2\)</span>), значит, день недели сместится всего на 2. Остатки кажутся мелочью, а управляют большими циклами: днями недели, чётностью, классами чисел. 🗓️</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔢 Остаток у натуральных чисел</h2>
+    <p>Пример из учебника: при делении числа <span class="math">\(143\)</span> на <span class="math">\(7\)</span> в частном получается <span class="math">\(20\)</span> и в остатке <span class="math">\(3\)</span>: <span class="math">\(143 : 7 = 20\)</span> (ост. <span class="math">\(3\)</span>), причём остаток <span class="math">\(3\)</span> меньше делителя <span class="math">\(7\)</span>. Тот же факт записывают равенством <span class="math">\(143 = 7 \cdot{} 20 + 3\)</span>.</p>
+    <p><b>Определение.</b> Число <span class="math">\(r\)</span> называется <span class="highlight">остатком</span> от деления натурального числа <span class="math">\(a\)</span> на натуральное число <span class="math">\(b\)</span>, если выполняются два условия: 1) разность <span class="math">\(a - r\)</span> делится на <span class="math">\(b\)</span>; 2) <span class="math">\(0 ≤ r \lt b\)</span>.</p>
+    <p>Если одно натуральное число делится на другое без остатка, условились считать, что остаток равен <span class="math">\(0\)</span>.</p>
+    <p>Быстрая самопроверка на числах учебника: <span class="math">\(143 - 3 = 140 = 7 \cdot{} 20\)</span> — разность <span class="math">\(a - r\)</span> действительно делится на <span class="math">\(b\)</span>. ✅</p>
+</section>
+
+<section class="card page-block">
+    <h2>➖ Целое делимое — тоже можно</h2>
+    <p><b>Определение.</b> Целое число <span class="math">\(r\)</span> называют <span class="highlight">остатком</span> от деления целого числа <span class="math">\(a\)</span> на натуральное число <span class="math">\(b\)</span>, если разность <span class="math">\(a - r\)</span> делится на <span class="math">\(b\)</span> и <span class="math">\(0 ≤ r \lt b\)</span>.</p>
+    <p>Обозначив частное от деления <span class="math">\(a - r\)</span> на <span class="math">\(b\)</span> буквой <span class="math">\(q\)</span>, получим <span class="math">\(a - r = bq\)</span>, а отсюда — главную формулу всей темы:</p>
+    <p><span class="math">\(a = bq + r\)</span>, где <span class="math">\(0 ≤ r \lt b\)</span></p>
+    <p>Пример из учебника: <span class="math">\(-13 = 5 \cdot{} (-3) + 2\)</span>, причём <span class="math">\(0 ≤ 2 \lt 5\)</span>. Частное от деления числа <span class="math">\(-13\)</span> на <span class="math">\(5\)</span> равно <span class="math">\(-3\)</span>, а остаток равен <span class="math">\(2\)</span>. А почему не <span class="math">\(q = -2\)</span>? Тогда остаток вышел бы <span class="math">\(-13 - 5\cdot{}(-2) = -3\)</span> — отрицательным, а так запрещено. 🚫</p>
+    <p><b>Запомни.</b> Для любого целого числа <span class="math">\(a\)</span> и натурального числа <span class="math">\(b\)</span> существует единственная пара целых чисел <span class="math">\(q\)</span> и <span class="math">\(r\)</span> такая, что <span class="math">\(a = bq + r\)</span>, где <span class="math">\(0 ≤ r \lt b\)</span>.</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="100%" viewBox="0 0 720 200" role="img" aria-label="Координатная прямая: кратные числа 5 разбивают её на отрезки длины 5, число a = -13 лежит в отрезке от -15 до -10, остаток r = 2">
+            <text x="360" y="24" font-size="15" fill="#7f8c8d" text-anchor="middle">Кратные b = 5 числа разбивают прямую на отрезки длины 5 (как на рис. 84 учебника)</text>
+            <defs>
+                <marker id="arrow31" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#7f8c8d"/>
+                </marker>
+            </defs>
+            <rect x="130" y="88" width="70" height="24" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+            <text x="182" y="96" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e8449">b = 5</text>
+            <line x1="30" y1="100" x2="678" y2="100" stroke="#7f8c8d" stroke-width="2" marker-end="url(#arrow31)"/>
+            <line x1="60" y1="93" x2="60" y2="107" stroke="#7f8c8d" stroke-width="2"/>
+            <line x1="130" y1="93" x2="130" y2="107" stroke="#27ae60" stroke-width="2"/>
+            <line x1="200" y1="93" x2="200" y2="107" stroke="#27ae60" stroke-width="2"/>
+            <line x1="270" y1="93" x2="270" y2="107" stroke="#7f8c8d" stroke-width="2"/>
+            <line x1="340" y1="93" x2="340" y2="107" stroke="#7f8c8d" stroke-width="2"/>
+            <line x1="410" y1="93" x2="410" y2="107" stroke="#7f8c8d" stroke-width="2"/>
+            <line x1="480" y1="93" x2="480" y2="107" stroke="#7f8c8d" stroke-width="2"/>
+            <line x1="550" y1="93" x2="550" y2="107" stroke="#7f8c8d" stroke-width="2"/>
+            <line x1="620" y1="93" x2="620" y2="107" stroke="#7f8c8d" stroke-width="2"/>
+            <text x="60" y="126" font-size="13" text-anchor="middle" fill="#7f8c8d">-20</text>
+            <text x="130" y="126" font-size="13" text-anchor="middle" fill="#1e8449">-15</text>
+            <text x="200" y="126" font-size="13" text-anchor="middle" fill="#1e8449">-10</text>
+            <text x="270" y="126" font-size="13" text-anchor="middle" fill="#7f8c8d">-5</text>
+            <text x="340" y="126" font-size="13" text-anchor="middle" fill="#7f8c8d">0</text>
+            <text x="410" y="126" font-size="13" text-anchor="middle" fill="#7f8c8d">5</text>
+            <text x="480" y="126" font-size="13" text-anchor="middle" fill="#7f8c8d">10</text>
+            <text x="550" y="126" font-size="13" text-anchor="middle" fill="#7f8c8d">15</text>
+            <text x="620" y="126" font-size="13" text-anchor="middle" fill="#7f8c8d">20</text>
+            <circle cx="158" cy="100" r="6" fill="#e74c3c"/>
+            <line x1="158" y1="86" x2="158" y2="60" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="158" y="54" font-size="15" font-weight="bold" text-anchor="middle" fill="#e74c3c">a = -13</text>
+            <polyline points="130,136 130,148 158,148 158,136" fill="none" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="144" y="166" font-size="14" font-weight="bold" text-anchor="middle" fill="#e74c3c">r = 2</text>
+        </svg>
+    </div>
+    <p class="fig-caption">Точки, кратные <span class="math">\(5\)</span>, делят прямую на отрезки длины <span class="math">\(5\)</span>. Число <span class="math">\(a = -13 = 5\cdot{}(-3) + 2\)</span> попало в отрезок от <span class="math">\(-15\)</span> до <span class="math">\(-10\)</span>: частное <span class="math">\(q = -3\)</span>, остаток <span class="math">\(r = 2\)</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🗂️ Классы чисел по остаткам</h2>
+    <p>Из учебника: «На делении с остатком основаны различные разбиения множества целых чисел на классы, т.е. на подмножества, не имеющие общих элементов». При делении на <span class="math">\(3\)</span> могут получиться остатки <span class="math">\(0\)</span>, <span class="math">\(1\)</span> и <span class="math">\(2\)</span> — и все целые числа распределяются ровно по трём классам:</p>
+    <table style="border-collapse:collapse;margin:14px auto;">
+        <tr>
+            <th style="border:1px solid #ecf0f1;background:#ecf0f1;padding:8px 16px;">Остаток</th>
+            <th style="border:1px solid #ecf0f1;background:#ecf0f1;padding:8px 16px;">Класс</th>
+            <th style="border:1px solid #ecf0f1;background:#ecf0f1;padding:8px 16px;">Числа класса</th>
+        </tr>
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;text-align:center;"><span class="math">\(0\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;text-align:center;"><span class="math">\(3k\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;"><span class="math">\(..., -6, -3, 0, 3, 6, ...\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;text-align:center;"><span class="math">\(1\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;text-align:center;"><span class="math">\(3k + 1\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;"><span class="math">\(..., -5, -2, 1, 4, 7, ...\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;text-align:center;"><span class="math">\(2\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;text-align:center;"><span class="math">\(3k + 2\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 16px;"><span class="math">\(..., -4, -1, 2, 5, 8, ...\)</span></td>
+        </tr>
+    </table>
+    <p>Здесь <span class="math">\(k\)</span> — любое целое число. Знакомые примеры классов: чётные числа <span class="math">\(2k\)</span> (остаток <span class="math">\(0\)</span> при делении на <span class="math">\(2\)</span>) и нечётные <span class="math">\(2k + 1\)</span> (остаток <span class="math">\(1\)</span>). Так же, по остаткам при делении на <span class="math">\(5\)</span>, все целые числа разбиваются на пять классов — от <span class="math">\(5k\)</span> до <span class="math">\(5k + 4\)</span>.</p>
+    <p>🏠 <b>Жизненные классы.</b> Дома на одной стороне улицы — это класс <span class="math">\(2k\)</span> (чётные), на противоположной — класс <span class="math">\(2k + 1\)</span>. А дни недели — классы по остаткам при делении на <span class="math">\(7\)</span>: прибавили к дате <span class="math">\(100\)</span> дней — это <span class="math">\(14\)</span> недель (остаток <span class="math">\(0\)</span>) и ещё <span class="math">\(2\)</span> дня, поэтому день недели сместится на <span class="math">\(2\)</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>📐 Бонус: многочлены тоже делят «уголком»</h2>
+    <p>Раз уж мы в главе о многочленах — вот награда самым любознательным. Числа мы делим «уголком» по разрядам, а многочлены можно делить «уголком» по старшинству степеней. Формула <span class="math">\(a = bq + r\)</span> работает и здесь, только <span class="highlight">остаток — это многочлен степени меньше степени делителя</span> (аналог условия <span class="math">\(0 ≤ r \lt b\)</span>).</p>
+    <div class="visual-container">
+        <table style="border-collapse:collapse;font-family:'Courier New',Courier,monospace;font-size:1.05em;background:#f8f9fa;border:1px solid #ecf0f1;">
+            <tr>
+                <td rowspan="2" style="white-space:pre;padding:14px 10px 14px 18px;line-height:1.55;">x^2 + 5x + 8
+x^2 + 2x
+------------
+      3x + 8
+      3x + 6
+      ------
+           2</td>
+                <td style="border-left:2px solid #2d3436;border-bottom:2px solid #2d3436;padding:4px 18px 4px 14px;font-weight:bold;">x + 2</td>
+            </tr>
+            <tr>
+                <td style="border-left:2px solid #2d3436;padding:4px 18px 4px 14px;font-weight:bold;">x + 3</td>
+            </tr>
+        </table>
+    </div>
+    <p class="fig-caption">Деление «уголком»: <span class="math">\((x^2 + 5x + 8) : (x + 2) = x + 3\)</span> (ост. <span class="math">\(2\)</span>) — моноширинная запись помогает не потерять разряды.</p>
+    <p>Как это получено:</p>
+    <ol>
+        <li>Ведём деление по старшинству степеней: <span class="math">\(x^2 : x = x\)</span> — первый член частного.</li>
+        <li>Умножаем: <span class="math">\(x\cdot{}(x + 2) = x^2 + 2x\)</span>; вычитаем: <span class="math">\((x^2 + 5x + 8) - (x^2 + 2x) = 3x + 8\)</span>.</li>
+        <li>Снова старшие степени: <span class="math">\(3x : x = 3\)</span> — второй член частного.</li>
+        <li>Умножаем: <span class="math">\(3\cdot{}(x + 2) = 3x + 6\)</span>; вычитаем: остаток <span class="math">\(2\)</span>.</li>
+        <li>Степень остатка равна <span class="math">\(0\)</span> и меньше степени делителя <span class="math">\(1\)</span> — стоп.</li>
+    </ol>
+    <p>Проверка по знакомой схеме «делитель · частное + остаток»: <span class="math">\((x + 2)(x + 3) + 2 = x^2 + 3x + 2x + 6 + 2 = x^2 + 5x + 8\)</span> — верно. ✅ Привычка проверять деление умножением пригодится и числам, и многочленам.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: Уголок для многочленов</h3>
+    <p>Дели «уголком» почти как числа: по старшинству степеней, от старшего члена к младшему. Закончи, когда остаток станет многочленом <b>степени меньше делителя</b> — это аналог условия <span class="math">\(0 ≤ r \lt b\)</span>. И финальный аккорд всегда один: <b>делимое = делитель · (неполное частное) + остаток</b>.</p>
+    <p>Пример: <span class="math">\((x^2 + 3x + 5) : (x + 1) = x + 2\)</span> (ост. <span class="math">\(3\)</span>). Проверка делением-умножением: <span class="math">\(x^2 + 3x + 5 = (x + 1)(x + 2) + 3 = x^2 + 3x + 2 + 3\)</span> ✅</p>
+    <p>🚫 А если потерять остаток и записать просто <span class="math">\((x + 1)(x + 2) = x^2 + 3x + 2\)</span>, равенство с <span class="math">\(x^2 + 3x + 5\)</span> не сойдётся: не хватает ровно <span class="math">\(3\)</span>. Остаток — не обрезок, а обязательная часть ответа!</p>
+    <p>🧭 Мостик: в задании 1 сделаешь ту же проверку делением-умножением для чисел: делимое = делитель · частное + остаток.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 31) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№738 а из учебника)</div>
+    <p>Найдите частное и остаток от деления <span class="math">\(138\)</span> на <span class="math">\(7\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="q = 19, r = 5"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans31_1')">🔍 Проверить</button>
+    <div id="ans31_1" class="answer">
+        <p>Ищем пару чисел: частное <span class="math">\(q\)</span> и остаток <span class="math">\(r\)</span> такие, что <span class="math">\(138 = 7\cdot{}q + r\)</span> и <span class="math">\(0 ≤ r \lt 7\)</span>.</p>
+        <ol>
+            <li>Ближайшее к <span class="math">\(138\)</span> кратное <span class="math">\(7\)</span>: <span class="math">\(7\cdot{}19 = 133\)</span> (а <span class="math">\(7\cdot{}20 = 140\)</span> — уже больше).</li>
+            <li>Остаток: <span class="math">\(138 - 133 = 5\)</span>.</li>
+            <li>Условия выполнены: <span class="math">\(138 = 7\cdot{}19 + 5\)</span> и <span class="math">\(0 ≤ 5 \lt 7\)</span>.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\(7\cdot{}19 + 5 = 133 + 5 = 138\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\(q = 19, r = 5\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№738 б из учебника)</div>
+    <p>Найдите частное и остаток от деления <span class="math">\(-16\)</span> на <span class="math">\(3\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="q = -6, r = 2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans31_2')">🔍 Проверить</button>
+    <div id="ans31_2" class="answer">
+        <p>Делимое отрицательное, но остаток обязан быть неотрицательным: <span class="math">\(0 ≤ r \lt 3\)</span>.</p>
+        <ol>
+            <li>Проба <span class="math">\(q = -5\)</span>: <span class="math">\(3\cdot{}(-5) = -15\)</span>, «остаток» <span class="math">\(-16 - (-15) = -1\)</span> — отрицательный, не годится.</li>
+            <li>Сдвигаем частное на единицу вниз: <span class="math">\(q = -6\)</span>, тогда <span class="math">\(3\cdot{}(-6) = -18\)</span>.</li>
+            <li>Остаток: <span class="math">\(-16 - (-18) = 2\)</span>. Условие <span class="math">\(0 ≤ 2 \lt 3\)</span> выполнено.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\(3\cdot{}(-6) + 2 = -18 + 2 = -16\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\(q = -6, r = 2\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№734 а из учебника)</div>
+    <p>Разложите на множители трёхчлен: <span class="math">\(x^2 + 6x + 5\)</span>. Подсказка: приём «разрежь средний член» из прошлого урока всё ещё в деле.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(x + 1)(x + 5)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans31_3')">🔍 Проверить</button>
+    <div id="ans31_3" class="answer">
+        <ol>
+            <li>Представим <span class="math">\(6x = x + 5x\)</span>: <span class="math">\(x^2 + x + 5x + 5\)</span>.</li>
+            <li>Группируем: <span class="math">\((x^2 + x) + (5x + 5) = x(x + 1) + 5(x + 1)\)</span>.</li>
+            <li>Общая скобка: <span class="math">\((x + 1)(x + 5)\)</span>.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\((x + 1)(x + 5) = x^2 + 5x + x + 5 = x^2 + 6x + 5\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\((x + 1)(x + 5)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№740 из учебника)</div>
+    <p>Укажите все целые числа <span class="math">\(a\)</span>, которые при делении на <span class="math">\(7\)</span> дают остаток <span class="math">\(3\)</span>, если <span class="math">\(-13 \lt a \lt 12\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="-11; -4; 3; 10"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans31_4')">🔍 Проверить</button>
+    <div id="ans31_4" class="answer">
+        <ol>
+            <li>Числа с остатком <span class="math">\(3\)</span> при делении на <span class="math">\(7\)</span> — это класс <span class="math">\(7k + 3\)</span>, где <span class="math">\(k\)</span> — целое.</li>
+            <li>Перебираем <span class="math">\(k\)</span>: <span class="math">\(7\cdot{}(-3) + 3 = -18\)</span> — не входит; <span class="math">\(7\cdot{}(-2) + 3 = -11\)</span> — подходит; <span class="math">\(7\cdot{}(-1) + 3 = -4\)</span> — подходит; <span class="math">\(7\cdot{}0 + 3 = 3\)</span> — подходит; <span class="math">\(7\cdot{}1 + 3 = 10\)</span> — подходит; <span class="math">\(7\cdot{}2 + 3 = 17\)</span> — не входит.</li>
+            <li>Все четыре числа лежат строго между <span class="math">\(-13\)</span> и <span class="math">\(12\)</span>.</li>
+        </ol>
+        <p>Проверка: <span class="math">\(-11 = 7\cdot{}(-2) + 3\)</span>, <span class="math">\(-4 = 7\cdot{}(-1) + 3\)</span>, <span class="math">\(3 = 7\cdot{}0 + 3\)</span>, <span class="math">\(10 = 7\cdot{}1 + 3\)</span> — у каждого остаток <span class="math">\(3\)</span>, и <span class="math">\(0 ≤ 3 \lt 7\)</span>.</p>
+        <p><b>Ответ:</b> <span class="math">\(-11; -4; 3; 10\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№739 из учебника)</div>
+    <p>Найдите наибольшее целое отрицательное число, которое при делении на <span class="math">\(11\)</span> даёт остаток <span class="math">\(1\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="-10"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans31_5')">🔍 Проверить</button>
+    <div id="ans31_5" class="answer">
+        <ol>
+            <li>Все числа с остатком <span class="math">\(1\)</span> при делении на <span class="math">\(11\)</span> — это класс <span class="math">\(11k + 1\)</span>: <span class="math">\(..., -32, -21, -10, 1, 12, ...\)</span>.</li>
+            <li>Число <span class="math">\(1\)</span> (при <span class="math">\(k = 0\)</span>) положительное — не годится, ищем отрицательное.</li>
+            <li>При <span class="math">\(k = -1\)</span>: <span class="math">\(11\cdot{}(-1) + 1 = -10\)</span> — отрицательное. При <span class="math">\(k = -2\)</span> выходит <span class="math">\(-21\)</span> — ещё меньше, и дальше числа только убывают.</li>
+            <li>Значит, наибольшее из отрицательных чисел класса — <span class="math">\(-10\)</span>.</li>
+        </ol>
+        <p>Проверка: <span class="math">\(-10 = 11\cdot{}(-1) + 1\)</span>, остаток <span class="math">\(1\)</span>, и <span class="math">\(0 ≤ 1 \lt 11\)</span> — верно. Следующее число класса — <span class="math">\(1\)</span>, а оно уже положительное.</p>
+        <p><b>Ответ:</b> <span class="math">\(-10\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№738 в из учебника)</div>
+    <p>Найдите частное и остаток от деления <span class="math">\(-4\)</span> на <span class="math">\(5\)</span>. Ловушка задания: объясни, почему частное <span class="math">\(0\)</span> не подходит.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="q = -1, r = 1"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans31_6')">🔍 Проверить</button>
+    <div id="ans31_6" class="answer">
+        <ol>
+            <li>Условия: <span class="math">\(-4 = 5\cdot{}q + r\)</span> и <span class="math">\(0 ≤ r \lt 5\)</span>.</li>
+            <li>Ловушка! Вариант <span class="math">\(q = 0\)</span> даёт «остаток» <span class="math">\(-4 - 5\cdot{}0 = -4\)</span> — отрицательный, а так нельзя.</li>
+            <li>Берём <span class="math">\(q = -1\)</span>: <span class="math">\(5\cdot{}(-1) = -5\)</span>, остаток <span class="math">\(-4 - (-5) = 1\)</span>.</li>
+            <li>Условие выполнено: <span class="math">\(0 ≤ 1 \lt 5\)</span>. Других допустимых пар нет — остаток однозначно определяет частное.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\(5\cdot{}(-1) + 1 = -5 + 1 = -4\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\(q = -1, r = 1\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Главная формула: <span class="math">\(a = bq + r\)</span>, где <span class="math">\(0 ≤ r \lt b\)</span> — делимое = делитель · частное + остаток.</li>
+        <li>Остаток всегда меньше делителя, а для целых чисел — ещё и неотрицателен.</li>
+        <li>Если число делится нацело, остаток считают равным <span class="math">\(0\)</span>.</li>
+        <li>При отрицательном делимом частное может быть отрицательным: <span class="math">\(-16 = 3\cdot{}(-6) + 2\)</span>, <span class="math">\(-4 = 5\cdot{}(-1) + 1\)</span>.</li>
+        <li>Проверка всегда одна: делитель · частное + остаток = делимое.</li>
+        <li>Числа с одинаковым остатком при делении на <span class="math">\(b\)</span> образуют класс: <span class="math">\(7k + 3\)</span>, а чётные <span class="math">\(2k\)</span> и нечётные <span class="math">\(2k + 1\)</span> — классы по делению на <span class="math">\(2\)</span>.</li>
+        <li>Многочлены тоже делятся с остатком: остаток — многочлен степени меньше делителя.</li>
+        <li>Любое деление проверяй умножением — и числа, и многочлены скажут спасибо.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 4: Многочлены<br>
+    §10, п. 31. Деление с остатком • Страницы 154-156</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-30.html">← Урок 30</a><span class="sep">|</span><a href="lesson-32.html">Урок 32 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>О простых и составных числах — Алгебра 7 класс | Глава 3, §7, п. 24</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Бонус-глава «для тех, кто хочет знать больше»: сито Эратосфена, числа-кирпичики и формулы-обманщики 🧩">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="О простых и составных числах — Алгебра 7 класс | Глава 3, §7, п. 24">
+<meta property="og:description" content="Бонус-глава «для тех, кто хочет знать больше»: сито Эратосфена, числа-кирпичики и формулы-обманщики 🧩">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-24.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="О простых и составных числах — Алгебра 7 класс | Глава 3, §7, п. 24">
+<meta name="twitter:description" content="Бонус-глава «для тех, кто хочет знать больше»: сито Эратосфена, числа-кирпичики и формулы-обманщики 🧩">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-24.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-23.html">← Урок 23</a><span class="sep">|</span><a href="lesson-25.html">Урок 25 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 3 • §7, п. 24</span>
+    <h1>О простых и составных числах</h1>
+    <p class="subtitle">Бонус-глава «для тех, кто хочет знать больше»: сито Эратосфена, числа-кирпичики и формулы-обманщики 🧩</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Этот урок особый: пункт 24 в учебнике помечен «для тех, кто хочет знать больше», так что сегодня — дополнительная глава для любознательных. 🕵️ Более двух тысяч лет назад Евклид доказал, что простых чисел бесконечно много. А потом математики веками пытались найти формулу, значения которой — только простые числа. Пьер Ферма предложил свою формулу и проверил её на пяти числах — всё сходилось! Но через сто лет Леонард Эйлер нашёл число, при котором формула сломалась. Сегодня ты узнаешь, чем простые числа отличаются от составных, почему 1 — «вне закона», научишься раскладывать числа на простые «кирпичики» и находить по ним НОД и НОК.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔢 Простые и составные: кто есть кто</h2>
+    <p><b>Определение.</b> Натуральное число называется <span class="highlight">простым</span>, если оно имеет только два натуральных делителя: единицу и само это число. Натуральное число называется <span class="highlight">составным</span>, если оно имеет более двух натуральных делителей. Число 1 не является ни простым, ни составным числом.</p>
+    <p>Сравни делители. У числа <span class="math">\(7\)</span> их ровно два: <span class="math">\(1\)</span> и <span class="math">\(7\)</span> — это простое число. А у числа <span class="math">\(12\)</span> делителей уже шесть: <span class="math">\(1, 2, 3, 4, 6, 12\)</span> — это составное. Число <span class="math">\(1\)</span> имеет единственный делитель, поэтому оно не попадает ни в одну из групп.</p>
+    <p>В учебнике выписаны простые числа первой сотни: <span class="math">\(2, 3, 5, 7, 11, 13, 17, 19, 23, 29\)</span>, <span class="math">\(31, 37, 41, 43, 47, 53, 59, 61, 67, 71\)</span>, <span class="math">\(73, 79, 83, 89, 97\)</span> — всего 25 чисел. Самое маленькое простое — <span class="math">\(2\)</span>, и это единственное чётное простое число.</p>
+    <p>Как найти все простые числа до 30, не проверяя каждое по отдельности? Древний грек Эратосфен придумал «сито»: выписываем числа от 1 до 30 и вычёркиваем кратные <span class="math">\(2\)</span>, затем кратные <span class="math">\(3\)</span>, затем кратные <span class="math">\(5\)</span>. Что осталось незачёркнутым — то простое. Смотри:</p>
+    <div class="visual-container">
+        <div style="display:grid;grid-template-columns:repeat(6,44px);gap:6px;">
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#fef9e7;border:2px dashed #d5dbdb;color:#b2babb;">1</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">2</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">3</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">4</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">5</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">6</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">7</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">8</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">9</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">10</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">11</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">12</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">13</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">14</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">15</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">16</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">17</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">18</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">19</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">20</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">21</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">22</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">23</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">24</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">25</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">26</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">27</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">28</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#2ecc71;border:2px solid #27ae60;color:#ffffff;">29</div>
+            <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1em;background:#ecf0f1;border:2px solid #e3e6e8;color:#b2babb;text-decoration:line-through;">30</div>
+        </div>
+    </div>
+    <p class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#2ecc71;border-color:#27ae60;"></span> простое число</span>
+        <span class="legend-item"><span class="color-dot" style="background:#ecf0f1;border-color:#e3e6e8;"></span> составное (вычеркнуто)</span>
+        <span class="legend-item"><span class="color-dot" style="background:#fef9e7;border-color:#d5dbdb;"></span> единица — вне обеих групп</span>
+    </p>
+    <p class="fig-caption">Решето Эратосфена до 30: серые клетки вычеркнуты как кратные 2, 3 и 5 — остались 10 простых чисел. 🧺</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧱 Разложение на простые множители</h2>
+    <p><b>Правило.</b> Всякое составное число можно представить в виде произведения простых чисел — <span class="highlight">разложить на простые множители</span>, и притом единственным способом, если не учитывать порядок множителей. Простые числа здесь — «кирпичики», из которых собрано любое составное число.</p>
+    <p>В учебнике раскладывают число 360, последовательно отделяя простые делители:</p>
+    <p><span class="math">\(360 = 2 \cdot{} 180 = 2 \cdot{} 2 \cdot{} 90 = 2 \cdot{} 2 \cdot{} 2 \cdot{} 45\)</span><br>
+    <span class="math">\(= 2 \cdot{} 2 \cdot{} 2 \cdot{} 3 \cdot{} 15 = 2 \cdot{} 2 \cdot{} 2 \cdot{} 3 \cdot{} 3 \cdot{} 5 = 2^3 \cdot{} 3^2 \cdot{} 5\)</span></p>
+    <div class="visual-container">
+        <div style="display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap;">
+            <span class="math" style="background:#fdecea;border:2px solid #e74c3c;">\(2\)</span><b style="color:#95a5a6;">·</b>
+            <span class="math" style="background:#fdecea;border:2px solid #e74c3c;">\(2\)</span><b style="color:#95a5a6;">·</b>
+            <span class="math" style="background:#fdecea;border:2px solid #e74c3c;">\(2\)</span><b style="color:#95a5a6;">·</b>
+            <span class="math" style="background:#eaf4fd;border:2px solid #3498db;">\(3\)</span><b style="color:#95a5a6;">·</b>
+            <span class="math" style="background:#eaf4fd;border:2px solid #3498db;">\(3\)</span><b style="color:#95a5a6;">·</b>
+            <span class="math" style="background:#eafaf1;border:2px solid #27ae60;">\(5\)</span>
+            <b style="color:#2d3436;">=</b>
+            <span class="math">\(2^3 \cdot{} 3^2 \cdot{} 5\)</span>
+        </div>
+    </div>
+    <p class="fig-caption">Кирпичики числа 360: три двойки, две тройки и одна пятёрка — одинаковые собираем в степени. 🧱</p>
+    <p>Проверка умножением: <span class="math">\(2^3 \cdot{} 3^2 \cdot{} 5 = 8 \cdot{} 9 \cdot{} 5 = 360\)</span> — сошлось ✓. Кстати, разложением на простые множители удобно пользоваться при нахождении НОД и НОК — чуть ниже увидишь как.</p>
+</section>
+
+<section class="card page-block">
+    <h2>♾️ Простых чисел бесконечно много</h2>
+    <p>Встают таблицы с миллионами простых чисел — но есть ли наибольшее простое? Ещё в III веке до н. э. Евклид доказал, что «простых чисел больше, чем любое их число», то есть их бесконечно много. Проведём его доказательство <span class="highlight">методом от противного</span>:</p>
+    <ol>
+        <li>Предположим, что наибольшее простое число существует — назовём его <span class="math">\(p\)</span>.</li>
+        <li>Составим произведение всех простых чисел от <span class="math">\(2\)</span> до <span class="math">\(p\)</span>: <span class="math">\(a = 2 \cdot{} 3 \cdot{} 5 \cdot{} ... \cdot{} p\)</span>.</li>
+        <li>Возьмём число <span class="math">\(a + 1\)</span>. При делении на любое из чисел <span class="math">\(2, 3, 5, ..., p\)</span> оно даёт остаток <span class="math">\(1\)</span>: всё произведение <span class="math">\(a\)</span> делится на них нацело, а единица — нет. Значит, <span class="math">\(a + 1\)</span> не делится ни на одно «известное» простое число.</li>
+        <li>Тогда у <span class="math">\(a + 1\)</span> либо нет простых делителей (и оно само простое, причём больше <span class="math">\(p\)</span>), либо его простые делители все больше <span class="math">\(p\)</span>. В обоих случаях предположение сломано: наибольшего простого числа не существует!</li>
+    </ol>
+    <p>Какое бы большое простое ты ни нашёл, число «произведение всех до него плюс один» подарит новое. 🔓</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧪 Формулы-обманщики</h2>
+    <p>Математики много раз пытались найти выражение, значения которого — только простые числа. В учебнике рассматривают выражение <span class="math">\(P(n) = 2n^2 + 29\)</span>. Вычислим его значения при <span class="math">\(n = 1, 2, 3, ...\)</span>:</p>
+    <p><span class="math">\(P(1) = 31, P(2) = 37, P(3) = 47, P(4) = 61\)</span>,<br>
+    <span class="math">\(P(5) = 79, P(6) = 101, P(7) = 127\)</span></p>
+    <p>Семь проверок подряд — и каждый раз простое число! Напрашивается гипотеза: так будет всегда. Однако это не так: <span class="math">\(P(29) = 2 \cdot{} 29^2 + 29 = 1711 = 29 \cdot{} 59\)</span> — составное число (по свойству делимости суммы оно делится на 29).</p>
+    <p>Пьер Ферма в XVII веке предполагал, что все числа вида <span class="math">\(2^{2^n} + 1\)</span> простые. Для <span class="math">\(n = 0, 1, 2, 3, 4\)</span> получаются <span class="math">\(3, 5, 17, 257, 65537\)</span> — и впрямь простые. Но Леонард Эйлер в XVIII веке показал: <span class="math">\(2^{32} + 1 = 4294967297 = 641 \cdot{} 6700417\)</span> — составное. 🎭</p>
+    <p>Мораль для тебя: сколько проверок ни сделай, они не доказывают формулу, а вот одного контрпримера достаточно, чтобы её опровергнуть. Этот приём — «приведи контрпример» — работает и в задачах учебника.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🏠 Жизнь: НОД и НОК из «кирпичиков»</h2>
+    <p>Разложение на простые множители — не игра, а рабочий инструмент. Например, две доски длиной <span class="math">\(504\)</span> см и <span class="math">\(2352\)</span> см нужно разрезать на одинаковые куски наибольшей длины без обрезков — нужен наибольший общий делитель (НОД). В учебнике оба числа раскладывают на простые множители:</p>
+    <p><span class="math">\(504 = 2^3 \cdot{} 3^2 \cdot{} 7\)</span> и <span class="math">\(2352 = 2^4 \cdot{} 3 \cdot{} 7^2\)</span></p>
+    <ul>
+        <li>Чтобы найти НОД, берут каждый множитель <b>с наименьшим</b> показателем, с каким он входит в оба числа: НОД <span class="math">\(= 2^3 \cdot{} 3 \cdot{} 7 = 168\)</span>.</li>
+        <li>Чтобы найти НОК, берут каждый множитель <b>с наибольшим</b> показателем: НОК <span class="math">\(= 2^4 \cdot{} 3^2 \cdot{} 7^2 = 7056\)</span>.</li>
+    </ul>
+    <p>Проверка: <span class="math">\(504 = 168 \cdot{} 3\)</span> и <span class="math">\(2352 = 168 \cdot{} 14\)</span> — оба числа делятся на НОД нацело ✓.</p>
+    <p><b>Пример из учебника.</b> Наименьшее общее кратное двух чисел равно <span class="math">\(96\)</span>. Одно из этих чисел — число <span class="math">\(6\)</span>. Каким может быть другое число?</p>
+    <ol>
+        <li>Раскладываем известные числа: <span class="math">\(96 = 2^5 \cdot{} 3\)</span> и <span class="math">\(6 = 2 \cdot{} 3\)</span>.</li>
+        <li>В разложении искомого числа должны входить пять двоек (иначе НОК не получит пятёрку двоек) и не более одной тройки (иначе НОК был бы больше, чем <span class="math">\(96\)</span>).</li>
+        <li>Значит, второе число либо равно <span class="math">\(2^5 = 32\)</span>, либо равно <span class="math">\(2^5 \cdot{} 3 = 96\)</span>.</li>
+    </ol>
+    <p>Проверка: НОК <span class="math">\((32, 6) = 96\)</span> и НОК <span class="math">\((96, 6) = 96\)</span> — оба варианта подходят ✓. Это та же логика, по которой ищут совпадения событий: если один будильник звонит каждые <span class="math">\(6\)</span> минут, а звонят вместе они каждые <span class="math">\(96\)</span> минут, то второй будильник звонит каждые <span class="math">\(32\)</span> или <span class="math">\(96\)</span> минут. ⏰</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Сито до корня»</h3>
+    <p>Проверять большое число на простоту «в лоб» — делить на всё подряд — долго и не нужно. Правило сита: дели число только на простые числа, <b>квадрат которых не больше самого числа</b>. Как только квадрат следующего простого превысил число — сито закончилось: делителей нет, число простое. Почему это работает: если у числа есть делитель больше корня, то парный ему делитель меньше корня — а до него сито уже бы добралось.</p>
+    <p>Пример (не из заданий): проверим число 91. Корень из 91 лежит между 9 и 10, ведь <span class="math">\(9^2 = 81\)</span>, а <span class="math">\(10^2 = 100\)</span>. Значит, сеем простыми до девяти: 2, 3, 5, 7.</p>
+    <p>✅ Верно: 2 не делит (число нечётное), 3 не делит (сумма цифр 10), 5 не делит, а 7 — делит: <span class="math">\(91 = 7 \cdot{} 13\)</span>. Сито нашло делитель — число составное.</p>
+    <p>🚫 Ошибка: проверить только 2 и 3 и объявить 91 простым. До корня не дошли — делитель 7 остался непроверенным!</p>
+    <p>А вот число 89: сеем теми же 2, 3, 5, 7 — никто не делит, а <span class="math">\(11^2 = 121 \gt 89\)</span>, сито закончилось. Значит, 89 — простое ✅</p>
+    <p>🚂 Мостик: в задании 5 просеешь большое число до корня и вытащишь его секретные делители, а в задании 6 соберёшь одинаковые числа двух последовательностей через НОК.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 24) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№520 а из учебника)</div>
+    <p>Разложите на простые множители число <span class="math">\(5082\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="5082 = 2 \cdot{} 3 \cdot{} 7 \cdot{} 11^2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans24_1')">🔍 Проверить</button>
+    <div id="ans24_1" class="answer">
+        <p>Отделяем простые делители по очереди, начиная с самого маленького:</p>
+        <ol>
+            <li>Число чётное — делится на <span class="math">\(2\)</span>: <span class="math">\(5082 = 2 \cdot{} 2541\)</span>.</li>
+            <li>Сумма цифр числа 2541 равна <span class="math">\(2 + 5 + 4 + 1 = 12\)</span> — делится на <span class="math">\(3\)</span>: <span class="math">\(2541 = 3 \cdot{} 847\)</span>.</li>
+            <li>Число 847 не делится ни на <span class="math">\(2\)</span>, ни на <span class="math">\(3\)</span>, ни на <span class="math">\(5\)</span>; пробуем <span class="math">\(7\)</span>: <span class="math">\(847 = 7 \cdot{} 121\)</span>.</li>
+            <li>Осталось <span class="math">\(121 = 11 \cdot{} 11 = 11^2\)</span>.</li>
+        </ol>
+        <p>Итог: <span class="math">\(5082 = 2 \cdot{} 3 \cdot{} 7 \cdot{} 11^2\)</span>. Все множители простые — разложение закончено.</p>
+        <p>Проверка обратным умножением: <span class="math">\(2 \cdot{} 3 \cdot{} 7 \cdot{} 11^2 = 42 \cdot{} 121 = 5082\)</span> ✓</p>
+        <p><b>Ответ:</b> <span class="math">\(5082 = 2 \cdot{} 3 \cdot{} 7 \cdot{} 11^2\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№520 б из учебника)</div>
+    <p>Разложите на простые множители число <span class="math">\(7605\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="7605 = 3^2 \cdot{} 5 \cdot{} 13^2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans24_2')">🔍 Проверить</button>
+    <div id="ans24_2" class="answer">
+        <ol>
+            <li>Число оканчивается цифрой <span class="math">\(5\)</span> — делится на <span class="math">\(5\)</span>: <span class="math">\(7605 = 5 \cdot{} 1521\)</span>.</li>
+            <li>Сумма цифр числа 1521 равна <span class="math">\(1 + 5 + 2 + 1 = 9\)</span> — делится на <span class="math">\(3\)</span>: <span class="math">\(1521 = 3 \cdot{} 507\)</span>.</li>
+            <li>Сумма цифр числа 507 равна <span class="math">\(5 + 0 + 7 = 12\)</span> — снова <span class="math">\(3\)</span>: <span class="math">\(507 = 3 \cdot{} 169\)</span>.</li>
+            <li>Осталось <span class="math">\(169 = 13 \cdot{} 13 = 13^2\)</span>.</li>
+        </ol>
+        <p>Итог: <span class="math">\(7605 = 5 \cdot{} 3 \cdot{} 3 \cdot{} 13^2 = 3^2 \cdot{} 5 \cdot{} 13^2\)</span>.</p>
+        <p>Проверка обратным умножением: <span class="math">\(3^2 \cdot{} 5 \cdot{} 13^2 = 9 \cdot{} 5 \cdot{} 169 = 45 \cdot{} 169 = 7605\)</span> ✓</p>
+        <p><b>Ответ:</b> <span class="math">\(7605 = 3^2 \cdot{} 5 \cdot{} 13^2\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№519 а из учебника)</div>
+    <p>Найдите все простые числа, на которые делится сумма <span class="math">\(2 + 2^2 + 2^3 + 2^4\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="2, 3, 5"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans24_3')">🔍 Проверить</button>
+    <div id="ans24_3" class="answer">
+        <ol>
+            <li>Вычисляем степени: <span class="math">\(2^2 = 4\)</span>, <span class="math">\(2^3 = 8\)</span>, <span class="math">\(2^4 = 16\)</span>.</li>
+            <li>Складываем: <span class="math">\(2 + 4 + 8 + 16 = 30\)</span>. Второй способ, для контроля: вынеси <span class="math">\(2\)</span> за скобку — <span class="math">\(2(1 + 2 + 4 + 8) = 2 \cdot{} 15 = 30\)</span> ✓</li>
+            <li>Раскладываем сумму на простые множители: <span class="math">\(30 = 2 \cdot{} 15 = 2 \cdot{} 3 \cdot{} 5\)</span>.</li>
+            <li>Все три множителя простые, значит, других простых делителей у числа 30 нет (разложение единственно!).</li>
+        </ol>
+        <p>Проверка делимостью: <span class="math">\(30 : 2 = 15\)</span>, <span class="math">\(30 : 3 = 10\)</span>, <span class="math">\(30 : 5 = 6\)</span> — все три простых действительно делят ✓</p>
+        <p><b>Ответ:</b> <span class="math">\(2, 3, 5\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№522 б из учебника)</div>
+    <p>Найдите наибольший общий делитель чисел <span class="math">\(792\)</span> и <span class="math">\(1936\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="88"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans24_4')">🔍 Проверить</button>
+    <div id="ans24_4" class="answer">
+        <ol>
+            <li>Раскладываем первое число: <span class="math">\(792 = 8 \cdot{} 99 = 2^3 \cdot{} 3^2 \cdot{} 11\)</span>.</li>
+            <li>Раскладываем второе: <span class="math">\(1936 = 16 \cdot{} 121 = 2^4 \cdot{} 11^2\)</span>.</li>
+            <li>Для НОД берём каждый общий множитель с <b>наименьшим</b> показателем: двойки — <span class="math">\(2^3\)</span>, одиннадцатерки — <span class="math">\(11\)</span>. Тройка в разложение 1936 не входит, поэтому её не берём.</li>
+            <li>Получаем: НОД <span class="math">\(= 2^3 \cdot{} 11 = 8 \cdot{} 11 = 88\)</span>.</li>
+        </ol>
+        <p>Проверка: <span class="math">\(792 : 88 = 9\)</span> и <span class="math">\(1936 : 88 = 22\)</span>; у чисел <span class="math">\(9\)</span> и <span class="math">\(22\)</span> нет общих делителей, кроме <span class="math">\(1\)</span> — значит, больше общего делителя у исходных чисел нет ✓</p>
+        <p><b>Ответ:</b> <span class="math">\(88\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№518 из учебника, исследование)</div>
+    <p>Пусть <span class="math">\(p\)</span> — простое число. Укажите наименьшее значение <span class="math">\(p\)</span>, при котором значение выражения <span class="math">\(2^p - 1\)</span> не является простым числом.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="11"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans24_5')">🔍 Проверить</button>
+    <div id="ans24_5" class="answer">
+        <ol>
+            <li>Перебираем простые <span class="math">\(p\)</span> по возрастанию и каждый раз просеиваем значение до корня.</li>
+            <li><span class="math">\(p = 2\)</span>: <span class="math">\(2^2 - 1 = 3\)</span> — простое.</li>
+            <li><span class="math">\(p = 3\)</span>: <span class="math">\(2^3 - 1 = 7\)</span> — простое.</li>
+            <li><span class="math">\(p = 5\)</span>: <span class="math">\(2^5 - 1 = 31\)</span> — простое (не делится на <span class="math">\(2, 3, 5\)</span> — все простые до корня).</li>
+            <li><span class="math">\(p = 7\)</span>: <span class="math">\(2^7 - 1 = 127\)</span> — простое (не делится на <span class="math">\(2, 3, 5, 7, 11\)</span>, а <span class="math">\(11^2 = 121 \lt 127\)</span> — сито пройдено).</li>
+            <li><span class="math">\(p = 11\)</span>: <span class="math">\(2^{11} - 1 = 2048 - 1 = 2047\)</span>. Корень из 2047 лежит между 45 и 46, ведь <span class="math">\(45^2 = 2025\)</span>, а <span class="math">\(46^2 = 2116\)</span>. Пробуем простые делители по порядку: <span class="math">\(2, 3, 5, 7, 11, 13, 17, 19, 23\)</span> — и на <span class="math">\(23\)</span> сито цепляется: <span class="math">\(2047 = 23 \cdot{} 89\)</span>. Число составное!</li>
+        </ol>
+        <p>Проверка: <span class="math">\(23 \cdot{} 89 = 2047\)</span> ✓; при меньших простых <span class="math">\(p = 2, 3, 5, 7\)</span> значения <span class="math">\(3, 7, 31, 127\)</span> простые, значит, меньше <span class="math">\(11\)</span> подходящего <span class="math">\(p\)</span> нет.</p>
+        <p><b>Ответ:</b> <span class="math">\(11\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№524 из учебника, исследование)</div>
+    <p>В последовательностях записаны в порядке возрастания все натуральные числа, которые не превосходят 200, причём в первой последовательности записаны числа, кратные 6, а во второй — кратные 8: <span class="math">\(6, 12, 18, ...\)</span> и <span class="math">\(8, 16, 24, ...\)</span> Сколько в этих последовательностях одинаковых чисел?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="8"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans24_6')">🔍 Проверить</button>
+    <div id="ans24_6" class="answer">
+        <ol>
+            <li>Одинаковые числа — те, что кратны и <span class="math">\(6\)</span>, и <span class="math">\(8\)</span> одновременно.</li>
+            <li>Раскладываем: <span class="math">\(6 = 2 \cdot{} 3\)</span> и <span class="math">\(8 = 2^3\)</span>. Значит, общие кратные — это кратные НОК <span class="math">\((6, 8) = 2^3 \cdot{} 3 = 24\)</span>.</li>
+            <li>Ищем кратные 24, не превосходящие 200: <span class="math">\(24 \cdot{} 8 = 192 ≤ 200\)</span>, а <span class="math">\(24 \cdot{} 9 = 216 \gt 200\)</span> — подходит ровно 8 чисел.</li>
+            <li>Выписываем их: <span class="math">\(24, 48, 72, 96, 120, 144, 168, 192\)</span>.</li>
+        </ol>
+        <p>Проверка: <span class="math">\(192 : 6 = 32\)</span> и <span class="math">\(192 : 8 = 24\)</span> — последнее число действительно в обеих последовательностях, а следующее общее кратное уже за пределом 200 ✓</p>
+        <p><b>Ответ:</b> <span class="math">\(8\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Простое число имеет ровно два натуральных делителя: 1 и само это число; составное — более двух; число 1 — ни простое, ни составное.</li>
+        <li>Любое составное число раскладывается на простые множители, и единственным способом — если не учитывать порядок множителей.</li>
+        <li>Одинаковые множители сворачивай в степень: <span class="math">\(360 = 2^3 \cdot{} 3^2 \cdot{} 5\)</span>.</li>
+        <li>Решето Эратосфена: вычёркивай кратные 2, 3, 5, 7 — незачёркнутые числа простые.</li>
+        <li>Сито до корня: дели число только на простые, квадрат которых не больше него, — дальше делителей не бывает.</li>
+        <li>Простых чисел бесконечно много — это доказал Евклид методом от противного.</li>
+        <li>Формулы-обманщики существуют: <span class="math">\(2n^2 + 29\)</span> ломается при <span class="math">\(n = 29\)</span>, а число <span class="math">\(2^{32} + 1\)</span> делится на 641.</li>
+        <li>НОД собирают из общих множителей с наименьшими показателями, НОК — с наибольшими: для <span class="math">\(504\)</span> и <span class="math">\(2352\)</span> это <span class="math">\(168\)</span> и <span class="math">\(7056\)</span>.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 3: Степень с натуральным показателем<br>
+    §7, п. 24. О простых и составных числах • Страницы 121-123</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-23.html">← Урок 23</a><span class="sep">|</span><a href="lesson-25.html">Урок 25 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

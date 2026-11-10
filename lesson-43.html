@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Способ подстановки — Алгебра 7 класс | Глава 6, §15, п. 43</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Превращаем два уравнения в одно и находим точку пересечения прямых без единого чертежа 🚀">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Способ подстановки — Алгебра 7 класс | Глава 6, §15, п. 43">
+<meta property="og:description" content="Превращаем два уравнения в одно и находим точку пересечения прямых без единого чертежа 🚀">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-43.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Способ подстановки — Алгебра 7 класс | Глава 6, §15, п. 43">
+<meta name="twitter:description" content="Превращаем два уравнения в одно и находим точку пересечения прямых без единого чертежа 🚀">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-43.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-42.html">← Урок 42</a><span class="sep">|</span><a href="lesson-44.html">Урок 44 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 6 • §15, п. 43</span>
+    <h1>Способ подстановки</h1>
+    <p class="subtitle">Превращаем два уравнения в одно и находим точку пересечения прямых без единого чертежа 🚀</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 В прошлый раз ты искал решение системы по чертежу: точка пересечения двух прямых. Честно, но не всегда точно — по клеточкам не разобрать, 3 там или 3,02. Сегодня возьмём способ поточнее — <b>подстановку</b>. Выразим одну переменную через другую, подставим — и от двух уравнений останется одно, с одной переменной. Как в эстафете: первый бегун передаёт палочку, и до финиша остаётся один этап. 🏃</p>
+</section>
+
+<section class="card page-block">
+    <h2>♻️ Равносильные системы: меняем систему, не меняя решений</h2>
+    <p>Начнём с примера из учебника. Решим систему уравнений:</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:12px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(3x + y = 7,\)</span></div>
+            <div><span class="math">\(-5x + 2y = 3\)</span></div>
+        </div>
+    </div>
+    <p>Выразим из первого уравнения <span class="math">\(y\)</span> через <span class="math">\(x\)</span>: <span class="math">\(y = 7 - 3x\)</span>. Подставив во второе уравнение вместо <span class="math">\(y\)</span> выражение <span class="math">\(7 - 3x\)</span>, получим систему <span class="math">\(3x + y = 7\)</span> и <span class="math">\(-5x + 2(7 - 3x) = 3\)</span>. У новых систем одни и те же решения — мы ничего не потеряли и не приобрели, просто переписали командный состав.</p>
+    <p><b>Определение.</b> Системы уравнений с двумя переменными, имеющие одни и те же решения, называются <span class="highlight">равносильными</span>. Системы, не имеющие решений, также считают равносильными.</p>
+    <p>Геометрически равносильность означает: графики уравнений исходной системы пересекаются в той же точке, что и графики новой, — все три прямые проходят через одну и ту же точку (рис. 94 в учебнике).</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="196" height="274" viewBox="0 0 196 274" role="img" aria-label="Три прямые через одну точку">
+            <g stroke="#e3e8ee" stroke-width="1">
+                <line x1="20" y1="20" x2="20" y2="254"/><line x1="46" y1="20" x2="46" y2="254"/><line x1="72" y1="20" x2="72" y2="254"/><line x1="98" y1="20" x2="98" y2="254"/><line x1="124" y1="20" x2="124" y2="254"/><line x1="150" y1="20" x2="150" y2="254"/><line x1="176" y1="20" x2="176" y2="254"/>
+                <line x1="20" y1="20" x2="176" y2="20"/><line x1="20" y1="46" x2="176" y2="46"/><line x1="20" y1="72" x2="176" y2="72"/><line x1="20" y1="98" x2="176" y2="98"/><line x1="20" y1="124" x2="176" y2="124"/><line x1="20" y1="150" x2="176" y2="150"/><line x1="20" y1="176" x2="176" y2="176"/><line x1="20" y1="202" x2="176" y2="202"/><line x1="20" y1="228" x2="176" y2="228"/><line x1="20" y1="254" x2="176" y2="254"/>
+            </g>
+            <g stroke="#2d3436" stroke-width="2">
+                <line x1="20" y1="228" x2="184" y2="228"/>
+                <line x1="72" y1="258" x2="72" y2="12"/>
+            </g>
+            <polygon points="188,228 180,224 180,232" fill="#2d3436"/>
+            <polygon points="72,9 68,17 76,17" fill="#2d3436"/>
+            <g font-size="11" fill="#7f8c8d" font-family="Segoe UI, Tahoma, sans-serif">
+                <text x="46" y="244" text-anchor="middle">−1</text>
+                <text x="98" y="244" text-anchor="middle">1</text>
+                <text x="150" y="244" text-anchor="middle">3</text>
+                <text x="64" y="244" text-anchor="end">0</text>
+                <text x="64" y="180" text-anchor="end">2</text>
+                <text x="64" y="128" text-anchor="end">4</text>
+                <text x="64" y="76" text-anchor="end">6</text>
+                <text x="64" y="24" text-anchor="end">8</text>
+                <text x="182" y="246">x</text>
+                <text x="80" y="20">y</text>
+            </g>
+            <line x1="64" y1="23" x2="132" y2="225" stroke="#3498db" stroke-width="3" stroke-linecap="round"/>
+            <line x1="46" y1="254" x2="134" y2="33" stroke="#e74c3c" stroke-width="3" stroke-linecap="round"/>
+            <line x1="98" y1="254" x2="98" y2="20" stroke="#27ae60" stroke-width="2.5" stroke-dasharray="7 5"/>
+            <circle cx="98" cy="124" r="5.5" fill="#2c3e50" stroke="#ffffff" stroke-width="2"/>
+            <text x="106" y="116" font-size="12" font-weight="bold" fill="#2c3e50" font-family="Segoe UI, Tahoma, sans-serif">(1; 4)</text>
+        </svg>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#3498db;"></span><span class="math">\(3x + y = 7\)</span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#e74c3c;"></span><span class="math">\(-5x + 2y = 3\)</span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#27ae60;"></span><span class="math">\(x = 1\)</span> — после подстановки</span>
+    </div>
+    <p class="fig-caption">Рис. 94 из учебника: все три прямые проходят через точку <span class="math">\((1; 4)\)</span> — системы равносильны (масштаб осей одинаковый)</p>
+</section>
+
+<section class="card page-block">
+    <h2>🪜 Четыре шага подстановки</h2>
+    <p>При решении системы двух линейных уравнений с двумя переменными способом подстановки (по учебнику):</p>
+    <ol>
+        <li>выражают из какого-нибудь уравнения системы одну переменную через другую;</li>
+        <li>подставляют в другое уравнение системы вместо этой переменной полученное выражение;</li>
+        <li>решают получившееся уравнение с одной переменной;</li>
+        <li>находят соответствующее значение второй переменной.</li>
+    </ol>
+    <p>Посмотрим на эстафету в действии — решим систему <span class="math">\(x = 3y\)</span> и <span class="math">\(x + 2y = 10\)</span>:</p>
+    <div class="visual-container">
+        <div style="display:flex; flex-direction:column; align-items:stretch; width:100%; max-width:640px;">
+            <div style="background:#ffffff; border:2px solid #3498db; border-radius:8px; padding:10px 16px; text-align:center;"><b>Шаг 1. Вырази.</b> Переменная <span class="math">\(x\)</span> уже выражена: <span class="math">\(x = 3y\)</span></div>
+            <div style="text-align:center; color:#3498db; font-size:1.3em; line-height:1.1;">↓</div>
+            <div style="background:#ffffff; border:2px solid #3498db; border-radius:8px; padding:10px 16px; text-align:center;"><b>Шаг 2. Подставь.</b> Во второе уравнение вместо <span class="math">\(x\)</span>: <span class="math">\(3y + 2y = 10\)</span></div>
+            <div style="text-align:center; color:#3498db; font-size:1.3em; line-height:1.1;">↓</div>
+            <div style="background:#ffffff; border:2px solid #3498db; border-radius:8px; padding:10px 16px; text-align:center;"><b>Шаг 3. Реши.</b> Одно уравнение с одной переменной: <span class="math">\(5y = 10\)</span>, <span class="math">\(y = 2\)</span></div>
+            <div style="text-align:center; color:#3498db; font-size:1.3em; line-height:1.1;">↓</div>
+            <div style="background:#ffffff; border:2px solid #3498db; border-radius:8px; padding:10px 16px; text-align:center;"><b>Шаг 4. Найди вторую переменную.</b> <span class="math">\(x = 3 \cdot{} 2 = 6\)</span></div>
+            <div style="text-align:center; color:#27ae60; font-size:1.3em; line-height:1.1;">↓</div>
+            <div style="background:#eafaf1; border:2px solid #1abc9c; border-radius:8px; padding:10px 16px; text-align:center;"><b>Проверка:</b> <span class="math">\((6; 2)\)</span>: <span class="math">\(6 = 3 \cdot{} 2\)</span> ✅ и <span class="math">\(6 + 2 \cdot{} 2 = 10\)</span> ✅</div>
+        </div>
+    </div>
+    <p class="fig-caption">Эстафета подстановки: выразил → подставил → решил → нашёл вторую переменную → проверил</p>
+    <p>Доведём до конца пример из учебника (система <span class="math">\(3x + y = 7\)</span> и <span class="math">\(-5x + 2y = 3\)</span>). После подстановки <span class="math">\(y = 7 - 3x\)</span> во второе уравнение: <span class="math">\(-5x + 2(7 - 3x) = 3\)</span>. В системе осталось уравнение с одной переменной — решаем его: <span class="math">\(-5x + 14 - 6x = 3\)</span>, откуда <span class="math">\(-11x = -11\)</span>, <span class="math">\(x = 1\)</span>. Подставив в равенство <span class="math">\(y = 7 - 3x\)</span> число 1, найдём <span class="math">\(y\)</span>: <span class="math">\(y = 7 - 3 \cdot{} 1 = 4\)</span>. Пара <span class="math">\((1; 4)\)</span> — решение новой системы, а значит, и исходной ✅.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧯 Скобки и дроби: где теряют баллы</h2>
+    <p>Пример 2 из учебника — система <span class="math">\(7x + 6y = 6\)</span> и <span class="math">\(3x + 4y = 9\)</span>. Здесь удобнее выразить <span class="math">\(x\)</span> из второго уравнения: <span class="math">\(3x = 9 - 4y\)</span>, <span class="math">\(x = (9 - 4y)/3\)</span>. Подставим в первое уравнение вместо <span class="math">\(x\)</span> выражение <span class="math">\((9 - 4y)/3\)</span>:</p>
+    <ol>
+        <li><span class="math">\(7 \cdot{} (9 - 4y)/3 + 6y = 6\)</span>. Чтобы убрать дробь, умножим обе части на 3: <span class="math">\(7(9 - 4y) + 18y = 18\)</span>.</li>
+        <li>Раскрываем скобки: <span class="math">\(63 - 28y + 18y = 18\)</span>, откуда <span class="math">\(-10y = -45\)</span>, <span class="math">\(y = 4,5\)</span>.</li>
+        <li>Находим <span class="math">\(x\)</span>: <span class="math">\(x = (9 - 4 \cdot{} 4,5)/3 = (9 - 18)/3 = -3\)</span>.</li>
+        <li>Проверка: <span class="math">\(7 \cdot{} (-3) + 6 \cdot{} 4,5 = -21 + 27 = 6\)</span> ✅ и <span class="math">\(3 \cdot{} (-3) + 4 \cdot{} 4,5 = -9 + 18 = 9\)</span> ✅.</li>
+    </ol>
+    <p>А теперь система со скобками (свой пример): <span class="math">\(x + 2y = 10\)</span> и <span class="math">\(3(x - 2) = 2y\)</span>. Выразим из первого <span class="math">\(x = 10 - 2y\)</span> и подставим во второе: <span class="math">\(3(10 - 2y - 2) = 2y\)</span>, то есть <span class="math">\(3(8 - 2y) = 2y\)</span>. Раскрываем: <span class="math">\(24 - 6y = 2y\)</span>, <span class="math">\(24 = 8y\)</span>, <span class="math">\(y = 3\)</span>, тогда <span class="math">\(x = 10 - 6 = 4\)</span>. Проверка: <span class="math">\(4 + 6 = 10\)</span> ✅ и <span class="math">\(3(4 - 2) = 6 = 2 \cdot{} 3\)</span> ✅ — пара <span class="math">\((4; 3)\)</span>.</p>
+    <p>Два правила аккуратности: <span class="highlight">минус перед скобкой меняет знаки всех слагаемых внутри</span>, а <span class="highlight">если при выражении появилась дробь — умножь обе части уравнения на её знаменатель</span>. И всегда возвращайся к исходным уравнениям для проверки.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🎯 Та же задача — теперь без чертежа</h2>
+    <p>Вспомни задачу из п. 42: сумма двух чисел равна 12, а их разность равна 2. Мы уже нашли ответ по графику, а теперь решим систему <span class="math">\(x + y = 12\)</span> и <span class="math">\(x - y = 2\)</span> подстановкой:</p>
+    <ol>
+        <li>Выразим из первого уравнения: <span class="math">\(y = 12 - x\)</span>.</li>
+        <li>Подставим во второе: <span class="math">\(x - (12 - x) = 2\)</span>.</li>
+        <li>Раскроем скобки: <span class="math">\(x - 12 + x = 2\)</span>, откуда <span class="math">\(2x = 14\)</span>, <span class="math">\(x = 7\)</span>.</li>
+        <li>Найдём <span class="math">\(y\)</span>: <span class="math">\(y = 12 - 7 = 5\)</span>.</li>
+    </ol>
+    <p>Проверка: <span class="math">\(7 + 5 = 12\)</span> ✅ и <span class="math">\(7 - 5 = 2\)</span> ✅. Тот же ответ <span class="math">\((7; 5)\)</span>, что и на чертеже, — но теперь он получен расчётом, без «на глаз». Именно так решают системы, когда координаты точки пересечения не выражаются в целых клеточках.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Один доброволец»</h3>
+    <p>Из какого уравнения какую переменную выражать? Ищи <b>добровольца</b> — переменную с коэффициентом 1: её выразить проще всего, без дробей и делений. Затем подставь выражение <b>только во второе уравнение</b> — и от системы останется одно уравнение с одним неизвестным.</p>
+    <p>Пример: система <span class="math">\(y = 2x\)</span> и <span class="math">\(x + y = 9\)</span>. Доброволец <span class="math">\(y\)</span> уже выражен — подставляем <span class="math">\(2x\)</span> во второе уравнение: <span class="math">\(x + 2x = 9\)</span>, <span class="math">\(3x = 9\)</span>, <span class="math">\(x = 3\)</span>, тогда <span class="math">\(y = 2 \cdot{} 3 = 6\)</span> ✅ (проверка: <span class="math">\(3 + 6 = 9\)</span> и <span class="math">\(6 = 2 \cdot{} 3\)</span>).</p>
+    <p>🚫 Частая ошибка: подставить выражение в то же уравнение, из которого оно взято. Получится <span class="math">\(2x = 2x\)</span> — верно, но бесполезно: система не сдвинется с места.</p>
+    <p>Мостик: в задании 1 добровольцы уже найдены за тебя (<span class="math">\(y = x - 1\)</span> и <span class="math">\(x = 2 - y\)</span>) — останется подставить и решить. А в задании 5 сначала придётся раскрыть скобки и упростить каждое уравнение.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 43) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№1084 а, б из учебника)</div>
+    <p>Решите систему уравнений:</p>
+    <p>а)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(y = x - 1,\)</span></div>
+            <div><span class="math">\(x + 3y = 9\)</span></div>
+        </div>
+    </div>
+    <p>б)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(x = 2 - y,\)</span></div>
+            <div><span class="math">\(3x - 2y - 11 = 0\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) (3; 2), б) (3; -1)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans43_1')">🔍 Проверить</button>
+    <div id="ans43_1" class="answer">
+        <p><b>Решение.</b> Здесь добровольцы уже выражены — сразу подставляем.</p>
+        <ol>
+            <li>а) Подставим <span class="math">\(y = x - 1\)</span> во второе уравнение: <span class="math">\(x + 3(x - 1) = 9\)</span>.</li>
+            <li>Раскрываем скобки: <span class="math">\(x + 3x - 3 = 9\)</span>, откуда <span class="math">\(4x = 12\)</span>, <span class="math">\(x = 3\)</span>. Тогда <span class="math">\(y = 3 - 1 = 2\)</span>.</li>
+            <li>Проверка: <span class="math">\(3 + 3 \cdot{} 2 = 9\)</span> ✅ и <span class="math">\(2 = 3 - 1\)</span> ✅. Пара <span class="math">\((3; 2)\)</span>.</li>
+            <li>б) Подставим <span class="math">\(x = 2 - y\)</span> во второе уравнение: <span class="math">\(3(2 - y) - 2y - 11 = 0\)</span>.</li>
+            <li>Раскрываем: <span class="math">\(6 - 3y - 2y - 11 = 0\)</span>, откуда <span class="math">\(-5y = 5\)</span>, <span class="math">\(y = -1\)</span>. Тогда <span class="math">\(x = 2 - (-1) = 3\)</span>.</li>
+            <li>Проверка: <span class="math">\(3 \cdot{} 3 - 2 \cdot{} (-1) - 11 = 9 + 2 - 11 = 0\)</span> ✅. Пара <span class="math">\((3; -1)\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> а) (3; 2), б) (3; -1)</p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№1085 б, в из учебника)</div>
+    <p>Решите систему уравнений:</p>
+    <p>б)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(7x - 3y = 13,\)</span></div>
+            <div><span class="math">\(x - 2y = 5\)</span></div>
+        </div>
+    </div>
+    <p>в)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(x + y = 6,\)</span></div>
+            <div><span class="math">\(3x - 5y = 2\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="б) (1; -2), в) (4; 2)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans43_2')">🔍 Проверить</button>
+    <div id="ans43_2" class="answer">
+        <p><b>Решение.</b> В каждой системе ищем добровольца с коэффициентом 1.</p>
+        <ol>
+            <li>б) Из второго уравнения выразим <span class="math">\(x = 5 + 2y\)</span> — коэффициент 1 у <span class="math">\(x\)</span>.</li>
+            <li>Подставим в первое: <span class="math">\(7(5 + 2y) - 3y = 13\)</span>, откуда <span class="math">\(35 + 14y - 3y = 13\)</span>, <span class="math">\(11y = -22\)</span>, <span class="math">\(y = -2\)</span>.</li>
+            <li>Тогда <span class="math">\(x = 5 + 2 \cdot{} (-2) = 1\)</span>. Проверка: <span class="math">\(7 \cdot{} 1 - 3 \cdot{} (-2) = 7 + 6 = 13\)</span> ✅ и <span class="math">\(1 - 2 \cdot{} (-2) = 5\)</span> ✅.</li>
+            <li>в) Из первого уравнения <span class="math">\(y = 6 - x\)</span>. Подставим во второе: <span class="math">\(3x - 5(6 - x) = 2\)</span>, откуда <span class="math">\(3x - 30 + 5x = 2\)</span>, <span class="math">\(8x = 32\)</span>, <span class="math">\(x = 4\)</span>.</li>
+            <li>Тогда <span class="math">\(y = 6 - 4 = 2\)</span>. Проверка: <span class="math">\(3 \cdot{} 4 - 5 \cdot{} 2 = 12 - 10 = 2\)</span> ✅ и <span class="math">\(4 + 2 = 6\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> б) (1; -2), в) (4; 2)</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№1088 а, б из учебника)</div>
+    <p>Решите систему уравнений:</p>
+    <p>а)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(3x + 4y = 0,\)</span></div>
+            <div><span class="math">\(2x + 3y = 1\)</span></div>
+        </div>
+    </div>
+    <p>б)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(7x + 2y = 0,\)</span></div>
+            <div><span class="math">\(4y + 9x = 10\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) (-4; 3), б) (-2; 7)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans43_3')">🔍 Проверить</button>
+    <div id="ans43_3" class="answer">
+        <p><b>Решение.</b> Выражаем переменную и аккуратно работаем с дробными коэффициентами.</p>
+        <ol>
+            <li>а) Из первого уравнения: <span class="math">\(4y = -3x\)</span>, то есть <span class="math">\(y = -0,75x\)</span>.</li>
+            <li>Подставим во второе: <span class="math">\(2x + 3 \cdot{} (-0,75x) = 1\)</span>, то есть <span class="math">\(2x - 2,25x = 1\)</span>, откуда <span class="math">\(-0,25x = 1\)</span>, <span class="math">\(x = -4\)</span>.</li>
+            <li>Тогда <span class="math">\(y = -0,75 \cdot{} (-4) = 3\)</span>. Проверка: <span class="math">\(3 \cdot{} (-4) + 4 \cdot{} 3 = -12 + 12 = 0\)</span> ✅ и <span class="math">\(2 \cdot{} (-4) + 3 \cdot{} 3 = -8 + 9 = 1\)</span> ✅.</li>
+            <li>б) Из первого уравнения: <span class="math">\(2y = -7x\)</span>, то есть <span class="math">\(y = -3,5x\)</span>.</li>
+            <li>Подставим во второе: <span class="math">\(4 \cdot{} (-3,5x) + 9x = 10\)</span>, то есть <span class="math">\(-14x + 9x = 10\)</span>, откуда <span class="math">\(-5x = 10\)</span>, <span class="math">\(x = -2\)</span>.</li>
+            <li>Тогда <span class="math">\(y = -3,5 \cdot{} (-2) = 7\)</span>. Проверка: <span class="math">\(7 \cdot{} (-2) + 2 \cdot{} 7 = -14 + 14 = 0\)</span> ✅ и <span class="math">\(4 \cdot{} 7 + 9 \cdot{} (-2) = 28 - 18 = 10\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> а) (-4; 3), б) (-2; 7)</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№1089 а из учебника)</div>
+    <p>Не выполняя построения, найдите координаты точки пересечения графиков уравнений <span class="math">\(7x + 4y = 23\)</span> и <span class="math">\(8x - 10y = 19\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(3; 0,5)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans43_4')">🔍 Проверить</button>
+    <div id="ans43_4" class="answer">
+        <p><b>Решение.</b> Точка пересечения графиков — это решение системы из двух уравнений. Строить графики не нужно: найдём пару подстановкой.</p>
+        <ol>
+            <li>Из первого уравнения выразим <span class="math">\(y\)</span>: <span class="math">\(4y = 23 - 7x\)</span>, то есть <span class="math">\(y = (23 - 7x)/4\)</span>.</li>
+            <li>Подставим во второе уравнение: <span class="math">\(8x - 10 \cdot{} (23 - 7x)/4 = 19\)</span>.</li>
+            <li>Умножим обе части на 4: <span class="math">\(32x - 10(23 - 7x) = 76\)</span>, откуда <span class="math">\(32x - 230 + 70x = 76\)</span>, <span class="math">\(102x = 306\)</span>, <span class="math">\(x = 3\)</span>.</li>
+            <li>Найдём <span class="math">\(y\)</span>: <span class="math">\(y = (23 - 7 \cdot{} 3)/4 = \frac{2}{4} = 0,5\)</span>.</li>
+            <li>Проверка: <span class="math">\(7 \cdot{} 3 + 4 \cdot{} 0,5 = 21 + 2 = 23\)</span> ✅ и <span class="math">\(8 \cdot{} 3 - 10 \cdot{} 0,5 = 24 - 5 = 19\)</span> ✅ — обе прямые проходят через эту точку.</li>
+        </ol>
+        <p><b>Ответ:</b> (3; 0,5)</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№1092 а из учебника)</div>
+    <p>Решите систему уравнений:</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(5y + 8(x - 3y) = 7x - 12,\)</span></div>
+            <div><span class="math">\(9x + 3(x - 9y) = 11y + 46\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(7; 1)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans43_5')">🔍 Проверить</button>
+    <div id="ans43_5" class="answer">
+        <p><b>Решение.</b> Сначала упростим каждое уравнение — раскроем скобки и приведём подобные.</p>
+        <ol>
+            <li>Первое уравнение: <span class="math">\(5y + 8x - 24y = 7x - 12\)</span>, то есть <span class="math">\(8x - 19y = 7x - 12\)</span>, откуда <span class="math">\(x - 19y = -12\)</span>, то есть <span class="math">\(x = 19y - 12\)</span>.</li>
+            <li>Второе уравнение: <span class="math">\(9x + 3x - 27y = 11y + 46\)</span>, то есть <span class="math">\(12x - 38y = 46\)</span>. Разделим обе части на 2: <span class="math">\(6x - 19y = 23\)</span>.</li>
+            <li>Подставим <span class="math">\(x = 19y - 12\)</span> во второе упрощённое уравнение: <span class="math">\(6(19y - 12) - 19y = 23\)</span>, откуда <span class="math">\(114y - 72 - 19y = 23\)</span>, <span class="math">\(95y = 95\)</span>, <span class="math">\(y = 1\)</span>.</li>
+            <li>Тогда <span class="math">\(x = 19 \cdot{} 1 - 12 = 7\)</span>.</li>
+            <li>Проверка в исходных уравнениях: <span class="math">\(5 \cdot{} 1 + 8 \cdot{} (7 - 3) = 5 + 32 = 37\)</span> и <span class="math">\(7 \cdot{} 7 - 12 = 37\)</span> ✅; <span class="math">\(9 \cdot{} 7 + 3 \cdot{} (7 - 9) = 63 - 6 = 57\)</span> и <span class="math">\(11 \cdot{} 1 + 46 = 57\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> (7; 1)</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№1085 д из учебника)</div>
+    <p>Решите систему уравнений:</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(y - x = 20,\)</span></div>
+            <div><span class="math">\(2x - 15y = -1\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(-23; -3)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans43_6')">🔍 Проверить</button>
+    <div id="ans43_6" class="answer">
+        <p><b>Решение.</b> Доброволец — <span class="math">\(y\)</span>: в первом уравнении у него коэффициент 1.</p>
+        <ol>
+            <li>Выразим: <span class="math">\(y = x + 20\)</span>.</li>
+            <li>Подставим во второе уравнение: <span class="math">\(2x - 15(x + 20) = -1\)</span>.</li>
+            <li>Раскрываем скобки внимательно: <span class="math">\(2x - 15x - 300 = -1\)</span>, откуда <span class="math">\(-13x = 299\)</span>, <span class="math">\(x = -23\)</span> (проверь: 13 · 23 = 299).</li>
+            <li>Тогда <span class="math">\(y = -23 + 20 = -3\)</span>.</li>
+            <li>Проверка: <span class="math">\(-3 - (-23) = -3 + 23 = 20\)</span> ✅ и <span class="math">\(2 \cdot{} (-23) - 15 \cdot{} (-3) = -46 + 45 = -1\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> (-23; -3)</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Способ подстановки: 1) вырази одну переменную через другую; 2) подставь в другое уравнение; 3) реши уравнение с одной переменной; 4) найди вторую переменную.</li>
+        <li>Подставляй выражение только в <b>другое</b> уравнение — не в то, из которого выразил.</li>
+        <li>Ищи «добровольца» — переменную с коэффициентом 1: её выражать удобнее всего.</li>
+        <li>Раскрывая скобки, следи за знаками: минус перед скобкой меняет все знаки внутри.</li>
+        <li>Появилась дробь — умножь обе части уравнения на её знаменатель, и она исчезнет.</li>
+        <li>Системы, имеющие одни и те же решения, называются равносильными: подстановка лишь меняет запись, не меняя ответа.</li>
+        <li>Геометрия подстановки: все три прямые (две исходные и новая) проходят через одну точку — решение системы.</li>
+        <li>Найденную пару обязательно проверь подстановкой в оба исходных уравнения.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 6: Системы линейных уравнений<br>
+    §15, п. 43. Способ подстановки • Страницы 213-216</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-42.html">← Урок 42</a><span class="sep">|</span><a href="lesson-44.html">Урок 44 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

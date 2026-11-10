@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сложение и вычитание многочленов — Алгебра 7 класс | Глава 4, §8, п. 26</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Один минус перед скобкой переворачивает знаки у всех, кто внутри, — научись управлять этим безошибочно 🚦">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Сложение и вычитание многочленов — Алгебра 7 класс | Глава 4, §8, п. 26">
+<meta property="og:description" content="Один минус перед скобкой переворачивает знаки у всех, кто внутри, — научись управлять этим безошибочно 🚦">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-26.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Сложение и вычитание многочленов — Алгебра 7 класс | Глава 4, §8, п. 26">
+<meta name="twitter:description" content="Один минус перед скобкой переворачивает знаки у всех, кто внутри, — научись управлять этим безошибочно 🚦">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-26.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-25.html">← Урок 25</a><span class="sep">|</span><a href="lesson-27.html">Урок 27 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 4 • §8, п. 26</span>
+    <h1>Сложение и вычитание многочленов</h1>
+    <p class="subtitle">Один минус перед скобкой переворачивает знаки у всех, кто внутри, — научись управлять этим безошибочно 🚦</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 В пункте 26 учебника спрятан фокус из «Арифметики» Л. Ф. Магницкого — знаменитой математической книги начала XVIII века (задача №627). Суть: задумай двузначное число, число десятков увеличь в 2 раза, прибавь 5, результат увеличь в 5 раз, затем прибавь 10 и число единиц — и назови итог. Например, для числа 27 получится 62. Фокусник вычитает 35 и мгновенно называет задуманное число. Секрет умещается в три строки — если умеешь правильно раскрывать скобки. Сегодня научимся складывать и вычитать многочлены, и фокус раскроем сами!</p>
+</section>
+
+<section class="card page-block">
+    <h2>➕ Сумма многочленов: просто убери скобки</h2>
+    <p>Чтобы сложить два многочлена, составляют их сумму, раскрывают скобки и приводят подобные члены. В учебнике складывают многочлены <span class="math">\(5x^2 + 7xy - 9y^2 - 6\)</span> и <span class="math">\(-3x^2 - 6xy + 8\)</span>:</p>
+    <p><span class="math">\((5x^2 + 7xy - 9y^2 - 6) + (-3x^2 - 6xy + 8) =\)</span><br>
+    <span class="math">\(= 5x^2 + 7xy - 9y^2 - 6 - 3x^2 - 6xy + 8 = 2x^2 + xy - 9y^2 + 2\)</span></p>
+    <p>Заметь: перед второй скобкой стоит «плюс», поэтому члены второго многочлена вошли в результат <b>с теми же знаками</b>. Затем собрали подобные:</p>
+    <ul>
+        <li><span class="math">\(5x^2 - 3x^2 = 2x^2\)</span>;</li>
+        <li><span class="math">\(7xy - 6xy = xy\)</span>;</li>
+        <li><span class="math">\(-9y^2\)</span> — подобных нет, остаётся;</li>
+        <li><span class="math">\(-6 + 8 = 2\)</span>.</li>
+    </ul>
+    <p>Вообще сумму и разность многочленов <span class="highlight">всегда можно представить в виде многочлена</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>➖ Разность многочленов: минус переворачивает всех</h2>
+    <p>Разность составляют так же: ставят между многочленами знак «минус», раскрывают скобки, приводят подобные. В учебнике из многочлена <span class="math">\(x^3 + 5x^2 - x + 8\)</span> вычитают многочлен <span class="math">\(x^3 - 7x - 1\)</span>:</p>
+    <p><span class="math">\((x^3 + 5x^2 - x + 8) - (x^3 - 7x - 1) =\)</span><br>
+    <span class="math">\(= x^3 + 5x^2 - x + 8 - x^3 + 7x + 1 = 5x^2 + 6x + 9\)</span></p>
+    <p>Вот главная ловушка параграфа: <span class="highlight">минус перед скобкой меняет знаки у ВСЕХ членов вычитаемого</span>. Проследи по шагам:</p>
+    <ul>
+        <li><span class="math">\(x^3\)</span> превратился в <span class="math">\(-x^3\)</span>;</li>
+        <li><span class="math">\(-7x\)</span> превратился в <span class="math">\(+7x\)</span>;</li>
+        <li><span class="math">\(-1\)</span> превратилось в <span class="math">\(+1\)</span>.</li>
+    </ul>
+    <p>Изменишь знак только у первого члена — и весь результат «поедет» мимо. 🚨</p>
+</section>
+
+<section class="card page-block">
+    <h2>🚦 Правило скобок: прямая и обратная задача</h2>
+    <p><b>Правило.</b> Если перед скобками ставится знак «плюс», то члены, которые заключают в скобки, записывают <span class="highlight">с теми же знаками</span>. Если перед скобками ставится знак «минус», то знаки членов, заключаемых в скобки, <span class="highlight">меняют на противоположные</span>.</p>
+    <p>Это правило работает в обе стороны. Раскрыть скобки мы уже умеем, а можно и наоборот — заключить члены многочлена в скобки (в учебнике это показано на примере):</p>
+    <p><span class="math">\(8x - 2y + 5 = 8x + (-2y + 5)\)</span> — скобка с «плюсом», знаки те же;<br>
+    <span class="math">\(8x - 2y + 5 = 8x - (2y - 5)\)</span> — скобка с «минусом», внутри знаки перевернулись.</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="100%" viewBox="0 0 680 290" role="img" aria-label="Схема диспетчера скобок: плюс пропускает всех, минус переворачивает знаки каждого члена">
+            <text x="20" y="26" font-size="15" font-weight="bold" fill="#16a085">Перед скобкой «+» — все проходят без изменений</text>
+            <text x="20" y="72" font-size="20" font-weight="bold" fill="#2d3436">5m + (</text>
+            <rect x="92" y="46" width="72" height="38" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+            <text x="128" y="72" font-size="19" font-weight="bold" text-anchor="middle" fill="#2d3436">+2n</text>
+            <rect x="172" y="46" width="60" height="38" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+            <text x="202" y="72" font-size="19" font-weight="bold" text-anchor="middle" fill="#2d3436">-3</text>
+            <text x="240" y="72" font-size="20" font-weight="bold" fill="#2d3436">)</text>
+            <line x1="262" y1="65" x2="352" y2="65" stroke="#27ae60" stroke-width="3"/>
+            <polygon points="352,58 366,65 352,72" fill="#27ae60"/>
+            <text x="384" y="72" font-size="20" font-weight="bold" fill="#2d3436">5m <tspan fill="#27ae60">+ 2n - 3</tspan></text>
+            <text x="384" y="98" font-size="14" fill="#27ae60">знаки те же</text>
+            <text x="20" y="150" font-size="15" font-weight="bold" fill="#c0392b">Перед скобкой «−» — знак меняется у КАЖДОГО члена</text>
+            <text x="20" y="196" font-size="20" font-weight="bold" fill="#2d3436">5m - (</text>
+            <rect x="86" y="170" width="72" height="38" rx="8" fill="#fdecea" stroke="#e74c3c" stroke-width="2"/>
+            <text x="122" y="196" font-size="19" font-weight="bold" text-anchor="middle" fill="#2d3436">+2n</text>
+            <rect x="166" y="170" width="60" height="38" rx="8" fill="#fdecea" stroke="#e74c3c" stroke-width="2"/>
+            <text x="196" y="196" font-size="19" font-weight="bold" text-anchor="middle" fill="#2d3436">-3</text>
+            <text x="234" y="196" font-size="20" font-weight="bold" fill="#2d3436">)</text>
+            <line x1="256" y1="189" x2="346" y2="189" stroke="#e74c3c" stroke-width="3"/>
+            <polygon points="346,182 360,189 346,196" fill="#e74c3c"/>
+            <text x="378" y="196" font-size="20" font-weight="bold" fill="#2d3436">5m <tspan fill="#e74c3c">- 2n + 3</tspan></text>
+            <text x="378" y="222" font-size="14" fill="#e74c3c">частая ошибка: 5m - 2n - 3</text>
+            <text x="20" y="262" font-size="14" fill="#7f8c8d">Проверка числами при m = 3, n = 4: 15 - (8 - 3) = 10 и 15 - 8 + 3 = 10 ✓</text>
+        </svg>
+    </div>
+    <p class="fig-caption">Диспетчер скобок: «плюс» пропускает всех, «минус» разворачивает знак у каждого члена, как контролёр на КПП.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🎩 Раскрываем секрет фокуса Магницкого</h2>
+    <p>Вернёмся к фокусу из задачи №627 — это жизненный пример из учебника. Пусть в задуманном числе <span class="math">\(a\)</span> десятков и <span class="math">\(b\)</span> единиц, то есть само число равно <span class="math">\(10a + b\)</span>. Пройдём по шагам «рецепта»:</p>
+    <ol>
+        <li>Увеличили число десятков в 2 раза и прибавили 5: получили <span class="math">\(2a + 5\)</span>.</li>
+        <li>Увеличили эту сумму в 5 раз: <span class="math">\(5(2a + 5) = 10a + 25\)</span> — сработало распределительное свойство умножения (в п. 27 оно станет главным героем).</li>
+        <li>Прибавили 10 и число единиц: <span class="math">\(10a + 25 + 10 + b = 10a + b + 35\)</span>.</li>
+    </ol>
+    <p>Фокусник вычитает из названного результата 35:</p>
+    <p><span class="math">\(10a + b + 35 - 35 = 10a + b\)</span></p>
+    <p>Прибавка 35 «съедается», и остаётся чистое <span class="math">\(10a + b\)</span> — задуманное число. Никакой магии, только аккуратные знаки! ✨</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Диспетчер скобок»</h3>
+    <p>Представь, что скобка — шлюз, а знак перед ней — диспетчер. Диспетчер «плюс» махнул зелёным флажком: все члены проходят <b>без изменений</b>. Диспетчер «минус» разворачивает <b>каждого</b>: «+» становится «−», а «−» становится «+». Не только у первого члена — у всех до единого!</p>
+    <p>Пример (не из заданий): раскроем <span class="math">\((a - b) - (c - d)\)</span>. На числах: <span class="math">\((10 - 4) - (7 - 2)\)</span>.</p>
+    <p>✅ Диспетчер на посту: <span class="math">\(10 - 4 - 7 + 2 = 1\)</span> — и вправду <span class="math">\(6 - 5 = 1\)</span>.</p>
+    <p>🚫 Диспетчер задремал и развернул только <span class="math">\(c\)</span>: <span class="math">\(10 - 4 - 7 - 2 = -3\)</span>. Значение другое — значит, где-то знак потерян.</p>
+    <p>То же правило работает и в обратную сторону: заключая члены в скобки с минусом, меняй у них все знаки: <span class="math">\(8x - 2y + 5 = 8x - (2y - 5)\)</span>.</p>
+    <p>🚂 Мостик: в задании 2 минус-диспетчер развернёт сразу трёх членов скобки, а в задании 6 уравнение «поедет» не туда, если хоть один знак не перевернёшь. Проверяй каждого!</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 26) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№601 а из учебника)</div>
+    <p>Составьте сумму многочленов <span class="math">\(4x^2 - 5x - 7\)</span> и <span class="math">\(x^2 - 8x\)</span> и преобразуйте её в многочлен стандартного вида.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="5x^2 - 13x - 7"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans26_1')">🔍 Проверить</button>
+    <div id="ans26_1" class="answer">
+        <p>Составляем сумму:</p>
+        <p><span class="math">\((4x^2 - 5x - 7) + (x^2 - 8x)\)</span></p>
+        <ol>
+            <li>Перед второй скобкой «плюс» — знаки не меняются: <span class="math">\(4x^2 - 5x - 7 + x^2 - 8x\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(4x^2 + x^2 = 5x^2\)</span> и <span class="math">\(-5x - 8x = -13x\)</span>.</li>
+            <li>Слагаемое <span class="math">\(-7\)</span> не с чем складывать — остаётся как есть.</li>
+        </ol>
+        <p>Проверка числом при <span class="math">\(x = 2\)</span>: слева <span class="math">\((16 - 10 - 7) + (4 - 16) = -1 - 12 = -13\)</span>, справа <span class="math">\(20 - 26 - 7 = -13\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(5x^2 - 13x - 7\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№601 б из учебника)</div>
+    <p>Составьте разность многочленов <span class="math">\(5y^2 - 9\)</span> и <span class="math">\(7y^2 - y + 5\)</span> и преобразуйте её в многочлен стандартного вида.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="-2y^2 + y - 14"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans26_2')">🔍 Проверить</button>
+    <div id="ans26_2" class="answer">
+        <p>Составляем разность:</p>
+        <p><span class="math">\((5y^2 - 9) - (7y^2 - y + 5)\)</span></p>
+        <ol>
+            <li>Диспетчер «минус» разворачивает всех членов скобки: <span class="math">\(-7y^2 + y - 5\)</span>.</li>
+            <li>Получаем: <span class="math">\(5y^2 - 9 - 7y^2 + y - 5\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(5y^2 - 7y^2 = -2y^2\)</span>, а <span class="math">\(-9 - 5 = -14\)</span>.</li>
+        </ol>
+        <p>Проверка числом при <span class="math">\(y = 3\)</span>: слева <span class="math">\((45 - 9) - (63 - 3 + 5) = 36 - 65 = -29\)</span>, справа <span class="math">\(-18 + 3 - 14 = -29\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(-2y^2 + y - 14\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№602 б из учебника)</div>
+    <p>Даны два многочлена: <span class="math">\(2a^2 - 5a + 5\)</span> и <span class="math">\(a^2 - 4a - 2\)</span>. Упростите разность первого и второго многочленов.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="a^2 - a + 7"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans26_3')">🔍 Проверить</button>
+    <div id="ans26_3" class="answer">
+        <p>Составляем разность — из первого многочлена вычитаем второй:</p>
+        <p><span class="math">\((2a^2 - 5a + 5) - (a^2 - 4a - 2)\)</span></p>
+        <ol>
+            <li>Перед второй скобкой «минус» — меняются знаки у всех трёх членов: <span class="math">\(-a^2 + 4a + 2\)</span>.</li>
+            <li>Получаем: <span class="math">\(2a^2 - 5a + 5 - a^2 + 4a + 2\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(2a^2 - a^2 = a^2\)</span>, <span class="math">\(-5a + 4a = -a\)</span>, <span class="math">\(5 + 2 = 7\)</span>.</li>
+        </ol>
+        <p>Проверка числом при <span class="math">\(a = 2\)</span>: слева <span class="math">\((8 - 10 + 5) - (4 - 8 - 2) = 3 - (-6) = 9\)</span>, справа <span class="math">\(4 - 2 + 7 = 9\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(a^2 - a + 7\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№604 б из учебника)</div>
+    <p>Упростите выражение: <span class="math">\(8x^2 + (4,5 - x^2) - (5,4x^2 - 1)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="1,6x^2 + 5,5"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans26_4')">🔍 Проверить</button>
+    <div id="ans26_4" class="answer">
+        <ol>
+            <li>Первая скобка стоит после «плюса» — раскрываем без изменений: <span class="math">\(+4,5 - x^2\)</span>.</li>
+            <li>Вторая скобка после «минуса» — переворачиваем оба члена: <span class="math">\(-5,4x^2 + 1\)</span>.</li>
+            <li>Собираем всё: <span class="math">\(8x^2 + 4,5 - x^2 - 5,4x^2 + 1\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(8x^2 - x^2 - 5,4x^2 = 1,6x^2\)</span> и <span class="math">\(4,5 + 1 = 5,5\)</span>.</li>
+        </ol>
+        <p>Проверка числом при <span class="math">\(x = 1\)</span>: слева <span class="math">\(8 + 3,5 - 4,4 = 7,1\)</span>, справа <span class="math">\(1,6 + 5,5 = 7,1\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(1,6x^2 + 5,5\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№607 а из учебника, доказательство)</div>
+    <p>Докажите, что сумма двух последовательных нечётных чисел кратна 4.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="4n + 4 = 4(n + 1) — сумма кратна 4"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans26_5')">🔍 Проверить</button>
+    <div id="ans26_5" class="answer">
+        <ol>
+            <li>Пусть первое нечётное число равно <span class="math">\(2n + 1\)</span>, где <span class="math">\(n\)</span> — натуральное. Любое число такого вида нечётно.</li>
+            <li>Следующее нечётное число идёт через два: <span class="math">\(2n + 3\)</span>.</li>
+            <li>Составляем сумму и раскрываем скобки (перед обеими «плюс»): <span class="math">\((2n + 1) + (2n + 3) = 2n + 1 + 2n + 3\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(2n + 2n = 4n\)</span> и <span class="math">\(1 + 3 = 4\)</span>, значит сумма равна <span class="math">\(4n + 4\)</span>.</li>
+            <li>Выносим общий множитель 4 за скобку: <span class="math">\(4n + 4 = 4(n + 1)\)</span> — произведение с множителем 4, поэтому делится на 4 при любом натуральном <span class="math">\(n\)</span>.</li>
+        </ol>
+        <p>Проверка числами: <span class="math">\(7 + 9 = 16 = 4 \cdot{} 4\)</span>, <span class="math">\(11 + 13 = 24 = 4 \cdot{} 6\)</span> — кратно 4. Утверждение доказано.</p>
+        <p><b>Ответ:</b> <span class="math">\(4n + 4 = 4(n + 1)\)</span> — сумма кратна 4</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№621 г из учебника, уравнение)</div>
+    <p>Решите уравнение: <span class="math">\(1 - (0,5x - 15,8) = 12,8 - 0,7x\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x = -20"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans26_6')">🔍 Проверить</button>
+    <div id="ans26_6" class="answer">
+        <ol>
+            <li>Раскрываем скобку: перед ней «минус», поэтому меняем знаки у обоих членов: <span class="math">\(-(0,5x - 15,8) = -0,5x + 15,8\)</span>.</li>
+            <li>Слева собираем числа: <span class="math">\(1 - 0,5x + 15,8 = 16,8 - 0,5x\)</span>, и уравнение принимает вид <span class="math">\(16,8 - 0,5x = 12,8 - 0,7x\)</span>.</li>
+            <li>Переносим слагаемые с <span class="math">\(x\)</span> влево, числа вправо (при переносе знак меняется): <span class="math">\(-0,5x + 0,7x = 12,8 - 16,8\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(0,2x = -4\)</span>.</li>
+            <li>Находим <span class="math">\(x\)</span>: <span class="math">\(x = -4 : 0,2 = -20\)</span>.</li>
+        </ol>
+        <p>Проверка подстановкой <span class="math">\(x = -20\)</span>: слева <span class="math">\(1 - (-10 - 15,8) = 1 + 25,8 = 26,8\)</span>, справа <span class="math">\(12,8 + 14 = 26,8\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\(x = -20\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Чтобы сложить или вычесть многочлены, составь сумму (разность), раскрой скобки и приведи подобные члены.</li>
+        <li>Сумма и разность многочленов всегда представимы в виде многочлена.</li>
+        <li>Перед скобкой «плюс» — знаки членов сохраняются: <span class="math">\(a + (b - c) = a + b - c\)</span>.</li>
+        <li>Перед скобкой «минус» — знаки меняются у ВСЕХ членов, не только у первого: <span class="math">\(a - (b - c) = a - b + c\)</span>.</li>
+        <li>Правило работает и в обратную сторону — при заключении в скобки: <span class="math">\(8x - 2y + 5 = 8x - (2y - 5)\)</span>.</li>
+        <li>Проверяй себя числами: подставь маленькое значение вместо переменной и сравни обе записи.</li>
+        <li>Самая частая ошибка параграфа — «недокрученный» минус, когда знак сменился только у первого члена скобки.</li>
+        <li>Алгебра раскрывает «фокусы»: трюк Магницкого из №627 — это тождество <span class="math">\(10a + b + 35 - 35 = 10a + b\)</span>.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 4: Многочлены<br>
+    §8, п. 26. Сложение и вычитание многочленов • Страницы 132-136</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-25.html">← Урок 25</a><span class="sep">|</span><a href="lesson-27.html">Урок 27 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

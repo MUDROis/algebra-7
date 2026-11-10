@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Системы линейных уравнений с двумя переменными — Алгебра 7 класс | Глава 6, §14, п. 42</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Две прямые — одна точка истины: найдём пару чисел, которая открывает оба замка сразу 🎯">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Системы линейных уравнений с двумя переменными — Алгебра 7 класс | Глава 6, §14, п. 42">
+<meta property="og:description" content="Две прямые — одна точка истины: найдём пару чисел, которая открывает оба замка сразу 🎯">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-42.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Системы линейных уравнений с двумя переменными — Алгебра 7 класс | Глава 6, §14, п. 42">
+<meta name="twitter:description" content="Две прямые — одна точка истины: найдём пару чисел, которая открывает оба замка сразу 🎯">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-42.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-41.html">← Урок 41</a><span class="sep">|</span><a href="lesson-43.html">Урок 43 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 6 • §14, п. 42</span>
+    <h1>Системы линейных уравнений с двумя переменными</h1>
+    <p class="subtitle">Две прямые — одна точка истины: найдём пару чисел, которая открывает оба замка сразу 🎯</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Сегодня в учебнике задача: «Сумма двух чисел равна 12, а их разность равна 2. Найдите эти числа». Одним уравнением тут не обойтись — условий два, значит, и уравнений будет два, и работать они будут командой, под одной фигурной скобкой. Такой «командный союз» называется системой уравнений, а его решения ищут сразу на графике двух прямых. А на полях страницы 209 — Пьер Ферма (1601—1665), один из создателей аналитической геометрии: без его прямых на плоскости не было бы и графического способа, который мы сейчас освоим. 🧭</p>
+</section>
+
+<section class="card page-block">
+    <h2>📦 Два уравнения — одна команда</h2>
+    <p>Обозначим первое число <span class="math">\(x\)</span>, а второе — <span class="math">\(y\)</span>. По условию сумма чисел равна 12, то есть <span class="math">\(x + y = 12\)</span>. Так как разность чисел равна 2, то <span class="math">\(x - y = 2\)</span>. Мы составили два уравнения с двумя переменными. Чтобы ответить на вопрос задачи, надо найти такие значения переменных, которые обращают в верное равенство <b>каждое</b> из уравнений, — то есть найти их общие решения. В таких случаях говорят, что требуется <span class="highlight">решить систему уравнений</span>.</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:12px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(x + y = 12,\)</span></div>
+            <div><span class="math">\(x - y = 2\)</span></div>
+        </div>
+    </div>
+    <p>Систему уравнений принято записывать с помощью фигурной скобки — она скрепляет уравнения обещанием «решаем вместе».</p>
+    <p><b>Определение.</b> <span class="highlight">Решением системы уравнений с двумя переменными</span> называется пара значений переменных, обращающая каждое уравнение системы в верное числовое равенство.</p>
+    <p><b>Решить систему уравнений</b> — значит <span class="highlight">найти все её решения или доказать, что решений нет</span>. Запомни: решение системы — не одно число, а <b>пара</b> чисел, и она обязана подходить всем уравнениям сразу.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🗺️ Графический способ: где прямые встречаются</h2>
+    <p>Для решения системы линейных уравнений можно использовать графики уравнений. Возьмём систему из учебника:</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:12px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(2x + 3y = 5,\)</span></div>
+            <div><span class="math">\(3x - y = -9\)</span></div>
+        </div>
+    </div>
+    <p>График первого уравнения — прямая AB, график второго — прямая CP. Координаты любой точки прямой AB являются решением уравнения <span class="math">\(2x + 3y = 5\)</span>, а координаты любой точки прямой CP — решением уравнения <span class="math">\(3x - y = -9\)</span>. Координаты точки пересечения прямых удовлетворяют как первому уравнению, так и второму, то есть являются решением системы. Прямые пересекаются в точке <span class="math">\(K(-2; 3)\)</span> — значит, система имеет единственное решение: <span class="math">\(x = -2\)</span>, <span class="math">\(y = 3\)</span>.</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="340" height="345" viewBox="0 0 340 345" role="img" aria-label="Графическое решение системы: две пересекающиеся прямые">
+            <g stroke="#e3e8ee" stroke-width="1">
+                <line x1="20" y1="20" x2="20" y2="320"/><line x1="50" y1="20" x2="50" y2="320"/><line x1="80" y1="20" x2="80" y2="320"/><line x1="110" y1="20" x2="110" y2="320"/><line x1="140" y1="20" x2="140" y2="320"/><line x1="170" y1="20" x2="170" y2="320"/><line x1="200" y1="20" x2="200" y2="320"/><line x1="230" y1="20" x2="230" y2="320"/><line x1="260" y1="20" x2="260" y2="320"/><line x1="290" y1="20" x2="290" y2="320"/><line x1="320" y1="20" x2="320" y2="320"/>
+                <line x1="20" y1="20" x2="320" y2="20"/><line x1="20" y1="50" x2="320" y2="50"/><line x1="20" y1="80" x2="320" y2="80"/><line x1="20" y1="110" x2="320" y2="110"/><line x1="20" y1="140" x2="320" y2="140"/><line x1="20" y1="170" x2="320" y2="170"/><line x1="20" y1="200" x2="320" y2="200"/><line x1="20" y1="230" x2="320" y2="230"/><line x1="20" y1="260" x2="320" y2="260"/><line x1="20" y1="290" x2="320" y2="290"/><line x1="20" y1="320" x2="320" y2="320"/>
+            </g>
+            <g stroke="#95a5a6" stroke-width="1.5" stroke-dasharray="4 3">
+                <line x1="110" y1="170" x2="110" y2="260"/>
+                <line x1="110" y1="170" x2="170" y2="170"/>
+            </g>
+            <g stroke="#2d3436" stroke-width="2">
+                <line x1="20" y1="260" x2="332" y2="260"/>
+                <line x1="170" y1="330" x2="170" y2="12"/>
+            </g>
+            <polygon points="336,260 326,255 326,265" fill="#2d3436"/>
+            <polygon points="170,7 165,17 175,17" fill="#2d3436"/>
+            <g font-size="12" fill="#7f8c8d" font-family="Segoe UI, Tahoma, sans-serif">
+                <text x="50" y="278" text-anchor="middle">−4</text>
+                <text x="110" y="278" text-anchor="middle">−2</text>
+                <text x="230" y="278" text-anchor="middle">2</text>
+                <text x="290" y="278" text-anchor="middle">4</text>
+                <text x="160" y="276" text-anchor="end">0</text>
+                <text x="160" y="204" text-anchor="end">2</text>
+                <text x="160" y="144" text-anchor="end">4</text>
+                <text x="160" y="84" text-anchor="end">6</text>
+                <text x="322" y="248">x</text>
+                <text x="180" y="20">y</text>
+            </g>
+            <line x1="35" y1="120" x2="252.5" y2="265" stroke="#3498db" stroke-width="3" stroke-linecap="round"/>
+            <line x1="65" y1="305" x2="143" y2="71" stroke="#e74c3c" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="110" cy="170" r="5.5" fill="#2c3e50" stroke="#ffffff" stroke-width="2"/>
+            <text x="118" y="162" font-size="13" font-weight="bold" fill="#2c3e50" font-family="Segoe UI, Tahoma, sans-serif">K (−2; 3)</text>
+        </svg>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#3498db;"></span><span class="math">\(2x + 3y = 5\)</span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#e74c3c;"></span><span class="math">\(3x - y = -9\)</span></span>
+    </div>
+    <p class="fig-caption">Рис. 93 из учебника: прямые пересекаются в точке <span class="math">\(K(-2; 3)\)</span> — единственное решение системы (масштаб осей одинаковый)</p>
+    <p>Проверим пару подстановкой: <span class="math">\(2 \cdot{} (-2) + 3 \cdot{} 3 = -4 + 9 = 5\)</span> ✅ и <span class="math">\(3 \cdot{} (-2) - 3 = -9\)</span> ✅. Оба равенства верные. Важно (по учебнику): графический способ обычно позволяет находить решения лишь <span class="highlight">приближённо</span> — по чертежу не видно, точное ли это 3 или, скажем, 3,02. Точные способы ждут тебя в п. 43 и 44.</p>
+</section>
+
+<section class="card page-block">
+    <h2>⚖️ Три сюжета: одна точка, ни одной, целый веер</h2>
+    <p>Графики уравнений системы — прямые. Сравним их «наклоны»: выразим из каждого уравнения <span class="math">\(y\)</span> через <span class="math">\(x\)</span> и приведём уравнение к виду <span class="math">\(y = kx + m\)</span>. Дальше всё решают числа <span class="math">\(k\)</span> и <span class="math">\(m\)</span>:</p>
+    <div class="visual-container" style="flex-wrap:wrap; gap:18px;">
+        <div style="text-align:center;">
+            <svg class="graph-svg" width="190" height="190" viewBox="0 0 190 190" role="img" aria-label="Прямые пересекаются">
+                <g stroke="#e3e8ee" stroke-width="1">
+                    <line x1="5" y1="5" x2="5" y2="185"/><line x1="35" y1="5" x2="35" y2="185"/><line x1="65" y1="5" x2="65" y2="185"/><line x1="95" y1="5" x2="95" y2="185"/><line x1="125" y1="5" x2="125" y2="185"/><line x1="155" y1="5" x2="155" y2="185"/><line x1="185" y1="5" x2="185" y2="185"/>
+                    <line x1="5" y1="5" x2="185" y2="5"/><line x1="5" y1="35" x2="185" y2="35"/><line x1="5" y1="65" x2="185" y2="65"/><line x1="5" y1="95" x2="185" y2="95"/><line x1="5" y1="125" x2="185" y2="125"/><line x1="5" y1="155" x2="185" y2="155"/><line x1="5" y1="185" x2="185" y2="185"/>
+                </g>
+                <g stroke="#2d3436" stroke-width="1.5">
+                    <line x1="5" y1="155" x2="183" y2="155"/>
+                    <line x1="35" y1="185" x2="35" y2="7"/>
+                </g>
+                <polygon points="186,155 179,151.5 179,158.5" fill="#2d3436"/>
+                <polygon points="35,4 31.5,11 38.5,11" fill="#2d3436"/>
+                <g font-size="11" fill="#7f8c8d" font-family="Segoe UI, Tahoma, sans-serif">
+                    <text x="180" y="171">x</text>
+                    <text x="43" y="14">y</text>
+                </g>
+                <line x1="5" y1="155" x2="155" y2="5" stroke="#3498db" stroke-width="3" stroke-linecap="round"/>
+                <line x1="35" y1="5" x2="185" y2="155" stroke="#e74c3c" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="95" cy="65" r="4.5" fill="#2c3e50" stroke="#ffffff" stroke-width="2"/>
+            </svg>
+            <div style="font-size:0.85em; color:#7f8c8d; margin-top:4px;">разные <span class="math">\(k\)</span> → пересекаются</div>
+            <div style="font-size:0.9em; font-weight:700; color:#27ae60;">одно решение</div>
+        </div>
+        <div style="text-align:center;">
+            <svg class="graph-svg" width="190" height="190" viewBox="0 0 190 190" role="img" aria-label="Прямые параллельны">
+                <g stroke="#e3e8ee" stroke-width="1">
+                    <line x1="5" y1="5" x2="5" y2="185"/><line x1="35" y1="5" x2="35" y2="185"/><line x1="65" y1="5" x2="65" y2="185"/><line x1="95" y1="5" x2="95" y2="185"/><line x1="125" y1="5" x2="125" y2="185"/><line x1="155" y1="5" x2="155" y2="185"/><line x1="185" y1="5" x2="185" y2="185"/>
+                    <line x1="5" y1="5" x2="185" y2="5"/><line x1="5" y1="35" x2="185" y2="35"/><line x1="5" y1="65" x2="185" y2="65"/><line x1="5" y1="95" x2="185" y2="95"/><line x1="5" y1="125" x2="185" y2="125"/><line x1="5" y1="155" x2="185" y2="155"/><line x1="5" y1="185" x2="185" y2="185"/>
+                </g>
+                <g stroke="#2d3436" stroke-width="1.5">
+                    <line x1="5" y1="155" x2="183" y2="155"/>
+                    <line x1="35" y1="185" x2="35" y2="7"/>
+                </g>
+                <polygon points="186,155 179,151.5 179,158.5" fill="#2d3436"/>
+                <polygon points="35,4 31.5,11 38.5,11" fill="#2d3436"/>
+                <g font-size="11" fill="#7f8c8d" font-family="Segoe UI, Tahoma, sans-serif">
+                    <text x="180" y="171">x</text>
+                    <text x="43" y="14">y</text>
+                </g>
+                <line x1="5" y1="140" x2="173" y2="56" stroke="#3498db" stroke-width="3" stroke-linecap="round"/>
+                <line x1="5" y1="80" x2="155" y2="5" stroke="#e74c3c" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <div style="font-size:0.85em; color:#7f8c8d; margin-top:4px;">равные <span class="math">\(k\)</span>, разные <span class="math">\(m\)</span> → параллельны</div>
+            <div style="font-size:0.9em; font-weight:700; color:#e74c3c;">нет решений</div>
+        </div>
+        <div style="text-align:center;">
+            <svg class="graph-svg" width="190" height="190" viewBox="0 0 190 190" role="img" aria-label="Прямые совпадают">
+                <g stroke="#e3e8ee" stroke-width="1">
+                    <line x1="5" y1="5" x2="5" y2="185"/><line x1="35" y1="5" x2="35" y2="185"/><line x1="65" y1="5" x2="65" y2="185"/><line x1="95" y1="5" x2="95" y2="185"/><line x1="125" y1="5" x2="125" y2="185"/><line x1="155" y1="5" x2="155" y2="185"/><line x1="185" y1="5" x2="185" y2="185"/>
+                    <line x1="5" y1="5" x2="185" y2="5"/><line x1="5" y1="35" x2="185" y2="35"/><line x1="5" y1="65" x2="185" y2="65"/><line x1="5" y1="95" x2="185" y2="95"/><line x1="5" y1="125" x2="185" y2="125"/><line x1="5" y1="155" x2="185" y2="155"/><line x1="5" y1="185" x2="185" y2="185"/>
+                </g>
+                <g stroke="#2d3436" stroke-width="1.5">
+                    <line x1="5" y1="155" x2="183" y2="155"/>
+                    <line x1="35" y1="185" x2="35" y2="7"/>
+                </g>
+                <polygon points="186,155 179,151.5 179,158.5" fill="#2d3436"/>
+                <polygon points="35,4 31.5,11 38.5,11" fill="#2d3436"/>
+                <g font-size="11" fill="#7f8c8d" font-family="Segoe UI, Tahoma, sans-serif">
+                    <text x="180" y="171">x</text>
+                    <text x="43" y="14">y</text>
+                </g>
+                <line x1="5" y1="125" x2="125" y2="5" stroke="#3498db" stroke-width="4" stroke-linecap="round"/>
+                <line x1="5" y1="125" x2="125" y2="5" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round"/>
+            </svg>
+            <div style="font-size:0.85em; color:#7f8c8d; margin-top:4px;">равные <span class="math">\(k\)</span> и <span class="math">\(m\)</span> → совпадают</div>
+            <div style="font-size:0.9em; font-weight:700; color:#27ae60;">решений бесконечно много</div>
+        </div>
+    </div>
+    <p>Так работает и учебник. Посмотри на три его примера:</p>
+    <ul>
+        <li><b>Пример 1.</b> Система <span class="math">\(11x + 10y = 120\)</span> и <span class="math">\(6x + y = 18\)</span>. Выразим <span class="math">\(y\)</span>: <span class="math">\(y = -1,1x + 12\)</span> и <span class="math">\(y = -6x + 18\)</span>. Угловые коэффициенты различны (−1,1 ≠ −6) → прямые пересекаются → <b>единственное решение</b>.</li>
+        <li><b>Пример 2.</b> Система <span class="math">\(8x + 20y = 3\)</span> и <span class="math">\(2x + 5y = 16\)</span>. После выражения: <span class="math">\(y = -0,4x + 0,15\)</span> и <span class="math">\(y = -0,4x + 3,2\)</span>. Коэффициенты одинаковы, а точки пересечения с осью <span class="math">\(y\)</span> различны → прямые параллельны → <b>решений нет</b>.</li>
+        <li><b>Пример 3.</b> Система <span class="math">\(5x + 2y = -18\)</span> и <span class="math">\(15x + 6y = -54\)</span>. В обоих случаях <span class="math">\(y = -2,5x - 9\)</span> → графики совпадают → <b>бесконечно много решений</b>: любая пара <span class="math">\((x; y)\)</span>, в которой <span class="math">\(y = -2,5x - 9\)</span>.</li>
+    </ul>
+</section>
+
+<section class="card page-block">
+    <h2>🔍 Решаем задачу из начала пункта</h2>
+    <p>Вернёмся к системе <span class="math">\(x + y = 12\)</span> и <span class="math">\(x - y = 2\)</span> и найдём её решение. Подберём пару и сразу проверим её в оба уравнения: пусть <span class="math">\(x = 7\)</span>, <span class="math">\(y = 5\)</span>. Тогда <span class="math">\(7 + 5 = 12\)</span> ✅ и <span class="math">\(7 - 5 = 2\)</span> ✅ — оба равенства верные, значит, пара <span class="math">\((7; 5)\)</span> — решение системы. Это и есть ответ задачи: задуманные числа — 7 и 5.</p>
+    <p>А пара <span class="math">\((8; 4)\)</span>? Первое уравнение довольно: <span class="math">\(8 + 4 = 12\)</span>. Но второе провалено: <span class="math">\(8 - 4 = 4\)</span>, а нужно 2 🚫. Пара считается решением только тогда, когда подходит <b>обоим</b> уравнениям. У нашей системы решение ровно одно — прямые пересекаются в единственной точке <span class="math">\((7; 5)\)</span>.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Два замка — один ключ»</h3>
+    <p>Представь: система — это дверь с двумя замками, а каждое уравнение — свой замок. <b>Решение системы — пара, которая открывает ОБА замка.</b> Поэтому любую найденную пару проверяй подстановкой в каждое уравнение — по очереди, не пропуская ни одного.</p>
+    <p>Пример: система <span class="math">\(x + y = 5\)</span> и <span class="math">\(x - y = 1\)</span>.</p>
+    <ul>
+        <li>Пара <span class="math">\((3; 2)\)</span> ✅: <span class="math">\(3 + 2 = 5\)</span> — верно, <span class="math">\(3 - 2 = 1\)</span> — верно. Оба замка открыты — это решение.</li>
+        <li>Пара <span class="math">\((4; 1)\)</span> 🚫: <span class="math">\(4 + 1 = 5\)</span> — верно, но <span class="math">\(4 - 1 = 3\)</span>, а нужно 1. Второй замок заперт — пара не решение, даже если первое уравнение довольно.</li>
+    </ul>
+    <p>Мостик: в задании 1 будешь проверять пары в оба замка, а в задании 3 — отбирать из трёх пар ту единственную, которая откроет дверь целиком.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 42) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№1072 из учебника)</div>
+    <p>Является ли решением системы уравнений пара чисел: а) <span class="math">\(x = 3, y = 1\)</span>; б) <span class="math">\(x = 2, y = 2\)</span>?</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(x + y = 4,\)</span></div>
+            <div><span class="math">\(2x - y = 2\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) нет, б) да"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans42_1')">🔍 Проверить</button>
+    <div id="ans42_1" class="answer">
+        <p><b>Решение.</b> Ключ должен открыть оба замка — подставляем каждую пару в оба уравнения.</p>
+        <ol>
+            <li>Пара <span class="math">\((3; 1)\)</span>: первое уравнение <span class="math">\(3 + 1 = 4\)</span> — верно; второе <span class="math">\(2 \cdot{} 3 - 1 = 6 - 1 = 5\)</span>, а нужно 2 — неверно 🚫. Пара не является решением.</li>
+            <li>Пара <span class="math">\((2; 2)\)</span>: первое <span class="math">\(2 + 2 = 4\)</span> — верно; второе <span class="math">\(2 \cdot{} 2 - 2 = 4 - 2 = 2\)</span> — верно ✅. Оба равенства верные — пара является решением.</li>
+            <li>Контроль другим способом: сложим уравнения системы: <span class="math">\(3x = 6\)</span>, откуда <span class="math">\(x = 2\)</span>, тогда <span class="math">\(y = 4 - 2 = 2\)</span>. Система имеет единственное решение <span class="math">\((2; 2)\)</span> — совпало с пунктом б).</li>
+        </ol>
+        <p><b>Ответ:</b> а) нет, б) да</p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№1073 из учебника)</div>
+    <p>Является ли пара чисел <span class="math">\(u = 3, p = -1\)</span> решением системы уравнений:</p>
+    <p>а)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(3u + p = 8,\)</span></div>
+            <div><span class="math">\(7u - 2p = 23\)</span></div>
+        </div>
+    </div>
+    <p>б)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(u - 2p = 5,\)</span></div>
+            <div><span class="math">\(u + 2p = 1\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="да, является (в обеих системах)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans42_2')">🔍 Проверить</button>
+    <div id="ans42_2" class="answer">
+        <p><b>Решение.</b> Проверяем пару <span class="math">\((3; -1)\)</span> в оба замка каждой системы.</p>
+        <ol>
+            <li>Система а): <span class="math">\(3 \cdot{} 3 + (-1) = 9 - 1 = 8\)</span> ✅ и <span class="math">\(7 \cdot{} 3 - 2 \cdot{} (-1) = 21 + 2 = 23\)</span> ✅. Оба равенства верные — является решением.</li>
+            <li>Система б): <span class="math">\(3 - 2 \cdot{} (-1) = 3 + 2 = 5\)</span> ✅ и <span class="math">\(3 + 2 \cdot{} (-1) = 3 - 2 = 1\)</span> ✅. Оба равенства верные — является решением.</li>
+            <li>Контроль другим способом. В а) выразим <span class="math">\(p = 8 - 3u\)</span> и подставим: <span class="math">\(7u - 2(8 - 3u) = 23\)</span>, откуда <span class="math">\(13u = 39\)</span>, <span class="math">\(u = 3\)</span>, <span class="math">\(p = -1\)</span> — совпало. В б) сложим уравнения: <span class="math">\(2u = 6\)</span>, <span class="math">\(u = 3\)</span>, <span class="math">\(p = -1\)</span> — снова та же пара.</li>
+        </ol>
+        <p><b>Ответ:</b> да, является (в обеих системах)</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№1074 а из учебника)</div>
+    <p>Какие из пар <span class="math">\((-3; 4)\)</span>, <span class="math">\((-2; -6)\)</span>, <span class="math">\((-4; 3)\)</span> являются решениями системы уравнений:</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(x = y - 7,\)</span></div>
+            <div><span class="math">\(3x + 4y = 0\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(-4; 3)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans42_3')">🔍 Проверить</button>
+    <div id="ans42_3" class="answer">
+        <p><b>Решение.</b> Прогоняем все три пары через оба замка.</p>
+        <ol>
+            <li>Пара <span class="math">\((-3; 4)\)</span>: первое уравнение <span class="math">\(-3 = 4 - 7\)</span> — верно; второе <span class="math">\(3 \cdot{} (-3) + 4 \cdot{} 4 = -9 + 16 = 7\)</span>, а нужно 0 — неверно 🚫. Не решение.</li>
+            <li>Пара <span class="math">\((-2; -6)\)</span>: первое уравнение <span class="math">\(-2 ≠ -6 - 7 = -13\)</span> — уже неверно 🚫. Не решение.</li>
+            <li>Пара <span class="math">\((-4; 3)\)</span>: первое <span class="math">\(-4 = 3 - 7\)</span> — верно; второе <span class="math">\(3 \cdot{} (-4) + 4 \cdot{} 3 = -12 + 12 = 0\)</span> — верно ✅. Решение!</li>
+            <li>Контроль другим способом: подставим <span class="math">\(x = y - 7\)</span> во второе уравнение: <span class="math">\(3(y - 7) + 4y = 0\)</span>, откуда <span class="math">\(7y - 21 = 0\)</span>, <span class="math">\(y = 3\)</span>, <span class="math">\(x = -4\)</span>. Система имеет единственное решение — прямые пересекаются в одной точке.</li>
+        </ol>
+        <p><b>Ответ:</b> (-4; 3)</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№1075 а из учебника)</div>
+    <p>Составьте какую-либо систему линейных уравнений с переменными <span class="math">\(x\)</span> и <span class="math">\(y\)</span>, решением которой служит пара <span class="math">\(x = 4, y = 1\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="2x + y = 9, x - y = 3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans42_4')">🔍 Проверить</button>
+    <div id="ans42_4" class="answer">
+        <p><b>Решение.</b> Нужно придумать два уравнения, которые оба становятся верными при <span class="math">\(x = 4\)</span>, <span class="math">\(y = 1\)</span>.</p>
+        <ol>
+            <li>Придумаем первое уравнение из верного равенства: <span class="math">\(2 \cdot{} 4 + 1 = 9\)</span> → уравнение <span class="math">\(2x + y = 9\)</span>.</li>
+            <li>Придумаем второе: <span class="math">\(4 - 1 = 3\)</span> → уравнение <span class="math">\(x - y = 3\)</span>.</li>
+            <li>Проверка парой <span class="math">\((4; 1)\)</span>: <span class="math">\(2 \cdot{} 4 + 1 = 9\)</span> ✅ и <span class="math">\(4 - 1 = 3\)</span> ✅ — оба равенства верные, значит, пара <span class="math">\((4; 1)\)</span> — решение составленной системы.</li>
+            <li>Вариантов бесконечно много: подойдёт любая пара линейных уравнений, верных при <span class="math">\(x = 4\)</span>, <span class="math">\(y = 1\)</span> (например, <span class="math">\(x + y = 5\)</span> и <span class="math">\(x - y = 3\)</span>).</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(2x + y = 9, x - y = 3\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№1076 б из учебника)</div>
+    <p>Решите графически систему линейных уравнений:</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(x + 2y = 4,\)</span></div>
+            <div><span class="math">\(-2x + 5y = 10\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(0; 2)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans42_5')">🔍 Проверить</button>
+    <div id="ans42_5" class="answer">
+        <p><b>Решение.</b> Строим в одной координатной плоскости график каждого уравнения — это прямые, каждой хватит двух точек.</p>
+        <ol>
+            <li>Прямая <span class="math">\(x + 2y = 4\)</span>: возьмём точки <span class="math">\((0; 2)\)</span> и <span class="math">\((2; 1)\)</span> — обе обращают уравнение в верное равенство.</li>
+            <li>Прямая <span class="math">\(-2x + 5y = 10\)</span>: точки <span class="math">\((0; 2)\)</span> и <span class="math">\((5; 4)\)</span>.</li>
+            <li>Обе прямые проходят через точку <span class="math">\((0; 2)\)</span>, а наклоны у них разные (одна убывает, другая возрастает), значит, пересекаются прямые именно в этой точке.</li>
+            <li>Проверка подстановкой: <span class="math">\(0 + 2 \cdot{} 2 = 4\)</span> ✅ и <span class="math">\(-2 \cdot{} 0 + 5 \cdot{} 2 = 10\)</span> ✅ — оба равенства верные, точка пересечения найдена верно.</li>
+        </ol>
+        <p><b>Ответ:</b> (0; 2)</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№1078 а, г из учебника)</div>
+    <p>Выясните, имеет ли система решения и сколько:</p>
+    <p>а)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(4y - x = 12,\)</span></div>
+            <div><span class="math">\(3y + x = -8\)</span></div>
+        </div>
+    </div>
+    <p>г)</p>
+    <div style="display:flex; align-items:center; justify-content:center; margin:10px 0;">
+        <span class="piecewise-brace">{</span>
+        <div class="piecewise-table">
+            <div><span class="math">\(x + 2y = 8,\)</span></div>
+            <div><span class="math">\(y = -0,5x\)</span></div>
+        </div>
+    </div>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) одно решение, г) нет решений"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans42_6')">🔍 Проверить</button>
+    <div id="ans42_6" class="answer">
+        <p><b>Решение.</b> Приводим каждое уравнение к виду <span class="math">\(y = kx + m\)</span> и сравниваем коэффициенты.</p>
+        <ol>
+            <li>а) Из первого уравнения: <span class="math">\(4y = x + 12\)</span>, то есть <span class="math">\(y = 0,25x + 3\)</span>. Из второго: <span class="math">\(3y = -x - 8\)</span>, то есть <span class="math">\(y = -(\frac{1}{3})x - \frac{8}{3}\)</span>. Угловые коэффициенты <span class="math">\(0,25\)</span> и <span class="math">\(-\frac{1}{3}\)</span> различны → прямые пересекаются → решение есть, и оно единственное.</li>
+            <li>Проверка сложением (для а): <span class="math">\((4y - x) + (3y + x) = 12 + (-8)\)</span>, откуда <span class="math">\(7y = 4\)</span> — уравнение имеет ровно один корень, значит, и система одно решение.</li>
+            <li>г) Первое уравнение: <span class="math">\(2y = 8 - x\)</span>, то есть <span class="math">\(y = -0,5x + 4\)</span>. Второе уже готово: <span class="math">\(y = -0,5x\)</span>. Коэффициенты <span class="math">\(k\)</span> равны (−0,5 = −0,5), а свободные члены различны (4 ≠ 0) → прямые параллельны → общих точек нет.</li>
+            <li>Смысл: в г) сколько бы <span class="math">\(x\)</span> мы ни брали, первая прямая всегда даёт <span class="math">\(y\)</span> на 4 больше, чем вторая — встретиться они не могут 🚫.</li>
+        </ol>
+        <p><b>Ответ:</b> а) одно решение, г) нет решений</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Система уравнений — несколько уравнений, для которых ищут <b>общие</b> решения; записи объединяет фигурная скобка.</li>
+        <li>Решение системы с двумя переменными — <b>пара</b> чисел <span class="math">\((x; y)\)</span>, обращающая каждое уравнение в верное равенство.</li>
+        <li>Решить систему — значит найти все её решения или доказать, что решений нет.</li>
+        <li>Графический способ: строишь две прямые — решение там, где они пересекаются; ответ обычно получается лишь приближённо.</li>
+        <li>Разные <span class="math">\(k\)</span> → прямые пересекаются → одно решение; равные <span class="math">\(k\)</span>, разные <span class="math">\(m\)</span> → параллельны → решений нет; равные <span class="math">\(k\)</span> и <span class="math">\(m\)</span> → прямые совпадают → решений бесконечно много.</li>
+        <li>Пара — решение, только если открывает оба замка: оба равенства верны при подстановке.</li>
+        <li>Быстрый анализ системы: приведи оба уравнения к виду <span class="math">\(y = kx + m\)</span> и сравни <span class="math">\(k\)</span> и <span class="math">\(m\)</span>.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 6: Системы линейных уравнений<br>
+    §14, п. 42. Системы линейных уравнений с двумя переменными • Страницы 209-212</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-41.html">← Урок 41</a><span class="sep">|</span><a href="lesson-43.html">Урок 43 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

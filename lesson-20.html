@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Возведение в степень произведения и степени — Алгебра 7 класс | Глава 3, §6, п. 20</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Два приёма — «луковица» и «развес» — и огромные степени решаются в уме 🧅">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Возведение в степень произведения и степени — Алгебра 7 класс | Глава 3, §6, п. 20">
+<meta property="og:description" content="Два приёма — «луковица» и «развес» — и огромные степени решаются в уме 🧅">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-20.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Возведение в степень произведения и степени — Алгебра 7 класс | Глава 3, §6, п. 20">
+<meta name="twitter:description" content="Два приёма — «луковица» и «развес» — и огромные степени решаются в уме 🧅">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-20.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-19.html">← Урок 19</a><span class="sep">|</span><a href="lesson-21.html">Урок 21 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 3 • §6, п. 20</span>
+    <h1>Возведение в степень произведения и степени</h1>
+    <p class="subtitle">Два приёма — «луковица» и «развес» — и огромные степени решаются в уме 🧅</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Вот загадка из учебника: бассейн-куб наполняется водой через трубу за 40 минут. Успеют ли за 5 часов наполнить бассейн той же формы, но с ребром вдвое больше? Интуиция шепчет «вдвое дольше», а математика требует сначала посчитать объём — и он растёт совсем не в два раза!</p>
+    <p>Сегодня ты узнаешь два правила п. 20: как возводить в степень <span class="highlight">произведение</span> и как возводить в степень <span class="highlight">степень</span>. С ними загадка про бассейн решается одной строчкой. Поехали! 🚀</p>
+</section>
+
+<section class="card page-block">
+    <h2>🎒 Правило первое: степень произведения</h2>
+    <p>Смотри, что получается, если возвести в четвёртую степень произведение <span class="math">\(ab\)</span>. Раскрутим по определению степени из п. 18:</p>
+    <p><span class="math">\((ab)^4 = ab \cdot{} ab \cdot{} ab \cdot{} ab\)</span>. Сгруппируем отдельно все множители <span class="math">\(a\)</span> и все множители <span class="math">\(b\)</span>: получится <span class="math">\((aaaa) \cdot{} (bbbb) = a^4b^4\)</span>. Так же ведёт себя и любая другая натуральная степень произведения!</p>
+    <p><b>Свойство.</b> Для любых <span class="math">\(a\)</span> и <span class="math">\(b\)</span> и произвольного натурального числа <span class="math">\(n\)</span> верно равенство <span class="math">\((ab)^n = a^nb^n\)</span> — <span class="highlight">степень произведения равна произведению степеней</span>.</p>
+    <p>📖 <b>Правило из учебника:</b> чтобы возвести в степень произведение, достаточно возвести в эту степень каждый множитель и результаты перемножить.</p>
+    <p><b>Пример 1 из учебника.</b> Возведём произведение <span class="math">\(xy\)</span> в пятую степень: <span class="math">\((xy)^5 = x^5y^5\)</span>. Каждая буква получила свою пятёрку!</p>
+    <p>Правило работает и для трёх, и для четырёх множителей: <span class="math">\((abc)^n = a^nb^nc^n\)</span>, а <span class="math">\((abcd)^n = a^nb^nc^nd^n\)</span> — показатель раздаётся каждому.</p>
+
+    <div class="visual-container">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px;">
+            <div style="border:3px solid #2d3436; border-radius:10px; padding:10px 14px; font-weight:700;"><span class="math">\((2 \cdot{} 3)^4\)</span></div>
+            <div style="font-size:1.5em; color:#95a5a6;">→</div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                <div style="border:2px dashed #e67e22; border-radius:8px; padding:6px 9px; font-weight:700;"><span class="math">\(2 \cdot{} 3\)</span></div>
+                <div style="border:2px dashed #e67e22; border-radius:8px; padding:6px 9px; font-weight:700;"><span class="math">\(2 \cdot{} 3\)</span></div>
+                <div style="border:2px dashed #e67e22; border-radius:8px; padding:6px 9px; font-weight:700;"><span class="math">\(2 \cdot{} 3\)</span></div>
+                <div style="border:2px dashed #e67e22; border-radius:8px; padding:6px 9px; font-weight:700;"><span class="math">\(2 \cdot{} 3\)</span></div>
+            </div>
+            <div style="font-size:1.5em; color:#95a5a6;">→</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+                <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+                    <div style="background:#e67e22; color:#ffffff; border-radius:6px; padding:4px 10px; font-weight:700;"><span class="math">\(2\)</span></div>
+                    <div style="background:#e67e22; color:#ffffff; border-radius:6px; padding:4px 10px; font-weight:700;"><span class="math">\(2\)</span></div>
+                    <div style="background:#e67e22; color:#ffffff; border-radius:6px; padding:4px 10px; font-weight:700;"><span class="math">\(2\)</span></div>
+                    <div style="background:#e67e22; color:#ffffff; border-radius:6px; padding:4px 10px; font-weight:700;"><span class="math">\(2\)</span></div>
+                    <span style="margin-left:6px; font-weight:700;">= <span class="math">\(2^4 = 16\)</span></span>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+                    <div style="background:#3498db; color:#ffffff; border-radius:6px; padding:4px 10px; font-weight:700;"><span class="math">\(3\)</span></div>
+                    <div style="background:#3498db; color:#ffffff; border-radius:6px; padding:4px 10px; font-weight:700;"><span class="math">\(3\)</span></div>
+                    <div style="background:#3498db; color:#ffffff; border-radius:6px; padding:4px 10px; font-weight:700;"><span class="math">\(3\)</span></div>
+                    <div style="background:#3498db; color:#ffffff; border-radius:6px; padding:4px 10px; font-weight:700;"><span class="math">\(3\)</span></div>
+                    <span style="margin-left:6px; font-weight:700;">= <span class="math">\(3^4 = 81\)</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#e67e22;"></span> двойки — их ровно 4, это <span class="math">\(2^4\)</span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#3498db;"></span> тройки — их тоже 4, это <span class="math">\(3^4\)</span></span>
+    </div>
+    <p class="fig-caption">Конвейер «развес»: <span class="math">\((2 \cdot{} 3)^4 = 2^4 \cdot{} 3^4\)</span>; проверь: <span class="math">\(16 \cdot{} 81 = 1296\)</span> — и это действительно <span class="math">\(6^4\)</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧅 Правило второе: степень в степени</h2>
+    <p>А теперь «луковица»: основание степени само является степенью. Снова честно раскрутим по определению. По определению степени <span class="math">\((a^m)^n = a^m \cdot{} a^m \cdot{} ... \cdot{} a^m\)</span> — множитель <span class="math">\(a^m\)</span> повторяется <span class="math">\(n\)</span> раз.</p>
+    <p>Дальше включается основное свойство степени из п. 19: при умножении показатели складываются. Значит, показатель суммы — это <span class="math">\(m + m + ... + m\)</span>, где слагаемых <span class="math">\(n\)</span> штук. Заменяем сумму произведением: <span class="math">\(m \cdot{} n\)</span>. Получаем <span class="math">\(a^{mn}\)</span>.</p>
+    <p><b>Свойство.</b> Для любого числа <span class="math">\(a\)</span> и произвольных натуральных чисел <span class="math">\(m\)</span> и <span class="math">\(n\)</span> верно равенство <span class="math">\((a^m)^n = a^{mn}\)</span>.</p>
+    <p>📖 <b>Правило из учебника:</b> при возведении степени в степень основание оставляют тем же, а показатели перемножают.</p>
+    <p><b>Пример 2 из учебника.</b> Представим <span class="math">\((a^4)^3\)</span> в виде степени с основанием <span class="math">\(a\)</span>: показатели перемножаем — <span class="math">\((a^4)^3 = a^{4 \cdot{} 3} = a^{12}\)</span>.</p>
+
+    <div class="visual-container">
+        <svg viewBox="0 0 460 250" class="graph-svg" width="460" height="250" role="img" aria-label="Луковица: (2^2)^3 — три одинаковых слоя по 2^2">
+            <circle cx="135" cy="125" r="104" fill="#bde3c7"/>
+            <circle cx="135" cy="125" r="71" fill="#a9c9ec"/>
+            <circle cx="135" cy="125" r="38" fill="#e67e22"/>
+            <text x="135" y="131" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff" font-family="Courier New, monospace">2^2</text>
+            <text x="135" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d3436" font-family="Courier New, monospace">· 2^2</text>
+            <text x="135" y="39" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d3436" font-family="Courier New, monospace">· 2^2</text>
+            <text x="272" y="75" font-size="15" font-weight="bold" fill="#2d3436" font-family="Courier New, monospace">(2^2)^3</text>
+            <text x="272" y="100" font-size="14" fill="#2d3436" font-family="Courier New, monospace">= 2^(2+2+2)</text>
+            <text x="272" y="125" font-size="14" fill="#2d3436" font-family="Courier New, monospace">= 2^6</text>
+            <text x="272" y="150" font-size="14" fill="#2d3436" font-family="Courier New, monospace">= 64</text>
+        </svg>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#e67e22;"></span> ядро — первый множитель <span class="math">\(2^2\)</span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#a9c9ec;"></span> средний слой — второй множитель <span class="math">\(2^2\)</span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#bde3c7;"></span> внешний слой — третий множитель <span class="math">\(2^2\)</span></span>
+    </div>
+    <p class="fig-caption">Луковица: кольца одной толщины, потому что множители одинаковые. Показатель складывается три раза: <span class="math">\(2^{2+2+2} = 2^{2 \cdot{} 3} = 2^6 = 64\)</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>⚖️ Три операции — три разных правила</h2>
+    <p>Здесь прячется самая коварная путаница всего §6. Держи шпаргалку-таблицу:</p>
+    <div class="visual-container">
+        <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
+            <div style="border:2px solid #95a5a6; border-radius:10px; padding:12px 18px; text-align:center; min-width:210px;">
+                <div style="font-size:1.1em;"><span class="math">\(a^m \cdot{} a^n = a^{m+n}\)</span></div>
+                <div style="font-size:0.9em; color:#7f8c8d; margin-top:6px;">умножение степеней — показатели <b>складываем</b> (п. 19)</div>
+            </div>
+            <div style="border:2px solid #e67e22; border-radius:10px; padding:12px 18px; text-align:center; min-width:210px;">
+                <div style="font-size:1.1em;"><span class="math">\((a^m)^n = a^{mn}\)</span></div>
+                <div style="font-size:0.9em; color:#7f8c8d; margin-top:6px;">луковица 🧅 — показатели <b>перемножаем</b></div>
+            </div>
+            <div style="border:2px solid #3498db; border-radius:10px; padding:12px 18px; text-align:center; min-width:210px;">
+                <div style="font-size:1.1em;"><span class="math">\((ab)^n = a^nb^n\)</span></div>
+                <div style="font-size:0.9em; color:#7f8c8d; margin-top:6px;">развес 🎒 — показатель <b>раздаётся каждому</b> множителю</div>
+            </div>
+        </div>
+    </div>
+    <p class="fig-caption">Одно основание и сложение — п. 19; одно основание и умножение показателей — луковица; разные основания под одной степенью — развес.</p>
+    <p>Проверь на числах, почему складывать показатели в луковице нельзя: <span class="math">\((3^2)^3 = 3^6 = 729\)</span> ✅, а если зря сложить, выйдет <span class="math">\(3^5 = 243\)</span> 🚫 — совсем другое число.</p>
+    <p>Правила дружат между собой. Упростим <span class="math">\((x^2)^3 \cdot{} x^4\)</span>:</p>
+    <ol>
+        <li>Сначала луковица: <span class="math">\((x^2)^3 = x^{2 \cdot{} 3} = x^6\)</span>.</li>
+        <li>Затем п. 19: <span class="math">\(x^6 \cdot{} x^4 = x^{6+4} = x^{10}\)</span>.</li>
+    </ol>
+    <p>Кстати, в учебнике отмечено: оба свойства верны и для степеней с нулевым показателем — если основания отличны от нуля.</p>
+</section>
+
+<section class="card page-block">
+    <h2>📦 Жизнь: как степени растут в кубах</h2>
+    <p>Вернёмся к бассейну из начала урока. Объём куба с ребром <span class="math">\(a\)</span> равен <span class="math">\(V = a^3\)</span>. Если ребро увеличить в <span class="math">\(k\)</span> раз, новое ребро — <span class="math">\(ka\)</span>, и тогда (вот оно, правило произведения в деле!): <span class="math">\(V = (ka)^3 = k^3a^3\)</span> — объём вырастает в <span class="math">\(k^3\)</span> раз. Это и есть вопрос №448 из учебника:</p>
+    <div class="visual-container">
+        <table style="border-collapse:collapse; margin:0 auto; text-align:center;">
+            <tr style="background:#ecf0f1;">
+                <th style="border:2px solid #bdc3c7; padding:8px 18px;">Ребро выросло в</th>
+                <th style="border:2px solid #bdc3c7; padding:8px 18px;">Площадь поверхности — в <span class="math">\(k^2\)</span> раз</th>
+                <th style="border:2px solid #bdc3c7; padding:8px 18px;">Объём — в <span class="math">\(k^3\)</span> раз</th>
+            </tr>
+            <tr>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;">2 раза</td>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(4\)</span></td>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(8\)</span></td>
+            </tr>
+            <tr>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;">3 раза</td>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(9\)</span></td>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(27\)</span></td>
+            </tr>
+            <tr>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;">10 раз</td>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(100\)</span></td>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(1000\)</span></td>
+            </tr>
+            <tr>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(n\)</span> раз</td>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(n^2\)</span></td>
+                <td style="border:2px solid #bdc3c7; padding:6px 18px;"><span class="math">\(n^3\)</span></td>
+            </tr>
+        </table>
+    </div>
+    <p class="fig-caption">Каждый множитель <span class="math">\(k\)</span> добавляет свою степень: <span class="math">\((ka)^2 = k^2a^2\)</span>, <span class="math">\((ka)^3 = k^3a^3\)</span>.</p>
+    <p>Теперь загадка разгадана: у бассейна с ребром вдвое больше объём больше в <span class="math">\(2^3 = 8\)</span> раз, значит, и наполняться он будет в 8 раз дольше: <span class="math">\(40 \cdot{} 8 = 320\)</span> минут — это 5 часов 20 минут. Увы, за 5 часов не успеют ⏱️</p>
+    <p>А в задании 6 тебя ждёт покраска куба — там краска расходуется на поверхность, а она растёт как <span class="math">\(k^2\)</span>. Считай это бесплатной подсказкой 😉</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Луковица и развес»</h3>
+    <p>Два приёма — и ни одной скобки-ловушки:</p>
+    <ol>
+        <li><b>🧅 Луковица:</b> <span class="math">\((a^m)^n\)</span> — основание одно, снимай слои и <b>перемножай показатели</b>: <span class="math">\((2^2)^3 = 2^6 = 64\)</span> ✅. Складывать показатели здесь нельзя: получится <span class="math">\(2^5 = 32\)</span> 🚫 — сложение придумано для умножения степеней из п. 19, а не для луковицы!</li>
+        <li><b>🎒 Развес:</b> <span class="math">\((ab)^n\)</span> — степень расправляется на <b>каждый</b> множитель: <span class="math">\((2 \cdot{} 5)^3 = 2^3 \cdot{} 5^3 = 8 \cdot{} 125 = 1000\)</span>, и это ровно <span class="math">\(10^3\)</span> ✅. А если раздать показатель только одному множителю — ошибка 🚫.</li>
+    </ol>
+    <p>🌉 <b>Мостик:</b> в задании 1 расправишь «развес» на три множителя (следи за минусом!), в задании 3 увидишь «луковицу» наоборот, а в задании 4 она поможет перемножить два разных основания в один шаг.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 20) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№444 г из учебника)</div>
+    <p>Выполни возведение в степень:</p>
+    <p><span class="math">\((-2ax)^3\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="-8a^3x^3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans20_1')">🔍 Проверить</button>
+    <div id="ans20_1" class="answer">
+        <ol>
+            <li>Включаем «развес»: степень расправляется на каждый множитель, включая минус: <span class="math">\((-2ax)^3 = (-2)^3 \cdot{} a^3 \cdot{} x^3\)</span>.</li>
+            <li>Считаем числовой множитель: <span class="math">\((-2)^3 = -8\)</span> — нечётная степень сохраняет минус.</li>
+            <li>Собираем результат: <span class="math">\((-2)^3 \cdot{} a^3 \cdot{} x^3 = -8a^3x^3\)</span>. Проверка по определению: <span class="math">\((-2ax) \cdot{} (-2ax) \cdot{} (-2ax) = -8a^3x^3\)</span> ✅</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(-8a^3x^3\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№457 б из учебника)</div>
+    <p>Представь в виде степени с основанием <span class="math">\(5\)</span> число:</p>
+    <p><span class="math">\(125^3\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="5^9"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans20_2')">🔍 Проверить</button>
+    <div id="ans20_2" class="answer">
+        <ol>
+            <li>Сначала разберёмся с основанием: <span class="math">\(125 = 5^3\)</span>, значит <span class="math">\(125^3 = (5^3)^3\)</span>.</li>
+            <li>Дальше «луковица»: показатели перемножаем — <span class="math">\((5^3)^3 = 5^{3 \cdot{} 3} = 5^9\)</span>.</li>
+            <li>Проверка числами: <span class="math">\(125^3 = 1953125\)</span> и <span class="math">\(5^9 = 1953125\)</span> ✅</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(5^9\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№459 б из учебника)</div>
+    <p>Запиши число <span class="math">\(2^{60}\)</span> в виде степени с основанием <span class="math">\(8\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="8^{20}"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans20_3')">🔍 Проверить</button>
+    <div id="ans20_3" class="answer">
+        <ol>
+            <li>Представим новое основание как степень двойки: <span class="math">\(8 = 2^3\)</span>.</li>
+            <li>Ищем показатель: <span class="math">\(2^{60} = (2^3)^n = 2^{3n}\)</span>.</li>
+            <li>Приравниваем показатели: <span class="math">\(3n = 60\)</span>, откуда <span class="math">\(n = 20\)</span>.</li>
+            <li>Проверка «луковицей»: <span class="math">\((2^3)^{20} = 2^{3 \cdot{} 20} = 2^{60}\)</span> ✅</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(8^{20}\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№452 в из учебника)</div>
+    <p>Найди значение выражения:</p>
+    <p><span class="math">\(0,25^{15} \cdot{} 4^{15}\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="1"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans20_4')">🔍 Проверить</button>
+    <div id="ans20_4" class="answer">
+        <ol>
+            <li>Основания разные, но показатель один и тот же — запускаем «развес» наоборот: <span class="math">\(0,25^{15} \cdot{} 4^{15} = (0,25 \cdot{} 4)^{15}\)</span>.</li>
+            <li>Считаем в скобке: <span class="math">\(0,25 \cdot{} 4 = 1\)</span>.</li>
+            <li>Остаётся <span class="math">\(1^{15} = 1\)</span> — единица в любой степени есть единица ✅</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(1\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№446 а из учебника, доказательство)</div>
+    <p>Докажи, что квадраты противоположных чисел равны. Подсказка: любое <span class="math">\(-a\)</span> можно записать как <span class="math">\((-1) \cdot{} a\)</span> — и в дело идёт «развес».</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(-a)^2 = a^2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans20_5')">🔍 Проверить</button>
+    <div id="ans20_5" class="answer">
+        <ol>
+            <li>Пусть <span class="math">\(a\)</span> — произвольное число. Квадрат числа <span class="math">\(a\)</span> — это <span class="math">\(a^2\)</span>, квадрат противоположного числа — это <span class="math">\((-a)^2\)</span>. Нужно доказать: <span class="math">\((-a)^2 = a^2\)</span>.</li>
+            <li>Запишем <span class="math">\(-a = (-1) \cdot{} a\)</span> и применим правило степени произведения: <span class="math">\((-a)^2 = ((-1) \cdot{} a)^2 = (-1)^2 \cdot{} a^2\)</span>.</li>
+            <li>Так как <span class="math">\((-1)^2 = 1\)</span>, получаем <span class="math">\((-a)^2 = 1 \cdot{} a^2 = a^2\)</span> — квадраты совпали, что и требовалось ✅</li>
+            <li>Контроль по определению степени: <span class="math">\((-a)^2 = (-a) \cdot{} (-a) = a^2\)</span>, ведь произведение двух отрицательных чисел положительно.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((-a)^2 = a^2\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№449 из учебника, сюжетная задача)</div>
+    <p>На покраску куба затратили 40 г краски. Хватит ли 1 кг краски, чтобы покрасить куб, ребро которого в 3 раза больше? (В учебнике задача для работы в парах: сначала выскажи предположение, потом проверь вычислениями!)</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="да, хватит (нужно 360 г)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans20_6')">🔍 Проверить</button>
+    <div id="ans20_6" class="answer">
+        <ol>
+            <li>Краска расходуется на поверхность. У куба с ребром <span class="math">\(a\)</span> площадь поверхности <span class="math">\(S = 6a^2\)</span>.</li>
+            <li>Новое ребро — <span class="math">\(3a\)</span>: по «развесу» <span class="math">\(6(3a)^2 = 6 \cdot{} 3^2 \cdot{} a^2 = 9 \cdot{} 6a^2\)</span>. Площадь выросла в <span class="math">\(3^2 = 9\)</span> раз.</li>
+            <li>Значит, краски нужно <span class="math">\(40 \cdot{} 9 = 360\)</span> г.</li>
+            <li>Сравниваем: 1 кг — это <span class="math">\(1000\)</span> г, а <span class="math">\(360 \lt 1000\)</span> — краски хватит, и ещё 640 г останется ✅</li>
+        </ol>
+        <p><b>Ответ:</b> да, хватит (нужно <span class="math">\(360\)</span> г)</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li><span class="math">\((ab)^n = a^nb^n\)</span> — степень произведения: показатель раздаётся каждому множителю, результаты перемножаются.</li>
+        <li><span class="math">\((a^m)^n = a^{mn}\)</span> — степень в степени: основание остаётся тем же, показатели перемножаются.</li>
+        <li>Оба правила работают для любого числа множителей: <span class="math">\((abc)^n = a^nb^nc^n\)</span>.</li>
+        <li>Показатели складываются только при умножении степеней с одним основанием: <span class="math">\(a^m \cdot{} a^n = a^{m+n}\)</span>. В «луковице» — умножение!</li>
+        <li>Минус — полноценный множитель: <span class="math">\((-3a)^3 = -27a^3\)</span>, а <span class="math">\((-3a)^2 = 9a^2\)</span> — чётная степень съедает минус.</li>
+        <li>Оба свойства верны и для нулевого показателя степени (если основание отлично от нуля).</li>
+        <li>Ребро куба выросло в <span class="math">\(k\)</span> раз — объём вырос в <span class="math">\(k^3\)</span> раз, площадь поверхности — в <span class="math">\(k^2\)</span> раз.</li>
+        <li>Правила работают и в обратную сторону: <span class="math">\(2^3 \cdot{} 5^3 = (2 \cdot{} 5)^3 = 10^3 = 1000\)</span> — так огромные вычисления делаются в уме.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 3: Степень с натуральным показателем<br>
+    §6, п. 20. Возведение в степень произведения и степени • Страницы 105-109</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-19.html">← Урок 19</a><span class="sep">|</span><a href="lesson-21.html">Урок 21 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

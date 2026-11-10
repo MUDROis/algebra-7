@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Разложение многочлена на множители способом группировки — Алгебра 7 класс | Глава 4, §10, п. 30</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Когда общего множителя «на всех» нет, члены многочлена находят себе пару 🤝">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Разложение многочлена на множители способом группировки — Алгебра 7 класс | Глава 4, §10, п. 30">
+<meta property="og:description" content="Когда общего множителя «на всех» нет, члены многочлена находят себе пару 🤝">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-30.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Разложение многочлена на множители способом группировки — Алгебра 7 класс | Глава 4, §10, п. 30">
+<meta name="twitter:description" content="Когда общего множителя «на всех» нет, члены многочлена находят себе пару 🤝">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-30.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-29.html">← Урок 29</a><span class="sep">|</span><a href="lesson-31.html">Урок 31 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 4 • §10, п. 30</span>
+    <h1>Разложение многочлена на множители способом группировки</h1>
+    <p class="subtitle">Когда общего множителя «на всех» нет, члены многочлена находят себе пару 🤝</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Разомнёмся без калькулятора: сколько будет <span class="math">\(47\cdot{}8 + 47\cdot{}2 + 53\cdot{}8 + 53\cdot{}2\)</span>? Не спеши перемножать «в лоб» — собери слагаемые в умные пары, и через десять секунд выйдет ровно <span class="math">\(1000\)</span>. Как это работает — тема урока: <b>способ группировки</b> из п. 30. Он выручает, когда у многочлена нет общего множителя для всех членов сразу, но общий множитель прячется внутри пар.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧩 Когда общего множителя нет</h2>
+    <p>В п. 28 мы выносили общий множитель за скобки. Но так везёт не всегда: у многочлена <span class="math">\(ab - 2b + 3a - 6\)</span> нет множителя, который делили бы все четыре члена. Учебник сразу подсказывает выход: «Иногда удаётся разложить многочлен на множители, используя другой способ — группировку его членов».</p>
+    <p><b>Определение.</b> Способ разложения многочлена на множители, при котором его члены объединяют в группы и из каждой группы выносят общий множитель, называют <span class="highlight">способом группировки</span>. В учебнике: «Способ, который мы применили для разложения многочленов на множители, называют способом группировки».</p>
+    <p>🛒 <b>Жизненная минутка.</b> В канцелярии купили 8 тетрадей по 47 р., потом ещё 2 тетради по 47 р., а также 8 ручек по 53 р. и 2 ручки по 53 р. Стоимость покупки — <span class="math">\(47\cdot{}8 + 47\cdot{}2 + 53\cdot{}8 + 53\cdot{}2\)</span>. Считаем пары:</p>
+    <ol>
+        <li><span class="math">\((47\cdot{}8 + 47\cdot{}2) + (53\cdot{}8 + 53\cdot{}2) = 47\cdot{}(8 + 2) + 53\cdot{}(8 + 2)\)</span>;</li>
+        <li>в обеих скобках одно и то же <span class="math">\((8 + 2)\)</span> — выносим его: <span class="math">\((8 + 2)\cdot{}(47 + 53)\)</span>;</li>
+        <li>устно: <span class="math">\(10 \cdot{} 100 = 1000\)</span> рублей.</li>
+    </ol>
+    <p>Четыре умножения превратились в два сложения «десятков» — в этом и есть сила удачных пар. 🎯</p>
+</section>
+
+<section class="card page-block">
+    <h2>👯 Алгоритм: собери пары</h2>
+    <ol>
+        <li>Разбей четыре члена на две группы так, чтобы в каждой группе был свой общий множитель.</li>
+        <li>Из каждой группы вынеси её общий множитель.</li>
+        <li>Если в скобках появились <b>одинаковые</b> выражения — вынеси это выражение за скобки как общий множитель.</li>
+    </ol>
+    <p><b>Пример 1 из учебника.</b> Разложим на множители многочлен <span class="math">\(ab - 2b + 3a - 6\)</span>:</p>
+    <ol>
+        <li>Сгруппируем: <span class="math">\((ab - 2b) + (3a - 6)\)</span> — в первой паре общий множитель <span class="math">\(b\)</span>, во второй <span class="math">\(3\)</span>.</li>
+        <li>Выносим: <span class="math">\(b(a - 2) + 3(a - 2)\)</span>.</li>
+        <li>Скобки совпали: <span class="math">\(b(a - 2) + 3(a - 2) = (a - 2)(b + 3)\)</span>.</li>
+    </ol>
+    <p>Проверка умножением (п. 29): <span class="math">\((a - 2)(b + 3) = ab + 3a - 2b - 6\)</span> — получили исходный многочлен. ✅</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="100%" viewBox="0 0 720 320" role="img" aria-label="Схема группировки: члены ab, -2b, 3a, -6 соединяются в две пары, из каждой пары выносится множитель, и скобки совпадают">
+            <text x="360" y="24" font-size="15" fill="#7f8c8d" text-anchor="middle">Четыре члена — две пары — одна общая скобка</text>
+            <defs>
+                <marker id="arrow30" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a085"/>
+                </marker>
+            </defs>
+            <rect x="48" y="44" width="130" height="50" rx="10" fill="#3498db"/>
+            <text x="113" y="77" font-size="22" font-weight="bold" text-anchor="middle" fill="#ffffff">ab</text>
+            <rect x="198" y="44" width="130" height="50" rx="10" fill="#3498db"/>
+            <text x="263" y="77" font-size="22" font-weight="bold" text-anchor="middle" fill="#ffffff">-2b</text>
+            <rect x="392" y="44" width="130" height="50" rx="10" fill="#e67e22"/>
+            <text x="457" y="77" font-size="22" font-weight="bold" text-anchor="middle" fill="#ffffff">3a</text>
+            <rect x="542" y="44" width="130" height="50" rx="10" fill="#e67e22"/>
+            <text x="607" y="77" font-size="22" font-weight="bold" text-anchor="middle" fill="#ffffff">-6</text>
+            <line x1="113" y1="94" x2="185" y2="146" stroke="#16a085" stroke-width="2.5" marker-end="url(#arrow30)"/>
+            <line x1="263" y1="94" x2="252" y2="146" stroke="#16a085" stroke-width="2.5" marker-end="url(#arrow30)"/>
+            <line x1="457" y1="94" x2="468" y2="146" stroke="#16a085" stroke-width="2.5" marker-end="url(#arrow30)"/>
+            <line x1="607" y1="94" x2="535" y2="146" stroke="#16a085" stroke-width="2.5" marker-end="url(#arrow30)"/>
+            <rect x="70" y="150" width="290" height="52" rx="10" fill="#eaf2f8" stroke="#3498db" stroke-width="2"/>
+            <text x="215" y="184" font-size="19" font-weight="bold" text-anchor="middle" fill="#2d3436">ab - 2b = b<tspan fill="#e74c3c">(a - 2)</tspan></text>
+            <rect x="360" y="150" width="290" height="52" rx="10" fill="#fdf2e9" stroke="#e67e22" stroke-width="2"/>
+            <text x="505" y="184" font-size="19" font-weight="bold" text-anchor="middle" fill="#2d3436">3a - 6 = 3<tspan fill="#e74c3c">(a - 2)</tspan></text>
+            <text x="360" y="234" font-size="16" font-weight="bold" text-anchor="middle" fill="#e74c3c">скобки совпали!</text>
+            <line x1="140" y1="206" x2="230" y2="256" stroke="#16a085" stroke-width="2.5" marker-end="url(#arrow30)"/>
+            <line x1="580" y1="206" x2="490" y2="256" stroke="#16a085" stroke-width="2.5" marker-end="url(#arrow30)"/>
+            <rect x="140" y="260" width="440" height="52" rx="10" fill="#27ae60"/>
+            <text x="360" y="294" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">b(a - 2) + 3(a - 2) = (a - 2)(b + 3)</text>
+        </svg>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#3498db;"></span><span>пара 1: <span class="math">\(ab\)</span> и <span class="math">\(-2b\)</span></span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#e67e22;"></span><span>пара 2: <span class="math">\(3a\)</span> и <span class="math">\(-6\)</span></span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#27ae60;"></span><span>общая скобка вынесена</span></span>
+    </div>
+    <p class="fig-caption">Схема группировки для примера 1: члены соединяются в две пары, из каждой пары выносится свой множитель — и в скобках появляется одно и то же <span class="math">\((a - 2)\)</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>✂️ Если членов три — разрежь средний</h2>
+    <p><b>Пример 3 из учебника.</b> Разложим на множители трёхчлен <span class="math">\(a^2 - 7a + 12\)</span>. Группировать нечего? Тогда разрежем средний член:</p>
+    <ol>
+        <li>Представим <span class="math">\(-7a = -3a - 4a\)</span>: <span class="math">\(a^2 - 3a - 4a + 12\)</span>.</li>
+        <li>Группируем: <span class="math">\((a^2 - 3a) + (-4a + 12) = a(a - 3) - 4(a - 3)\)</span>.</li>
+        <li>Общая скобка: <span class="math">\((a - 3)(a - 4)\)</span>.</li>
+    </ol>
+    <p>Обрати внимание на второй шаг: из группы <span class="math">\(-4a + 12\)</span> мы вынесли <span class="math">\(-4\)</span> — <span class="highlight">минус тоже бывает общим множителем</span>. Благодаря ему знак внутри скобки перевернулся, и скобки совпали: <span class="math">\(-4a + 12 = -4(a - 3)\)</span>.</p>
+    <p>Проверка умножением: <span class="math">\((a - 3)(a - 4) = a^2 - 4a - 3a + 12 = a^2 - 7a + 12\)</span> — верно. ✅</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔄 Две дороги — один результат</h2>
+    <p>Группировать один и тот же многочлен можно по-разному. Возьмём снова <span class="math">\(ab - 2b + 3a - 6\)</span> и соединим члены иначе — первый с третьим, второй с четвёртым:</p>
+    <ol>
+        <li><span class="math">\((ab + 3a) - (2b + 6)\)</span>;</li>
+        <li>выносим: <span class="math">\(a(b + 3) - 2(b + 3)\)</span>;</li>
+        <li>общая скобка: <span class="math">\((b + 3)(a - 2)\)</span>.</li>
+    </ol>
+    <p>Результат тот же, что в примере 1, просто множители поменялись местами. <span class="highlight">Правильных группировок может быть несколько — важен не путь, а совпадение скобок.</span> Если скобки не совпали, не бросай решение: поменяй соседей по парам или вынеси из группы минус — и попробуй снова.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: Парный разведчик</h3>
+    <p>Если общего множителя у всех членов нет — ищи ПАРЫ, как разведчик: разбей четыре члена на две группы, из каждой вынеси «своё» — и жди, когда в скобках появится <b>одинаковое</b> выражение. Совпало — выноси его вторым шагом. Не совпало — поменяй соседей по парам или вынеси минус.</p>
+    <p>Пример разведки: <span class="math">\(x^2\cdot{}y + x + x\cdot{}y^2 + y\)</span>. Пары по порядку: <span class="math">\((x^2\cdot{}y + x) + (x\cdot{}y^2 + y) = x(xy + 1) + y(xy + 1) = (xy + 1)(x + y)\)</span>. Две выноски — и совпадение ✅</p>
+    <p>✅ Контроль совпадения: годится и другая разбивка — <span class="math">\((x^2\cdot{}y + x\cdot{}y^2) + (x + y) = xy(x + y) + (x + y) = (x + y)(xy + 1)\)</span>. Тот же результат, множители лишь поменялись местами: обе группировки верны, если скобки совпали.</p>
+    <p>🚫 А пара «крест-накрест» заводит в тупик: <span class="math">\((x^2\cdot{}y + y) + (x + x\cdot{}y^2) = y(x^2 + 1) + x(1 + y^2)\)</span> — в скобках разные выражения, дальше хода нет. Разведчик не сдаётся: меняет соседей — и скобки совпадают.</p>
+    <p>🧭 Мостик: в задании 2 соберёшь пары и заметишь в одной из них минус-множитель, а в задании 5 группировка заменит калькулятор.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 30) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№725 а из учебника)</div>
+    <p>Разложите на множители многочлен: <span class="math">\(mx + my + 6x + 6y\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(x + y)(m + 6)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans30_1')">🔍 Проверить</button>
+    <div id="ans30_1" class="answer">
+        <p>Общего множителя у всех членов нет — собираем пары.</p>
+        <ol>
+            <li>Группируем: <span class="math">\((mx + my) + (6x + 6y)\)</span>.</li>
+            <li>Из первой группы выносим <span class="math">\(m\)</span>, из второй <span class="math">\(6\)</span>: <span class="math">\(m(x + y) + 6(x + y)\)</span>.</li>
+            <li>Скобки совпали — выносим <span class="math">\((x + y)\)</span>: <span class="math">\((x + y)(m + 6)\)</span>.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\((x + y)(m + 6) = mx + 6x + my + 6y\)</span> — получили исходный многочлен.</p>
+        <p><b>Ответ:</b> <span class="math">\((x + y)(m + 6)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№725 г из учебника)</div>
+    <p>Разложите на множители многочлен: <span class="math">\(ax + ay - x - y\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(x + y)(a - 1)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans30_2')">🔍 Проверить</button>
+    <div id="ans30_2" class="answer">
+        <p>Пары видны сразу, но во второй спрятался минус.</p>
+        <ol>
+            <li>Группируем: <span class="math">\((ax + ay) + (-x - y)\)</span>.</li>
+            <li>Из первой группы выносим <span class="math">\(a\)</span>, из второй выносим <span class="math">\(-1\)</span> — минус-множитель: <span class="math">\(a(x + y) - (x + y)\)</span>.</li>
+            <li>Скобки совпали: <span class="math">\((x + y)(a - 1)\)</span>.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\((x + y)(a - 1) = ax + ay - x - y\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\((x + y)(a - 1)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№726 б из учебника)</div>
+    <p>Разложите на множители многочлен: <span class="math">\(ax - 5 + 5x - a\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(a + 5)(x - 1)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans30_3')">🔍 Проверить</button>
+    <div id="ans30_3" class="answer">
+        <p>Здесь «родные» пары стоят не рядом — сначала соберём их.</p>
+        <ol>
+            <li>Соединяем члены с <span class="math">\(x\)</span> и «числовые»: <span class="math">\((ax + 5x) + (-5 - a)\)</span>.</li>
+            <li>Выносим: <span class="math">\(x(a + 5) - (5 + a)\)</span>. Во второй скобке поменяем слагаемые местами: <span class="math">\(5 + a = a + 5\)</span>.</li>
+            <li>Скобки совпали: <span class="math">\(x(a + 5) - (a + 5) = (a + 5)(x - 1)\)</span>.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\((a + 5)(x - 1) = ax - a + 5x - 5 = ax + 5x - a - 5\)</span> — совпадает с исходным многочленом.</p>
+        <p><b>Ответ:</b> <span class="math">\((a + 5)(x - 1)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№728 б из учебника)</div>
+    <p>Представьте в виде произведения многочлен: <span class="math">\(x^2 + 7x - ax - 7a\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(x + 7)(x - a)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans30_4')">🔍 Проверить</button>
+    <div id="ans30_4" class="answer">
+        <ol>
+            <li>Группируем: <span class="math">\((x^2 + 7x) + (-ax - 7a)\)</span>.</li>
+            <li>Выносим <span class="math">\(x\)</span> из первой группы и <span class="math">\(-a\)</span> из второй: <span class="math">\(x(x + 7) - a(x + 7)\)</span>.</li>
+            <li>Общая скобка <span class="math">\((x + 7)\)</span>: <span class="math">\((x + 7)(x - a)\)</span>.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\((x + 7)(x - a) = x^2 - ax + 7x - 7a = x^2 + 7x - ax - 7a\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\((x + 7)(x - a)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№729 а из учебника)</div>
+    <p>Найдите значение выражения <span class="math">\(p^2\cdot{}q + p\cdot{}q^2 - p - q\)</span> при <span class="math">\(p = 0,5\)</span> и <span class="math">\(q = -0,5\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="0"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans30_5')">🔍 Проверить</button>
+    <div id="ans30_5" class="answer">
+        <p>Хитрость в том, чтобы сначала разложить на множители — тогда считать почти не придётся.</p>
+        <ol>
+            <li>Группируем: <span class="math">\((p^2\cdot{}q + p\cdot{}q^2) + (-p - q)\)</span>.</li>
+            <li>Выносим <span class="math">\(pq\)</span> из первой группы и <span class="math">\(-1\)</span> из второй: <span class="math">\(pq(p + q) - (p + q)\)</span>.</li>
+            <li>Общая скобка: <span class="math">\((p + q)(pq - 1)\)</span>.</li>
+            <li>Подставляем <span class="math">\(p = 0,5\)</span> и <span class="math">\(q = -0,5\)</span>: <span class="math">\(p + q = 0,5 + (-0,5) = 0\)</span>, поэтому <span class="math">\(0 \cdot{} (pq - 1) = 0\)</span>.</li>
+        </ol>
+        <p>Проверка «в лоб»: <span class="math">\(0,25\cdot{}(-0,5) + 0,5\cdot{}0,25 - 0,5 - (-0,5) = -0,125 + 0,125 - 0,5 + 0,5 = 0\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(0\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№731 а из учебника)</div>
+    <p>Докажите тождество: <span class="math">\(ax - y + x - ay = (x - y)(a + 1)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="ax - y + x - ay = (x - y)(a + 1)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans30_6')">🔍 Проверить</button>
+    <div id="ans30_6" class="answer">
+        <p>Преобразуем левую часть и покажем, что она совпадает с правой.</p>
+        <ol>
+            <li>Группируем члены левой части: <span class="math">\((ax + x) + (-y - ay)\)</span>.</li>
+            <li>Выносим <span class="math">\(x\)</span> из первой группы и <span class="math">\(-y\)</span> из второй: <span class="math">\(x(a + 1) - y(a + 1)\)</span>.</li>
+            <li>Общая скобка: <span class="math">\((a + 1)(x - y)\)</span>. Поменяем множители местами: <span class="math">\((x - y)(a + 1)\)</span> — это правая часть тождества.</li>
+            <li>Левая часть равна правой при любых значениях букв — тождество доказано.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\((x - y)(a + 1) = ax + x - ay - y\)</span> — получена исходная левая часть.</p>
+        <p><b>Ответ:</b> <span class="math">\(ax - y + x - ay = (x - y)(a + 1)\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Если у всех членов многочлена нет общего множителя — попробуй <span class="highlight">способ группировки</span>.</li>
+        <li>Алгоритм: пары → вынеси из каждой группы «своё» → вынеси совпавшую скобку.</li>
+        <li>Признак успеха — <b>одинаковые скобки</b> после вынесения; если они не совпали, поменяй соседей по парам или вынеси минус.</li>
+        <li>Минус бывает общим множителем: <span class="math">\(-x - y = -(x + y)\)</span> — следи за знаками.</li>
+        <li>Трёхчлен тоже поддаётся: разрежь средний член на два слагаемых, как <span class="math">\(a^2 - 7a + 12\)</span>.</li>
+        <li>Правильных группировок может быть несколько — результат один и тот же.</li>
+        <li>Готово разложение — проверь умножением (п. 29): должно получиться исходное выражение.</li>
+        <li>Группировка экономит время и в арифметике: <span class="math">\(47\cdot{}8 + 47\cdot{}2 + 53\cdot{}8 + 53\cdot{}2 = 1000\)</span> — устно.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 4: Многочлены<br>
+    §10, п. 30. Разложение многочлена на множители способом группировки • Страницы 152-153</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-29.html">← Урок 29</a><span class="sep">|</span><a href="lesson-31.html">Урок 31 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

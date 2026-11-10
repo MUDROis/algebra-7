@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Разложение на множители суммы и разности кубов — Алгебра 7 класс | Глава 5, §12, п. 36</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Две последние формулы арсенала: собираем кубы в произведение 🧊">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Разложение на множители суммы и разности кубов — Алгебра 7 класс | Глава 5, §12, п. 36">
+<meta property="og:description" content="Две последние формулы арсенала: собираем кубы в произведение 🧊">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-36.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Разложение на множители суммы и разности кубов — Алгебра 7 класс | Глава 5, §12, п. 36">
+<meta name="twitter:description" content="Две последние формулы арсенала: собираем кубы в произведение 🧊">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-36.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-35.html">← Урок 35</a><span class="sep">|</span><a href="lesson-37.html">Урок 37 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 5 • §12, п. 36</span>
+    <h1>Разложение на множители суммы и разности кубов</h1>
+    <p class="subtitle">Две последние формулы арсенала: собираем кубы в произведение 🧊</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Представь два кубических аквариума: большой с ребром <span class="math">\(5\)</span> дм и маленький с ребром <span class="math">\(2\)</span> дм. Вместе они вмещают <span class="math">\(5^3 + 2^3 = 125 + 8 = 133\)</span> литра. Сегодня ты научишься раскладывать такие суммы и разности кубов на множители — это две последние формулы сокращённого умножения, после них твой арсенал укомплектован полностью 🧰. А бонусом — молниеносные доказательства делимости огромных чисел, без единого столбика.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧊 Формула суммы кубов</h2>
+    <p>Начнём с суммы. Умножим двучлен <span class="math">\(a + b\)</span> на трёхчлен <span class="math">\(a^2 - ab + b^2\)</span> и посмотрим, что получится (так делает и учебник):</p>
+    <p><span class="math">\((a + b)(a^2 - ab + b^2)\)</span> = <span class="math">\(a^3 - a^2b + ab^2 + a^2b - ab^2 + b^3 = a^3 + b^3\)</span></p>
+    <p><b>Определение.</b> Тождество <span class="math">\(a^3 + b^3 = (a + b)(a^2 - ab + b^2)\)</span> называют <span class="highlight">формулой суммы кубов</span>: сумма кубов двух выражений равна произведению суммы этих выражений и <span class="highlight">неполного квадрата их разности</span>.</p>
+    <p>Почему квадрат «неполный»? Трёхчлен <span class="math">\(a^2 - ab + b^2\)</span> напоминает <span class="math">\((a - b)^2 = a^2 - 2ab + b^2\)</span>, но вместо удвоенного произведения <span class="math">\(2ab\)</span> в нём стоит просто <span class="math">\(ab\)</span> — одного множителя не хватает, потому и «неполный».</p>
+    <p>Пример 1 из учебника — разложим на множители многочлен <span class="math">\(27x^3 + y^3\)</span>:</p>
+    <ol>
+        <li>Представим в виде суммы кубов: <span class="math">\(27x^3 + y^3 = (3x)^3 + y^3\)</span>.</li>
+        <li>Первая скобка — сумма оснований: <span class="math">\(3x + y\)</span>.</li>
+        <li>Хвост — неполный квадрат разности: <span class="math">\((3x)^2 - 3x \cdot{} y + y^2\)</span>.</li>
+        <li>Итог: <span class="math">\(27x^3 + y^3 = (3x + y)(9x^2 - 3xy + y^2)\)</span>.</li>
+    </ol>
+    <p>Проверка умножением: <span class="math">\((3x + y)(9x^2 - 3xy + y^2) = 27x^3 - 9x^2y + 3xy^2 + 9x^2y - 3xy^2 + y^3\)</span> — средние члены исчезли, остаётся <span class="math">\(27x^3 + y^3\)</span> ✅.</p>
+</section>
+
+<section class="card page-block">
+    <h2>➖ Формула разности кубов</h2>
+    <p>С разностью поступаем так же: умножим двучлен <span class="math">\(a - b\)</span> на трёхчлен <span class="math">\(a^2 + ab + b^2\)</span>, который называют <span class="highlight">неполным квадратом суммы</span> выражений <span class="math">\(a\)</span> и <span class="math">\(b\)</span>:</p>
+    <p><span class="math">\((a - b)(a^2 + ab + b^2)\)</span> = <span class="math">\(a^3 + a^2b + ab^2 - a^2b - ab^2 - b^3 = a^3 - b^3\)</span></p>
+    <p><b>Определение.</b> Тождество <span class="math">\(a^3 - b^3 = (a - b)(a^2 + ab + b^2)\)</span> называют <span class="highlight">формулой разности кубов</span>: разность кубов двух выражений равна произведению разности этих выражений и неполного квадрата их суммы.</p>
+    <p>Пример 2 из учебника — разложим на множители многочлен <span class="math">\(m^6 - n^3\)</span>:</p>
+    <ol>
+        <li>Представим в виде разности кубов: <span class="math">\(m^6 - n^3 = (m^2)^3 - n^3\)</span> — ведь <span class="math">\((m^2)^3 = m^6\)</span>.</li>
+        <li>Первая скобка: <span class="math">\(m^2 - n\)</span>.</li>
+        <li>Хвост — неполный квадрат суммы: <span class="math">\((m^2)^2 + m^2 \cdot{} n + n^2\)</span>.</li>
+        <li>Итог: <span class="math">\(m^6 - n^3 = (m^2 - n)(m^4 + m^2n + n^2)\)</span>.</li>
+    </ol>
+    <p>Проверка: <span class="math">\((m^2 - n)(m^4 + m^2n + n^2) = m^6 + m^4n + m^2n^2 - m^4n - m^2n^2 - n^3\)</span> — остаётся <span class="math">\(m^6 - n^3\)</span> ✅. Обрати внимание: основания кубов бывают «высокими» — <span class="math">\(m^6 = (m^2)^3\)</span>, <span class="math">\(27x^3 = (3x)^3\)</span>, <span class="math">\(0,008 = 0,2^3\)</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🪑 Кубик с хвостом: три правила знаков</h2>
+    <p>Обе формулы устроены как игрушка «кубик с хвостом»: первая скобка — сумма или разность оснований (знак — как между кубами), а «хвост» — неполный квадрат. В хвосте живут три правила знаков:</p>
+    <ol>
+        <li><b>Старший член</b> <span class="math">\(a^2\)</span> — всегда с плюсом, знак сохраняется.</li>
+        <li><b>Средний член</b> <span class="math">\(ab\)</span> — знак ПЕРЕВЁРНУТ: противоположен знаку первой скобки.</li>
+        <li><b>Последний член</b> <span class="math">\(b^2\)</span> — всегда с плюсом.</li>
+    </ol>
+    <div class="visual-container">
+        <table style="border-collapse: collapse; background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); font-size: 0.85em;">
+            <tr style="background: #3498db; color: #ffffff;">
+                <th style="padding: 9px 12px; border: 1px solid #dfe6e9;">Знак в «хвосте»</th>
+                <th style="padding: 9px 12px; border: 1px solid #dfe6e9;"><span class="math" style="background: transparent; color: #ffffff;">\(a^3 + b^3\)</span></th>
+                <th style="padding: 9px 12px; border: 1px solid #dfe6e9;"><span class="math" style="background: transparent; color: #ffffff;">\(a^3 - b^3\)</span></th>
+            </tr>
+            <tr>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1;">Первая скобка</td>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1; text-align: center; color: #1e8449; font-weight: 700;">+ (сумма)</td>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1; text-align: center; color: #c0392b; font-weight: 700;">− (разность)</td>
+            </tr>
+            <tr>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1;">Старший член <span class="math">\(a^2\)</span></td>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1; text-align: center; color: #1e8449; font-weight: 700;">+</td>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1; text-align: center; color: #1e8449; font-weight: 700;">+</td>
+            </tr>
+            <tr>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1;">Средний член <span class="math">\(ab\)</span></td>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1; text-align: center; color: #c0392b; font-weight: 700;">− (перевёрнут)</td>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1; text-align: center; color: #1e8449; font-weight: 700;">+</td>
+            </tr>
+            <tr>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1;">Последний член <span class="math">\(b^2\)</span></td>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1; text-align: center; color: #1e8449; font-weight: 700;">+</td>
+                <td style="padding: 9px 12px; border: 1px solid #ecf0f1; text-align: center; color: #1e8449; font-weight: 700;">+</td>
+            </tr>
+        </table>
+    </div>
+    <p class="fig-caption">Таблица знаков «кубика с хвостом»: старший член хвоста — всегда плюс, средний — перевёрнут относительно первой скобки, последний — всегда плюс</p>
+    <p>Соберём кубик по таблице: <span class="math">\(x^3 + 27 = x^3 + 3^3\)</span>. Первая скобка — <span class="math">\(x + 3\)</span>; хвост: старший <span class="math">\(x^2\)</span>, средний <span class="math">\(-3x\)</span> (перевёрнут), последний <span class="math">\(+9\)</span>. Итог: <span class="math">\(x^3 + 27 = (x + 3)(x^2 - 3x + 9)\)</span>. Проверка: <span class="math">\(x^3 - 3x^2 + 9x + 3x^2 - 9x + 27 = x^3 + 27\)</span> ✅.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧮 Делимость без калькулятора</h2>
+    <p>Зачем раскладывать кубы? Смотри, что видно из формул сразу: <span class="math">\(a^3 + b^3\)</span> делится на <span class="math">\(a + b\)</span>, а <span class="math">\(a^3 - b^3\)</span> — на <span class="math">\(a - b\)</span>. Докажем без столбиков, что <span class="math">\(4^3 + 2^3\)</span> делится на 6:</p>
+    <ol>
+        <li><span class="math">\(4^3 + 2^3 = (4 + 2)(4^2 - 4 \cdot{} 2 + 2^2)\)</span>.</li>
+        <li>Первая скобка: <span class="math">\(4 + 2 = 6\)</span> — это и есть наш делитель!</li>
+        <li>Вторая скобка — целое число: <span class="math">\(16 - 8 + 4 = 12\)</span>. Значит, <span class="math">\(4^3 + 2^3 = 6 \cdot{} 12 = 72\)</span> ✅.</li>
+    </ol>
+    <p>И разность: <span class="math">\(5^3 - 2^3 = (5 - 2)(25 + 10 + 4) = 3 \cdot{} 39 = 117\)</span> — делится на 3 ✅. Именно так строят задания на делимость в учебнике: не возводим огромные числа в куб, а достаём первую скобку. 🕵️</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Кубик с хвостом»</h3>
+    <p>Формулы кубов — «кубик с хвостом»: <span class="math">\(a^3 + b^3 = (a + b)(a^2 - ab + b^2)\)</span> и <span class="math">\(a^3 - b^3 = (a - b)(a^2 + ab + b^2)\)</span>. Алгоритм: достань основание куба из каждого члена, собери первую скобку (знак — как между кубами) — хвост допишется по трём правилам: старший тот же, средний ПЕРЕВЁРНУТ, последний всегда «+».</p>
+    <p>Устный пример (не из заданий): <span class="math">\(64 + y^3 = 4^3 + y^3 = (4 + y)(16 - 4y + y^2)\)</span> — хвост: <span class="math">\(16 = 4^2\)</span>, средний <span class="math">\(-4y\)</span> (перевёрнут!), последний <span class="math">\(+y^2\)</span>. 🧊</p>
+    <p>✅ <span class="math">\(x^3 + 8 = (x + 2)(x^2 - 2x + 4)\)</span> — средний знак перевёрнут, проверка умножением даёт ровно <span class="math">\(x^3 + 8\)</span>.</p>
+    <p>🚫 <span class="math">\((x + 2)(x^2 + 2x + 4)\)</span> — забыли перевернуть средний знак: при раскрытии вылезает <span class="math">\(x^3 + 4x^2 + 8x + 8\)</span>, а это не <span class="math">\(x^3 + 8\)</span>.</p>
+    <p>🎯 Мостик: в задании 1 соберёшь два кубика с хвостом, в задании 2 — куб с «высоким» основанием, а в задании 5 первая скобка сама ответит на вопрос о делимости.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 36) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№922 в, г из учебника)</div>
+    <p>Примените формулу суммы кубов или формулу разности кубов: <span class="math">\(x^3 - 64\)</span>; <span class="math">\(125 + a^3\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(x - 4)(x^2 + 4x + 16); (5 + a)(25 - 5a + a^2)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans36_1')">🔍 Проверить</button>
+    <div id="ans36_1" class="answer">
+        <p>В каждом выражении прячутся кубы — достаём основания и собираем «кубик с хвостом».</p>
+        <ol>
+            <li><span class="math">\(x^3 - 64 = x^3 - 4^3\)</span> — разность кубов с основаниями <span class="math">\(x\)</span> и <span class="math">\(4\)</span>.</li>
+            <li>Первая скобка: <span class="math">\(x - 4\)</span>. Хвост — неполный квадрат суммы: <span class="math">\(x^2 + 4x + 16\)</span> (средний знак «перевёрнут» на плюс).</li>
+            <li>Проверка умножением: <span class="math">\((x - 4)(x^2 + 4x + 16) = x^3 + 4x^2 + 16x - 4x^2 - 16x - 64\)</span>, остаётся <span class="math">\(x^3 - 64\)</span> ✅.</li>
+            <li><span class="math">\(125 + a^3 = 5^3 + a^3\)</span> — сумма кубов.</li>
+            <li>Первая скобка: <span class="math">\(5 + a\)</span>. Хвост — неполный квадрат разности: <span class="math">\(25 - 5a + a^2\)</span>.</li>
+            <li>Проверка: <span class="math">\((5 + a)(25 - 5a + a^2) = 125 - 25a + 5a^2 + 25a - 5a^2 + a^3\)</span>, остаётся <span class="math">\(125 + a^3\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((x - 4)(x^2 + 4x + 16); (5 + a)(25 - 5a + a^2)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№926 в из учебника)</div>
+    <p>Разложите на множители: <span class="math">\(x^6 - 8\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(x^2 - 2)(x^4 + 2x^2 + 4)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans36_2')">🔍 Проверить</button>
+    <div id="ans36_2" class="answer">
+        <p>Здесь спрятан «высокий» куб — основание будет не <span class="math">\(x\)</span>, а <span class="math">\(x^2\)</span>.</p>
+        <ol>
+            <li>Старший член: <span class="math">\(x^6 = (x^2)^3\)</span> — куб основания <span class="math">\(x^2\)</span>.</li>
+            <li>Младший член: <span class="math">\(8 = 2^3\)</span>. Значит, <span class="math">\(x^6 - 8 = (x^2)^3 - 2^3\)</span> — разность кубов.</li>
+            <li>Первая скобка: <span class="math">\(x^2 - 2\)</span>.</li>
+            <li>Хвост: <span class="math">\((x^2)^2 + x^2 \cdot{} 2 + 2^2 = x^4 + 2x^2 + 4\)</span>.</li>
+            <li>Итог: <span class="math">\(x^6 - 8 = (x^2 - 2)(x^4 + 2x^2 + 4)\)</span>.</li>
+            <li>Проверка: <span class="math">\((x^2 - 2)(x^4 + 2x^2 + 4) = x^6 + 2x^4 + 4x^2 - 2x^4 - 4x^2 - 8\)</span>, остаётся <span class="math">\(x^6 - 8\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((x^2 - 2)(x^4 + 2x^2 + 4)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№923 д из учебника)</div>
+    <p>Представьте выражение в виде суммы или разности кубов и разложите его на множители: <span class="math">\(125a^3 - 64b^3\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(5a - 4b)(25a^2 + 20ab + 16b^2)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans36_3')">🔍 Проверить</button>
+    <div id="ans36_3" class="answer">
+        <p>Сначала превратим каждый член в точный куб — с коэффициентами.</p>
+        <ol>
+            <li><span class="math">\(125a^3 = (5a)^3\)</span>, ведь <span class="math">\(5^3 = 125\)</span>.</li>
+            <li><span class="math">\(64b^3 = (4b)^3\)</span>, ведь <span class="math">\(4^3 = 64\)</span>.</li>
+            <li>Получили разность кубов: <span class="math">\(125a^3 - 64b^3 = (5a)^3 - (4b)^3\)</span>.</li>
+            <li>Первая скобка: <span class="math">\(5a - 4b\)</span>. Хвост: <span class="math">\((5a)^2 + 5a \cdot{} 4b + (4b)^2\)</span>.</li>
+            <li>Считаем хвост: <span class="math">\(25a^2 + 20ab + 16b^2\)</span>.</li>
+            <li>Проверка: <span class="math">\((5a - 4b)(25a^2 + 20ab + 16b^2) = 125a^3 + 100a^2b + 80ab^2 - 100a^2b - 80ab^2 - 64b^3\)</span>, остаётся <span class="math">\(125a^3 - 64b^3\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((5a - 4b)(25a^2 + 20ab + 16b^2)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№924 а, в из учебника)</div>
+    <p>Разложите на множители: <span class="math">\(8 - m^3\)</span>; <span class="math">\(64x^3 + 1\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(2 - m)(4 + 2m + m^2); (4x + 1)(16x^2 - 4x + 1)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans36_4')">🔍 Проверить</button>
+    <div id="ans36_4" class="answer">
+        <p>Два кубика с хвостом: один на разность, другой на сумму.</p>
+        <ol>
+            <li><span class="math">\(8 - m^3 = 2^3 - m^3\)</span> — разность кубов.</li>
+            <li><span class="math">\(8 - m^3 = (2 - m)(4 + 2m + m^2)\)</span> — в хвосте средний знак плюс.</li>
+            <li>Проверка: <span class="math">\((2 - m)(4 + 2m + m^2) = 8 + 4m + 2m^2 - 4m - 2m^2 - m^3\)</span>, остаётся <span class="math">\(8 - m^3\)</span> ✅.</li>
+            <li><span class="math">\(64x^3 + 1 = (4x)^3 + 1^3\)</span> — сумма кубов.</li>
+            <li><span class="math">\(64x^3 + 1 = (4x + 1)(16x^2 - 4x + 1)\)</span> — в хвосте средний знак минус.</li>
+            <li>Проверка: <span class="math">\((4x + 1)(16x^2 - 4x + 1) = 64x^3 - 16x^2 + 4x + 16x^2 - 4x + 1\)</span>, остаётся <span class="math">\(64x^3 + 1\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((2 - m)(4 + 2m + m^2); (4x + 1)(16x^2 - 4x + 1)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№930 а, б из учебника, делимость)</div>
+    <p>Делится ли значение выражения: <span class="math">\(38^3 + 37^3\)</span> на <span class="math">\(75\)</span>; <span class="math">\(99^3 - 74^3\)</span> на <span class="math">\(25\)</span>?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="да, делится на 75 и делится на 25"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans36_5')">🔍 Проверить</button>
+    <div id="ans36_5" class="answer">
+        <p>Возводить трёхзначные кубы не нужно — первая скобка формулы сама отвечает на вопрос.</p>
+        <ol>
+            <li><span class="math">\(38^3 + 37^3 = (38 + 37)(38^2 - 38 \cdot{} 37 + 37^2)\)</span>.</li>
+            <li>Первая скобка: <span class="math">\(38 + 37 = 75\)</span> — ровно число из вопроса!</li>
+            <li>Вторая скобка — целое число: <span class="math">\(1444 - 1406 + 1369 = 1407\)</span>. Значит, <span class="math">\(38^3 + 37^3 = 75 \cdot{} 1407 = 105525\)</span> — делится на 75 ✅.</li>
+            <li><span class="math">\(99^3 - 74^3 = (99 - 74)(99^2 + 99 \cdot{} 74 + 74^2)\)</span>.</li>
+            <li>Первая скобка: <span class="math">\(99 - 74 = 25\)</span>, вторая: <span class="math">\(9801 + 7326 + 5476 = 22603\)</span>. Значит, <span class="math">\(99^3 - 74^3 = 25 \cdot{} 22603 = 565075\)</span> — делится на 25 ✅.</li>
+            <li>Проверка в лоб: <span class="math">\(54872 + 50653 = 105525\)</span> и <span class="math">\(970299 - 405224 = 565075\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> да, делится на <span class="math">\(75\)</span> и делится на <span class="math">\(25\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№933 а из учебника)</div>
+    <p>Решите уравнение: <span class="math">\((2x - 3)^2 - 2x(4 + 2x) = 11\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x = -0,1"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans36_6')">🔍 Проверить</button>
+    <div id="ans36_6" class="answer">
+        <p>Слева целое выражение — раскрой всё и приведи подобные, квадраты исчезнут.</p>
+        <ol>
+            <li>Квадрат двучлена: <span class="math">\((2x - 3)^2 = 4x^2 - 12x + 9\)</span>.</li>
+            <li>Произведение: <span class="math">\(2x(4 + 2x) = 8x + 4x^2\)</span>.</li>
+            <li>Вычитаем: <span class="math">\(4x^2 - 12x + 9 - 8x - 4x^2 = -20x + 9\)</span> — квадраты взаимоуничтожились.</li>
+            <li>Уравнение: <span class="math">\(-20x + 9 = 11\)</span>, отсюда <span class="math">\(-20x = 2\)</span>, то есть <span class="math">\(x = -0,1\)</span>.</li>
+            <li>Проверка: <span class="math">\((-3,2)^2 + 0,2 \cdot{} 3,8 = 10,24 + 0,76 = 11\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(x = -0,1\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li><span class="math">\(a^3 + b^3 = (a + b)(a^2 - ab + b^2)\)</span> — формула суммы кубов.</li>
+        <li><span class="math">\(a^3 - b^3 = (a - b)(a^2 + ab + b^2)\)</span> — формула разности кубов.</li>
+        <li>Правила из учебника: сумма кубов равна произведению суммы выражений и неполного квадрата их разности; разность кубов — произведению разности выражений и неполного квадрата их суммы.</li>
+        <li>Знаки в «хвосте»: старший член — плюс, средний — перевёрнут, последний — всегда плюс.</li>
+        <li>Неполный квадрат отличается от полного: <span class="math">\(a^2 - ab + b^2\)</span> вместо <span class="math">\(a^2 - 2ab + b^2\)</span> — удвоения нет.</li>
+        <li>Основания бывают «высокими»: <span class="math">\(27x^3 = (3x)^3\)</span>, <span class="math">\(x^6 = (x^2)^3\)</span>, <span class="math">\(0,008 = 0,2^3\)</span>.</li>
+        <li><span class="math">\(a^3 + b^3\)</span> делится на <span class="math">\(a + b\)</span>, а <span class="math">\(a^3 - b^3\)</span> — на <span class="math">\(a - b\)</span>: так доказывают делимость без вычислений.</li>
+        <li>Готовое разложение проверяй умножением — две минуты, а от ошибки страхует. 🧊</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 5: Формулы сокращённого умножения<br>
+    §12, п. 36. Разложение на множители суммы и разности кубов • Страницы 182-184</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-35.html">← Урок 35</a><span class="sep">|</span><a href="lesson-37.html">Урок 37 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

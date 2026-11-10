@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Умножение одночлена на многочлен — Алгебра 7 класс | Глава 4, §9, п. 27</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Одночлен рассылает приглашение каждому члену многочлена — и никто не остаётся без множителя 📬">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Умножение одночлена на многочлен — Алгебра 7 класс | Глава 4, §9, п. 27">
+<meta property="og:description" content="Одночлен рассылает приглашение каждому члену многочлена — и никто не остаётся без множителя 📬">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-27.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Умножение одночлена на многочлен — Алгебра 7 класс | Глава 4, §9, п. 27">
+<meta name="twitter:description" content="Одночлен рассылает приглашение каждому члену многочлена — и никто не остаётся без множителя 📬">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-27.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-26.html">← Урок 26</a><span class="sep">|</span><a href="lesson-28.html">Урок 28 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 4 • §9, п. 27</span>
+    <h1>Умножение одночлена на многочлен</h1>
+    <p class="subtitle">Одночлен рассылает приглашение каждому члену многочлена — и никто не остаётся без множителя 📬</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 В учебнике (задача №660) спортсменка увеличила среднюю скорость с 250 до 300 м/мин — и стала пробегать дистанцию на 1 минуту быстрее. Какова длина дистанции? Уравнение составляется легко, а вот решить его без умножения одночлена на многочлен не получится. Этому и научимся сегодня, а к бегунье вернёмся в конце урока. 🏃</p>
+</section>
+
+<section class="card page-block">
+    <h2>📬 Правило: каждому члену — своё произведение</h2>
+    <p><b>Правило.</b> <span class="highlight">Чтобы умножить одночлен на многочлен, нужно умножить этот одночлен на каждый член многочлена и полученные произведения сложить.</span></p>
+    <p>В учебнике умножают одночлен <span class="math">\(9n^3\)</span> на многочлен <span class="math">\(7n^2 - 3n + 4\)</span>. Три члена — три произведения:</p>
+    <table style="border-collapse:collapse;margin:14px auto;">
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(9n^3 \cdot{} 7n^2\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 14px;text-align:center;"><b>=</b></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(63n^5\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(9n^3 \cdot{} (-3n)\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 14px;text-align:center;"><b>=</b></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(-27n^4\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(9n^3 \cdot{} 4\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 14px;text-align:center;"><b>=</b></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(36n^3\)</span></td>
+        </tr>
+    </table>
+    <p>Складываем результаты: <span class="math">\(9n^3(7n^2 - 3n + 4) = 63n^5 - 27n^4 + 36n^3\)</span>. Обрати внимание: при умножении степеней показатели складываются, например <span class="math">\(n^3 \cdot{} n^2 = n^5\)</span>.</p>
+    <p>Вообще произведение одночлена и многочлена <span class="highlight">всегда можно представить в виде многочлена</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🚂 Конвейер раздачи приглашений</h2>
+    <div class="visual-container">
+        <svg class="graph-svg" width="100%" viewBox="0 0 680 335" role="img" aria-label="Конвейер раздачи: одночлен -2a умножается на каждый из трёх членов многочлена">
+            <text x="20" y="24" font-size="15" fill="#7f8c8d">Одночлен «приглашает» каждый член многочлена: три члена — три произведения</text>
+            <defs>
+                <marker id="arrow27" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a085"/>
+                </marker>
+            </defs>
+            <text x="88" y="132" font-size="14" font-weight="bold" text-anchor="middle" fill="#3498db">ведущий</text>
+            <rect x="36" y="140" width="104" height="56" rx="10" fill="#3498db"/>
+            <text x="88" y="176" font-size="24" font-weight="bold" text-anchor="middle" fill="#ffffff">-2a</text>
+            <rect x="450" y="36" width="130" height="50" rx="10" fill="#ecf0f1" stroke="#2d3436" stroke-width="2"/>
+            <text x="515" y="69" font-size="21" font-weight="bold" text-anchor="middle" fill="#2d3436">3a<tspan dy="-9" font-size="14">2</tspan></text>
+            <rect x="450" y="143" width="130" height="50" rx="10" fill="#ecf0f1" stroke="#2d3436" stroke-width="2"/>
+            <text x="515" y="176" font-size="21" font-weight="bold" text-anchor="middle" fill="#2d3436">-b</text>
+            <rect x="450" y="250" width="130" height="50" rx="10" fill="#ecf0f1" stroke="#2d3436" stroke-width="2"/>
+            <text x="515" y="283" font-size="21" font-weight="bold" text-anchor="middle" fill="#2d3436">+4</text>
+            <line x1="140" y1="160" x2="440" y2="64" stroke="#16a085" stroke-width="3" marker-end="url(#arrow27)"/>
+            <line x1="140" y1="168" x2="440" y2="168" stroke="#16a085" stroke-width="3" marker-end="url(#arrow27)"/>
+            <line x1="140" y1="176" x2="440" y2="272" stroke="#16a085" stroke-width="3" marker-end="url(#arrow27)"/>
+            <text x="240" y="100" font-size="18" font-weight="bold" fill="#16a085">-6a<tspan dy="-9" font-size="13">3</tspan></text>
+            <text x="240" y="154" font-size="18" font-weight="bold" fill="#16a085">+2ab</text>
+            <text x="240" y="242" font-size="18" font-weight="bold" fill="#16a085">-8a</text>
+            <text x="20" y="326" font-size="18" font-weight="bold" fill="#2d3436">-2a(3a<tspan dy="-8" font-size="13">2</tspan><tspan dy="8"> - b + 4) = -6a</tspan><tspan dy="-8" font-size="13">3</tspan><tspan dy="8"> + 2ab - 8a</tspan></text>
+        </svg>
+    </div>
+    <p class="fig-caption">Конвейер раздачи: одночлен -2a умножился на каждый из трёх членов — получилось ровно три произведения.</p>
+    <p>Пример 1 из учебника: умножим одночлен <span class="math">\(-3a^2\)</span> на многочлен <span class="math">\(4a^2 - a + 1\)</span>. Минус одночлена меняет знак у <b>каждого</b> произведения:</p>
+    <ul>
+        <li><span class="math">\(-3a^2 \cdot{} 4a^2 = -12a^4\)</span>;</li>
+        <li><span class="math">\(-3a^2 \cdot{} (-a) = 3a^3\)</span>;</li>
+        <li><span class="math">\(-3a^2 \cdot{} 1 = -3a^2\)</span>.</li>
+    </ul>
+    <p>Итог: <span class="math">\(-3a^2(4a^2 - a + 1) = -12a^4 + 3a^3 - 3a^2\)</span>. Запись можно вести и короче, не выписывая промежуточные результаты, — но следи, чтобы знак сменился у всех слагаемых. ⚠️</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧮 Упрощаем выражения</h2>
+    <p>Умножение одночлена на многочлен — рабочий инструмент для упрощения. Пример 2 из учебника:</p>
+    <p><span class="math">\(3x^2 - 2x(x + 8) = 3x^2 - 2x^2 - 16x = x^2 - 16x\)</span></p>
+    <p>Здесь одночлен <span class="math">\(-2x\)</span> умножился и на <span class="math">\(x\)</span> (получили <span class="math">\(-2x^2\)</span>), и на <span class="math">\(8\)</span> (получили <span class="math">\(-16x\)</span>), а затем мы привели подобные члены. Проверка числом при <span class="math">\(x = 2\)</span>: слева <span class="math">\(12 - 4 \cdot{} 10 = -28\)</span>, справа <span class="math">\(4 - 32 = -28\)</span> — сошлось. ✅</p>
+</section>
+
+<section class="card page-block">
+    <h2>⚖️ Умножение помогает решать уравнения</h2>
+    <p>Пример 3 из учебника: решим уравнение <span class="math">\(8 - 5x(x - 7) = 1 - 5x^2\)</span>.</p>
+    <ol>
+        <li>Раскроем произведение: <span class="math">\(-5x(x - 7) = -5x^2 + 35x\)</span> — минус одночлена перевернул знаки у обоих членов.</li>
+        <li>Получаем: <span class="math">\(8 - 5x^2 + 35x = 1 - 5x^2\)</span>.</li>
+        <li>Слагаемые <span class="math">\(-5x^2\)</span> и <span class="math">\(5x^2\)</span> взаимно уничтожаются: <span class="math">\(35x = 1 - 8\)</span>.</li>
+        <li>Считаем: <span class="math">\(35x = -7\)</span>, откуда <span class="math">\(x = -7 : 35 = -0,2\)</span>.</li>
+    </ol>
+    <p>Проверка при <span class="math">\(x = -0,2\)</span>: слева <span class="math">\(8 - 5 \cdot{} (-0,2) \cdot{} (-7,2) = 8 - 7,2 = 0,8\)</span>, справа <span class="math">\(1 - 0,2 = 0,8\)</span> — верно.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🏃 Жизненная задача: дистанция спортсменки</h2>
+    <p>Решим задачу №660 из учебника. Пусть длина дистанции — <span class="math">\(s\)</span> м. Тогда в старом темпе (250 м/мин) понадобится <span class="math">\(s/250\)</span> минут, а в новом (300 м/мин) — <span class="math">\(s/300\)</span> минут. Разница — ровно 1 минута:</p>
+    <p><span class="math">\(s/250 - s/300 = 1\)</span></p>
+    <ol>
+        <li>Умножим обе части уравнения на 1500 — наименьшее общее кратное чисел 250 и 300: <span class="math">\(1500 \cdot{} s/250 - 1500 \cdot{} s/300 = 1500\)</span>.</li>
+        <li>Число 1500 «раздаёт произведения» каждому слагаемому: <span class="math">\(1500 : 250 = 6\)</span>, <span class="math">\(1500 : 300 = 5\)</span>, поэтому <span class="math">\(6s - 5s = 1500\)</span>.</li>
+        <li>Приводим подобные: <span class="math">\(s = 1500\)</span>, то есть 1,5 км.</li>
+    </ol>
+    <p>Проверка: <span class="math">\(1500 : 250 = 6\)</span> минут и <span class="math">\(1500 : 300 = 5\)</span> минут, разница <span class="math">\(6 - 5 = 1\)</span> минута — всё сходится. 🏅</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Раздача приглашений»</h3>
+    <p>Смотри на одночлен как на ведущего праздника: он обязан «пригласить» (умножить) <b>каждого</b> члена скобки. Было два члена внутри — выйдут два произведения, три члена — три произведения. Пересчитай «гостей»: сколько слагаемых вошло, столько должно выйти.</p>
+    <p>Пример: <span class="math">\(-2x(x - 3)\)</span>. В скобке два члена — должно получиться два слагаемых.</p>
+    <p>✅ Пригласили обоих: <span class="math">\(-2x \cdot{} x + (-2x) \cdot{} (-3) = -2x^2 + 6x\)</span>.</p>
+    <p>🚫 «Пригласили» только первого: <span class="math">\(-2x^2 - 6x\)</span> — здесь минус просто прилип к числу 3, а умножения <span class="math">\(-2x \cdot{} (-3)\)</span> не было. Знак у второго произведения потерян.</p>
+    <p>🚂 Мостик: в задании 3 «приглашения» раздадут сразу два ведущих — 3 и 5, а в задании 5 после раздачи произведений собери все слагаемые с <span class="math">\(x\)</span> по одну сторону равенства.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 27) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№630 а из учебника)</div>
+    <p>Выполните умножение: <span class="math">\(2x(x^2 - 7x - 3)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="2x^3 - 14x^2 - 6x"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans27_1')">🔍 Проверить</button>
+    <div id="ans27_1" class="answer">
+        <p>Одночлен <span class="math">\(2x\)</span> «приглашает» каждый из трёх членов:</p>
+        <ol>
+            <li><span class="math">\(2x \cdot{} x^2 = 2x^3\)</span>;</li>
+            <li><span class="math">\(2x \cdot{} (-7x) = -14x^2\)</span>;</li>
+            <li><span class="math">\(2x \cdot{} (-3) = -6x\)</span>.</li>
+        </ol>
+        <p>Складываем произведения: <span class="math">\(2x^3 - 14x^2 - 6x\)</span>.</p>
+        <p>Проверка числом при <span class="math">\(x = 2\)</span>: слева <span class="math">\(4 \cdot{} (4 - 14 - 3) = 4 \cdot{} (-13) = -52\)</span>, справа <span class="math">\(16 - 56 - 12 = -52\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(2x^3 - 14x^2 - 6x\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№633 а из учебника)</div>
+    <p>Выполните умножение: <span class="math">\(-3x(-x^2 + x - 5)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="3x^3 - 3x^2 + 15x"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans27_2')">🔍 Проверить</button>
+    <div id="ans27_2" class="answer">
+        <p>Одночлен <span class="math">\(-3x\)</span> с минусом: он меняет знак у каждого произведения.</p>
+        <ol>
+            <li><span class="math">\(-3x \cdot{} (-x^2) = 3x^3\)</span>;</li>
+            <li><span class="math">\(-3x \cdot{} x = -3x^2\)</span>;</li>
+            <li><span class="math">\(-3x \cdot{} (-5) = 15x\)</span>.</li>
+        </ol>
+        <p>Складываем: <span class="math">\(3x^3 - 3x^2 + 15x\)</span>. Знаки чередуются именно потому, что минус «перевёл» всех.</p>
+        <p>Проверка числом при <span class="math">\(x = 1\)</span>: слева <span class="math">\(-3 \cdot{} (-1 + 1 - 5) = -3 \cdot{} (-5) = 15\)</span>, справа <span class="math">\(3 - 3 + 15 = 15\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(3x^3 - 3x^2 + 15x\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№634 а из учебника)</div>
+    <p>Упростите выражение и найдите его значение: <span class="math">\(3(2x - 1) + 5(3 - x)\)</span> при <span class="math">\(x = -1,5\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="10,5"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans27_3')">🔍 Проверить</button>
+    <div id="ans27_3" class="answer">
+        <p>Здесь два ведущих: 3 и 5. Каждый приглашает свою скобку:</p>
+        <ol>
+            <li><span class="math">\(3(2x - 1) = 6x - 3\)</span>;</li>
+            <li><span class="math">\(5(3 - x) = 15 - 5x\)</span>;</li>
+            <li>Складываем: <span class="math">\(6x - 3 + 15 - 5x = x + 12\)</span>.</li>
+            <li>Подставляем <span class="math">\(x = -1,5\)</span>: <span class="math">\(-1,5 + 12 = 10,5\)</span>.</li>
+        </ol>
+        <p>Проверка прямым счётом без упрощения: <span class="math">\(3 \cdot{} (2 \cdot{} (-1,5) - 1) + 5 \cdot{} (3 + 1,5) = 3 \cdot{} (-4) + 5 \cdot{} 4,5 = -12 + 22,5 = 10,5\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(10,5\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№635 в из учебника)</div>
+    <p>Представьте в виде многочлена: <span class="math">\(14(7x - 1) - 7(14x + 1)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="-21"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans27_4')">🔍 Проверить</button>
+    <div id="ans27_4" class="answer">
+        <ol>
+            <li>Первый конвейер: <span class="math">\(14(7x - 1) = 98x - 14\)</span>.</li>
+            <li>Второй: <span class="math">\(7(14x + 1) = 98x + 7\)</span>.</li>
+            <li>Вычитаем — минус перед второй частью переворачивает оба её члена: <span class="math">\(98x - 14 - 98x - 7\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(98x - 98x = 0\)</span>, остаётся <span class="math">\(-14 - 7 = -21\)</span>.</li>
+        </ol>
+        <p>Вся переменная «уничтожилась» — получилась константа. Проверка числом при <span class="math">\(x = 2\)</span>: слева <span class="math">\(14 \cdot{} 13 - 7 \cdot{} 29 = 182 - 203 = -21\)</span> — сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(-21\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№648 а из учебника, уравнение)</div>
+    <p>Решите уравнение: <span class="math">\(3(-2x + 1) - 2(x + 13) = 7x - 4(1 - x)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x = -1"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans27_5')">🔍 Проверить</button>
+    <div id="ans27_5" class="answer">
+        <ol>
+            <li>Левая часть: <span class="math">\(3(-2x + 1) = -6x + 3\)</span> и <span class="math">\(-2(x + 13) = -2x - 26\)</span>, вместе <span class="math">\(-8x - 23\)</span>.</li>
+            <li>Правая часть: <span class="math">\(-4(1 - x) = -4 + 4x\)</span>, вместе с <span class="math">\(7x\)</span> это <span class="math">\(11x - 4\)</span>.</li>
+            <li>Уравнение: <span class="math">\(-8x - 23 = 11x - 4\)</span>.</li>
+            <li>Переносим: <span class="math">\(-8x - 11x = -4 + 23\)</span>, получаем <span class="math">\(-19x = 19\)</span>.</li>
+            <li><span class="math">\(x = 19 : (-19) = -1\)</span>.</li>
+        </ol>
+        <p>Проверка подстановкой <span class="math">\(x = -1\)</span>: слева <span class="math">\(3 \cdot{} (2 + 1) - 2 \cdot{} 12 = 9 - 24 = -15\)</span>, справа <span class="math">\(-7 - 4 \cdot{} 2 = -15\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\(x = -1\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№656 из учебника, сюжетная задача)</div>
+    <p>Фирма арендует три помещения общей площадью 166 кв. м. Площадь одного из них в полтора раза больше площади другого и на 6 кв. м меньше площади третьего. Найдите площадь каждого помещения.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="40; 60; 66 кв. м"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans27_6')">🔍 Проверить</button>
+    <div id="ans27_6" class="answer">
+        <ol>
+            <li>Пусть площадь второго помещения — <span class="math">\(x\)</span> кв. м. Тогда первое — <span class="math">\(1,5x\)</span> кв. м, а третье — на 6 кв. м больше первого: <span class="math">\(1,5x + 6\)</span> кв. м.</li>
+            <li>Общая площадь: <span class="math">\(x + 1,5x + (1,5x + 6) = 166\)</span>.</li>
+            <li>Раскрываем скобку (перед ней «плюс») и приводим подобные: <span class="math">\(4x + 6 = 166\)</span>.</li>
+            <li>Решаем: <span class="math">\(4x = 160\)</span>, значит <span class="math">\(x = 40\)</span>.</li>
+            <li>Находим все площади: второе — <span class="math">\(40\)</span>, первое — <span class="math">\(1,5 \cdot{} 40 = 60\)</span>, третье — <span class="math">\(60 + 6 = 66\)</span>.</li>
+        </ol>
+        <p>Проверка: <span class="math">\(40 + 60 + 66 = 166\)</span> — верно; <span class="math">\(60 = 1,5 \cdot{} 40\)</span> — верно; <span class="math">\(66 - 60 = 6\)</span> — верно.</p>
+        <p><b>Ответ:</b> <span class="math">\(40; 60; 66\)</span> кв. м</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Чтобы умножить одночлен на многочлен, умножь одночлен на каждый член многочлена и полученные произведения сложи.</li>
+        <li>Членов в скобке <span class="math">\(k\)</span> — произведений тоже <span class="math">\(k\)</span>: <span class="math">\(-2a(3a^2 - b + 4) = -6a^3 + 2ab - 8a\)</span>.</li>
+        <li>При умножении степеней показатели складываются: <span class="math">\(9n^3 \cdot{} 7n^2 = 63n^5\)</span>.</li>
+        <li>Минус одночлена меняет знаки у ВСЕХ произведений: <span class="math">\(-3a^2(4a^2 - a + 1) = -12a^4 + 3a^3 - 3a^2\)</span>.</li>
+        <li>Произведение одночлена и многочлена всегда можно представить в виде многочлена.</li>
+        <li>Умножение одночлена на многочлен — главный инструмент при решении уравнений со скобками.</li>
+        <li>Упростил выражение — проверь подстановкой числа: обе формы должны дать одно значение.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 4: Многочлены<br>
+    §9, п. 27. Умножение одночлена на многочлен • Страницы 137-141</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-26.html">← Урок 26</a><span class="sep">|</span><a href="lesson-28.html">Урок 28 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

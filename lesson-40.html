@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Линейное уравнение с двумя переменными — Алгебра 7 класс | Глава 6, §14, п. 40</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Одна переменная не справится: решением здесь будет целая пара чисел, и таких пар бесконечно много 🧩">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Линейное уравнение с двумя переменными — Алгебра 7 класс | Глава 6, §14, п. 40">
+<meta property="og:description" content="Одна переменная не справится: решением здесь будет целая пара чисел, и таких пар бесконечно много 🧩">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-40.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Линейное уравнение с двумя переменными — Алгебра 7 класс | Глава 6, §14, п. 40">
+<meta name="twitter:description" content="Одна переменная не справится: решением здесь будет целая пара чисел, и таких пар бесконечно много 🧩">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-40.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-39.html">← Урок 39</a><span class="sep">|</span><a href="lesson-41.html">Урок 41 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 6 • §14, п. 40</span>
+    <h1>Линейное уравнение с двумя переменными</h1>
+    <p class="subtitle">Одна переменная не справится: решением здесь будет целая пара чисел, и таких пар бесконечно много 🧩</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Открой страницу 201 учебника: там загадка — «одно из двух чисел на 5 больше другого». Если первое число обозначить <span class="math">\(x\)</span>, а второе <span class="math">\(y\)</span>, получится равенство <span class="math">\(x - y = 5\)</span> — в нём уже <b>две</b> переменные. Чтобы назвать решение такого уравнения, одного числа мало: нужно сразу <b>два</b>. Сегодня ты научишься проверять пары чисел, выражать одну переменную через другую и даже расселять туристов по каютам теплохода с помощью уравнения. 🚀</p>
+</section>
+
+<section class="card page-block">
+    <h2>📦 Уравнение, в котором две переменные</h2>
+    <p>Равенство <span class="math">\(x - y = 5\)</span> — не единственный пример. Вот ещё уравнения с двумя переменными: <span class="math">\(5x + 2y = 10\)</span>, <span class="math">\(-7x + y = 5\)</span>, <span class="math">\(x^2 + y^2 = 20\)</span>, <span class="math">\(xy = 12\)</span>. Первые два из них устроены одинаково: слева сумма, где <span class="math">\(x\)</span> умножен на число, <span class="math">\(y\)</span> умножен на число, справа — число.</p>
+    <p><b>Определение.</b> Линейным уравнением с двумя переменными называется уравнение вида <span class="math">\(ax + by = c\)</span>, где <span class="math">\(x\)</span> и <span class="math">\(y\)</span> — переменные, а <span class="math">\(a\)</span>, <span class="math">\(b\)</span> и <span class="math">\(c\)</span> — некоторые числа. Такие уравнения называют <span class="highlight">линейными уравнениями с двумя переменными</span>.</p>
+    <p>Значения переменных записывают парой в скобках — например, <span class="math">\((105; 100)\)</span>, <span class="math">\((4; -1)\)</span>, <span class="math">\((3,5; -1,5)\)</span>. ⚠️ Порядок важен: в записи решений уравнения с переменными <span class="math">\(x\)</span> и <span class="math">\(y\)</span> договорились на первом месте писать значение <span class="math">\(x\)</span>, а на втором — значение <span class="math">\(y\)</span>. Пара <span class="math">\((4; -1)\)</span> и пара <span class="math">\((-1; 4)\)</span> — это разные пары!</p>
+</section>
+
+<section class="card page-block">
+    <h2>♾️ Решение — это пара, и их бесконечно много</h2>
+    <p>Уравнение <span class="math">\(x - y = 5\)</span> при <span class="math">\(x = 8\)</span>, <span class="math">\(y = 3\)</span> обращается в верное равенство <span class="math">\(8 - 3 = 5\)</span>. Говорят, что пара <span class="math">\((8; 3)\)</span> — решение этого уравнения.</p>
+    <p><b>Определение.</b> <span class="highlight">Решением уравнения с двумя переменными</span> называется пара значений переменных, обращающая это уравнение в верное числовое равенство.</p>
+    <p>Уравнения с двумя переменными, имеющие одни и те же решения, называют <span class="highlight">равносильными</span> (уравнения без решений тоже считают равносильными). У них те же свойства, что и у уравнений с одной переменной:</p>
+    <ul>
+        <li>если перенести слагаемое из одной части в другую, изменив его знак на противоположный, получится равносильное уравнение;</li>
+        <li>если обе части умножить или разделить на одно и то же отличное от нуля число, получится равносильное уравнение.</li>
+    </ul>
+    <p>Применяем свойства к уравнению <span class="math">\(5x + 2y = 12\)</span>: переносим <span class="math">\(5x\)</span> вправо — <span class="math">\(2y = -5x + 12\)</span>, делим обе части на 2 — <span class="math">\(y = -2,5x + 6\)</span>. Теперь выбирай любое <span class="math">\(x\)</span> и вычисляй <span class="math">\(y\)</span>: если <span class="math">\(x = 2\)</span>, то <span class="math">\(y = 1\)</span>; если <span class="math">\(x = 0,4\)</span>, то <span class="math">\(y = 5\)</span>. Пары <span class="math">\((2; 1)\)</span> и <span class="math">\((0,4; 5)\)</span> — решения. А сколько всего решений? Бесконечно много: <span class="math">\(x\)</span> свободный! ✨</p>
+</section>
+
+<section class="card page-block">
+    <h2>🗺️ Выбрал x — вычислил y: семья решений</h2>
+    <p>Построим «семью решений» для уравнения <span class="math">\(2x + y = 4\)</span>. Выразим <span class="math">\(y\)</span>: <span class="math">\(y = 4 - 2x\)</span>. Выбираем <span class="math">\(x\)</span> — вычисляем <span class="math">\(y\)</span>:</p>
+    <table style="border-collapse:collapse;margin:14px auto;text-align:center">
+        <tr style="background:#ecf0f1">
+            <td style="border:1px solid #bdc3c7;padding:8px 22px">выбрал <span class="math">\(x\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:8px 22px"><span class="math">\(0\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:8px 22px"><span class="math">\(1\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:8px 22px"><span class="math">\(2\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #bdc3c7;padding:8px 22px">вычислил <span class="math">\(y = 4 - 2x\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:8px 22px"><span class="math">\(4\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:8px 22px"><span class="math">\(2\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:8px 22px"><span class="math">\(0\)</span></td>
+        </tr>
+    </table>
+    <div class="visual-container">
+        <svg class="graph-svg" width="320" height="340" viewBox="0 0 320 340" role="img" aria-label="Координатная плоскость с тремя точками: (0; 4), (1; 2), (2; 0)">
+            <g stroke="#dde4ea" stroke-width="1">
+                <line x1="20" y1="42" x2="20" y2="318"/><line x1="112" y1="42" x2="112" y2="318"/><line x1="158" y1="42" x2="158" y2="318"/><line x1="204" y1="42" x2="204" y2="318"/><line x1="250" y1="42" x2="250" y2="318"/>
+                <line x1="20" y1="318" x2="250" y2="318"/><line x1="20" y1="226" x2="250" y2="226"/><line x1="20" y1="180" x2="250" y2="180"/><line x1="20" y1="134" x2="250" y2="134"/><line x1="20" y1="88" x2="250" y2="88"/><line x1="20" y1="42" x2="250" y2="42"/>
+            </g>
+            <defs>
+                <marker id="arr40" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#2d3436"/></marker>
+            </defs>
+            <line x1="20" y1="272" x2="262" y2="272" stroke="#2d3436" stroke-width="2" marker-end="url(#arr40)"/>
+            <line x1="66" y1="318" x2="66" y2="36" stroke="#2d3436" stroke-width="2" marker-end="url(#arr40)"/>
+            <text x="268" y="277" font-size="15" font-style="italic">x</text>
+            <text x="56" y="26" font-size="15" font-style="italic">y</text>
+            <text x="54" y="290" font-size="12" text-anchor="end">0</text>
+            <text x="112" y="290" font-size="12" text-anchor="middle">1</text>
+            <text x="54" y="92" font-size="12" text-anchor="end">4</text>
+            <text x="54" y="184" font-size="12" text-anchor="end">2</text>
+            <text x="196" y="60" font-size="13" fill="#e74c3c" font-weight="bold">2x + y = 4</text>
+            <circle cx="66" cy="88" r="6" fill="#e74c3c" stroke="#ffffff" stroke-width="2"/>
+            <circle cx="112" cy="180" r="6" fill="#e74c3c" stroke="#ffffff" stroke-width="2"/>
+            <circle cx="158" cy="272" r="6" fill="#e74c3c" stroke="#ffffff" stroke-width="2"/>
+            <text x="76" y="84" font-size="13" font-weight="bold">(0; 4)</text>
+            <text x="122" y="176" font-size="13" font-weight="bold">(1; 2)</text>
+            <text x="168" y="264" font-size="13" font-weight="bold">(2; 0)</text>
+        </svg>
+    </div>
+    <p class="fig-caption">Три решения уравнения <span class="math">\(2x + y = 4\)</span> — пары <span class="math">\((0; 4)\)</span>, <span class="math">\((1; 2)\)</span>, <span class="math">\((2; 0)\)</span>. Проверь любую: <span class="math">\(2 \cdot{} 1 + 2 = 4\)</span> ✅. Решений бесконечно много — и в п. 41 ты увидишь, как все они выстраиваются на плоскости 😉</p>
+</section>
+
+<section class="card page-block">
+    <h2>🚢 Когда нужны только натуральные числа</h2>
+    <p>Иногда задача требует найти все пары <b>натуральных</b> чисел, удовлетворяющие уравнению. Такие уравнения называют <span class="highlight">диофантовыми</span> — в честь греческого математика Диофанта (III в.), который в трактате «Арифметика» собрал остроумные способы их решения.</p>
+    <p><b>Задача из учебника.</b> Группу из 35 туристов решили расселить на теплоходе в трёхместные и четырёхместные каюты так, чтобы в каютах не оставалось свободных мест. Сколько трёхместных и сколько четырёхместных кают надо заказать?</p>
+    <p>Пусть <span class="math">\(x\)</span> — трёхместные каюты, <span class="math">\(y\)</span> — четырёхместные. Тогда <span class="math">\(3x + 4y = 35\)</span>, и оба числа должны быть натуральными. Выразим <span class="math">\(y\)</span>: <span class="math">\(y = (35 - 3x) : 4\)</span>. Перебираем:</p>
+    <ol>
+        <li><span class="math">\(x = 1\)</span>: <span class="math">\(y = 32 : 4 = 8\)</span> — натуральное ✅;</li>
+        <li><span class="math">\(x = 2\)</span>: <span class="math">\(y = 29 : 4 = 7,25\)</span> — дробное, не подходит 🚫;</li>
+        <li><span class="math">\(x = 5\)</span>: <span class="math">\(y = 20 : 4 = 5\)</span> ✅;</li>
+        <li><span class="math">\(x = 9\)</span>: <span class="math">\(y = 8 : 4 = 2\)</span> ✅. Дальше <span class="math">\(y\)</span> становится отрицательным.</li>
+    </ol>
+    <p>Проверка: <span class="math">\(3 \cdot{} 1 + 4 \cdot{} 8 = 35\)</span>, <span class="math">\(3 \cdot{} 5 + 4 \cdot{} 5 = 35\)</span>, <span class="math">\(3 \cdot{} 9 + 4 \cdot{} 2 = 35\)</span>. Значит, заказать каюты в отношении «трёхместные и четырёхместные» можно так: 1 и 8, 5 и 5 или 9 и 2. 🛳️</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Решение — это ПАРА»</h3>
+    <p>В уравнении с двумя переменными решение — <span class="highlight">не число, а пара (x; y)</span>. Уравнение — это «семья»: выбрал <span class="math">\(x\)</span> — получил <span class="math">\(y\)</span>. У <span class="math">\(2x + y = 4\)</span> в семье есть <span class="math">\((0; 4)\)</span>, <span class="math">\((1; 2)\)</span>, <span class="math">\((2; 0)\)</span> и ещё бесконечно много родственников.</p>
+    <p>Проверка пары — подстановка <b>обеих</b> переменных. Смотри на одном примере <span class="math">\(2x + y = 4\)</span>:</p>
+    <p>✅ пара <span class="math">\((1; 2)\)</span>: <span class="math">\(2 \cdot{} 1 + 2 = 4\)</span> — верно, решение.</p>
+    <p>🚫 пара <span class="math">\((1; 3)\)</span>: <span class="math">\(2 \cdot{} 1 + 3 = 5 ≠ 4\)</span> — не решение. А «одинокое» число <span class="math">\(x = 1\)</span> вообще не может быть решением: решением бывает только ПАРА.</p>
+    <p>🎯 Мостик: в задании 1 выразишь переменные из уравнения, в задании 2 прогонишь через подстановку сразу пять пар, а в заданиях 5 и 6 будешь ловить именно пары натуральных чисел.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 40) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№1046 а, б из учебника)</div>
+    <p>Из линейного уравнения <span class="math">\(4x - 3y = 12\)</span> выразите: а) <span class="math">\(y\)</span> через <span class="math">\(x\)</span>; б) <span class="math">\(x\)</span> через <span class="math">\(y\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) y = 4x/3 - 4; б) x = 3 + 0,75y"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans40_1')">🔍 Проверить</button>
+    <div id="ans40_1" class="answer">
+        <p>Работаем свойствами уравнений: переносим слагаемое со сменой знака и делим обе части.</p>
+        <ol>
+            <li>а) Переносим <span class="math">\(4x\)</span> вправо: <span class="math">\(-3y = 12 - 4x\)</span>.</li>
+            <li>Делим обе части на <span class="math">\(-3\)</span>: <span class="math">\(y = (12 - 4x) : (-3)\)</span>, то есть <span class="math">\(y = 4x/3 - 4\)</span>.</li>
+            <li>Проверка: при <span class="math">\(x = 3\)</span> получаем <span class="math">\(y = 4 - 4 = 0\)</span>; подставляем в исходное: <span class="math">\(4 \cdot{} 3 - 3 \cdot{} 0 = 12\)</span> ✅.</li>
+            <li>б) Теперь переносим <span class="math">\(-3y\)</span> вправо: <span class="math">\(4x = 12 + 3y\)</span>. Делим на 4: <span class="math">\(x = (12 + 3y) : 4 = 3 + 0,75y\)</span>.</li>
+            <li>Проверка: при <span class="math">\(y = 4\)</span> получаем <span class="math">\(x = 6\)</span>; подставляем: <span class="math">\(4 \cdot{} 6 - 3 \cdot{} 4 = 24 - 12 = 12\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> а) <span class="math">\(y = 4x/3 - 4\)</span>; б) <span class="math">\(x = 3 + 0,75y\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№1044 из учебника)</div>
+    <p>Является ли решением уравнения <span class="math">\(10x + y = 12\)</span> пара чисел <span class="math">\((3; -20)\)</span>, <span class="math">\((-2; 12)\)</span>, <span class="math">\((0,1; 11)\)</span>, <span class="math">\((1; 2)\)</span>, <span class="math">\((2; 1)\)</span>?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(0,1; 11) и (1; 2)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans40_2')">🔍 Проверить</button>
+    <div id="ans40_2" class="answer">
+        <p>В каждой паре первое число — это <span class="math">\(x\)</span>, второе — <span class="math">\(y\)</span>. Подставляем обе переменные:</p>
+        <ol>
+            <li><span class="math">\((3; -20)\)</span>: <span class="math">\(10 \cdot{} 3 + (-20) = 30 - 20 = 10 ≠ 12\)</span> — нет 🚫.</li>
+            <li><span class="math">\((-2; 12)\)</span>: <span class="math">\(10 \cdot{} (-2) + 12 = -20 + 12 = -8 ≠ 12\)</span> — нет 🚫.</li>
+            <li><span class="math">\((0,1; 11)\)</span>: <span class="math">\(10 \cdot{} 0,1 + 11 = 1 + 11 = 12\)</span> — да ✅.</li>
+            <li><span class="math">\((1; 2)\)</span>: <span class="math">\(10 \cdot{} 1 + 2 = 12\)</span> — да ✅.</li>
+            <li><span class="math">\((2; 1)\)</span>: <span class="math">\(10 \cdot{} 2 + 1 = 21 ≠ 12\)</span> — нет 🚫. Числам не всё равно, кто на первом месте!</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((0,1; 11)\)</span> и <span class="math">\((1; 2)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№1048 а из учебника)</div>
+    <p>Выразите из данного уравнения переменную <span class="math">\(y\)</span> через <span class="math">\(x\)</span>; используя полученную формулу, найдите три каких-либо решения этого уравнения: а) <span class="math">\(3x + 2y = 123\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="y = 61,5 - 1,5x; например (1; 60), (3; 57), (5; 54)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans40_3')">🔍 Проверить</button>
+    <div id="ans40_3" class="answer">
+        <p>Сначала «формула семьи», затем — три пары по ней.</p>
+        <ol>
+            <li>Переносим <span class="math">\(3x\)</span> вправо: <span class="math">\(2y = 123 - 3x\)</span>.</li>
+            <li>Делим обе части на 2: <span class="math">\(y = (123 - 3x) : 2 = 61,5 - 1,5x\)</span>.</li>
+            <li>Чтобы <span class="math">\(y\)</span> был целым, берём нечётные <span class="math">\(x\)</span>: при <span class="math">\(x = 1\)</span>: <span class="math">\(y = 61,5 - 1,5 = 60\)</span>; при <span class="math">\(x = 3\)</span>: <span class="math">\(y = 61,5 - 4,5 = 57\)</span>; при <span class="math">\(x = 5\)</span>: <span class="math">\(y = 61,5 - 7,5 = 54\)</span>.</li>
+            <li>Проверка пар: <span class="math">\(3 \cdot{} 1 + 2 \cdot{} 60 = 123\)</span> ✅; <span class="math">\(3 \cdot{} 3 + 2 \cdot{} 57 = 9 + 114 = 123\)</span> ✅; <span class="math">\(3 \cdot{} 5 + 2 \cdot{} 54 = 15 + 108 = 123\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(y = 61,5 - 1,5x\)</span>; например <span class="math">\((1; 60)\)</span>, <span class="math">\((3; 57)\)</span>, <span class="math">\((5; 54)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№1051 из учебника)</div>
+    <p>Найдите значение коэффициента <span class="math">\(a\)</span> в уравнении <span class="math">\(ax + 2y = 8\)</span>, если известно, что пара <span class="math">\(x = 2\)</span>, <span class="math">\(y = 1\)</span> является решением этого уравнения</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="a = 3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans40_4')">🔍 Проверить</button>
+    <div id="ans40_4" class="answer">
+        <p>«Является решением» — значит, подстановка обращает уравнение в верное равенство.</p>
+        <ol>
+            <li>Подставляем <span class="math">\(x = 2\)</span> и <span class="math">\(y = 1\)</span>: <span class="math">\(a \cdot{} 2 + 2 \cdot{} 1 = 8\)</span>, то есть <span class="math">\(2a + 2 = 8\)</span>.</li>
+            <li>Переносим 2 вправо: <span class="math">\(2a = 6\)</span>.</li>
+            <li>Делим на 2: <span class="math">\(a = 3\)</span>.</li>
+            <li>Проверка: уравнение <span class="math">\(3x + 2y = 8\)</span> при паре <span class="math">\((2; 1)\)</span>: <span class="math">\(3 \cdot{} 2 + 2 \cdot{} 1 = 8\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(a = 3\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№1053 из учебника, сюжетная задача)</div>
+    <p>Ученик купил тетради по 50 р. и карандаши по 70 р. Сколько тетрадей купил ученик, если известно, что за всю покупку он заплатил 440 р.?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="6 тетрадей"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans40_5')">🔍 Проверить</button>
+    <div id="ans40_5" class="answer">
+        <p>Здесь уравнение надо решить <b>в натуральных числах</b> — как в задаче про каюты.</p>
+        <ol>
+            <li>Пусть <span class="math">\(x\)</span> — тетради, <span class="math">\(y\)</span> — карандаши: <span class="math">\(50x + 70y = 440\)</span>. Делим обе части на 10: <span class="math">\(5x + 7y = 44\)</span>.</li>
+            <li>Выражаем <span class="math">\(x = (44 - 7y) : 5\)</span> и перебираем натуральные <span class="math">\(y\)</span>: при <span class="math">\(y = 1\)</span>: <span class="math">\(x = 37 : 5 = 7,4\)</span> 🚫; при <span class="math">\(y = 2\)</span>: <span class="math">\(x = 30 : 5 = 6\)</span> ✅; при <span class="math">\(y = 3\)</span>: <span class="math">\(x = 23 : 5\)</span> 🚫; при <span class="math">\(y = 4\)</span>: <span class="math">\(x = 16 : 5\)</span> 🚫; при <span class="math">\(y = 5\)</span>: <span class="math">\(x = 9 : 5\)</span> 🚫; при <span class="math">\(y = 6\)</span>: <span class="math">\(x = 2 : 5\)</span> 🚫.</li>
+            <li>Единственная пара натуральных чисел: <span class="math">\((6; 2)\)</span>.</li>
+            <li>Проверка деньгами: <span class="math">\(50 \cdot{} 6 + 70 \cdot{} 2 = 300 + 140 = 440\)</span> р. ✅</li>
+        </ol>
+        <p><b>Ответ:</b> 6 тетрадей</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№1057 из учебника, задача-исследование)</div>
+    <p>В результате перестановки цифр двузначного числа оно увеличилось на 54. Найдите это число</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="17, 28 или 39"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans40_6')">🔍 Проверить</button>
+    <div id="ans40_6" class="answer">
+        <p>Двузначное число — это тоже «пара»: цифра десятков и цифра единиц.</p>
+        <ol>
+            <li>Пусть у числа <span class="math">\(a\)</span> десятков и <span class="math">\(b\)</span> единиц: оно равно <span class="math">\(10a + b\)</span>. После перестановки цифр: <span class="math">\(10b + a\)</span>.</li>
+            <li>По условию <span class="math">\((10b + a) - (10a + b) = 54\)</span>. Раскрываем скобки: <span class="math">\(9b - 9a = 54\)</span>.</li>
+            <li>Делим на 9: <span class="math">\(b - a = 6\)</span> — единиц на 6 больше, чем десятков.</li>
+            <li>Перебираем цифры: <span class="math">\(a = 1\)</span> → <span class="math">\(b = 7\)</span> → число 17; <span class="math">\(a = 2\)</span> → <span class="math">\(b = 8\)</span> → 28; <span class="math">\(a = 3\)</span> → <span class="math">\(b = 9\)</span> → 39. При <span class="math">\(a ≥ 4\)</span> получили бы <span class="math">\(b \gt 9\)</span> — не цифра.</li>
+            <li>Проверка: <span class="math">\(71 - 17 = 54\)</span> ✅; <span class="math">\(82 - 28 = 54\)</span> ✅; <span class="math">\(93 - 39 = 54\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> 17, 28 или 39</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Уравнение с двумя переменными — равенство, содержащее две переменные, например <span class="math">\(5x + 2y = 10\)</span>.</li>
+        <li><b>Линейное</b> уравнение с двумя переменными — уравнение вида <span class="math">\(ax + by = c\)</span>, где <span class="math">\(a\)</span>, <span class="math">\(b\)</span>, <span class="math">\(c\)</span> — числа.</li>
+        <li>Решение — это <b>пара</b> <span class="math">\((x; y)\)</span>: на первом месте <span class="math">\(x\)</span>, на втором <span class="math">\(y\)</span>. Проверяется подстановкой обеих переменных.</li>
+        <li>У линейного уравнения <b>бесконечно много</b> решений: выбрал <span class="math">\(x\)</span> — вычислил <span class="math">\(y\)</span>.</li>
+        <li>Перенос слагаемого со сменой знака и умножение (деление) обеих частей на отличное от нуля число дают равносильное уравнение.</li>
+        <li>Выражение <span class="math">\(y\)</span> через <span class="math">\(x\)</span> (например <span class="math">\(y = -2,5x + 6\)</span>) — удобная «формула семьи решений».</li>
+        <li>Если нужны только натуральные решения, уравнение называют диофантовым — перебираем и фильтруем кандидатов.</li>
+        <li>Каждая пара-решение — точка на координатной плоскости. Что за фигуру образуют все такие точки, узнаешь в п. 41 😉</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 6: Системы линейных уравнений<br>
+    §14, п. 40. Линейное уравнение с двумя переменными • Страницы 201-205</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-39.html">← Урок 39</a><span class="sep">|</span><a href="lesson-41.html">Урок 41 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

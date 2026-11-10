@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Умножение одночленов. Возведение одночлена в степень — Алгебра 7 класс | Глава 3, §7, п. 22</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Два конвейера: числа едут с числами, буквы — с буквами 🚜">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Умножение одночленов. Возведение одночлена в степень — Алгебра 7 класс | Глава 3, §7, п. 22">
+<meta property="og:description" content="Два конвейера: числа едут с числами, буквы — с буквами 🚜">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-22.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Умножение одночленов. Возведение одночлена в степень — Алгебра 7 класс | Глава 3, §7, п. 22">
+<meta name="twitter:description" content="Два конвейера: числа едут с числами, буквы — с буквами 🚜">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-22.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-21.html">← Урок 21</a><span class="sep">|</span><a href="lesson-23.html">Урок 23 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 3 • §7, п. 22</span>
+    <h1>Умножение одночленов. Возведение одночлена в степень</h1>
+    <p class="subtitle">Два конвейера: числа едут с числами, буквы — с буквами 🚜</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 В прошлом уроке ты научился наводить порядок в одночленах — приводить их к стандартному виду. Сегодня поедим дальше: научимся <b>перемножать одночлены</b> и <b>возводить одночлен в степень</b>. Зачем это нужно? Представь теплицу: длина <span class="math">\(4x\)</span> метров, ширина <span class="math">\(3x\)</span> метров — её площадь это произведение двух одночленов, и от него хочется перейти к одной аккуратной формуле. А когда в следующем уроке мы будем строить графики <span class="math">\(y = x^2\)</span> и <span class="math">\(y = x^3\)</span>, возведение одночлена в степень будет работать за кадром. Заводим конвейеры! 🚀</p>
+</section>
+
+<section class="card page-block">
+    <h2>🚜 Конвейер № 1: умножение одночленов</h2>
+    <p>В учебнике сказано: при умножении одночленов используются <span class="highlight">правило умножения степеней с одинаковыми основаниями</span> — а получается снова одночлен, который обычно представляют в стандартном виде.</p>
+    <p><b>Алгоритм — два конвейера:</b></p>
+    <ol>
+        <li><b>Числовой конвейер:</b> перемножаем числовые множители (коэффициенты).</li>
+        <li><b>Буквенный конвейер:</b> степени с одинаковыми основаниями перемножаем, <b>показатели складываем</b>: <span class="math">\(a^m \cdot{} a^n = a^{m+n}\)</span>.</li>
+        <li>Записываем результат в стандартном виде: коэффициент — впереди.</li>
+    </ol>
+    <p>Разберём пример 1 из учебника: перемножим одночлены <span class="math">\(-5a^3b^5c\)</span> и <span class="math">\(4a^2b^2\)</span>. Составим произведение и запустим оба конвейера:</p>
+    <div class="visual-container">
+        <svg viewBox="0 0 560 252" class="graph-svg" width="560" role="img" aria-label="Два конвейера: числовой перемножает коэффициенты, буквенный складывает показатели степеней">
+            <text x="20" y="22" font-size="14" font-weight="bold" fill="#2c3e50" font-family="sans-serif">Перемножим одночлены (пример 1 из учебника):</text>
+            <rect x="20" y="32" width="40" height="36" rx="4" fill="#3498db"/>
+            <text x="40" y="56" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff" font-family="sans-serif">-5</text>
+            <rect x="64" y="32" width="38" height="36" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="83" y="56" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">a</tspan><tspan dy="-7" font-size="10" fill="#e67e22">3</tspan></text>
+            <rect x="106" y="32" width="38" height="36" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="125" y="56" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">b</tspan><tspan dy="-7" font-size="10" fill="#e67e22">5</tspan></text>
+            <rect x="148" y="32" width="30" height="36" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="163" y="56" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">c</tspan></text>
+            <text x="188" y="56" text-anchor="middle" font-size="18" fill="#2d3436" font-family="sans-serif">·</text>
+            <rect x="202" y="32" width="40" height="36" rx="4" fill="#3498db"/>
+            <text x="222" y="56" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff" font-family="sans-serif">4</text>
+            <rect x="246" y="32" width="38" height="36" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="265" y="56" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">a</tspan><tspan dy="-7" font-size="10" fill="#e67e22">2</tspan></text>
+            <rect x="288" y="32" width="38" height="36" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="307" y="56" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">b</tspan><tspan dy="-7" font-size="10" fill="#e67e22">2</tspan></text>
+            <path d="M40 70 L40 84" stroke="#3498db" stroke-width="2"/>
+            <polygon points="36,84 44,84 40,90" fill="#3498db"/>
+            <path d="M200 70 L200 84" stroke="#1abc9c" stroke-width="2"/>
+            <polygon points="196,84 204,84 200,90" fill="#1abc9c"/>
+            <rect x="20" y="94" width="520" height="38" rx="6" fill="#eaf2fd" stroke="#3498db" stroke-width="1.5"/>
+            <text x="32" y="118" font-size="12.5" font-weight="bold" fill="#2c3e50" font-family="sans-serif">Числовой конвейер</text>
+            <rect x="210" y="100" width="40" height="26" rx="4" fill="#3498db"/>
+            <text x="230" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff" font-family="sans-serif">-5</text>
+            <text x="258" y="118" text-anchor="middle" font-size="15" fill="#2d3436" font-family="sans-serif">·</text>
+            <rect x="266" y="100" width="36" height="26" rx="4" fill="#3498db"/>
+            <text x="284" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff" font-family="sans-serif">4</text>
+            <text x="314" y="118" text-anchor="middle" font-size="15" fill="#2d3436" font-family="sans-serif">=</text>
+            <rect x="326" y="100" width="48" height="26" rx="4" fill="#2c3e50"/>
+            <text x="350" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff" font-family="sans-serif">-20</text>
+            <path d="M200 132 L200 140" stroke="#1abc9c" stroke-width="2"/>
+            <polygon points="196,140 204,140 200,146" fill="#1abc9c"/>
+            <rect x="20" y="148" width="520" height="38" rx="6" fill="#e8f8f5" stroke="#1abc9c" stroke-width="1.5"/>
+            <text x="32" y="172" font-size="12.5" font-weight="bold" fill="#2c3e50" font-family="sans-serif">Буквенный конвейер</text>
+            <rect x="190" y="154" width="38" height="26" rx="4" fill="#ffffff" stroke="#1abc9c" stroke-width="1.5"/>
+            <text x="209" y="172" text-anchor="middle" font-size="14" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">a</tspan><tspan dy="-6" font-size="10" fill="#e67e22">3</tspan></text>
+            <text x="236" y="172" text-anchor="middle" font-size="14" fill="#2d3436" font-family="sans-serif">·</text>
+            <rect x="244" y="154" width="38" height="26" rx="4" fill="#ffffff" stroke="#1abc9c" stroke-width="1.5"/>
+            <text x="263" y="172" text-anchor="middle" font-size="14" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">a</tspan><tspan dy="-6" font-size="10" fill="#e67e22">2</tspan></text>
+            <text x="292" y="172" text-anchor="middle" font-size="14" fill="#2d3436" font-family="sans-serif">→</text>
+            <rect x="302" y="154" width="40" height="26" rx="4" fill="#ffffff" stroke="#16a085" stroke-width="2"/>
+            <text x="322" y="172" text-anchor="middle" font-size="14" font-weight="bold" fill="#16a085" font-family="Georgia, serif"><tspan font-style="italic">a</tspan><tspan dy="-6" font-size="10" fill="#e67e22">5</tspan></text>
+            <text x="350" y="172" font-size="11" fill="#16a085" font-family="sans-serif">(3 + 2)</text>
+            <rect x="396" y="154" width="38" height="26" rx="4" fill="#ffffff" stroke="#1abc9c" stroke-width="1.5"/>
+            <text x="415" y="172" text-anchor="middle" font-size="14" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">b</tspan><tspan dy="-6" font-size="10" fill="#e67e22">5</tspan></text>
+            <text x="442" y="172" text-anchor="middle" font-size="14" fill="#2d3436" font-family="sans-serif">·</text>
+            <rect x="450" y="154" width="38" height="26" rx="4" fill="#ffffff" stroke="#1abc9c" stroke-width="1.5"/>
+            <text x="469" y="172" text-anchor="middle" font-size="14" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">b</tspan><tspan dy="-6" font-size="10" fill="#e67e22">2</tspan></text>
+            <text x="496" y="172" text-anchor="middle" font-size="14" fill="#2d3436" font-family="sans-serif">→</text>
+            <rect x="504" y="154" width="34" height="26" rx="4" fill="#ffffff" stroke="#16a085" stroke-width="2"/>
+            <text x="521" y="172" text-anchor="middle" font-size="14" font-weight="bold" fill="#16a085" font-family="Georgia, serif"><tspan font-style="italic">b</tspan><tspan dy="-6" font-size="10" fill="#e67e22">7</tspan></text>
+            <path d="M90 186 L90 198" stroke="#7f8c8d" stroke-width="2"/>
+            <polygon points="86,198 94,198 90,204" fill="#7f8c8d"/>
+            <path d="M470 186 L470 198" stroke="#7f8c8d" stroke-width="2"/>
+            <polygon points="466,198 474,198 470,204" fill="#7f8c8d"/>
+            <text x="20" y="222" font-size="13" font-weight="bold" fill="#2c3e50" font-family="sans-serif">Результат в стандартном виде:</text>
+            <rect x="240" y="200" width="48" height="34" rx="4" fill="#3498db"/>
+            <text x="264" y="222" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff" font-family="sans-serif">-20</text>
+            <rect x="292" y="200" width="40" height="34" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="312" y="222" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">a</tspan><tspan dy="-7" font-size="10" fill="#e67e22">5</tspan></text>
+            <rect x="336" y="200" width="40" height="34" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="356" y="222" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">b</tspan><tspan dy="-7" font-size="10" fill="#e67e22">7</tspan></text>
+            <rect x="380" y="200" width="34" height="34" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="397" y="222" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">c</tspan></text>
+        </svg>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#3498db;"></span> числовой множитель (коэффициент)</span>
+        <span class="legend-item"><span class="color-dot" style="background:#ffffff;"></span> степень с буквенным основанием</span>
+    </div>
+    <p class="fig-caption">Конвейеры примера 1 из учебника: числовой перемножил коэффициенты (<span class="math">\(-5 \cdot{} 4 = -20\)</span>), буквенный сложил показатели (<span class="math">\(a^3 \cdot{} a^2 = a^5\)</span>, <span class="math">\(b^5 \cdot{} b^2 = b^7\)</span>), а буква <span class="math">\(c\)</span> приехала без изменений.</p>
+    <p>Итак, <span class="math">\(-5a^3b^5c \cdot{} 4a^2b^2 = (-5 \cdot{} 4)(a^3a^2)(b^5b^2)c = -20a^5b^7c\)</span>. Обрати внимание: множитель <span class="math">\(c\)</span> был только в первом одночлене — он спокойно проехал конвейер один.</p>
+</section>
+
+<section class="card page-block">
+    <h2>⚡ Конвейер № 2: возведение одночлена в степень</h2>
+    <p>Здесь работает <span class="highlight">правило возведения степени в степень</span> из п. 20: <span class="math">\((a^m)^n = a^{mn}\)</span> и <span class="math">\((ab)^n = a^nb^n\)</span>. Значит, чтобы возвести одночлен в степень, конвейер должен проехать по <b>каждому множителю</b>:</p>
+    <ol>
+        <li><b>Коэффициент</b> возводи в эту степень.</li>
+        <li><b>Каждый показатель</b> умножай на эту степень.</li>
+    </ol>
+    <div class="visual-container">
+        <svg viewBox="0 0 560 136" class="graph-svg" width="560" role="img" aria-label="Конвейер возведения: каждый множитель возводится в куб, показатели умножаются на 3">
+            <text x="20" y="22" font-size="14" font-weight="bold" fill="#2c3e50" font-family="sans-serif">Возводим одночлен в куб (пример 3 из учебника):</text>
+            <text x="136" y="58" text-anchor="middle" font-size="20" fill="#2d3436" font-family="sans-serif">(</text>
+            <rect x="150" y="36" width="44" height="36" rx="4" fill="#3498db"/>
+            <text x="172" y="60" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff" font-family="sans-serif">-2</text>
+            <rect x="198" y="36" width="38" height="36" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="217" y="60" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">a</tspan><tspan dy="-7" font-size="10" fill="#e67e22">2</tspan></text>
+            <rect x="240" y="36" width="38" height="36" rx="4" fill="#ffffff" stroke="#95a5a6" stroke-width="1.5"/>
+            <text x="259" y="60" text-anchor="middle" font-size="15" fill="#2d3436" font-family="Georgia, serif"><tspan font-style="italic">b</tspan><tspan dy="-7" font-size="10" fill="#e67e22">3</tspan></text>
+            <text x="286" y="58" text-anchor="middle" font-size="20" fill="#2d3436" font-family="sans-serif">)</text>
+            <text x="298" y="42" font-size="14" font-weight="bold" fill="#e67e22" font-family="sans-serif">3</text>
+            <path d="M172 76 L172 88" stroke="#1abc9c" stroke-width="2"/>
+            <polygon points="168,88 176,88 172,94" fill="#1abc9c"/>
+            <path d="M217 76 L217 88" stroke="#1abc9c" stroke-width="2"/>
+            <polygon points="213,88 221,88 217,94" fill="#1abc9c"/>
+            <path d="M259 76 L259 88" stroke="#1abc9c" stroke-width="2"/>
+            <polygon points="255,88 263,88 259,94" fill="#1abc9c"/>
+            <rect x="20" y="98" width="150" height="30" rx="6" fill="#eaf2fd" stroke="#3498db" stroke-width="1.5"/>
+            <text x="95" y="118" text-anchor="middle" font-size="13" fill="#2d3436" font-family="sans-serif"><tspan>(-2)</tspan><tspan dy="-6" font-size="10" fill="#e67e22">3</tspan><tspan dy="6"> = -8</tspan></text>
+            <rect x="180" y="98" width="170" height="30" rx="6" fill="#e8f8f5" stroke="#1abc9c" stroke-width="1.5"/>
+            <text x="265" y="118" text-anchor="middle" font-size="13" fill="#2d3436" font-family="sans-serif"><tspan>(</tspan><tspan font-style="italic">a</tspan><tspan dy="-6" font-size="10" fill="#e67e22">2</tspan><tspan dy="6">)</tspan><tspan dy="-6" font-size="10" fill="#e67e22">3</tspan><tspan dy="6"> = </tspan><tspan font-style="italic">a</tspan><tspan dy="-6" font-size="10" fill="#e67e22">6</tspan><tspan dy="6"> (2 · 3)</tspan></text>
+            <rect x="360" y="98" width="170" height="30" rx="6" fill="#e8f8f5" stroke="#1abc9c" stroke-width="1.5"/>
+            <text x="445" y="118" text-anchor="middle" font-size="13" fill="#2d3436" font-family="sans-serif"><tspan>(</tspan><tspan font-style="italic">b</tspan><tspan dy="-6" font-size="10" fill="#e67e22">3</tspan><tspan dy="6">)</tspan><tspan dy="-6" font-size="10" fill="#e67e22">3</tspan><tspan dy="6"> = </tspan><tspan font-style="italic">b</tspan><tspan dy="-6" font-size="10" fill="#e67e22">9</tspan><tspan dy="6"> (3 · 3)</tspan></text>
+        </svg>
+    </div>
+    <p class="fig-caption">Каждый множитель прошёл конвейер: <span class="math">\((-2a^2b^3)^3 = (-2)^3(a^2)^3(b^3)^3 = -8a^6b^9\)</span> — так в учебнике.</p>
+    <p>А вот пример 4 из учебника — с секретом: возведём <span class="math">\(-x^3y^2\)</span> в четвёртую степень:</p>
+    <p><span class="math">\((-x^3y^2)^4 = (-1)^4(x^3)^4(y^2)^4 = x^12y^8\)</span>. Минус <b>исчез</b>, потому что <span class="math">\((-1)^4 = 1\)</span> — чётная степень «съедает» знак. 🦸</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔗 Комбинируем оба конвейера</h2>
+    <p>Часто в одном примере нужно и возвести в степень, и перемножить. Правило простое: <b>сначала</b> разберись со степенью (конвейер № 2), <b>потом</b> перемножай (конвейер № 1). Пример (не из заданий): упростим <span class="math">\((2x^2y)^2 \cdot{} (-3xy^3)\)</span>.</p>
+    <ol>
+        <li>Возводим в квадрат каждый множитель: <span class="math">\((2x^2y)^2 = 2^2(x^2)^2y^2 = 4x^4y^2\)</span>.</li>
+        <li>Запускаем умножение: <span class="math">\(4 \cdot{} (-3) = -12\)</span>, <span class="math">\(x^4 \cdot{} x = x^5\)</span>, <span class="math">\(y^2 \cdot{} y^3 = y^5\)</span>.</li>
+        <li>Собираем стандартный вид: <span class="math">\((2x^2y)^2 \cdot{} (-3xy^3) = -12x^5y^5\)</span>.</li>
+    </ol>
+    <p>⚠️ Ловушка: знак «−» перед скобкой — это множитель <span class="math">\(-1\)</span>. Он едет в числовом конвейере и может перевернуть знак результата!</p>
+</section>
+
+<section class="card page-block">
+    <h2>📦 Жизнь: площади и объёмы</h2>
+    <p>Умножение одночленов постоянно встречается, когда считаем площади и объёмы «с буквами»:</p>
+    <ul>
+        <li>Площадь теплицы: длина <span class="math">\(4x\)</span> м, ширина <span class="math">\(3x\)</span> м, тогда <span class="math">\(S = 4x \cdot{} 3x = 12x^2\)</span> — двенадцать «икс в квадрате» квадратных метров. Проверка: при <span class="math">\(x = 2\)</span> стороны <span class="math">\(8\)</span> м и <span class="math">\(6\)</span> м, площадь <span class="math">\(48\)</span>; и по формуле <span class="math">\(12 \cdot{} 4 = 48\)</span>. Совпало! ✅</li>
+        <li>Объём аквариума-куба с ребром <span class="math">\(2b\)</span> дм: <span class="math">\(V = (2b)^3 = 8b^3\)</span> кубических дециметров. При <span class="math">\(b = 3\)</span>: ребро <span class="math">\(6\)</span>, объём <span class="math">\(216\)</span>; и по формуле <span class="math">\(8 \cdot{} 27 = 216\)</span>. Снова совпало! ✅</li>
+    </ul>
+    <p>Кстати, зависимость площади квадрата от его стороны — это <span class="math">\(y = x^2\)</span>, а объёма куба от ребра — <span class="math">\(y = x^3\)</span>. Именно их графиками мы займёмся в следующем уроке. 😉</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: Два конвейера</h3>
+    <p><b>Правило.</b> При умножении одночленов числа едут с числами (перемножай коэффициенты), буквы — с буквами (складывай показатели). При возведении одночлена в степень конвейер проходит <b>каждый</b> множитель: коэффициент возводи в степень, показатели умножай.</p>
+    <p><b>Пример на 10 секунд</b> (не из заданий): <span class="math">\((2m^3n)^2 = 4m^6n^2\)</span> — двойка в квадрате дала <span class="math">\(4\)</span>, показатель <span class="math">\(3 \cdot{} 2 = 6\)</span>, у <span class="math">\(n\)</span> невидимая единичка умножилась на <span class="math">\(2\)</span>.</p>
+    <p>✅ Верно: <span class="math">\((-2x^2y) \cdot{} (3xy^3) = -6x^3y^4\)</span> — коэффициенты перемножили, показатели <b>сложили</b>: <span class="math">\(2 + 1 = 3\)</span>, <span class="math">\(1 + 3 = 4\)</span>.</p>
+    <p>🚫 Ошибка: <span class="math">\(x^2 \cdot{} x = x^2\)</span> — показатели «перемножили». Нет! При умножении показатели <b>складываются</b>: <span class="math">\(x^2 \cdot{} x = x^3\)</span>.</p>
+    <p><b>Мостик к заданиям:</b> в задании 3 запустишь оба конвейера сразу, в заданиях 4 и 5 — конвейер возведения (там притаился минус), а в задании 6 поедешь в обратную сторону: по готовому результату найдёшь исходный одночлен.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 22) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№478 б, в, д, е из учебника)</div>
+    <p>Какова степень одночлена: <span class="math">\(-abc\)</span>; <span class="math">\(0,8mn\)</span>; <span class="math">\(-5m\)</span>; <span class="math">\(23\)</span>?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="3; 2; 1; 0"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans22_1')">🔍 Проверить</button>
+    <div id="ans22_1" class="answer">
+        <p><b>Решение.</b> Степень одночлена стандартного вида — это сумма показателей всех входящих в него переменных.</p>
+        <ol>
+            <li><span class="math">\(-abc = -1a^1b^1c^1\)</span>: показатели <span class="math">\(1 + 1 + 1 = 3\)</span>.</li>
+            <li><span class="math">\(0,8mn = 0,8m^1n^1\)</span>: показатели <span class="math">\(1 + 1 = 2\)</span>.</li>
+            <li><span class="math">\(-5m = -5m^1\)</span>: показатель <span class="math">\(1\)</span>.</li>
+            <li><span class="math">\(23\)</span> — число (переменных нет): его степень равна <span class="math">\(0\)</span>.</li>
+        </ol>
+        <p>Проверка способом «в лоб»: у <span class="math">\(-abc\)</span> три буквенных множителя — и сумма показателей 3; у числа множителей-переменных нет — 0. Сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(3; 2; 1; 0\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№482 а из учебника)</div>
+    <p>Выполните умножение: <span class="math">\(4x \cdot{} 7y\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="28xy"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans22_2')">🔍 Проверить</button>
+    <div id="ans22_2" class="answer">
+        <p><b>Решение.</b> Запускаем оба конвейера.</p>
+        <ol>
+            <li>Числовой конвейер: <span class="math">\(4 \cdot{} 7 = 28\)</span>.</li>
+            <li>Буквенный конвейер: <span class="math">\(x \cdot{} y = xy\)</span> (основания разные — каждый множитель просто переезжает в результат).</li>
+            <li>Стандартный вид: <span class="math">\(4x \cdot{} 7y = 28xy\)</span>.</li>
+        </ol>
+        <p>Проверка: при <span class="math">\(x = 1, y = 1\)</span> слева <span class="math">\(4 \cdot{} 7 = 28\)</span>, справа <span class="math">\(28 \cdot{} 1 \cdot{} 1 = 28\)</span>. Сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(28xy\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№483 а из учебника)</div>
+    <p>Перемножьте одночлены: <span class="math">\(-11x^3y\)</span> и <span class="math">\(0,3x^5y^2\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="-3,3x^8y^3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans22_3')">🔍 Проверить</button>
+    <div id="ans22_3" class="answer">
+        <p><b>Решение.</b> Составим произведение и пропустим его через два конвейера.</p>
+        <ol>
+            <li>Числовой конвейер: <span class="math">\(-11 \cdot{} 0,3 = -3,3\)</span>.</li>
+            <li>Буквенный конвейер: <span class="math">\(x^3 \cdot{} x^5 = x^8\)</span> (показатели <span class="math">\(3 + 5 = 8\)</span>), <span class="math">\(y \cdot{} y^2 = y^3\)</span> (показатели <span class="math">\(1 + 2 = 3\)</span>).</li>
+            <li>Стандартный вид: <span class="math">\(-11x^3y \cdot{} 0,3x^5y^2 = -3,3x^8y^3\)</span>.</li>
+        </ol>
+        <p>Проверка: при <span class="math">\(x = 2, y = 1\)</span> слева <span class="math">\(-11 \cdot{} 8 \cdot{} 0,3 \cdot{} 32 = -844,8\)</span>, справа <span class="math">\(-3,3 \cdot{} 2^8 = -3,3 \cdot{} 256 = -844,8\)</span>. Сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(-3,3x^8y^3\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№495 а из учебника)</div>
+    <p>Представьте выражение в виде одночлена стандартного вида: <span class="math">\(25a^4(3a^3)^2\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="225a^10"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans22_4')">🔍 Проверить</button>
+    <div id="ans22_4" class="answer">
+        <p><b>Решение.</b> Сначала конвейер возведения, потом конвейер умножения.</p>
+        <ol>
+            <li>Возводим скобку в квадрат: <span class="math">\((3a^3)^2 = 3^2 \cdot{} (a^3)^2 = 9a^6\)</span> — коэффициент в квадрат, показатель <span class="math">\(3 \cdot{} 2 = 6\)</span>.</li>
+            <li>Умножаем: <span class="math">\(25 \cdot{} 9 = 225\)</span>, <span class="math">\(a^4 \cdot{} a^6 = a^10\)</span> (показатели <span class="math">\(4 + 6 = 10\)</span>).</li>
+            <li>Стандартный вид: <span class="math">\(25a^4(3a^3)^2 = 225a^10\)</span>.</li>
+        </ol>
+        <p>Проверка: при <span class="math">\(a = 1\)</span> слева <span class="math">\(25 \cdot{} 9 = 225\)</span>; при <span class="math">\(a = 2\)</span> слева <span class="math">\(25 \cdot{} 16 \cdot{} (3 \cdot{} 8)^2 = 400 \cdot{} 576 = 230400\)</span>, справа <span class="math">\(225 \cdot{} 2^10 = 225 \cdot{} 1024 = 230400\)</span>. Сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(225a^10\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№495 в из учебника)</div>
+    <p>Представьте выражение в виде одночлена стандартного вида: <span class="math">\(8p^3 \cdot{} (-p)^5\)</span>. Найди ловушку!</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="-8p^8"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans22_5')">🔍 Проверить</button>
+    <div id="ans22_5" class="answer">
+        <p><b>Решение.</b> Ловушка здесь двойная: у скобки <span class="math">\((-p)^5\)</span> невидимый коэффициент <span class="math">\(-1\)</span> и невидимый показатель <span class="math">\(1\)</span> у буквы.</p>
+        <ol>
+            <li>Раскрываем скобку: <span class="math">\((-p)^5 = (-1)^5 \cdot{} p^5 = -p^5\)</span> — степень нечётная, минус <b>остаётся</b>.</li>
+            <li>Числовой конвейер: <span class="math">\(8 \cdot{} (-1) = -8\)</span>.</li>
+            <li>Буквенный конвейер: <span class="math">\(p^3 \cdot{} p^5 = p^8\)</span> (показатели <span class="math">\(3 + 5 = 8\)</span>).</li>
+            <li>Стандартный вид: <span class="math">\(8p^3 \cdot{} (-p)^5 = -8p^8\)</span>.</li>
+        </ol>
+        <p>Проверка: при <span class="math">\(p = 1\)</span> слева <span class="math">\(8 \cdot{} (-1) = -8\)</span>; при <span class="math">\(p = 2\)</span> слева <span class="math">\(8 \cdot{} 8 \cdot{} (-32) = -2048\)</span>, справа <span class="math">\(-8 \cdot{} 2^8 = -2048\)</span>. Сошлось.</p>
+        <p><b>Ответ:</b> <span class="math">\(-8p^8\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№494 а, б из учебника)</div>
+    <p>Какой одночлен надо возвести в квадрат (в куб), чтобы получить одночлен: а) <span class="math">\(x^16y^10\)</span>; б) <span class="math">\(1000000m^18\)</span>? Это обратная задача — конвейер едет назад!</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x^8y^5; 100m^6"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans22_6')">🔍 Проверить</button>
+    <div id="ans22_6" class="answer">
+        <p><b>Решение.</b> При возведении в квадрат показатели <b>удваиваются</b>, при возведении в куб — <b>утраиваются</b>. Значит, едем назад — делим.</p>
+        <ol>
+            <li>а) Квадрат: показатели делим на <span class="math">\(2\)</span>: <span class="math">\(16 : 2 = 8\)</span>, <span class="math">\(10 : 2 = 5\)</span> — искомый одночлен <span class="math">\(x^8y^5\)</span>.</li>
+            <li>Проверка а): <span class="math">\((x^8y^5)^2 = x^16y^10\)</span>. Сошлось. (Кстати, <span class="math">\(-x^8y^5\)</span> тоже подойдёт: чётная степень съест минус.)</li>
+            <li>б) Куб: показатель делим на <span class="math">\(3\)</span>: <span class="math">\(18 : 3 = 6\)</span>; коэффициент: <span class="math">\(1000000 = 10^6\)</span>, а куб какого числа даёт <span class="math">\(10^6\)</span>? Куб <span class="math">\(100\)</span>: <span class="math">\(100 \cdot{} 100 \cdot{} 100 = 1000000\)</span>. Искомый одночлен <span class="math">\(100m^6\)</span>.</li>
+            <li>Проверка б): <span class="math">\((100m^6)^3 = 1000000m^18\)</span>. Сошлось.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(x^8y^5; 100m^6\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>При умножении одночленов <b>коэффициенты перемножаются</b>, а <b>показатели одинаковых оснований складываются</b>: <span class="math">\(-5a^3b^5c \cdot{} 4a^2b^2 = -20a^5b^7c\)</span>.</li>
+        <li>Результат приводят к <b>стандартному виду</b>: один числовой множитель впереди, каждая буква встречается один раз.</li>
+        <li>При возведении одночлена в степень <b>коэффициент возводят в степень</b>, а <b>каждый показатель умножают</b> на эту степень: <span class="math">\((2m^3n)^2 = 4m^6n^2\)</span>.</li>
+        <li>Чётная степень «съедает» минус: <span class="math">\((-x^3y^2)^4 = x^12y^8\)</span>. Нечётная — сохраняет: <span class="math">\((-2a^2b^3)^3 = -8a^6b^9\)</span>.</li>
+        <li>Помни про невидимые единицы: <span class="math">\(p = 1p^1\)</span>, поэтому <span class="math">\((-p)^5 = -p^5\)</span>.</li>
+        <li><b>Степень одночлена</b> — сумма показателей всех переменных; у числа, отличного от нуля, она равна <span class="math">\(0\)</span>.</li>
+        <li>Обратная задача: чтобы найти основание, показатели результата делишь на <span class="math">\(n\)</span>: <span class="math">\(x^16y^10 = (x^8y^5)^2\)</span>.</li>
+        <li>Быстрая проверка: подставь <span class="math">\(1\)</span> вместо всех букв — слева и справа должны совпасть коэффициенты.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 3: Степень с натуральным показателем<br>
+    §7, п. 22. Умножение одночленов. Возведение одночлена в степень • Страницы 112-113</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-21.html">← Урок 21</a><span class="sep">|</span><a href="lesson-23.html">Урок 23 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

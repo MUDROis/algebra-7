@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Разложение на множители с помощью формул квадрата суммы и квадрата разности — Алгебра 7 класс | Глава 5, §11, п. 33</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Три улики — и трёхчлен сворачивается в аккуратную скобку 🕵️">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Разложение на множители с помощью формул квадрата суммы и квадрата разности — Алгебра 7 класс | Глава 5, §11, п. 33">
+<meta property="og:description" content="Три улики — и трёхчлен сворачивается в аккуратную скобку 🕵️">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-33.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Разложение на множители с помощью формул квадрата суммы и квадрата разности — Алгебра 7 класс | Глава 5, §11, п. 33">
+<meta name="twitter:description" content="Три улики — и трёхчлен сворачивается в аккуратную скобку 🕵️">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-33.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-32.html">← Урок 32</a><span class="sep">|</span><a href="lesson-34.html">Урок 34 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 5 • §11, п. 33</span>
+    <h1>Разложение на множители с помощью формул квадрата суммы и квадрата разности</h1>
+    <p class="subtitle">Три улики — и трёхчлен сворачивается в аккуратную скобку 🕵️</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 В прошлый раз ты разворачивал скобку в трёхчлен. Сегодня — обратное расследование: перед тобой три члена, и нужно вычислить, какая скобка их «оставила». Учебник говорит прямо: формулы квадрата суммы и квадрата разности применяются не только для возведения в квадрат, но и для разложения на множители выражений вида <span class="math">\(a^2 + 2ab + b^2\)</span> и <span class="math">\(a^2 - 2ab + b^2\)</span>. Готов? Шерлок Холмс алгебры, твой выход! 🔍</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔄 Формулы работают в обе стороны</h2>
+    <p>Поменяем в формулах п. 32 левую и правую части — и получим равенства для разложения на множители:</p>
+    <p><span class="math">\(a^2 + 2ab + b^2 = (a + b)^2\)</span> &nbsp;&nbsp;и&nbsp;&nbsp; <span class="math">\(a^2 - 2ab + b^2 = (a - b)^2\)</span></p>
+    <p><b>Определение.</b> <span class="highlight">Представление трёхчлена в виде произведения двух одинаковых множителей называют разложением на множители по формуле квадрата суммы или квадрата разности</span>: трёхчлен <span class="math">\(a^2 + 2ab + b^2\)</span> можно записать как <span class="math">\((a + b)(a + b)\)</span>, а трёхчлен <span class="math">\(a^2 - 2ab + b^2\)</span> — как <span class="math">\((a - b)(a - b)\)</span>. Такую скобку называют <span class="highlight">квадратом двучлена</span>.</p>
+    <p>Пример: свернём трёхчлен <span class="math">\(x^2 + 16x + 64\)</span>.</p>
+    <ol>
+        <li>Первый член: <span class="math">\(x^2\)</span> — квадрат <span class="math">\(x\)</span>.</li>
+        <li>Последний: <span class="math">\(64 = 8^2\)</span> — квадрат <span class="math">\(8\)</span>.</li>
+        <li>Средний: <span class="math">\(16x = 2 \cdot{} x \cdot{} 8\)</span> — удвоенное произведение. Всё сходится!</li>
+        <li>Сворачиваем: <span class="math">\(x^2 + 16x + 64 = (x + 8)^2\)</span>.</li>
+    </ol>
+    <p>Проверка умножением: <span class="math">\((x + 8)^2 = x^2 + 2 \cdot{} x \cdot{} 8 + 8^2 = x^2 + 16x + 64\)</span> — верно. ✅</p>
+</section>
+
+<section class="card page-block">
+    <h2>🕵️ Детективная доска: три улики</h2>
+    <p>Как понять, что трёхчлен — это квадрат двучлена, если он тебе просто попался в упражнении? Проверь три улики:</p>
+    <ol>
+        <li><b>Улика первая.</b> Первый член — точный квадрат. Чьего? Запиши основание.</li>
+        <li><b>Улика вторая.</b> Последний член — тоже точный квадрат.</li>
+        <li><b>Улика третья.</b> Средний член равен удвоенному произведению этих оснований (со знаком «плюс» или «минус»).</li>
+    </ol>
+    <p>Все три улики сходятся? Трёхчлен сворачивается: плюс у среднего — в <span class="math">\((a + b)^2\)</span>, минус — в <span class="math">\((a - b)^2\)</span>. Вот как это выглядит на доске детектива (пример 1 из учебника):</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="100%" viewBox="0 0 700 330" role="img" aria-label="Детективная доска: от трёхчлена 9x2 + 30x + 25 стрелки ведут к трём уликам, а от улик - к скобке (3x + 5)2">
+            <defs>
+                <marker id="arr33o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#e67e22"/>
+                </marker>
+                <marker id="arr33g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e8449"/>
+                </marker>
+            </defs>
+            <text x="350" y="26" font-size="16" text-anchor="middle" fill="#7f8c8d">🔍 Дело № 1: кто оставил следы 9x<tspan dy="-9" font-size="11">2</tspan><tspan dy="9"> + 30x + 25?</tspan></text>
+            <rect x="15" y="115" width="185" height="95" rx="12" fill="#fef9e7" stroke="#f39c12" stroke-width="2.5"/>
+            <text x="107" y="142" font-size="13" font-weight="bold" text-anchor="middle" fill="#b9770e">ВЕЩДОК</text>
+            <text x="107" y="182" font-size="22" font-weight="bold" text-anchor="middle" fill="#7e5109">9x<tspan dy="-10" font-size="15">2</tspan><tspan dy="10"> + 30x + 25</tspan></text>
+            <line x1="200" y1="162" x2="248" y2="90" stroke="#e67e22" stroke-width="2.5" marker-end="url(#arr33o)"/>
+            <line x1="200" y1="162" x2="248" y2="163" stroke="#e67e22" stroke-width="2.5" marker-end="url(#arr33o)"/>
+            <line x1="200" y1="162" x2="248" y2="237" stroke="#e67e22" stroke-width="2.5" marker-end="url(#arr33o)"/>
+            <rect x="255" y="48" width="255" height="76" rx="10" fill="#fdebd0" stroke="#e67e22" stroke-width="2"/>
+            <text x="382" y="94" font-size="19" font-weight="bold" text-anchor="middle" fill="#7e5109">Улика 1: 9x<tspan dy="-9" font-size="13">2</tspan><tspan dy="9"> = (3x)</tspan><tspan dy="-9" font-size="13">2</tspan></text>
+            <rect x="255" y="125" width="255" height="76" rx="10" fill="#fdebd0" stroke="#e67e22" stroke-width="2"/>
+            <text x="382" y="171" font-size="19" font-weight="bold" text-anchor="middle" fill="#7e5109">Улика 2: 25 = 5<tspan dy="-9" font-size="13">2</tspan></text>
+            <rect x="255" y="202" width="255" height="76" rx="10" fill="#fdebd0" stroke="#e67e22" stroke-width="2"/>
+            <text x="382" y="248" font-size="19" font-weight="bold" text-anchor="middle" fill="#7e5109">Улика 3: 30x = 2 · 3x · 5</text>
+            <line x1="510" y1="86" x2="558" y2="156" stroke="#1e8449" stroke-width="2.5" marker-end="url(#arr33g)"/>
+            <line x1="510" y1="163" x2="558" y2="163" stroke="#1e8449" stroke-width="2.5" marker-end="url(#arr33g)"/>
+            <line x1="510" y1="240" x2="558" y2="170" stroke="#1e8449" stroke-width="2.5" marker-end="url(#arr33g)"/>
+            <rect x="565" y="115" width="120" height="95" rx="12" fill="#d5f5e3" stroke="#1e8449" stroke-width="2.5"/>
+            <text x="625" y="142" font-size="13" font-weight="bold" text-anchor="middle" fill="#196f3d">ВЫВОД</text>
+            <text x="625" y="182" font-size="21" font-weight="bold" text-anchor="middle" fill="#145a32">(3x + 5)<tspan dy="-10" font-size="14">2</tspan></text>
+        </svg>
+    </div>
+    <p class="fig-caption">Детективная доска: три улики о трёхчлене <span class="math">\(9x^2 + 30x + 25\)</span> приводят к одному «подозреваемому» — скобке <span class="math">\((3x + 5)^2\)</span></p>
+    <p>Оформим, как в учебнике: <span class="math">\(9x^2 + 30x + 25 = (3x)^2 + 2 \cdot{} 3x \cdot{} 5 + 5^2 = (3x + 5)^2\)</span>. Готово — три члена превратились в произведение <span class="math">\((3x + 5)(3x + 5)\)</span>. 🎉</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧗 Квадраты бывают высокие</h2>
+    <p>Основанием квадрата может быть любое выражение — даже многочлен или число со степенью. Настоящие квадраты-рекордсмены:</p>
+    <ul>
+        <li><span class="math">\(a^4 = (a^2)^2\)</span> — основание <span class="math">\(a^2\)</span>;</li>
+        <li><span class="math">\(100b^10 = (10b^5)^2\)</span> — основание <span class="math">\(10b^5\)</span>;</li>
+        <li><span class="math">\(0,25x^2 = (0,5x)^2\)</span> — основание <span class="math">\(0,5x\)</span>;</li>
+        <li><span class="math">\(49m^6 = (7m^3)^2\)</span> — основание <span class="math">\(7m^3\)</span>.</li>
+    </ul>
+    <p>Пример 2 из учебника — разложим на множители трёхчлен <span class="math">\(a^4 - 20a^2b^5 + 100b^10\)</span>:</p>
+    <ol>
+        <li>Улика первая: <span class="math">\(a^4 = (a^2)^2\)</span>.</li>
+        <li>Улика вторая: <span class="math">\(100b^10 = (10b^5)^2\)</span>.</li>
+        <li>Улика третья: <span class="math">\(20a^2b^5 = 2 \cdot{} a^2 \cdot{} 10b^5\)</span>. Минус у среднего — значит, квадрат разности.</li>
+        <li>Сворачиваем: <span class="math">\(a^4 - 20a^2b^5 + 100b^10 = (a^2 - 10b^5)^2 = (a^2 - 10b^5)(a^2 - 10b^5)\)</span>.</li>
+    </ol>
+    <p>Не пугайся «небоскрёбов» из степеней: просто спроси себя — квадратом чего является этот член? 🔭</p>
+</section>
+
+<section class="card page-block">
+    <h2>🚦 Минус-сигнал: когда минус снаружи</h2>
+    <p>Если все три члена трёхчлена с минусом, сперва вынеси <span class="math">\(-1\)</span> за скобку, а внутри сворачивай обычный квадрат:</p>
+    <p><span class="math">\(-9x^2 - 6x - 1 = -(9x^2 + 6x + 1) = -(3x + 1)^2\)</span></p>
+    <p>Полученное выражение в учебнике называют <span class="highlight">выражением, противоположным квадрату двучлена</span> — именно так сформулировано задание №855.</p>
+    <p>⚠️ Но минус не может прятаться только в последнем члене! Смотри контраст:</p>
+    <ul>
+        <li>✅ <span class="math">\(y^2 - 10y + 25 = (y - 5)^2\)</span> — последний член <span class="math">\(25 = 5^2\)</span> с плюсом;</li>
+        <li>🚫 <span class="math">\(y^2 - 10y - 25\)</span> — не свернётся: последний член отрицательный, а квадрат не бывает отрицательным. Вторая улика провалена.</li>
+    </ul>
+</section>
+
+<section class="card page-block">
+    <h2>⚡ Жизненный блок: считаем в обратную сторону</h2>
+    <p>Формулы в обратную сторону — секретное оружие устного счёта. Пример 1: вычислим <span class="math">\(72^2 + 2 \cdot{} 72 \cdot{} 28 + 28^2\)</span>.</p>
+    <ol>
+        <li>В «лоб» — умножай три больших числа, трать минуту.</li>
+        <li>А узнай в трёхчлене квадрат суммы: <span class="math">\(72^2 + 2 \cdot{} 72 \cdot{} 28 + 28^2 = (72 + 28)^2\)</span>.</li>
+        <li><span class="math">\(72 + 28 = 100\)</span>, значит значение выражения — <span class="math">\(100^2 = 10000\)</span>. Секунда! ⚡</li>
+    </ol>
+    <p>Пример 2: <span class="math">\(43^2 - 86 \cdot{} 13 + 13^2\)</span>. Хитрость в том, что <span class="math">\(86 \cdot{} 13 = 2 \cdot{} 43 \cdot{} 13\)</span>, поэтому</p>
+    <p><span class="math">\(43^2 - 86 \cdot{} 13 + 13^2 = (43 - 13)^2 = 30^2 = 900\)</span></p>
+    <p>Такой трюк работает всегда, когда видишь «квадрат + удвоенное произведение + квадрат». Всё, что пугает в лоб, после сворачивания считается в одно действие.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Детектив среднего члена»</h3>
+    <p>Трёхчлен сворачивается в квадрат двучлена, только если сходятся три улики:</p>
+    <ol>
+        <li>первый член — точный квадрат;</li>
+        <li>последний член — точный квадрат;</li>
+        <li>средний член равен <span class="math">\(±2\)</span> · (основание первого) · (основание последнего).</li>
+    </ol>
+    <p>Проверил все три — и только потом сворачивай. Главный подозреваемый всегда «средний член»: если он не сходится, дело закрыто.</p>
+    <p>Пример (не из заданий): <span class="math">\(x^2 + 6x + 9\)</span> — улики: <span class="math">\(x^2\)</span>, <span class="math">\(9 = 3^2\)</span>, <span class="math">\(6x = 2 \cdot{} x \cdot{} 3\)</span>. Все сходятся ✅ → <span class="math">\((x + 3)^2\)</span>.</p>
+    <p>🚫 А вот <span class="math">\(x^2 + 6x + 8\)</span> не свернётся: <span class="math">\(8\)</span> — не точный квадрат, вторая улика провалена. Честный детектив не подгоняет ответ: не каждый трёхчлен — полный квадрат.</p>
+    <p>🎯 Мостик: в задании 2 станешь детективом — улики там спрятаны внутри больших коэффициентов. А в заданиях 5 и 6 свёрнутый квадрат станет главным доказательством.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 33) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№849 в из учебника)</div>
+    <p>Представьте трёхчлен в виде квадрата двучлена: <span class="math">\(a^2 + 12a + 36\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(a + 6)^2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans33_1')">🔍 Проверить</button>
+    <div id="ans33_1" class="answer">
+        <p>Собираем улики:</p>
+        <ol>
+            <li>Первый член: <span class="math">\(a^2\)</span> — квадрат <span class="math">\(a\)</span>.</li>
+            <li>Последний член: <span class="math">\(36 = 6^2\)</span> — квадрат <span class="math">\(6\)</span>.</li>
+            <li>Средний член: <span class="math">\(12a = 2 \cdot{} a \cdot{} 6\)</span> — удвоенное произведение. Плюс → квадрат суммы.</li>
+            <li>Сворачиваем: <span class="math">\(a^2 + 12a + 36 = (a + 6)^2\)</span>.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\((a + 6)^2 = a^2 + 2 \cdot{} a \cdot{} 6 + 6^2 = a^2 + 12a + 36\)</span> — верно. ✅</p>
+        <p><b>Ответ:</b> <span class="math">\((a + 6)^2\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№851 а из учебника)</div>
+    <p>Преобразуйте трёхчлен в квадрат двучлена: <span class="math">\(81a^2 - 18ab + b^2\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(9a - b)^2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans33_2')">🔍 Проверить</button>
+    <div id="ans33_2" class="answer">
+        <p>Здесь улики спрятаны в коэффициентах — работаем детективом:</p>
+        <ol>
+            <li>Первый член: <span class="math">\(81a^2 = (9a)^2\)</span>, потому что <span class="math">\(9^2 = 81\)</span>.</li>
+            <li>Последний член: <span class="math">\(b^2\)</span> — квадрат <span class="math">\(b\)</span>.</li>
+            <li>Средний член: <span class="math">\(18ab = 2 \cdot{} 9a \cdot{} b\)</span>. Минус → квадрат разности.</li>
+            <li>Сворачиваем: <span class="math">\(81a^2 - 18ab + b^2 = (9a - b)^2\)</span>.</li>
+        </ol>
+        <p>Проверка умножением: <span class="math">\((9a - b)^2 = 81a^2 - 2 \cdot{} 9a \cdot{} b + b^2 = 81a^2 - 18ab + b^2\)</span> — верно. ✅</p>
+        <p><b>Ответ:</b> <span class="math">\((9a - b)^2\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№856 а из учебника)</div>
+    <p>Найдите значение выражения: <span class="math">\(y^2 - 2y + 1\)</span> при <span class="math">\(y = 101; -11; 0,6\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="10000; 144; 0,16"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans33_3')">🔍 Проверить</button>
+    <div id="ans33_3" class="answer">
+        <p>Сначала сворачиваем, потом подставляем — иначе придётся считать трижды «в лоб».</p>
+        <ol>
+            <li>Улики: <span class="math">\(y^2\)</span>, <span class="math">\(1 = 1^2\)</span>, средний <span class="math">\(2y = 2 \cdot{} y \cdot{} 1\)</span>. Значит, <span class="math">\(y^2 - 2y + 1 = (y - 1)^2\)</span>.</li>
+            <li>При <span class="math">\(y = 101\)</span>: <span class="math">\((101 - 1)^2 = 100^2 = 10000\)</span>.</li>
+            <li>При <span class="math">\(y = -11\)</span>: <span class="math">\((-11 - 1)^2 = (-12)^2 = 144\)</span>.</li>
+            <li>При <span class="math">\(y = 0,6\)</span>: <span class="math">\((0,6 - 1)^2 = (-0,4)^2 = 0,16\)</span>.</li>
+        </ol>
+        <p>Проверка «в лоб» для <span class="math">\(y = 0,6\)</span>: <span class="math">\(0,36 - 1,2 + 1 = 0,16\)</span> — сошлось. ✅</p>
+        <p><b>Ответ:</b> <span class="math">\(10000; 144; 0,16\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№852 б из учебника)</div>
+    <p>Поставьте вместо знака * такой одночлен, чтобы трёхчлен можно было представить в виде квадрата двучлена: <span class="math">\(36 - 12x + *\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x^2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans33_4')">🔍 Проверить</button>
+    <div id="ans33_4" class="answer">
+        <p>Расследование наоборот: по двум известным членам вычисляем пропавшего свидетеля.</p>
+        <ol>
+            <li>Первый член: <span class="math">\(36 = 6^2\)</span> — основание <span class="math">\(6\)</span>.</li>
+            <li>Средний член должен быть удвоенным произведением: <span class="math">\(-12x = 2 \cdot{} 6 \cdot{} (-x)\)</span> — второе основание <span class="math">\(x\)</span>.</li>
+            <li>Значит, пропавший одночлен — квадрат <span class="math">\(x\)</span>: <span class="math">\(* = x^2\)</span>.</li>
+            <li>Проверяем: <span class="math">\(36 - 12x + x^2 = 6^2 - 2 \cdot{} 6 \cdot{} x + x^2 = (6 - x)^2\)</span> — квадрат двучлена получен.</li>
+        </ol>
+        <p>Проверка при <span class="math">\(x = 2\)</span>: трёхчлен <span class="math">\(36 - 24 + 4 = 16\)</span>, скобка <span class="math">\((6 - 2)^2 = 16\)</span> — сошлось. ✅</p>
+        <p><b>Ответ:</b> <span class="math">\(x^2\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№857 б из учебника, найди ловушку)</div>
+    <p>Верно ли, что при любых значениях <span class="math">\(x\)</span> выполняется неравенство <span class="math">\(x^2 + 20x + 100 \gt 0\)</span>?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="нет, при x = -10 значение равно 0"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans33_5')">🔍 Проверить</button>
+    <div id="ans33_5" class="answer">
+        <p>Свернём трёхчлен и аккуратно проверим слова «при любых».</p>
+        <ol>
+            <li>Улики: <span class="math">\(x^2\)</span>, <span class="math">\(100 = 10^2\)</span>, <span class="math">\(20x = 2 \cdot{} x \cdot{} 10\)</span>. Значит, <span class="math">\(x^2 + 20x + 100 = (x + 10)^2\)</span>.</li>
+            <li>Квадрат любого выражения всегда неотрицателен: <span class="math">\((x + 10)^2 ≥ 0\)</span>.</li>
+            <li>Но нуля он всё-таки достигает! При <span class="math">\(x = -10\)</span> получаем <span class="math">\((-10 + 10)^2 = 0\)</span>, а <span class="math">\(0\)</span> — это не строго больше нуля.</li>
+            <li>Значит, утверждение «больше нуля при любых значениях» — неверно: контрпример найден.</li>
+        </ol>
+        <p>Контрпроверка: при <span class="math">\(x = -10\)</span> значение равно <span class="math">\(100 - 200 + 100 = 0\)</span> — не положительное. 🚫</p>
+        <p><b>Ответ:</b> нет, при <span class="math">\(x = -10\)</span> значение равно <span class="math">\(0\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№863 из учебника, доказательство)</div>
+    <p>Докажите, что при любом значении <span class="math">\(x\)</span> многочлен <span class="math">\(x^2 + 6x + 10\)</span> принимает положительные значения.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="многочлен принимает положительные значения при любом x"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans33_6')">🔍 Проверить</button>
+    <div id="ans33_6" class="answer">
+        <p>Стратегия: выделить полный квадрат — и неравенство станет очевидным.</p>
+        <ol>
+            <li>Разбиваем <span class="math">\(10\)</span> на две части так, чтобы получился полный квадрат: <span class="math">\(x^2 + 6x + 10 = (x^2 + 6x + 9) + 1\)</span>.</li>
+            <li>Три первых члена сворачиваем по уликам <span class="math">\(x^2\)</span>, <span class="math">\(9 = 3^2\)</span>, <span class="math">\(6x = 2 \cdot{} x \cdot{} 3\)</span>: <span class="math">\(x^2 + 6x + 9 = (x + 3)^2\)</span>.</li>
+            <li>Итого: <span class="math">\(x^2 + 6x + 10 = (x + 3)^2 + 1\)</span>.</li>
+            <li>Квадрат всегда неотрицателен: <span class="math">\((x + 3)^2 ≥ 0\)</span>, поэтому <span class="math">\((x + 3)^2 + 1 ≥ 1\)</span>.</li>
+            <li>Наименьшее значение равно <span class="math">\(1\)</span> и достигается при <span class="math">\(x = -3\)</span> — положительность гарантирована при любом <span class="math">\(x\)</span>.</li>
+        </ol>
+        <p>Проверка числами: при <span class="math">\(x = -3\)</span> значение <span class="math">\(9 - 18 + 10 = 1\)</span>, при <span class="math">\(x = 0\)</span> значение <span class="math">\(10\)</span> — оба положительны. ✅</p>
+        <p><b>Ответ:</b> многочлен принимает положительные значения при любом <span class="math">\(x\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Формулы читаются в обе стороны: <span class="math">\(a^2 + 2ab + b^2 = (a + b)^2\)</span> и <span class="math">\(a^2 - 2ab + b^2 = (a - b)^2\)</span>.</li>
+        <li>Три улики полного квадрата: первый член — квадрат, последний — квадрат, средний — <span class="math">\(±2\)</span> · (основание) · (основание).</li>
+        <li>Трёхчлен-квадрат — это произведение двух одинаковых множителей: <span class="math">\((a + b)(a + b)\)</span>.</li>
+        <li>Основания бывают «высокие»: <span class="math">\(a^4 = (a^2)^2\)</span>, <span class="math">\(100b^10 = (10b^5)^2\)</span>, <span class="math">\(0,25x^2 = (0,5x)^2\)</span>.</li>
+        <li>Минус перед всеми тремя членами? Вынеси <span class="math">\(-1\)</span>: <span class="math">\(-9x^2 - 6x - 1 = -(3x + 1)^2\)</span>.</li>
+        <li>Квадрат всегда <span class="math">\(≥ 0\)</span>: поэтому <span class="math">\(x^2 + 6x + 10 = (x + 3)^2 + 1\)</span> положителен при любом <span class="math">\(x\)</span>.</li>
+        <li>Средняя улика не сходится — сворачивать нельзя: не каждый трёхчлен является квадратом двучлена.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 5: Формулы сокращённого умножения<br>
+    §11, п. 33. Разложение на множители с помощью формул квадрата суммы и квадрата разности • Страницы 171-173</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-32.html">← Урок 32</a><span class="sep">|</span><a href="lesson-34.html">Урок 34 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

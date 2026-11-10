@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Решение задач с помощью систем уравнений — Алгебра 7 класс | Глава 6, §15, п. 45</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Текст задачи → два уравнения → система → ответ 🔍">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Решение задач с помощью систем уравнений — Алгебра 7 класс | Глава 6, §15, п. 45">
+<meta property="og:description" content="Текст задачи → два уравнения → система → ответ 🔍">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-45.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Решение задач с помощью систем уравнений — Алгебра 7 класс | Глава 6, §15, п. 45">
+<meta name="twitter:description" content="Текст задачи → два уравнения → система → ответ 🔍">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-45.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-44.html">← Урок 44</a><span class="sep">|</span><a href="lesson-46.html">Урок 46 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 6 • §15, п. 45</span>
+    <h1>Решение задач с помощью систем уравнений</h1>
+    <p class="subtitle">Текст задачи → два уравнения → система → ответ 🔍</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Ты уже владеешь тремя способами решения систем — графическим, подстановкой и сложением. Но в жизни готовых систем не бывает: их нужно <span class="highlight">составить из условия задачи</span>. Вот задача из учебника: масса 15 кирпичей и 5 шлакоблоков равна 64 кг, а 5 кирпичей тяжелее 2 шлакоблоков на 3 кг. Видишь? Здесь спрятаны <b>два факта-предложения</b> — значит, будет <b>два уравнения</b>, значит, система! Сегодня научишься превращать любой текст в систему и честно истолковывать её решение.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🗺️ Три шага из учебника</h2>
+    <p><b>Алгоритм.</b> При решении задач с помощью систем уравнений поступают следующим образом:</p>
+    <ol>
+        <li>обозначают некоторые неизвестные числа буквами и, используя условие задачи, <span class="highlight">составляют систему уравнений</span>;</li>
+        <li>решают эту систему;</li>
+        <li><span class="highlight">истолковывают результат</span> в соответствии с условием задачи.</li>
+    </ol>
+    <p>Первый шаг — самый творческий: именно здесь рождается система. Третий шаг — самый коварный: решение системы обязано иметь смысл в реальной задаче (количество кирпичей не бывает дробным, скорость не бывает отрицательной). Поэтому проверка по условию — обязательна!</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔬 «Двойная линза»: как текст превращается в систему</h2>
+    <div class="visual-container">
+        <div style="max-width:700px; width:100%; margin:0 auto;">
+            <div style="background:#eaf2fb; border:2px solid #3498db; border-radius:10px; padding:10px 16px; text-align:center;">
+                <b>📜 Текст задачи</b><br>«Масса 15 кирпичей и 5 шлакоблоков равна 64 кг; 5 кирпичей тяжелее 2 шлакоблоков на 3 кг»
+            </div>
+            <div style="text-align:center; font-size:20px; color:#7f8c8d; margin:2px 0;">↓ смотрим через две линзы ↓</div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+                <div style="flex:1; min-width:250px; background:#fef9e7; border:2px solid #f39c12; border-radius:10px; padding:10px 14px;">
+                    <b>Линза 1 — «всего»</b><br>15 кирпичей и 5 блоков — 64 кг<br>→ <span class="math">\(15x + 5y = 64\)</span>
+                </div>
+                <div style="flex:1; min-width:250px; background:#fef9e7; border:2px solid #f39c12; border-radius:10px; padding:10px 14px;">
+                    <b>Линза 2 — «сравнение»</b><br>5 кирпичей тяжелее 2 блоков на 3 кг<br>→ <span class="math">\(5x - 2y = 3\)</span>
+                </div>
+            </div>
+            <div style="text-align:center; font-size:20px; color:#7f8c8d; margin:2px 0;">↓</div>
+            <div style="background:#eafaf1; border:2px solid #27ae60; border-radius:10px; padding:10px 16px; text-align:center;">
+                <b>Система:</b> <span class="piecewise-brace">{</span><span class="piecewise-table"><div><span class="math">\(15x + 5y = 64\)</span>,</div><div><span class="math">\(5x - 2y = 3\)</span>.</div></span><br>
+                Решение: <span class="math">\(x = 2,6\)</span>, <span class="math">\(y = 5\)</span> → <b>истолкование</b>: кирпич — 2,6 кг, шлакоблок — 5 кг
+            </div>
+        </div>
+    </div>
+    <p class="fig-caption">«Двойная линза»: каждое условие задачи пропускаем через свою линзу и получаем своё уравнение.</p>
+    <p>Как найти оба условия? Задай себе два вопроса: <b>«Что в задаче говорится про ВСЁ?»</b> (сумма, общая масса, всего монет) и <b>«Что с чем сравнивается?»</b> (на сколько больше, во сколько раз тяжелее, на сколько дороже). Каждый ответ на такой вопрос — готовое уравнение.</p>
+</section>
+
+<section class="card page-block">
+    <h2>📖 Задача 1 из учебника: кирпичи и шлакоблоки</h2>
+    <p><b>Задача.</b> Масса 15 кирпичей и 5 шлакоблоков равна 64 кг. Какова масса одного кирпича и одного шлакоблока, если 5 кирпичей тяжелее 2 шлакоблоков на 3 кг?</p>
+    <p>Пусть масса кирпича <span class="math">\(x\)</span> кг, а шлакоблока <span class="math">\(y\)</span> кг. Тогда масса 15 кирпичей и 5 шлакоблоков будет <span class="math">\(15x + 5y\)</span> кг. По условию она равна 64 кг, поэтому <span class="math">\(15x + 5y = 64\)</span>. Известно также, что 5 кирпичей тяжелее 2 шлакоблоков на 3 кг. Значит, <span class="math">\(5x - 2y = 3\)</span>. Чтобы ответить на вопрос задачи, надо найти такие значения <span class="math">\(x\)</span> и <span class="math">\(y\)</span>, которые удовлетворяют обоим уравнениям, — то есть решить систему.</p>
+    <ol>
+        <li>Умножим все члены первого уравнения на <span class="math">\(2\)</span>, а второго — на <span class="math">\(-5\)</span>: <span class="math">\(30x + 10y = 128\)</span> и <span class="math">\(-25x + 10y = -15\)</span>.</li>
+        <li>Вычтем из первого уравнения второе (то есть сложим со вторым, умноженным на <span class="math">\(-1\)</span> — уже знакомый приём!): <span class="math">\(30x - (-25x) = 128 - (-15)\)</span>, откуда <span class="math">\(55x = 143\)</span>, <span class="math">\(x = 2,6\)</span>.</li>
+        <li>Подставим во второе уравнение: <span class="math">\(5 \cdot{} 2,6 - 2y = 3\)</span>, значит <span class="math">\(13 - 2y = 3\)</span>, <span class="math">\(y = 5\)</span>.</li>
+        <li>Проверка по обоим условиям: <span class="math">\(15 \cdot{} 2,6 + 5 \cdot{} 5 = 39 + 25 = 64\)</span> ✓ и <span class="math">\(5 \cdot{} 2,6 - 2 \cdot{} 5 = 13 - 10 = 3\)</span> ✓.</li>
+    </ol>
+    <p><b>Ответ:</b> масса кирпича 2,6 кг, а шлакоблока 5 кг.</p>
+    <p>Обрати внимание: оба числа «хорошие» по смыслу — масса положительна и правдоподобна. Истолкование выполнено.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🚧 Задача 2 из учебника: размен, который не состоялся</h2>
+    <p><b>Задача.</b> Можно ли разменять сторублёвую купюру пятирублёвыми и однорублёвыми монетами так, чтобы всех монет было 30?</p>
+    <p>Допустим, что следует взять <span class="math">\(x\)</span> пятирублёвых и <span class="math">\(y\)</span> однорублёвых монет. По условию <span class="math">\(x + y = 30\)</span>. Так как с помощью этих монет нужно разменять 100 р., то должно выполняться равенство <span class="math">\(5x + y = 100\)</span>. Получили систему <span class="math">\(x + y = 30\)</span> и <span class="math">\(5x + y = 100\)</span>.</p>
+    <ol>
+        <li>Вычтем из второго уравнения первое: <span class="math">\(5x - x = 100 - 30\)</span>, откуда <span class="math">\(4x = 70\)</span>, <span class="math">\(x = 17,5\)</span>.</li>
+        <li>Тогда <span class="math">\(y = 30 - 17,5 = 12,5\)</span>.</li>
+        <li>Но по смыслу задачи <span class="math">\(x\)</span> и <span class="math">\(y\)</span> должны быть <span class="highlight">натуральными числами</span> — не бывает половины монеты!</li>
+    </ol>
+    <p><b>Ответ:</b> разменять сторублёвую купюру указанным способом невозможно.</p>
+    <p>Мораль: система всегда «что-то ответит», но ответ ещё нужно <b>истолковать</b>. Здесь решение системы нашлось, а задача — нет: дробное количество монет не имеет смысла.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Два условия — два уравнения»</h3>
+    <p>Найди в задаче <b>ДВА факта-предложения</b>; каждое превращай в своё уравнение (<span class="math">\(x\)</span> и <span class="math">\(y\)</span> — два неизвестных). Не повторяй одно условие дважды! Проверка — через ОБА условия задачи, а не только через ответ.</p>
+    <p>Пример: «карандаш и ручка стоят 60 р.; ручка дороже карандаша на 20 р.». Условие 1: <span class="math">\(x + y = 60\)</span>. Условие 2: <span class="math">\(y - x = 20\)</span>. Складываем: <span class="math">\(2y = 80\)</span>, <span class="math">\(y = 40\)</span>, тогда <span class="math">\(x = 20\)</span>. Проверка: <span class="math">\(20 + 40 = 60\)</span> ✓ и <span class="math">\(40 - 20 = 20\)</span> ✓</p>
+    <p>✅ Правильно: два уравнения из двух разных предложений — система решается однозначно.<br>
+    🚫 Ошибка: из одного предложения «карандаш и ручка стоят 60 р.» сделал оба уравнения: <span class="math">\(x + y = 60\)</span> и <span class="math">\(2x + 2y = 120\)</span>. Второе — просто удвоенное первое! Система имеет бесконечно много решений, и ни одно нельзя выбрать по задаче.</p>
+    <p>Мостик: в задании 5 оба условия спрятаны в реплике мула — каждая половина фразы даст тебе своё уравнение.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 45) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№1115 из учебника, сюжетная задача)</div>
+    <p>В фермерском хозяйстве под гречиху и просо отведено 19 га, причём гречиха занимает на 5 га больше, чем просо. Сколько гектаров отведено под каждую из этих культур?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="12 и 7"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans45_1')">🔍 Проверить</button>
+    <div id="ans45_1" class="answer">
+        <ol>
+            <li>Пусть <span class="math">\(x\)</span> га — гречиха, <span class="math">\(y\)</span> га — просо. Условие 1 (всего 19 га): <span class="math">\(x + y = 19\)</span>. Условие 2 (гречиха на 5 га больше): <span class="math">\(x - y = 5\)</span>.</li>
+            <li>Коэффициенты при <span class="math">\(y\)</span> противоположные. Складываем почленно: <span class="math">\(2x = 24\)</span>, откуда <span class="math">\(x = 12\)</span>.</li>
+            <li>Тогда <span class="math">\(y = 19 - 12 = 7\)</span>.</li>
+            <li>Проверка по обоим условиям: <span class="math">\(12 + 7 = 19\)</span> ✓ и <span class="math">\(12 - 7 = 5\)</span> ✓.</li>
+        </ol>
+        <p><b>Ответ:</b> 12 и 7</p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№1116 из учебника, сюжетная задача)</div>
+    <p>Техническое переоснащение цеха позволило выпустить в феврале на 165 изделий больше, чем в январе. Сколько изделий было выпущено в январе и сколько в феврале, если известно, что за эти месяцы цех выпустил 1815 изделий?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="825 и 990"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans45_2')">🔍 Проверить</button>
+    <div id="ans45_2" class="answer">
+        <ol>
+            <li>Пусть <span class="math">\(x\)</span> изделий выпущено в январе, <span class="math">\(y\)</span> — в феврале. Условие 1 (за два месяца 1815): <span class="math">\(x + y = 1815\)</span>. Условие 2 (в феврале на 165 больше): <span class="math">\(y - x = 165\)</span>.</li>
+            <li>Складываем почленно: <span class="math">\((x - x) + (y + y) = 1815 + 165\)</span>, то есть <span class="math">\(2y = 1980\)</span>, откуда <span class="math">\(y = 990\)</span>.</li>
+            <li>Тогда <span class="math">\(x = 1815 - 990 = 825\)</span>.</li>
+            <li>Проверка по обоим условиям: <span class="math">\(825 + 990 = 1815\)</span> ✓ и <span class="math">\(990 - 825 = 165\)</span> ✓.</li>
+        </ol>
+        <p><b>Ответ:</b> 825 и 990</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№1117 из учебника, сюжетная задача)</div>
+    <p>В мастерской «Автосервис» отремонтировали 22 легковых и грузовых автомобиля. Среди них легковых было на 8 меньше, чем грузовых. Сколько грузовых автомобилей отремонтировали в мастерской?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="15"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans45_3')">🔍 Проверить</button>
+    <div id="ans45_3" class="answer">
+        <ol>
+            <li>Пусть <span class="math">\(x\)</span> — легковые, <span class="math">\(y\)</span> — грузовые. Условие 1 (всего 22): <span class="math">\(x + y = 22\)</span>. Условие 2 (легковых на 8 меньше, то есть грузовых на 8 больше): <span class="math">\(y - x = 8\)</span>.</li>
+            <li>Складываем почленно: <span class="math">\(2y = 30\)</span>, откуда <span class="math">\(y = 15\)</span>.</li>
+            <li>Тогда <span class="math">\(x = 22 - 15 = 7\)</span>.</li>
+            <li>Проверка по обоим условиям: <span class="math">\(7 + 15 = 22\)</span> ✓ и <span class="math">\(15 - 7 = 8\)</span> ✓. Спрашивали про грузовые — это <span class="math">\(y\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> 15</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№1124 из учебника, сюжетная задача)</div>
+    <p>За 4 ч езды на автомашине и 7 ч езды на поезде туристы проехали 640 км. Какова скорость поезда, если она на 5 км/ч больше скорости автомашины?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="55 и 60"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans45_4')">🔍 Проверить</button>
+    <div id="ans45_4" class="answer">
+        <ol>
+            <li>Пусть <span class="math">\(x\)</span> км/ч — скорость автомашины, <span class="math">\(y\)</span> км/ч — скорость поезда. Условие 1 (путь 640 км): <span class="math">\(4x + 7y = 640\)</span>. Условие 2 (поезд на 5 км/ч быстрее): <span class="math">\(y - x = 5\)</span>.</li>
+            <li>Из второго уравнения <span class="math">\(y = x + 5\)</span>. Подставим в первое: <span class="math">\(4x + 7(x + 5) = 640\)</span>, значит <span class="math">\(4x + 7x + 35 = 640\)</span>, <span class="math">\(11x = 605\)</span>, <span class="math">\(x = 55\)</span>.</li>
+            <li>Тогда <span class="math">\(y = 55 + 5 = 60\)</span>.</li>
+            <li>Проверка по обоим условиям: <span class="math">\(4 \cdot{} 55 + 7 \cdot{} 60 = 220 + 420 = 640\)</span> ✓ и <span class="math">\(60 - 55 = 5\)</span> ✓.</li>
+        </ol>
+        <p><b>Ответ:</b> 55 и 60</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№1120 из учебника, старинная задача)</div>
+    <p>Старинная задача. Ослица и мул шли вместе, нагруженные равными по весу мешками. Ослица жаловалась на тяжесть ноши. «Что ты жалуешься, — сказал мул, — если ты дашь мне твой мешок, моя ноша станет вдвое больше твоей, а если я тебе дам один мешок, то наши грузы сравняются». Сколько мешков нёс каждый?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="7 и 5"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans45_5')">🔍 Проверить</button>
+    <div id="ans45_5" class="answer">
+        <ol>
+            <li>Пусть <span class="math">\(x\)</span> мешков несёт мул, <span class="math">\(y\)</span> — ослица. Условие 1 (если мул отдаст ослице один мешок, грузы сравняются): <span class="math">\(x - 1 = y + 1\)</span>.</li>
+            <li>Условие 2 (если ослица отдаст свой мешок мулу, ноша мула станет вдвое больше её ноши): <span class="math">\(x + 1 = 2(y - 1)\)</span>.</li>
+            <li>Из первого уравнения <span class="math">\(x = y + 2\)</span>. Подставим во второе: <span class="math">\(y + 2 + 1 = 2y - 2\)</span>, откуда <span class="math">\(y = 5\)</span>.</li>
+            <li>Тогда <span class="math">\(x = 5 + 2 = 7\)</span>.</li>
+            <li>Проверка по обоим условиям: мул отдаёт мешок — у него <span class="math">\(7 - 1 = 6\)</span>, у ослицы <span class="math">\(5 + 1 = 6\)</span>, грузы равны ✓; ослица отдаёт мешок — у неё остаётся <span class="math">\(5 - 1 = 4\)</span>, у мула <span class="math">\(7 + 1 = 8 = 2 \cdot{} 4\)</span> — вдвое больше ✓.</li>
+        </ol>
+        <p><b>Ответ:</b> 7 и 5</p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№1136 из учебника, задача на смеси)</div>
+    <p>Имеется молоко 5% жирности и 1% жирности. Сколько молока каждого вида надо взять, чтобы получить 8 л молока, жирность которого составляет 3,2%?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="4,4 и 3,6"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans45_6')">🔍 Проверить</button>
+    <div id="ans45_6" class="answer">
+        <ol>
+            <li>Пусть <span class="math">\(x\)</span> л — молоко 5%-жирности, <span class="math">\(y\)</span> л — 1%-жирности. Условие 1 (объём смеси): <span class="math">\(x + y = 8\)</span>.</li>
+            <li>Условие 2 (жир): жира в смеси <span class="math">\(0,032 \cdot{} 8 = 0,256\)</span> л, значит <span class="math">\(0,05x + 0,01y = 0,256\)</span>.</li>
+            <li>Умножим все члены второго уравнения на 100: <span class="math">\(5x + y = 25,6\)</span>. Вычтем из него первое уравнение: <span class="math">\(5x - x = 25,6 - 8\)</span>, то есть <span class="math">\(4x = 17,6\)</span>, <span class="math">\(x = 4,4\)</span>.</li>
+            <li>Тогда <span class="math">\(y = 8 - 4,4 = 3,6\)</span>.</li>
+            <li>Проверка по обоим условиям: <span class="math">\(4,4 + 3,6 = 8\)</span> л ✓; жира: <span class="math">\(0,05 \cdot{} 4,4 + 0,01 \cdot{} 3,6 = 0,22 + 0,036 = 0,256\)</span> л, а это <span class="math">\(0,256 : 8 = 0,032\)</span>, то есть 3,2% ✓.</li>
+        </ol>
+        <p><b>Ответ:</b> 4,4 и 3,6</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Алгоритм: обозначь неизвестные буквами → составь систему из условий → реши её → истолкуй результат по условию задачи.</li>
+        <li>Два неизвестных требуют <b>двух независимых условий</b>: каждое превращается в своё уравнение.</li>
+        <li>Если оба уравнения выражают одно и то же условие — система не даст ответа.</li>
+        <li>Ищи условия двумя вопросами: «что сказано про всё?» и «что с чем сравнивается?».</li>
+        <li>Решение системы обязано иметь смысл: количество монет — натуральное число, скорость — положительная.</li>
+        <li>Проверяй ответ по <b>оба</b> условия задачи, а не только по одному.</li>
+        <li>Задачи «всего … и на … больше» решаются сложением почти сразу: коэффициенты уже противоположные.</li>
+        <li>Даже старинные задачи (ослица и мул) — это просто два условия, каждое из которых становится уравнением.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 6: Системы линейных уравнений<br>
+    §15, п. 45. Решение задач с помощью систем уравнений • Страницы 221-224</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-44.html">← Урок 44</a><span class="sep">|</span><a href="lesson-46.html">Урок 46 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Одночлен и его стандартный вид — Алгебра 7 класс | Глава 3, §7, п. 21</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Каша из множителей? Две секунды — и аккуратный одночлен с коэффициентом и степенью 🗂️">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Одночлен и его стандартный вид — Алгебра 7 класс | Глава 3, §7, п. 21">
+<meta property="og:description" content="Каша из множителей? Две секунды — и аккуратный одночлен с коэффициентом и степенью 🗂️">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-21.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Одночлен и его стандартный вид — Алгебра 7 класс | Глава 3, §7, п. 21">
+<meta name="twitter:description" content="Каша из множителей? Две секунды — и аккуратный одночлен с коэффициентом и степенью 🗂️">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-21.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-20.html">← Урок 20</a><span class="sep">|</span><a href="lesson-22.html">Урок 22 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 3 • §7, п. 21</span>
+    <h1>Одночлен и его стандартный вид</h1>
+    <p class="subtitle">Каша из множителей? Две секунды — и аккуратный одночлен с коэффициентом и степенью 🗂️</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Скажи честно: выражение <span class="math">\(2b^3 \cdot{} (-3)bc^2\)</span> выглядит как салат из множителей. А ведь это самый обычный <span class="highlight">одночлен</span> — его можно «причесать» до аккуратного вида <span class="math">\(-6b^4c^2\)</span> за две секунды, и учебник именно этим и занимается в п. 21.</p>
+    <p>Зачем это нужно? Возьми коробку, у которой ширина <span class="math">\(a\)</span> см, длина вдвое больше, а высота ещё вдвое больше длины. Объём такой коробки запишется одним коротким одночленом — каким, узнаешь в блоке про жизнь 📦 А пока научимся узнавать одночлены в лицо.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧱 Одночлен — кто он?</h2>
+    <p><b>Определение.</b> Произведения чисел, переменных и их степеней называют <span class="highlight">одночленами</span>. Одночленами считают также <span class="highlight">числа, переменные и их степени</span>.</p>
+    <p>Например, <span class="math">\(-7\)</span> — число-одночлен, <span class="math">\(x\)</span> — переменная-одночлен, <span class="math">\(x^4\)</span> — степень-одночлен, а <span class="math">\(2b^3(-3)bc^2\)</span> — произведение, то есть тоже одночлен.</p>
+
+    <div class="visual-container">
+        <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center; text-align:center;">
+            <div style="border:2px solid #27ae60; border-radius:10px; padding:14px 20px; min-width:220px;">
+                <div style="font-weight:700; color:#27ae60; margin-bottom:8px;">✅ Одночлены</div>
+                <div><span class="math">\(-7\)</span>, <span class="math">\(x\)</span>, <span class="math">\(x^4\)</span></div>
+                <div><span class="math">\(-2a^2\)</span>, <span class="math">\(7ax^2\)</span></div>
+                <div><span class="math">\(2b^3(-3)bc^2\)</span></div>
+            </div>
+            <div style="border:2px solid #c0392b; border-radius:10px; padding:14px 20px; min-width:220px;">
+                <div style="font-weight:700; color:#c0392b; margin-bottom:8px;">🚫 Не одночлены</div>
+                <div><span class="math">\(x^2 + y\)</span> — сумма</div>
+                <div><span class="math">\(a - b\)</span> — разность</div>
+                <div><span class="math">\(3(x + y)\)</span> — за скобкой прячется сумма</div>
+            </div>
+        </div>
+    </div>
+    <p class="fig-caption">Одночлен — только произведение (чисел, переменных, их степеней); плюс или минус между слагаемыми его разрушают.</p>
+    <p>Запомни: если между множителями стоит «+» или «−», это уже не одночлен. Например, <span class="math">\(x^2 + y\)</span> — два одночлена, соединённые плюсом, но не один одночлен.</p>
+</section>
+
+<section class="card page-block">
+    <h2>✨ Стандартный вид: причёсываем множители</h2>
+    <p>Упростим одночлен <span class="math">\(2b^3(-3)bc^2\)</span> — так же, как в учебнике, через переместительное и сочетательное свойства умножения:</p>
+    <ol>
+        <li>Переставим множители: числа — вперёд, одинаковые переменные — друг к другу: <span class="math">\(2 \cdot{} (-3) \cdot{} b^3 \cdot{} b \cdot{} c^2\)</span>.</li>
+        <li>Перемножим числа: <span class="math">\(2 \cdot{} (-3) = -6\)</span>. Сложим степени переменной <span class="math">\(b\)</span> (п. 19): <span class="math">\(b^3 \cdot{} b = b^4\)</span>.</li>
+        <li>Получаем <span class="math">\(-6b^4c^2\)</span> — и это ровно тот же одночлен, просто в аккуратной форме ✅</li>
+    </ol>
+    <p><b>Определение.</b> Вид одночлена, в котором на первом месте стоит <span class="highlight">числовой множитель</span>, а за ним — <span class="highlight">степени различных переменных</span>, называют <span class="highlight">стандартным видом</span> одночлена. К одночленам стандартного вида относят и такие, как <span class="math">\(-5\)</span>, <span class="math">\(a\)</span>, <span class="math">\(-a\)</span>. Стандартный вид можно придать любому одночлену.</p>
+    <p><b>Определение.</b> Числовой множитель одночлена, записанного в стандартном виде, называют <span class="highlight">коэффициентом</span> одночлена. Например, коэффициент одночлена <span class="math">\(-6b^4c^2\)</span> равен <span class="math">\(-6\)</span>.</p>
+    <p>А как быть с <span class="math">\(a^4\)</span> и <span class="math">\(-a^5\)</span>? Их коэффициенты равны соответственно <span class="math">\(1\)</span> и <span class="math">\(-1\)</span>, ведь <span class="math">\(a^4 = 1 \cdot{} a^4\)</span> и <span class="math">\(-a^5 = -1 \cdot{} a^5\)</span>. Единицу перед буквами просто не пишут!</p>
+
+    <div class="visual-container">
+        <svg viewBox="0 0 500 215" class="graph-svg" width="500" height="215" role="img" aria-label="Паспорт одночлена: коэффициент -6, b в степени 4, c в степени 2, степень одночлена 6">
+            <text x="30" y="100" font-size="42" font-weight="bold" fill="#e67e22" font-family="Courier New, monospace">-6</text>
+            <text x="105" y="100" font-size="42" font-weight="bold" fill="#3498db" font-family="Courier New, monospace">b^4</text>
+            <text x="200" y="100" font-size="42" font-weight="bold" fill="#27ae60" font-family="Courier New, monospace">c^2</text>
+            <path d="M28 112 L28 122 L86 122 L86 112" stroke="#e67e22" fill="none" stroke-width="2.5"/>
+            <text x="57" y="144" text-anchor="middle" font-size="13" font-weight="bold" fill="#e67e22" font-family="sans-serif">коэффициент</text>
+            <path d="M104 112 L104 122 L184 122 L184 112" stroke="#3498db" fill="none" stroke-width="2.5"/>
+            <text x="144" y="144" text-anchor="middle" font-size="13" font-weight="bold" fill="#3498db" font-family="sans-serif">b, показатель 4</text>
+            <path d="M198 112 L198 122 L278 122 L278 112" stroke="#27ae60" fill="none" stroke-width="2.5"/>
+            <text x="238" y="144" text-anchor="middle" font-size="13" font-weight="bold" fill="#27ae60" font-family="sans-serif">c, показатель 2</text>
+            <rect x="316" y="30" width="164" height="72" rx="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2"/>
+            <text x="398" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d3436" font-family="sans-serif">степень одночлена:</text>
+            <text x="398" y="86" text-anchor="middle" font-size="15" font-weight="bold" fill="#2d3436" font-family="Courier New, monospace">4 + 2 = 6</text>
+            <rect x="316" y="118" width="164" height="72" rx="10" fill="#e8f8f5" stroke="#1abc9c" stroke-width="2"/>
+            <text x="398" y="148" text-anchor="middle" font-size="14" font-weight="bold" fill="#16a085" font-family="sans-serif">коэффициент:</text>
+            <text x="398" y="174" text-anchor="middle" font-size="15" font-weight="bold" fill="#16a085" font-family="Courier New, monospace">-6</text>
+        </svg>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#e67e22;"></span> числовой множитель — это коэффициент</span>
+        <span class="legend-item"><span class="color-dot" style="background:#3498db;"></span> переменная <span class="math">\(b\)</span> со степенью <span class="math">\(4\)</span></span>
+        <span class="legend-item"><span class="color-dot" style="background:#27ae60;"></span> переменная <span class="math">\(c\)</span> со степенью <span class="math">\(2\)</span></span>
+    </div>
+    <p class="fig-caption">Паспорт одночлена <span class="math">\(-6b^4c^2\)</span>: коэффициент <span class="math">\(-6\)</span>, степень <span class="math">\(4 + 2 = 6\)</span>. Коэффициент в степень одночлена не входит!</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔢 Степень одночлена</h2>
+    <p><b>Определение.</b> <span class="highlight">Степенью одночлена</span> называют сумму показателей степеней всех входящих в него переменных. Если одночлен не содержит переменных и является числом, отличным от нуля, то степень этого одночлена считают равной нулю. Число <span class="math">\(0\)</span> является одночленом, степень которого не определена.</p>
+    <p>Считаем на примерах:</p>
+    <ul>
+        <li>у одночлена <span class="math">\(-6b^4c^2\)</span> степень равна <span class="math">\(4 + 2 = 6\)</span> — коэффициент <span class="math">\(-6\)</span> в сумме не участвует;</li>
+        <li>у одночлена <span class="math">\(-9m^3n^4\)</span> степень равна <span class="math">\(3 + 4 = 7\)</span>;</li>
+        <li>у одночлена <span class="math">\(6x^5\)</span> степень равна <span class="math">\(5\)</span>;</li>
+        <li>у числа <span class="math">\(5\)</span> степень равна <span class="math">\(0\)</span>, а у числа <span class="math">\(0\)</span> степень не определена.</li>
+    </ul>
+    <p>Внимание на второй пункт из учебника: переменная в первой степени «невидима», но она тоже считается. У одночлена <span class="math">\(7ax^2\)</span> степень равна <span class="math">\(1 + 2 = 3\)</span>, ведь <span class="math">\(a = a^1\)</span>.</p>
+</section>
+
+<section class="card page-block">
+    <h2>📦 Жизнь: коробка объёмом <span class="math">\(8a^3\)</span></h2>
+    <p>Задача №477 из учебника: чему равен объём прямоугольного параллелепипеда, ширина которого <span class="math">\(a\)</span> см, длина в 2 раза больше ширины, а высота в 2 раза больше длины? Соберём размеры по цепочке:</p>
+    <div class="visual-container">
+        <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center;">
+            <div style="border:2px solid #3498db; border-radius:10px; padding:10px 16px; text-align:center;">
+                <div style="font-weight:700; color:#3498db;">ширина</div>
+                <div><span class="math">\(a\)</span> см</div>
+            </div>
+            <div style="font-size:1.5em; color:#95a5a6;">→</div>
+            <div style="border:2px solid #e67e22; border-radius:10px; padding:10px 16px; text-align:center;">
+                <div style="font-weight:700; color:#e67e22;">длина — вдвое больше</div>
+                <div><span class="math">\(2a\)</span> см</div>
+            </div>
+            <div style="font-size:1.5em; color:#95a5a6;">→</div>
+            <div style="border:2px solid #27ae60; border-radius:10px; padding:10px 16px; text-align:center;">
+                <div style="font-weight:700; color:#27ae60;">высота — вдвое больше длины</div>
+                <div><span class="math">\(2 \cdot{} 2a = 4a\)</span> см</div>
+            </div>
+        </div>
+    </div>
+    <p class="fig-caption">Размеры коробки: <span class="math">\(a\)</span>, <span class="math">\(2a\)</span>, <span class="math">\(4a\)</span> — каждое следующее измерение в 2 раза больше предыдущего.</p>
+    <p>Теперь объём — произведение трёх измерений:</p>
+    <ol>
+        <li>Перемножаем числа: <span class="math">\(1 \cdot{} 2 \cdot{} 4 = 8\)</span>.</li>
+        <li>Перемножаем переменные: <span class="math">\(a \cdot{} a \cdot{} a = a^3\)</span>.</li>
+        <li>Итог: <span class="math">\(V = a \cdot{} 2a \cdot{} 4a = 8a^3\)</span> — одночлен стандартного вида, коэффициент <span class="math">\(8\)</span>, степень <span class="math">\(3\)</span>.</li>
+    </ol>
+    <p>Проверка на числах: пусть <span class="math">\(a = 5\)</span>. Тогда размеры коробки 5, 10 и 20 см, объём <span class="math">\(5 \cdot{} 10 \cdot{} 20 = 1000\)</span> кубических сантиметров. А по формуле <span class="math">\(8 \cdot{} 5^3 = 8 \cdot{} 125 = 1000\)</span> ✅ Сходится!</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: чек-лист «Стандартный вид»</h3>
+    <p>Прежде чем сказать «одночлен записан в стандартном виде», прогони его по трём пунктам чек-листа:</p>
+    <ol>
+        <li><b>Числовой множитель (коэффициент) — один и впереди.</b> Все числа уже перемножены и стоят первыми.</li>
+        <li><b>Каждая переменная встречается один раз</b> — её степени уже сложены.</li>
+        <li><b>Между «капитаном» и буквами — только умножение.</b> Никаких плюсов и скобок с суммами внутри.</li>
+    </ol>
+    <p>💡 <b>Контраст на одном примере.</b> Возьмём <span class="math">\(2b^3(-3)b^2c\)</span>. По чек-листу: числа <span class="math">\(2 \cdot{} (-3) = -6\)</span>, степени <span class="math">\(b\)</span> складываем: <span class="math">\(b^3 \cdot{} b^2 = b^5\)</span>, остаётся <span class="math">\(c\)</span>. Получаем <span class="math">\(-6b^5c\)</span> ✅. А если полениться и не сложить степени, выйдет <span class="math">\(-6b^3b^2c\)</span> 🚫 — переменная <span class="math">\(b\)</span> встречается дважды, пункт 2 провален, и это не стандартный вид, хотя число то же самое.</p>
+    <p>🌉 <b>Мостик:</b> в задании 2 прогонишь этот чек-лист по готовым одночленам, а в задании 3 сам соберёшь одночлены по нему же — и сразу назовёшь коэффициент.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 21) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№470 а, г, д из учебника)</div>
+    <p>Является ли одночленом выражение:</p>
+    <p>а) <span class="math">\(3,4x^2y\)</span>;&nbsp;&nbsp; г) <span class="math">\(x^6 + x\)</span>;&nbsp;&nbsp; д) <span class="math">\(x^4x\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="3,4x^2y — да; x^6 + x — нет; x^4x — да"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans21_1')">🔍 Проверить</button>
+    <div id="ans21_1" class="answer">
+        <ol>
+            <li><span class="math">\(3,4x^2y\)</span> — произведение числа <span class="math">\(3,4\)</span> и степеней <span class="math">\(x\)</span> и <span class="math">\(y\)</span>: одночлен ✅</li>
+            <li><span class="math">\(x^6 + x\)</span> — между слагаемыми стоит плюс, а одночлен — это произведение: не одночлен 🚫</li>
+            <li><span class="math">\(x^4x\)</span> — произведение степеней одной переменной: одночлен ✅. Кстати, его можно упростить: <span class="math">\(x^4x = x^5\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(3,4x^2y\)</span> — да; <span class="math">\(x^6 + x\)</span> — нет; <span class="math">\(x^4x\)</span> — да</p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№471 а, б из учебника)</div>
+    <p>Записан ли в стандартном виде одночлен:</p>
+    <p>а) <span class="math">\(6xy\)</span>;&nbsp;&nbsp; б) <span class="math">\(-2aba\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="6xy — да; -2aba — нет"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans21_2')">🔍 Проверить</button>
+    <div id="ans21_2" class="answer">
+        <ol>
+            <li><span class="math">\(6xy\)</span>: прогоняем по чек-листу — числовой множитель <span class="math">\(6\)</span> один и впереди, переменные <span class="math">\(x\)</span> и <span class="math">\(y\)</span> по одному разу. Да, это стандартный вид ✅</li>
+            <li><span class="math">\(-2aba\)</span>: коэффициент на месте, но переменная <span class="math">\(a\)</span> встречается дважды — пункт 2 чек-листа провален. Нет, не стандартный вид 🚫. Перекладываем: <span class="math">\(-2aba = -2a^2b\)</span> — вот теперь стандартный вид, коэффициент <span class="math">\(-2\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(6xy\)</span> — да; <span class="math">\(-2aba\)</span> — нет</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№472 а, в из учебника)</div>
+    <p>Представь одночлен в стандартном виде и назови его коэффициент:</p>
+    <p>а) <span class="math">\(8x^4x\)</span>;&nbsp;&nbsp; в) <span class="math">\(3xy(-1,7)y\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="8x^5, коэффициент 8; -5,1xy^2, коэффициент -5,1"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans21_3')">🔍 Проверить</button>
+    <div id="ans21_3" class="answer">
+        <ol>
+            <li><span class="math">\(8x^4x\)</span>: число уже одно и впереди, осталось сложить степени <span class="math">\(x\)</span>: <span class="math">\(x^4 \cdot{} x = x^{4+1} = x^5\)</span>. Получаем <span class="math">\(8x^5\)</span>, коэффициент равен <span class="math">\(8\)</span>.</li>
+            <li><span class="math">\(3xy(-1,7)y\)</span>: переставляем множители — числа вместе: <span class="math">\(3 \cdot{} (-1,7) = -5,1\)</span>; переменные вместе: <span class="math">\(x\)</span>, затем <span class="math">\(y \cdot{} y = y^2\)</span>. Получаем <span class="math">\(-5,1xy^2\)</span>, коэффициент равен <span class="math">\(-5,1\)</span>.</li>
+            <li>Проверка числами: при <span class="math">\(x = 1\)</span>, <span class="math">\(y = 2\)</span> исходное выражение даёт <span class="math">\(3 \cdot{} 1 \cdot{} 2 \cdot{} (-1,7) \cdot{} 2 = -20,4\)</span>, и <span class="math">\(-5,1 \cdot{} 1 \cdot{} 2^2 = -20,4\)</span> ✅</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(8x^5\)</span>, коэффициент <span class="math">\(8\)</span>; <span class="math">\(-5,1xy^2\)</span>, коэффициент <span class="math">\(-5,1\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№474 а, б из учебника)</div>
+    <p>Найди значение одночлена:</p>
+    <p>а) <span class="math">\(-0,125y^4\)</span> при <span class="math">\(y = -2\)</span>;&nbsp;&nbsp; б) <span class="math">\(12x^2y\)</span> при <span class="math">\(x = -0,3\)</span>, <span class="math">\(y = 6\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="-2; 6,48"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans21_4')">🔍 Проверить</button>
+    <div id="ans21_4" class="answer">
+        <ol>
+            <li>Отрицательное значение подставляем в скобках: <span class="math">\(-0,125 \cdot{} (-2)^4\)</span>. Четвёртая степень съедает минус: <span class="math">\((-2)^4 = 16\)</span>.</li>
+            <li>Считаем: <span class="math">\(-0,125 \cdot{} 16 = -2\)</span> (ведь <span class="math">\(0,125\)</span> — это <span class="math">\(1 : 8\)</span>, а <span class="math">\(16 : 8 = 2\)</span>).</li>
+            <li>Для пункта б): <span class="math">\((-0,3)^2 = 0,09\)</span>, тогда <span class="math">\(12 \cdot{} 0,09 = 1,08\)</span> и <span class="math">\(1,08 \cdot{} 6 = 6,48\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(-2\)</span>; <span class="math">\(6,48\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№476 из учебника, сюжетная задача)</div>
+    <p>Ширина прямоугольника равна <span class="math">\(m\)</span> см, а длина в 5 раз больше ширины. Найди площадь прямоугольника.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="5m^2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans21_5')">🔍 Проверить</button>
+    <div id="ans21_5" class="answer">
+        <ol>
+            <li>Длина в 5 раз больше ширины, то есть <span class="math">\(5m\)</span> см.</li>
+            <li>Площадь — произведение длины и ширины: <span class="math">\(S = m \cdot{} 5m\)</span>.</li>
+            <li>Приводим одночлен к стандартному виду: числа вперёд — <span class="math">\(5\)</span>, степени <span class="math">\(m\)</span> складываем — <span class="math">\(m \cdot{} m = m^2\)</span>. Получаем <span class="math">\(S = 5m^2\)</span> (квадратных сантиметров).</li>
+            <li>Проверка: при <span class="math">\(m = 2\)</span> ширина 2, длина 10, площадь <span class="math">\(20\)</span>; по формуле <span class="math">\(5 \cdot{} 2^2 = 20\)</span> ✅. Это одночлен стандартного вида: коэффициент <span class="math">\(5\)</span>, степень <span class="math">\(2\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(5m^2\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№475 а, б из учебника, ловушка со знаком)</div>
+    <p>Вычисли значение выражения:</p>
+    <p>а) <span class="math">\(3,7m^2\)</span> при <span class="math">\(m = 0,4\)</span>;&nbsp;&nbsp; б) <span class="math">\(-3a^2b\)</span> при <span class="math">\(a = -0,1\)</span>, <span class="math">\(b = 4\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="0,592; -0,12"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans21_6')">🔍 Проверить</button>
+    <div id="ans21_6" class="answer">
+        <ol>
+            <li><span class="math">\(3,7 \cdot{} (0,4)^2 = 3,7 \cdot{} 0,16\)</span>. Считаем столбиком без запятых: <span class="math">\(37 \cdot{} 16 = 592\)</span>, отделяем три знака запятой — <span class="math">\(0,592\)</span>.</li>
+            <li>Ловушка в пункте б): <span class="math">\(a = -0,1\)</span> возводим в квадрат в скобках: <span class="math">\((-0,1)^2 = 0,01\)</span> — минус исчез, потому что степень чётная.</li>
+            <li>Дальше спокойно: <span class="math">\(-3 \cdot{} 0,01 \cdot{} 4 = -0,03 \cdot{} 4 = -0,12\)</span>. Если бы минус «потерялся» ещё в квадрате, вышел бы <span class="math">\(+0,12\)</span> 🚫</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(0,592\)</span>; <span class="math">\(-0,12\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Одночлен — произведение чисел, переменных и их степеней; числа, переменные и их степени — тоже одночлены.</li>
+        <li>Плюс или минус между слагаемыми разрушают одночлен: <span class="math">\(x^2 + y\)</span> — уже не одночлен.</li>
+        <li>Стандартный вид: впереди один числовой множитель (коэффициент), за ним — степени разных переменных.</li>
+        <li>Любой одночлен можно привести к стандартному виду — спасают переместительное и сочетательное свойства умножения.</li>
+        <li>Коэффициенты <span class="math">\(1\)</span> и <span class="math">\(-1\)</span> не пишут: <span class="math">\(a^4 = 1 \cdot{} a^4\)</span>, <span class="math">\(-a^5 = -1 \cdot{} a^5\)</span>.</li>
+        <li>Степень одночлена — сумма показателей степеней всех переменных: у <span class="math">\(-6b^4c^2\)</span> это <span class="math">\(4 + 2 = 6\)</span>.</li>
+        <li>Число, отличное от нуля, — одночлен степени <span class="math">\(0\)</span>; у числа <span class="math">\(0\)</span> степень не определена.</li>
+        <li>Одночлены прячутся в формулах: объём коробки <span class="math">\(a \cdot{} 2a \cdot{} 4a = 8a^3\)</span> — коэффициент <span class="math">\(8\)</span>, степень <span class="math">\(3\)</span>.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 3: Степень с натуральным показателем<br>
+    §7, п. 21. Одночлен и его стандартный вид • Страницы 110-111</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-20.html">← Урок 20</a><span class="sep">|</span><a href="lesson-22.html">Урок 22 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

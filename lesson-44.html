@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Способ сложения — Алгебра 7 класс | Глава 6, §15, п. 44</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Складываем уравнения почленно — и переменная исчезает на глазах ✨">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Способ сложения — Алгебра 7 класс | Глава 6, §15, п. 44">
+<meta property="og:description" content="Складываем уравнения почленно — и переменная исчезает на глазах ✨">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-44.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Способ сложения — Алгебра 7 класс | Глава 6, §15, п. 44">
+<meta name="twitter:description" content="Складываем уравнения почленно — и переменная исчезает на глазах ✨">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-44.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-43.html">← Урок 43</a><span class="sep">|</span><a href="lesson-45.html">Урок 45 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 6 • §15, п. 44</span>
+    <h1>Способ сложения</h1>
+    <p class="subtitle">Складываем уравнения почленно — и переменная исчезает на глазах ✨</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Вот система из учебника: <span class="math">\(2x + 3y = -5\)</span> и <span class="math">\(x - 3y = 38\)</span>. Смотри, что произойдёт, если сложить эти уравнения почленно: слагаемые <span class="math">\(+3y\)</span> и <span class="math">\(-3y\)</span> дадут ноль и испарятся! Останется <span class="math">\(3x = 33\)</span> — уравнение с одной переменной, которое решается в уме. Это и есть <span class="highlight">способ сложения</span> — третий и, пожалуй, самый элегантный способ решения систем. Сегодня научишься складывать уравнения так, чтобы неизвестные исчезали 🔥</p>
+</section>
+
+<section class="card page-block">
+    <h2>💡 Суть способа: почему сложение работает</h2>
+    <p><b>Главная идея.</b> При решении систем способом сложения, как и при решении способом подстановки, мы переходим от данной системы к другой, <span class="highlight">равносильной ей системе</span>, в которой одно из уравнений содержит только одну переменную.</p>
+    <p>Откуда берётся такое уравнение? Если коэффициенты при одной из переменных — <b>противоположные числа</b> (например, <span class="math">\(+3\)</span> и <span class="math">\(-3\)</span>), то при почленном сложении уравнений эта переменная полностью исчезает. А если коэффициенты одинаковые (например, <span class="math">\(4\)</span> и <span class="math">\(4\)</span>), достаточно предварительно умножить одно из уравнений на <span class="math">\(-1\)</span>.</p>
+    <p>Способ сложения особенно удобен, когда выражать одну переменную через другую при подстановке трудно или неудобно — например, коэффициенты большие или дробные.</p>
+</section>
+
+<section class="card page-block">
+    <h2>⚖️ Весы сложения: пример 1 из учебника</h2>
+    <div class="visual-container">
+        <svg class="graph-svg" width="660" height="250" viewBox="0 0 660 250" role="img" aria-label="Схема сложения двух уравнений">
+            <rect x="20" y="30" width="250" height="48" rx="10" fill="#eaf2fb" stroke="#3498db" stroke-width="2"/>
+            <text x="145" y="61" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">2x <tspan fill="#e74c3c">+ 3y</tspan> = -5</text>
+            <text x="34" y="118" font-size="30" font-weight="bold" fill="#7f8c8d">+</text>
+            <rect x="20" y="130" width="250" height="48" rx="10" fill="#eaf2fb" stroke="#3498db" stroke-width="2"/>
+            <text x="145" y="161" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">x <tspan fill="#e74c3c">- 3y</tspan> = 38</text>
+            <line x1="290" y1="104" x2="356" y2="104" stroke="#2d3436" stroke-width="3"/>
+            <polygon points="356,96 356,112 376,104" fill="#2d3436"/>
+            <rect x="395" y="80" width="180" height="48" rx="10" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+            <text x="485" y="111" text-anchor="middle" font-size="20" font-weight="bold" fill="#27ae60">3x = 33</text>
+            <text x="330" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#e74c3c">+3y и −3y в сумме дают 0 — переменная y исчезла!</text>
+        </svg>
+    </div>
+    <p class="fig-caption">«Весы сложения»: складываем левые части с левыми, правые с правыми — и переменная y «испаряется» 💥</p>
+    <p><b>Пример 1.</b> Решим систему уравнений <span class="piecewise-brace">{</span><span class="piecewise-table"><div><span class="math">\(2x + 3y = -5\)</span>,</div><div><span class="math">\(x - 3y = 38\)</span>.</div></span></p>
+    <ol>
+        <li>В уравнениях системы коэффициенты при <span class="math">\(y\)</span> — числа <span class="math">\(3\)</span> и <span class="math">\(-3\)</span>, они противоположные.</li>
+        <li>Сложим почленно левые и правые части: <span class="math">\((2x + x) + (3y + (-3y)) = -5 + 38\)</span>. Получим <span class="math">\(3x = 33\)</span>.</li>
+        <li>Заменим первое уравнение системы уравнением <span class="math">\(3x = 33\)</span>. Новая система <span class="math">\(3x = 33\)</span> и <span class="math">\(x - 3y = 38\)</span> равносильна данной.</li>
+        <li>Из уравнения <span class="math">\(3x = 33\)</span> находим <span class="math">\(x = 11\)</span>. Подставим во второе уравнение: <span class="math">\(11 - 3y = 38\)</span>, откуда <span class="math">\(-3y = 27\)</span>, <span class="math">\(y = -9\)</span>.</li>
+        <li>Проверка по обоим уравнениям: <span class="math">\(2 \cdot{} 11 + 3 \cdot{} (-9) = 22 - 27 = -5\)</span> ✓ и <span class="math">\(11 - 3 \cdot{} (-9) = 11 + 27 = 38\)</span> ✓.</li>
+    </ol>
+    <p><b>Ответ:</b> <span class="math">\((11; -9)\)</span></p>
+    <p>Любопытно и геометрически: графики уравнений <span class="math">\(2x + 3y = -5\)</span>, <span class="math">\(x - 3y = 38\)</span> и <span class="math">\(3x = 33\)</span> — три прямые, и все они пересекаются в одной и той же точке <span class="math">\((11; -9)\)</span> (в учебнике это рисунок 95). Именно поэтому замену уравнения при сложении можно делать безболезненно: решение системы не меняется.</p>
+</section>
+
+<section class="card page-block">
+    <h2>📋 Алгоритм способа сложения</h2>
+    <p>При решении системы двух линейных уравнений с двумя переменными способом сложения поступают следующим образом:</p>
+    <ol>
+        <li>умножают почленно уравнения системы, подбирая множители так, чтобы коэффициенты при одной из переменных стали <span class="highlight">противоположными числами</span>;</li>
+        <li>складывают почленно левые и правые части уравнений системы;</li>
+        <li>решают получившееся уравнение с одной переменной;</li>
+        <li>находят соответствующее значение второй переменной.</li>
+    </ol>
+    <p><b>Важно.</b> Заметим, что если коэффициенты при одной из переменных уже являются противоположными числами, то решение сразу начинают с почленного сложения уравнений — первый шаг пропускают.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔁 Умножаем уравнения целиком: примеры 2 и 3 из учебника</h2>
+    <p><b>Пример 2.</b> Решим систему <span class="piecewise-brace">{</span><span class="piecewise-table"><div><span class="math">\(5x + 11y = 8\)</span>,</div><div><span class="math">\(10x - 7y = 74\)</span>.</div></span></p>
+    <p>Здесь почленное сложение ничего не даст: <span class="math">\(5x\)</span> и <span class="math">\(10x\)</span>, <span class="math">\(11y\)</span> и <span class="math">\(-7y\)</span> не уничтожаются. Но если умножить <b>все члены</b> первого уравнения на <span class="math">\(-2\)</span>, коэффициенты при <span class="math">\(x\)</span> станут противоположными: получим <span class="math">\(-10x - 22y = -16\)</span>. Складываем со вторым уравнением: <span class="math">\(-29y = 58\)</span>, откуда <span class="math">\(y = -2\)</span>. Подставим во второе уравнение: <span class="math">\(10x - 7 \cdot{} (-2) = 74\)</span>, то есть <span class="math">\(10x + 14 = 74\)</span>, <span class="math">\(x = 6\)</span>. Проверка: <span class="math">\(5 \cdot{} 6 + 11 \cdot{} (-2) = 30 - 22 = 8\)</span> ✓ и <span class="math">\(10 \cdot{} 6 - 7 \cdot{} (-2) = 60 + 14 = 74\)</span> ✓.</p>
+    <p><b>Ответ:</b> <span class="math">\((6; -2)\)</span></p>
+    <p><b>Пример 3.</b> Здесь множители нужны обоим уравнениям: <span class="piecewise-brace">{</span><span class="piecewise-table"><div><span class="math">\(3x - 5y = 93\)</span>,</div><div><span class="math">\(5x - 4y = 103\)</span>.</div></span></p>
+    <p>Подберём множители так, чтобы коэффициенты при <span class="math">\(y\)</span> стали противоположными: умножим первое уравнение на <span class="math">\(-4\)</span>, а второе на <span class="math">\(5\)</span>: <span class="math">\(-12x + 20y = -372\)</span> и <span class="math">\(25x - 20y = 515\)</span>. Складываем: <span class="math">\(13x = 143\)</span>, <span class="math">\(x = 11\)</span>. Подставим в уравнение <span class="math">\(5x - 4y = 103\)</span>: <span class="math">\(55 - 4y = 103\)</span>, откуда <span class="math">\(y = -12\)</span>. Проверка: <span class="math">\(3 \cdot{} 11 - 5 \cdot{} (-12) = 33 + 60 = 93\)</span> ✓ и <span class="math">\(5 \cdot{} 11 - 4 \cdot{} (-12) = 55 + 48 = 103\)</span> ✓.</p>
+    <p><b>Ответ:</b> <span class="math">\((11; -12)\)</span></p>
+    <p>🚨 Ловушка: множитель умножается на <b>каждый член</b> уравнения, включая правую часть. Забыл знак у правой части — и вся система «поехала».</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Сделай противоположности»</h3>
+    <p>Добейся, чтобы коэффициенты при одной переменной стали <b>противоположными</b>: умножь уравнение на <span class="math">\(-1\)</span> или на число — <b>всё уравнение, оба члена!</b> Потом складывай — переменная исчезнет.</p>
+    <p>Пример: <span class="math">\(x + y = 7\)</span> и <span class="math">\(x - y = 3\)</span>. Коэффициенты при <span class="math">\(y\)</span> уже противоположные — складываем: <span class="math">\(2x = 10\)</span>, значит <span class="math">\(x = 5\)</span>, тогда <span class="math">\(y = 2\)</span>. Проверка: <span class="math">\(5 - 2 = 3\)</span> ✓</p>
+    <p>✅ Правильно: умножил <span class="math">\(x - y = 3\)</span> на <span class="math">\(-1\)</span> целиком — получил <span class="math">\(-x + y = -3\)</span> (и слева, и справа знаки сменились). Сложил с <span class="math">\(x + y = 7\)</span>: <span class="math">\(2y = 4\)</span>, <span class="math">\(y = 2\)</span> — тот же ответ, что и при сложении напрямую.<br>
+    🚫 Ошибка: умножил «наполовину» — получил <span class="math">\(-x + y = 3\)</span>, забыв поменять знак в правой части. Тогда сложение даст <span class="math">\(2y = 10\)</span>, <span class="math">\(y = 5\)</span>, но проверка <span class="math">\(x - y = 3\)</span> с парой <span class="math">\((2; 5)\)</span> даёт <span class="math">\(2 - 5 = -3\)</span>, а не <span class="math">\(3\)</span> — провал!</p>
+    <p>Мостик: в задании 2 ты как раз «уравняешь» коэффициенты — умножишь одно из уравнений на <span class="math">\(-1\)</span>, чтобы одинаковые коэффициенты стали противоположными, а дальше — сложение.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 44) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№1098 а из учебника)</div>
+    <p>Решите систему уравнений: <span class="piecewise-brace">{</span><span class="piecewise-table"><div><span class="math">\(2x + 11y = 15\)</span>,</div><div><span class="math">\(10x - 11y = 9\)</span>.</div></span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(2; 1)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans44_1')">🔍 Проверить</button>
+    <div id="ans44_1" class="answer">
+        <ol>
+            <li>Коэффициенты при <span class="math">\(y\)</span> — числа <span class="math">\(11\)</span> и <span class="math">\(-11\)</span>, они противоположные. Складываем почленно: <span class="math">\((2x + 10x) + (11y + (-11y)) = 15 + 9\)</span>, то есть <span class="math">\(12x = 24\)</span>.</li>
+            <li>Из уравнения <span class="math">\(12x = 24\)</span> находим <span class="math">\(x = 2\)</span>.</li>
+            <li>Подставим в первое уравнение: <span class="math">\(2 \cdot{} 2 + 11y = 15\)</span>, отсюда <span class="math">\(11y = 11\)</span>, <span class="math">\(y = 1\)</span>.</li>
+            <li>Проверка во втором уравнении: <span class="math">\(10 \cdot{} 2 - 11 \cdot{} 1 = 20 - 11 = 9\)</span> — верно.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((2; 1)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№1098 в из учебника)</div>
+    <p>Решите систему уравнений: <span class="piecewise-brace">{</span><span class="piecewise-table"><div><span class="math">\(4x - 7y = 30\)</span>,</div><div><span class="math">\(4x - 5y = 90\)</span>.</div></span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(60; 30)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans44_2')">🔍 Проверить</button>
+    <div id="ans44_2" class="answer">
+        <ol>
+            <li>Коэффициенты при <span class="math">\(x\)</span> одинаковые — оба по <span class="math">\(4\)</span>. Умножим все члены первого уравнения на <span class="math">\(-1\)</span>: <span class="math">\(-4x + 7y = -30\)</span>. Теперь при <span class="math">\(x\)</span> коэффициенты противоположные.</li>
+            <li>Складываем почленно: <span class="math">\((-4x + 4x) + (7y - 5y) = -30 + 90\)</span>, то есть <span class="math">\(2y = 60\)</span>, откуда <span class="math">\(y = 30\)</span>.</li>
+            <li>Подставим в первое уравнение: <span class="math">\(4x - 7 \cdot{} 30 = 30\)</span>, значит <span class="math">\(4x = 240\)</span>, <span class="math">\(x = 60\)</span>.</li>
+            <li>Проверка во втором уравнении: <span class="math">\(4 \cdot{} 60 - 5 \cdot{} 30 = 240 - 150 = 90\)</span> — верно.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((60; 30)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№1101 а из учебника)</div>
+    <p>Решите систему уравнений: <span class="piecewise-brace">{</span><span class="piecewise-table"><div><span class="math">\(12x - 7y = 2\)</span>,</div><div><span class="math">\(4x - 5y = 6\)</span>.</div></span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(-1; -2)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans44_3')">🔍 Проверить</button>
+    <div id="ans44_3" class="answer">
+        <ol>
+            <li>При <span class="math">\(x\)</span> коэффициенты <span class="math">\(12\)</span> и <span class="math">\(4\)</span>. Умножим все члены второго уравнения на <span class="math">\(-3\)</span>: <span class="math">\(-12x + 15y = -18\)</span>.</li>
+            <li>Складываем почленно: <span class="math">\((12x - 12x) + (-7y + 15y) = 2 + (-18)\)</span>, то есть <span class="math">\(8y = -16\)</span>, откуда <span class="math">\(y = -2\)</span>.</li>
+            <li>Подставим во второе уравнение: <span class="math">\(4x - 5 \cdot{} (-2) = 6\)</span>, значит <span class="math">\(4x + 10 = 6\)</span>, <span class="math">\(4x = -4\)</span>, <span class="math">\(x = -1\)</span>.</li>
+            <li>Проверка в первом уравнении: <span class="math">\(12 \cdot{} (-1) - 7 \cdot{} (-2) = -12 + 14 = 2\)</span> — верно.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((-1; -2)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№1103 б из учебника)</div>
+    <p>Составьте уравнение вида <span class="math">\(y = kx + b\)</span>, график которого проходит через точки Р<span class="math">\((4; 1)\)</span> и Q<span class="math">\((3; -5)\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="y = 6x - 23"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans44_4')">🔍 Проверить</button>
+    <div id="ans44_4" class="answer">
+        <ol>
+            <li>Подставим координаты точки Р<span class="math">\((4; 1)\)</span> в равенство <span class="math">\(y = kx + b\)</span>: получим <span class="math">\(4k + b = 1\)</span>.</li>
+            <li>Подставим координаты точки <span class="math">\(Q(3; -5)\)</span>: получим <span class="math">\(3k + b = -5\)</span>. Вместе эти уравнения образуют систему.</li>
+            <li>Коэффициенты при <span class="math">\(b\)</span> одинаковые. Умножим второе уравнение на <span class="math">\(-1\)</span> и сложим с первым: <span class="math">\(4k - 3k = 1 + 5\)</span>, откуда <span class="math">\(k = 6\)</span>.</li>
+            <li>Тогда из первого уравнения <span class="math">\(b = 1 - 4 \cdot{} 6 = -23\)</span>.</li>
+            <li>Проверка по второй точке: <span class="math">\(6 \cdot{} 3 - 23 = 18 - 23 = -5\)</span> — верно, прямая проходит через точку Q<span class="math">\((3; -5)\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(y = 6x - 23\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№1106 из учебника)</div>
+    <p>График линейной функции пересекает ось <span class="math">\(x\)</span> в точке с абсциссой 4, а ось <span class="math">\(y\)</span> — в точке с ординатой 11. Задайте эту функцию формулой.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="y = -2,75x + 11"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans44_5')">🔍 Проверить</button>
+    <div id="ans44_5" class="answer">
+        <ol>
+            <li>Переведём слова на язык координат: пересечение оси <span class="math">\(x\)</span> в точке с абсциссой 4 — это точка <span class="math">\((4; 0)\)</span>; пересечение оси <span class="math">\(y\)</span> в точке с ординатой 11 — это точка <span class="math">\((0; 11)\)</span>.</li>
+            <li>Функция линейная: <span class="math">\(y = kx + b\)</span>. Для точки <span class="math">\((0; 11)\)</span>: <span class="math">\(k \cdot{} 0 + b = 11\)</span>, значит <span class="math">\(b = 11\)</span>.</li>
+            <li>Для точки <span class="math">\((4; 0)\)</span>: <span class="math">\(4k + b = 0\)</span>, значит <span class="math">\(4k = -11\)</span>, <span class="math">\(k = -\frac{11}{4} = -2,75\)</span>.</li>
+            <li>Проверка: <span class="math">\(-2,75 \cdot{} 4 + 11 = -11 + 11 = 0\)</span> — график действительно проходит через точку <span class="math">\((4; 0)\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(y = -2,75x + 11\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№1097 из учебника)</div>
+    <p>Докажите, что все точки графика функции, заданной формулой <span class="math">\(y = x^2 - 4x + 5\)</span>, расположены в верхней полуплоскости.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="все точки графика расположены в верхней полуплоскости"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans44_6')">🔍 Проверить</button>
+    <div id="ans44_6" class="answer">
+        <ol>
+            <li>Точка лежит в верхней полуплоскости, если её ордината положительна. Значит, достаточно доказать, что <span class="math">\(y \gt 0\)</span> при любом <span class="math">\(x\)</span>.</li>
+            <li>Выделим полный квадрат: <span class="math">\(x^2 - 4x + 5 = x^2 - 4x + 4 + 1 = (x - 2)^2 + 1\)</span>.</li>
+            <li>Квадрат <span class="math">\((x - 2)^2\)</span> неотрицателен при любом значении <span class="math">\(x\)</span>, поэтому <span class="math">\(y = (x - 2)^2 + 1 ≥ 1\)</span>, а значит <span class="math">\(y \gt 0\)</span> всегда.</li>
+            <li>Проверка числом: при <span class="math">\(x = 2\)</span> получаем <span class="math">\(y = 1\)</span> — самое маленькое значение функции, и даже оно больше нуля. Значит, весь график лежит выше оси <span class="math">\(x\)</span>, что и требовалось доказать.</li>
+        </ol>
+        <p><b>Ответ:</b> все точки графика расположены в верхней полуплоскости</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Способ сложения — третий способ решения систем линейных уравнений (после графического и способа подстановки).</li>
+        <li>При сложении мы переходим к <b>равносильной</b> системе, в которой одно уравнение содержит только одну переменную.</li>
+        <li>Алгоритм: уравняй коэффициенты (умножь уравнения на подходящие множители) → сложи почленно → реши уравнение с одной переменной → найди вторую переменную.</li>
+        <li>Если коэффициенты при одной переменной уже противоположные — начинай сразу со сложения, без умножения.</li>
+        <li>Умножать можно только <b>всё уравнение целиком</b>: каждый член слева и правую часть.</li>
+        <li>Одинаковые коэффициенты (4 и 4) превращаются в противоположные умножением одного уравнения на <span class="math">\(-1\)</span>.</li>
+        <li>Проверка: подставь найденную пару в <b>оба</b> исходных уравнения.</li>
+        <li>Геометрически все прямые — старые и новые уравнения — проходят через одну точку, и это решение системы.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 6: Системы линейных уравнений<br>
+    §15, п. 44. Способ сложения • Страницы 217-220</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-43.html">← Урок 43</a><span class="sep">|</span><a href="lesson-45.html">Урок 45 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

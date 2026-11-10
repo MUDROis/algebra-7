@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Разложение разности квадратов на множители — Алгебра 7 класс | Глава 5, §12, п. 35</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Два точных квадрата и минус между ними — скобки собираются сами 🧩">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Разложение разности квадратов на множители — Алгебра 7 класс | Глава 5, §12, п. 35">
+<meta property="og:description" content="Два точных квадрата и минус между ними — скобки собираются сами 🧩">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-35.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Разложение разности квадратов на множители — Алгебра 7 класс | Глава 5, §12, п. 35">
+<meta name="twitter:description" content="Два точных квадрата и минус между ними — скобки собираются сами 🧩">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-35.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-34.html">← Урок 34</a><span class="sep">|</span><a href="lesson-36.html">Урок 36 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 5 • §12, п. 35</span>
+    <h1>Разложение разности квадратов на множители</h1>
+    <p class="subtitle">Два точных квадрата и минус между ними — скобки собираются сами 🧩</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Со станций М и N, расстояние между которыми 380 км, одновременно вышли навстречу друг другу два поезда — так начинается задача №898 из учебника, и её щёлкает тот, кто дружит с формулами. Сегодня мы прочитаем знакомую формулу задом наперёд: не «скобки → разность квадратов», а «разность квадратов → скобки». Учебник называет это разложением на множители. Один взгляд на двучлен — и ты уже знаешь, соберётся ли из него пара скобок. Проверим? 🚂</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔄 Формула читается наоборот</h2>
+    <p>В п. 34 мы умножали скобки и получали разность квадратов. Поменяем местами правую и левую части этого тождества — и получим инструмент для разложения на множители:</p>
+    <p><span class="math">\(a^2 - b^2 = (a - b)(a + b)\)</span></p>
+    <p><b>Определение.</b> Тождество <span class="math">\(a^2 - b^2 = (a - b)(a + b)\)</span> называют <span class="highlight">формулой разности квадратов</span>: <span class="highlight">разность квадратов двух выражений равна произведению разности этих выражений и их суммы</span>. Её применяют для разложения на множители разности квадратов любых двух выражений.</p>
+    <p>Пример 1 из учебника — разложим на множители выражение <span class="math">\(36 - a^2\)</span>:</p>
+    <ol>
+        <li>Первый член — точный квадрат: <span class="math">\(36 = 6^2\)</span>.</li>
+        <li>Вытащили корни: <span class="math">\(36 - a^2 = 6^2 - a^2\)</span>.</li>
+        <li>По формуле: <span class="math">\(6^2 - a^2 = (6 - a)(6 + a)\)</span>.</li>
+    </ol>
+    <p>Пример 2 из учебника — представим в виде произведения двучлен <span class="math">\(49x^2 - 16y^6\)</span>:</p>
+    <ol>
+        <li><span class="math">\(49x^2 = (7x)^2\)</span>, ведь <span class="math">\(7^2 = 49\)</span>.</li>
+        <li><span class="math">\(16y^6 = (4y^3)^2\)</span>, ведь <span class="math">\(4^2 = 16\)</span> и <span class="math">\((y^3)^2 = y^6\)</span>.</li>
+        <li>Собираем скобки: <span class="math">\(49x^2 - 16y^6 = (7x - 4y^3)(7x + 4y^3)\)</span>.</li>
+    </ol>
+    <p>Проверка умножением: <span class="math">\((7x - 4y^3)(7x + 4y^3) = 49x^2 - 16y^6\)</span> — верно ✅. Второй пример показывает главное: корни бывают «высокие» — не только числа, но и степени.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🃏 Ищи два квадрата: карточный детектор</h2>
+    <p>Как быстро понять, раскладывается ли двучлен? Прогони его через детектор — три проверки:</p>
+    <ol>
+        <li>Первый член — точный квадрат. Чего именно? Вытащи основание.</li>
+        <li>Второй член — тоже точный квадрат.</li>
+        <li>Между ними стоит МИНУС.</li>
+    </ol>
+    <p>Все проверки зелёные — собирай пару скобок из найденных оснований. Вот как детектор обрабатывает выражение <span class="math">\(a^4 - 81\)</span>:</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="100%" viewBox="0 0 760 350" role="img" aria-label="Детектор проверяет члены выражения a в четвёртой минус 81: оба члена квадраты, минус на месте, итог - произведение скобок; сумма квадратов не раскладывается">
+            <defs>
+                <marker id="arr35" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e8449"/>
+                </marker>
+            </defs>
+            <text x="380" y="32" font-size="17" font-weight="bold" text-anchor="middle" fill="#2c3e50">Проверяем выражение a<tspan dy="-8" font-size="12">4</tspan><tspan dy="8"> − 81</tspan></text>
+            <rect x="50" y="55" width="200" height="80" rx="12" fill="#d5f5e3" stroke="#1e8449" stroke-width="2.5"/>
+            <text x="150" y="90" font-size="21" font-weight="bold" text-anchor="middle" fill="#145a32">a<tspan dy="-9" font-size="13">4</tspan><tspan dy="9"> — квадрат</tspan></text>
+            <text x="150" y="118" font-size="13" text-anchor="middle" fill="#196f3d">основание <tspan font-weight="bold">a</tspan><tspan dy="-6" font-size="9" font-weight="bold">2</tspan></text>
+            <rect x="280" y="55" width="160" height="80" rx="12" fill="#d5f5e3" stroke="#1e8449" stroke-width="2.5"/>
+            <text x="360" y="90" font-size="21" font-weight="bold" text-anchor="middle" fill="#145a32">81 — квадрат</text>
+            <text x="360" y="118" font-size="13" text-anchor="middle" fill="#196f3d">основание <tspan font-weight="bold">9</tspan></text>
+            <rect x="470" y="55" width="250" height="80" rx="12" fill="#fdedec" stroke="#e74c3c" stroke-width="2" stroke-dasharray="7,4"/>
+            <text x="595" y="90" font-size="18" font-weight="bold" text-anchor="middle" fill="#922b21">а если a<tspan dy="-7" font-size="12">4</tspan><tspan dy="7"> + 81?</tspan></text>
+            <text x="595" y="118" font-size="12.5" text-anchor="middle" fill="#922b21">🚫 между ними ПЛЮС — стоп!</text>
+            <line x1="150" y1="141" x2="150" y2="194" stroke="#1e8449" stroke-width="2.5" marker-end="url(#arr35)"/>
+            <line x1="360" y1="141" x2="360" y2="194" stroke="#1e8449" stroke-width="2.5" marker-end="url(#arr35)"/>
+            <rect x="90" y="200" width="580" height="86" rx="12" fill="#fef9e7" stroke="#f39c12" stroke-width="2.5"/>
+            <text x="380" y="236" font-size="20" font-weight="bold" text-anchor="middle" fill="#7e5109">a<tspan dy="-8" font-size="13">4</tspan><tspan dy="8"> − 81 = (a</tspan><tspan dy="-8" font-size="13">2</tspan><tspan dy="8"> − 9)(a</tspan><tspan dy="-8" font-size="13">2</tspan><tspan dy="8"> + 9)</tspan></text>
+            <text x="380" y="268" font-size="13" text-anchor="middle" fill="#9a7d0a">первая скобка — снова разность квадратов: a<tspan dy="-6" font-size="9">2</tspan><tspan dy="6"> − 9 = (a − 3)(a + 3)</tspan></text>
+            <text x="380" y="322" font-size="12" text-anchor="middle" fill="#95a5a6">Сумма квадратов так не раскладывается — красная карточка закрыта навсегда</text>
+        </svg>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#d5f5e3"></span> точный квадрат — корень вытащился</span>
+        <span class="legend-item"><span class="color-dot" style="background:#fdedec"></span> сумма квадратов — не раскладывается</span>
+        <span class="legend-item"><span class="color-dot" style="background:#fef9e7"></span> собранные скобки</span>
+    </div>
+    <p class="fig-caption">Карточный детектор для <span class="math">\(a^4 - 81\)</span>: оба члена — квадраты (<span class="math">\(a^4 = (a^2)^2\)</span>, <span class="math">\(81 = 9^2\)</span>), между ними минус. Скобка <span class="math">\(a^2 - 9\)</span> — снова разность квадратов, раскладываем ещё раз</p>
+    <p>Доделываем то, что показал детектор: <span class="math">\(a^4 - 81 = (a^2 - 9)(a^2 + 9) = (a - 3)(a + 3)(a^2 + 9)\)</span>. А скобка-сумма <span class="math">\(a^2 + 9\)</span> дальше не раскладывается — это её окончательный вид. Полезно держать в голове таблицу «высоких» корней:</p>
+    <ul>
+        <li><span class="math">\(x^4 = (x^2)^2\)</span> — основание <span class="math">\(x^2\)</span>;</li>
+        <li><span class="math">\(x^6 = (x^3)^2\)</span> — основание <span class="math">\(x^3\)</span>;</li>
+        <li><span class="math">\(0,09 = 0,3^2\)</span> и <span class="math">\(0,25 = 0,5^2\)</span> — квадраты бывают и дробные;</li>
+        <li><span class="math">\(1,44 = 1,2^2\)</span> — десятичные тоже.</li>
+    </ul>
+</section>
+
+<section class="card page-block">
+    <h2>🚦 Сумма квадратов молчит</h2>
+    <p>Железное правило: <span class="highlight">сумма квадратов на множители-многочлены не раскладывается</span>. Сравни соседей:</p>
+    <ul>
+        <li>✅ <span class="math">\(25 - m^2 = (5 - m)(5 + m)\)</span> — между квадратами минус, формула работает.</li>
+        <li>🚫 <span class="math">\(25 + m^2\)</span> — сумма квадратов: ни одна формула сокращённого умножения сюда не подходит, скобок не будет.</li>
+    </ul>
+    <p>Если минус стоит первым — не пугайся, просто переставь слагаемые: <span class="math">\(-49 + c^2 = c^2 - 49 = (c - 7)(c + 7)\)</span>.</p>
+    <p>Разложение мощно помогает решать уравнения. Пример: <span class="math">\(y^2 - 25 = 0\)</span>.</p>
+    <ol>
+        <li>Раскладываем левую часть: <span class="math">\(y^2 - 25 = (y - 5)(y + 5)\)</span>.</li>
+        <li>Произведение равно нулю, когда хотя бы один множитель равен нулю: <span class="math">\(y - 5 = 0\)</span> или <span class="math">\(y + 5 = 0\)</span>.</li>
+        <li>Два корня: <span class="math">\(y = 5\)</span> или <span class="math">\(y = -5\)</span>.</li>
+    </ol>
+    <p>Проверка: <span class="math">\(5^2 - 25 = 0\)</span> и <span class="math">\((-5)^2 - 25 = 0\)</span> ✅. Без формулы пришлось бы гадать — а тут оба корня видны сразу. 💡</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧮 Жизненный блок: квадраты без столбика</h2>
+    <p>Формула — чемпион устного счёта. Пример: найдём <span class="math">\(54^2 - 46^2\)</span>. В лоб — два возведения в столбик и вычитание. А теперь красиво:</p>
+    <ol>
+        <li><span class="math">\(54^2 - 46^2 = (54 - 46)(54 + 46)\)</span>.</li>
+        <li><span class="math">\(54 - 46 = 8\)</span>, а <span class="math">\(54 + 46 = 100\)</span>.</li>
+        <li><span class="math">\(8 \cdot{} 100 = 800\)</span>. Десять секунд! ⚡</li>
+    </ol>
+    <p>Проверка в лоб: <span class="math">\(2916 - 2116 = 800\)</span> — сошлось. И совсем короткий: <span class="math">\(18^2 - 17^2 = (18 - 17)(18 + 17) = 1 \cdot{} 35 = 35\)</span>. Такие фокусы выручают и на контрольной, и когда перепроверяешь чек в магазине без калькулятора. 🛒</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Ищи два квадрата»</h3>
+    <p>Формула <span class="math">\(a^2 - b^2 = (a - b)(a + b)\)</span> срабатывает только при двух условиях: ОБА члена — точные квадраты и между ними стоит МИНУС. Поэтому алгоритм один: сначала вытащи корень из каждого члена.</p>
+    <p>Устный пример (не из заданий): <span class="math">\(49 - x^6 = 7^2 - (x^3)^2 = (7 - x^3)(7 + x^3)\)</span>. Корни «высокие»: <span class="math">\(49 = 7^2\)</span>, а <span class="math">\(x^6 = (x^3)^2\)</span>. 🃏</p>
+    <p>✅ <span class="math">\(9y^2 - 16 = (3y - 4)(3y + 4)\)</span> — оба члена квадраты (<span class="math">\(9y^2 = (3y)^2\)</span>, <span class="math">\(16 = 4^2\)</span>), между ними минус. Работает!</p>
+    <p>🚫 <span class="math">\(9y^2 + 16\)</span> — всё то же самое, но между квадратами ПЛЮС. Сумма квадратов не раскладывается — детектор красный, скобок не будет.</p>
+    <p>🎯 Мостик: в задании 2 вытащишь корни из степеней, в задании 4 отправишь корни в уравнение, а в задании 5 дробь свернётся в устный пример.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 35) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№900 в, г из учебника)</div>
+    <p>Разложите на множители: <span class="math">\(36a^2 - 49\)</span>; <span class="math">\(64 - 25x^2\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(6a - 7)(6a + 7); (8 - 5x)(8 + 5x)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans35_1')">🔍 Проверить</button>
+    <div id="ans35_1" class="answer">
+        <p>Прогоняем каждый двучлен через детектор «два квадрата и минус»:</p>
+        <ol>
+            <li><span class="math">\(36a^2 = (6a)^2\)</span>, <span class="math">\(49 = 7^2\)</span> — оба члена квадраты, минус на месте.</li>
+            <li><span class="math">\(36a^2 - 49 = (6a - 7)(6a + 7)\)</span>.</li>
+            <li>Проверка умножением: <span class="math">\((6a - 7)(6a + 7) = 36a^2 + 42a - 42a - 49 = 36a^2 - 49\)</span> ✅.</li>
+            <li><span class="math">\(64 = 8^2\)</span>, <span class="math">\(25x^2 = (5x)^2\)</span>: <span class="math">\(64 - 25x^2 = (8 - 5x)(8 + 5x)\)</span>.</li>
+            <li>Проверка: <span class="math">\((8 - 5x)(8 + 5x) = 64 + 40x - 40x - 25x^2 = 64 - 25x^2\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((6a - 7)(6a + 7); (8 - 5x)(8 + 5x)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№899 а из учебника)</div>
+    <p>Разложите на множители многочлен: <span class="math">\(x^4 - y^4\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="(x - y)(x + y)(x^2 + y^2)"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans35_2')">🔍 Проверить</button>
+    <div id="ans35_2" class="answer">
+        <p>Корни здесь «высокие» — вытащи их из степеней.</p>
+        <ol>
+            <li>Проверяем на квадраты: <span class="math">\(x^4 = (x^2)^2\)</span> и <span class="math">\(y^4 = (y^2)^2\)</span> — оба члена квадраты, минус на месте.</li>
+            <li>Первый шаг: <span class="math">\(x^4 - y^4 = (x^2 - y^2)(x^2 + y^2)\)</span>.</li>
+            <li>Первая скобка — снова разность квадратов: <span class="math">\(x^2 - y^2 = (x - y)(x + y)\)</span>.</li>
+            <li>Итог: <span class="math">\(x^4 - y^4 = (x - y)(x + y)(x^2 + y^2)\)</span>.</li>
+            <li>Проверка умножением: <span class="math">\((x - y)(x + y) = x^2 - y^2\)</span>, затем <span class="math">\((x^2 - y^2)(x^2 + y^2) = x^4 - y^4\)</span> ✅. Скобка <span class="math">\(x^2 + y^2\)</span> — сумма квадратов, дальше не раскладывается.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\((x - y)(x + y)(x^2 + y^2)\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№902 а, в из учебника)</div>
+    <p>Вычислите: <span class="math">\(47^2 - 37^2\)</span>; <span class="math">\(126^2 - 74^2\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="840; 10400"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans35_3')">🔍 Проверить</button>
+    <div id="ans35_3" class="answer">
+        <p>Не спеши возводить в столбик — разность квадратов считается устно.</p>
+        <ol>
+            <li><span class="math">\(47^2 - 37^2 = (47 - 37)(47 + 37) = 10 \cdot{} 84 = 840\)</span>.</li>
+            <li>Проверка в лоб: <span class="math">\(47^2 = 2209\)</span>, <span class="math">\(37^2 = 1369\)</span>, <span class="math">\(2209 - 1369 = 840\)</span> ✅.</li>
+            <li><span class="math">\(126^2 - 74^2 = (126 - 74)(126 + 74) = 52 \cdot{} 200 = 10400\)</span>.</li>
+            <li>Проверка в лоб: <span class="math">\(126^2 = 15876\)</span>, <span class="math">\(74^2 = 5476\)</span>, <span class="math">\(15876 - 5476 = 10400\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(840; 10400\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№906 а, ж из учебника)</div>
+    <p>Решите уравнение: <span class="math">\(x^2 - 16 = 0\)</span>; <span class="math">\(4x^2 - 9 = 0\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x = ±4; x = ±1,5"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans35_4')">🔍 Проверить</button>
+    <div id="ans35_4" class="answer">
+        <p>Раскладываем левую часть — и корни проявляются сами.</p>
+        <ol>
+            <li><span class="math">\(x^2 - 16 = (x - 4)(x + 4)\)</span>.</li>
+            <li><span class="math">\((x - 4)(x + 4) = 0\)</span>, значит <span class="math">\(x - 4 = 0\)</span> или <span class="math">\(x + 4 = 0\)</span>: <span class="math">\(x = 4\)</span> или <span class="math">\(x = -4\)</span>.</li>
+            <li>Проверка: <span class="math">\(4^2 - 16 = 0\)</span> и <span class="math">\((-4)^2 - 16 = 0\)</span> ✅.</li>
+            <li>Во втором уравнении <span class="math">\(4x^2 = (2x)^2\)</span>, поэтому <span class="math">\(4x^2 - 9 = (2x - 3)(2x + 3)\)</span>.</li>
+            <li><span class="math">\(2x - 3 = 0\)</span> даёт <span class="math">\(x = 1,5\)</span>; <span class="math">\(2x + 3 = 0\)</span> даёт <span class="math">\(x = -1,5\)</span>.</li>
+            <li>Проверка: <span class="math">\(4 \cdot{} 2,25 - 9 = 9 - 9 = 0\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(x = ±4; x = ±1,5\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№903 в, г из учебника)</div>
+    <p>Найдите значение дроби: <span class="math">\((53^2 - 27^2)/(79^2 - 51^2)\)</span>; <span class="math">\((53^2 - 32^2)/(61^2 - 44^2)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="\frac{4}{7}; 1"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans35_5')">🔍 Проверить</button>
+    <div id="ans35_5" class="answer">
+        <p>И числитель, и знаменатель — разности квадратов. Сворачиваем каждый в произведение:</p>
+        <ol>
+            <li>Числитель первой дроби: <span class="math">\(53^2 - 27^2 = (53 - 27)(53 + 27) = 26 \cdot{} 80 = 2080\)</span>.</li>
+            <li>Её знаменатель: <span class="math">\(79^2 - 51^2 = (79 - 51)(79 + 51) = 28 \cdot{} 130 = 3640\)</span>.</li>
+            <li>Дробь: <span class="math">\(\frac{2080}{3640}\)</span> — сокращаем на 520 (ведь <span class="math">\(2080 = 4 \cdot{} 520\)</span>, <span class="math">\(3640 = 7 \cdot{} 520\)</span>): получится <span class="math">\(\frac{4}{7}\)</span>.</li>
+            <li>Вторая дробь: числитель <span class="math">\(53^2 - 32^2 = (53 - 32)(53 + 32) = 21 \cdot{} 85 = 1785\)</span>.</li>
+            <li>Её знаменатель: <span class="math">\(61^2 - 44^2 = (61 - 44)(61 + 44) = 17 \cdot{} 105 = 1785\)</span>.</li>
+            <li>Числитель и знаменатель равны — дробь равна <span class="math">\(1\)</span>.</li>
+            <li>Проверка в лоб: <span class="math">\(2809 - 729 = 2080\)</span>, <span class="math">\(6241 - 2601 = 3640\)</span> ✅; <span class="math">\(2809 - 1024 = 1785\)</span>, <span class="math">\(3721 - 1936 = 1785\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(\frac{4}{7}; 1\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№915 из учебника, сюжетная задача)</div>
+    <p>На сторонах прямоугольника построены квадраты. Площадь одного квадрата на <span class="math">\(95\)</span> квадратных сантиметров больше площади другого. Найдите периметр прямоугольника, если известно, что длина прямоугольника на <span class="math">\(5\)</span> см больше его ширины.</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="100%" viewBox="0 0 420 330" role="img" aria-label="Прямоугольник со сторонами a и b, на его длинной стороне построен квадрат площади a в квадрате, на короткой - квадрат площади b в квадрате">
+            <rect x="40" y="30" width="168" height="168" fill="#d6eaf8" stroke="#2e86c1" stroke-width="2"/>
+            <text x="124" y="122" font-size="20" font-weight="bold" text-anchor="middle" fill="#1b4f72">a<tspan dy="-8" font-size="13">2</tspan></text>
+            <rect x="40" y="198" width="168" height="96" fill="#fef9e7" stroke="#f39c12" stroke-width="2"/>
+            <text x="124" y="252" font-size="16" font-weight="bold" text-anchor="middle" fill="#7e5109">a · b</text>
+            <rect x="208" y="198" width="96" height="96" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+            <text x="256" y="252" font-size="16" font-weight="bold" text-anchor="middle" fill="#922b21">b<tspan dy="-7" font-size="10">2</tspan></text>
+            <text x="124" y="18" font-size="13" font-style="italic" text-anchor="middle" fill="#2c3e50">a</text>
+            <text x="22" y="120" font-size="13" font-style="italic" text-anchor="middle" fill="#2c3e50">a</text>
+            <text x="22" y="250" font-size="13" font-style="italic" text-anchor="middle" fill="#2c3e50">b</text>
+            <text x="256" y="188" font-size="13" font-style="italic" text-anchor="middle" fill="#2c3e50">b</text>
+            <text x="124" y="314" font-size="13" font-style="italic" text-anchor="middle" fill="#2c3e50">a</text>
+        </svg>
+    </div>
+    <p class="fig-caption">Схема к №915: квадраты построены на сторонах прямоугольника (в учебнике — рис. 88). Их площади — <span class="math">\(a^2\)</span> и <span class="math">\(b^2\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="38 см"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans35_6')">🔍 Проверить</button>
+    <div id="ans35_6" class="answer">
+        <p>Переводим сюжет на язык алгебры — и формула срабатывает.</p>
+        <ol>
+            <li>Пусть длина прямоугольника — <span class="math">\(a\)</span> см, ширина — <span class="math">\(b\)</span> см. По условию <span class="math">\(a - b = 5\)</span>.</li>
+            <li>Квадраты построены на сторонах, их площади — <span class="math">\(a^2\)</span> и <span class="math">\(b^2\)</span>. Разность площадей: <span class="math">\(a^2 - b^2 = 95\)</span>.</li>
+            <li>Формула разности квадратов: <span class="math">\(a^2 - b^2 = (a - b)(a + b)\)</span>, значит <span class="math">\(5 \cdot{} (a + b) = 95\)</span>.</li>
+            <li>Отсюда <span class="math">\(a + b = 19\)</span>.</li>
+            <li>Периметр — это удвоенная сумма сторон: <span class="math">\(P = 2(a + b) = 2 \cdot{} 19 = 38\)</span> (см).</li>
+            <li>Проверка: из <span class="math">\(a - b = 5\)</span> и <span class="math">\(a + b = 19\)</span> находим <span class="math">\(a = 12\)</span>, <span class="math">\(b = 7\)</span>; тогда <span class="math">\(12^2 - 7^2 = 144 - 49 = 95\)</span> ✅ и <span class="math">\(2 \cdot{} (12 + 7) = 38\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(38\)</span> см</p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Формула наоборот: <span class="math">\(a^2 - b^2 = (a - b)(a + b)\)</span> — разность квадратов раскладывается на два множителя.</li>
+        <li>Правило из учебника: разность квадратов двух выражений равна произведению разности этих выражений и их суммы.</li>
+        <li>Перед разложением проверь: оба члена — точные квадраты и между ними минус.</li>
+        <li>Корни бывают «высокие»: <span class="math">\(x^4 = (x^2)^2\)</span>, <span class="math">\(x^6 = (x^3)^2\)</span>, <span class="math">\(0,09 = 0,3^2\)</span>, <span class="math">\(1,44 = 1,2^2\)</span>.</li>
+        <li>Сумма квадратов <span class="math">\(a^2 + b^2\)</span> на множители-многочлены не раскладывается.</li>
+        <li>Внутри может прятаться ещё одна разность квадратов: <span class="math">\(x^4 - y^4 = (x - y)(x + y)(x^2 + y^2)\)</span> — раскладывай поэтапно.</li>
+        <li>Уравнение <span class="math">\(x^2 - c^2 = 0\)</span> имеет два корня: <span class="math">\(x = c\)</span> и <span class="math">\(x = -c\)</span>.</li>
+        <li>Устный счёт: <span class="math">\(54^2 - 46^2 = (54 - 46)(54 + 46) = 8 \cdot{} 100 = 800\)</span>.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 5: Формулы сокращённого умножения<br>
+    §12, п. 35. Разложение разности квадратов на множители • Страницы 179-181</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-34.html">← Урок 34</a><span class="sep">|</span><a href="lesson-36.html">Урок 36 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

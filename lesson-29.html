@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Умножение многочлена на многочлен — Алгебра 7 класс | Глава 4, §10, п. 29</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Каждый член умножается на каждого: четыре клетки — и ни одну не потерять 🧩">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Умножение многочлена на многочлен — Алгебра 7 класс | Глава 4, §10, п. 29">
+<meta property="og:description" content="Каждый член умножается на каждого: четыре клетки — и ни одну не потерять 🧩">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-29.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Умножение многочлена на многочлен — Алгебра 7 класс | Глава 4, §10, п. 29">
+<meta name="twitter:description" content="Каждый член умножается на каждого: четыре клетки — и ни одну не потерять 🧩">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-29.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-28.html">← Урок 28</a><span class="sep">|</span><a href="lesson-30.html">Урок 30 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 4 • §10, п. 29</span>
+    <h1>Умножение многочлена на многочлен</h1>
+    <p class="subtitle">Каждый член умножается на каждого: четыре клетки — и ни одну не потерять 🧩</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 В №720 учебника — прямоугольник с периметром 70 см: если длину уменьшить на 5 см, а ширину увеличить на 5 см, площадь вырастет аж на 50 кв. см. Как такое возможно и чему равны стороны? Чтобы сосчитать новые площади, придётся перемножать многочлены. Сегодня освоим правило «каждый с каждым» — и даже увидим, что этому правилу уже больше двух тысяч лет. 📐</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧭 Правило: каждый член — на каждый член</h2>
+    <p><b>Правило.</b> <span class="highlight">Чтобы умножить многочлен на многочлен, нужно каждый член одного многочлена умножить на каждый член другого многочлена и полученные произведения сложить.</span></p>
+    <p>Откуда правило берётся — вывод из учебника. Умножим <span class="math">\((a + b)(c + d)\)</span>. Обозначим двучлен <span class="math">\(a + b\)</span> буквой <span class="math">\(x\)</span> и применим правило п. 27:</p>
+    <ol>
+        <li><span class="math">\((a + b)(c + d) = x(c + d) = xc + xd\)</span>.</li>
+        <li>Подставим вместо <span class="math">\(x\)</span> многочлен <span class="math">\(a + b\)</span>: <span class="math">\(xc + xd = (a + b)c + (a + b)d\)</span>.</li>
+        <li>Снова умножим одночлены на многочлен: <span class="math">\((a + b)c + (a + b)d = ac + bc + ad + bd\)</span>.</li>
+    </ol>
+    <p>Итак, <span class="math">\((a + b)(c + d) = ac + bc + ad + bd\)</span> — сумма всех произведений «каждый с каждым». Произведение любых двух многочленов можно представить в виде многочлена.</p>
+</section>
+
+<section class="card page-block">
+    <h2>📐 Чертёж Евклида и контроль «m на n»</h2>
+    <p>Учебник рассказывает: древнегреческий математик Евклид в своём трактате «Начала» (III век до н.э.) доказывал это равенство геометрически — чертежом (в учебнике это рис. 83). Восстановим его на числах <span class="math">\(a = 3\)</span>, <span class="math">\(b = 2\)</span>, <span class="math">\(c = 4\)</span>, <span class="math">\(d = 1\)</span>: прямоугольник со сторонами <span class="math">\(a + b\)</span> и <span class="math">\(c + d\)</span> режется на четыре части.</p>
+    <div class="visual-container">
+        <svg class="graph-svg" width="100%" viewBox="0 0 640 300" role="img" aria-label="Прямоугольник со сторонами 5 и 5 разрезан на четыре части с площадями 12, 8, 3 и 2">
+            <rect x="70" y="50" width="500" height="200" fill="#ffffff" stroke="#2d3436" stroke-width="2"/>
+            <rect x="70" y="50" width="300" height="160" fill="#aed6f1" stroke="#2d3436" stroke-width="1.5"/>
+            <rect x="370" y="50" width="200" height="160" fill="#a9dfbf" stroke="#2d3436" stroke-width="1.5"/>
+            <rect x="70" y="210" width="300" height="40" fill="#f9e79f" stroke="#2d3436" stroke-width="1.5"/>
+            <rect x="370" y="210" width="200" height="40" fill="#f5cba7" stroke="#2d3436" stroke-width="1.5"/>
+            <text x="220" y="34" font-size="16" font-weight="bold" text-anchor="middle" fill="#2d3436">a = 3</text>
+            <text x="470" y="34" font-size="16" font-weight="bold" text-anchor="middle" fill="#2d3436">b = 2</text>
+            <text x="56" y="135" font-size="16" font-weight="bold" text-anchor="end" fill="#2d3436">c = 4</text>
+            <text x="56" y="235" font-size="16" font-weight="bold" text-anchor="end" fill="#2d3436">d = 1</text>
+            <text x="220" y="135" font-size="20" font-weight="bold" text-anchor="middle" fill="#2d3436">ac = 12</text>
+            <text x="470" y="135" font-size="20" font-weight="bold" text-anchor="middle" fill="#2d3436">bc = 8</text>
+            <text x="220" y="235" font-size="16" font-weight="bold" text-anchor="middle" fill="#2d3436">ad = 3</text>
+            <text x="470" y="235" font-size="16" font-weight="bold" text-anchor="middle" fill="#2d3436">bd = 2</text>
+            <text x="596" y="155" font-size="14" font-weight="bold" text-anchor="middle" fill="#7f8c8d" transform="rotate(90 596 155)">c + d = 5</text>
+            <text x="320" y="20" font-size="14" font-weight="bold" text-anchor="middle" fill="#7f8c8d">a + b = 5</text>
+        </svg>
+    </div>
+    <p class="fig-caption">Чертёж Евклида: четыре части площадью 12, 8, 3 и 2 дают в сумме 25 — ровно столько же, сколько <span class="math">\(5 \cdot{} 5\)</span>.</p>
+    <p>А вот контроль из учебника: при умножении многочлена из <span class="math">\(m\)</span> членов на многочлен из <span class="math">\(n\)</span> членов до приведения подобных должно получиться <span class="math">\(m \cdot{} n\)</span> членов. Двучлен на двучлен — 4 произведения, трёхчлен на двучлен — 6. Пересчитал клетки — ничего не потерял. 🧮</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧮 Пример из учебника: трёхчлен на двучлен</h2>
+    <p>Пример 1 из учебника: умножим <span class="math">\((4x^2 + 2xy - y^2)(2x - y)\)</span>. Три члена на два — выписываем все 6 произведений:</p>
+    <table style="border-collapse:collapse;margin:14px auto;">
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(4x^2 \cdot{} 2x = 8x^3\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(4x^2 \cdot{} (-y) = -4x^2y\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(2xy \cdot{} 2x = 4x^2y\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(2xy \cdot{} (-y) = -2xy^2\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(-y^2 \cdot{} 2x = -2xy^2\)</span></td>
+            <td style="border:1px solid #ecf0f1;padding:8px 18px;"><span class="math">\(-y^2 \cdot{} (-y) = y^3\)</span></td>
+        </tr>
+    </table>
+    <p>Складываем и приводим подобные: <span class="math">\(-4x^2y + 4x^2y = 0\)</span> и <span class="math">\(-2xy^2 - 2xy^2 = -4xy^2\)</span>. Итог учебника: <span class="math">\((4x^2 + 2xy - y^2)(2x - y) = 8x^3 - 4xy^2 + y^3\)</span>. Было 6 слагаемых — стало 3.</p>
+</section>
+
+<section class="card page-block">
+    <h2>⚖️ Упрощаем выражения</h2>
+    <p>Пример 2 из учебника: упростим <span class="math">\((2a - 3)(5 - a) - 3a(4 - a)\)</span>.</p>
+    <ol>
+        <li>Перемножаем двучлены «каждый с каждым»: <span class="math">\((2a - 3)(5 - a) = 10a - 2a^2 - 15 + 3a\)</span>, после приведения подобных <span class="math">\(-2a^2 + 13a - 15\)</span>.</li>
+        <li>Раскрываем вторую скобку (п. 27): <span class="math">\(-3a(4 - a) = -12a + 3a^2\)</span>.</li>
+        <li>Складываем всё: <span class="math">\(-2a^2 + 13a - 15 - 12a + 3a^2 = a^2 + a - 15\)</span>.</li>
+    </ol>
+    <p>Проверка числом при <span class="math">\(a = 2\)</span>: слева <span class="math">\(1 \cdot{} 3 - 6 \cdot{} 2 = -9\)</span>, справа <span class="math">\(4 + 2 - 15 = -9\)</span> — сошлось. ✅ Следи за знаками: минус перед скобкой и минусы внутри клеток любят портить ответ.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🏟️ Жизненная задача: прямоугольник с сюрпризом</h2>
+    <p>Вернёмся к №720 учебника. Пусть длина прямоугольника — <span class="math">\(x\)</span> см. Раз периметр равен 70 см, то на длину и ширину вместе приходится 35 см, то есть ширина равна <span class="math">\(35 - x\)</span> см. После изменений стороны станут <span class="math">\(x - 5\)</span> и <span class="math">\((35 - x) + 5\)</span> см, то есть <span class="math">\(40 - x\)</span>.</p>
+    <ol>
+        <li>Новая площадь: <span class="math">\((x - 5)(40 - x)\)</span> — а это и есть умножение двучленов! Раскрываем: <span class="math">\(40x - x^2 - 200 + 5x\)</span>, то есть <span class="math">\(-x^2 + 45x - 200\)</span>.</li>
+        <li>Старая площадь: <span class="math">\(x(35 - x) = 35x - x^2\)</span>.</li>
+        <li>Разница площадей: <span class="math">\(-x^2 + 45x - 200 - 35x + x^2 = 10x - 200\)</span>. По условию она равна 50, откуда <span class="math">\(10x = 250\)</span> и <span class="math">\(x = 25\)</span>.</li>
+    </ol>
+    <p>Длина 25 см, ширина 10 см. Проверка: старый прямоугольник <span class="math">\(25 \cdot{} 10 = 250\)</span> кв. см, новый <span class="math">\(20 \cdot{} 15 = 300\)</span> кв. см — прибавка ровно <span class="math">\(50\)</span> кв. см. 🏅 Вот так умножение многочленов выходит за страницы тетради.</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Таблица каждый-с-каждым»</h3>
+    <p>Перед тем как перемножать двучлены, рисуй на черновике мини-таблицу: строки — члены первой скобки, столбцы — второй. Каждая клетка — произведение. Для <span class="math">\((a + b)(c + d)\)</span> клеток ровно 4: <span class="math">\(ac\)</span>, <span class="math">\(ad\)</span>, <span class="math">\(bc\)</span>, <span class="math">\(bd\)</span>. Контроль: 2 члена × 2 члена = 4 слагаемых до приведения подобных. Разберём <span class="math">\((x + 2)(x + 3)\)</span>:</p>
+    <table style="border-collapse:collapse;margin:14px auto;">
+        <tr>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;color:#95a5a6;">·</td>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;"><span class="math">\(x\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;"><span class="math">\(+3\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;"><span class="math">\(x\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;"><span class="math">\(x^2\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;"><span class="math">\(3x\)</span></td>
+        </tr>
+        <tr>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;"><span class="math">\(+2\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;"><span class="math">\(2x\)</span></td>
+            <td style="border:1px solid #bdc3c7;padding:6px 16px;"><span class="math">\(6\)</span></td>
+        </tr>
+    </table>
+    <p>Складываем клетки: <span class="math">\(x^2 + 3x + 2x + 6 = x^2 + 5x + 6\)</span>.</p>
+    <p>✅ Все 4 клетки собраны: <span class="math">\((x + 2)(x + 3) = x^2 + 5x + 6\)</span>.</p>
+    <p>🚫 Потеряли «крест» <span class="math">\(3x + 2x\)</span> и написали <span class="math">\(x^2 + 6\)</span> — клетка-ловушка съела два слагаемых. Считай клетки до приведения подобных!</p>
+    <p>🧩 Мостик: в задании 1 соберёшь все 4 пары «каждый с каждым», а в задании 4 после таблицы приведёшь подобные и вычтешь <span class="math">\(13y\)</span>.</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 29) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№693 а из учебника)</div>
+    <p>Выполните умножение: <span class="math">\((x + m)(y + n)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="xy + xn + my + mn"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans29_1')">🔍 Проверить</button>
+    <div id="ans29_1" class="answer">
+        <ol>
+            <li>Первый член первой скобки: <span class="math">\(x \cdot{} y = xy\)</span> и <span class="math">\(x \cdot{} n = xn\)</span>.</li>
+            <li>Второй член: <span class="math">\(m \cdot{} y = my\)</span> и <span class="math">\(m \cdot{} n = mn\)</span>. Получилось ровно 4 произведения — 2 × 2, ничего не потеряли.</li>
+            <li>Складываем: <span class="math">\((x + m)(y + n) = xy + xn + my + mn\)</span>. Подобных здесь нет, это готовый многочлен.</li>
+            <li>Проверка числом: при <span class="math">\(x = 2\)</span>, <span class="math">\(m = 3\)</span>, <span class="math">\(y = 5\)</span>, <span class="math">\(n = 4\)</span> слева <span class="math">\(5 \cdot{} 9 = 45\)</span>, справа <span class="math">\(10 + 8 + 15 + 12 = 45\)</span> — сошлось.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(xy + xn + my + mn\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№694 а из учебника)</div>
+    <p>Упростите выражение: <span class="math">\((x + 6)(x + 5)\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x^2 + 11x + 30"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans29_2')">🔍 Проверить</button>
+    <div id="ans29_2" class="answer">
+        <ol>
+            <li>Четыре произведения: <span class="math">\(x \cdot{} x = x^2\)</span>, <span class="math">\(x \cdot{} 5 = 5x\)</span>, <span class="math">\(6 \cdot{} x = 6x\)</span>, <span class="math">\(6 \cdot{} 5 = 30\)</span>.</li>
+            <li>Контроль: до приведения подобных должно быть 4 слагаемых — все 4 на месте.</li>
+            <li>Приводим подобные («крест»): <span class="math">\(5x + 6x = 11x\)</span>. Итог: <span class="math">\(x^2 + 11x + 30\)</span>.</li>
+            <li>Проверка числом при <span class="math">\(x = 2\)</span>: слева <span class="math">\(8 \cdot{} 7 = 56\)</span>, справа <span class="math">\(4 + 22 + 30 = 56\)</span> — сошлось.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(x^2 + 11x + 30\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№698 а из учебника, степень в многочлен)</div>
+    <p>Замените степень произведением, а затем произведение преобразуйте в многочлен: <span class="math">\((x + 10)^2\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x^2 + 20x + 100"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans29_3')">🔍 Проверить</button>
+    <div id="ans29_3" class="answer">
+        <ol>
+            <li>Степень — это произведение одинаковых множителей: <span class="math">\((x + 10)^2 = (x + 10)(x + 10)\)</span>.</li>
+            <li>Четыре клетки: <span class="math">\(x \cdot{} x = x^2\)</span>, <span class="math">\(x \cdot{} 10 = 10x\)</span>, <span class="math">\(10 \cdot{} x = 10x\)</span>, <span class="math">\(10 \cdot{} 10 = 100\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(10x + 10x = 20x\)</span>. Итог: <span class="math">\(x^2 + 20x + 100\)</span>.</li>
+            <li>Проверка числом при <span class="math">\(x = 3\)</span>: слева <span class="math">\(13^2 = 169\)</span>, справа <span class="math">\(9 + 60 + 100 = 169\)</span> — сошлось.</li>
+        </ol>
+        <p>⚠️ Средние члены здесь одинаковые, но их всё равно два: степень умножает скобку саму на себя.</p>
+        <p><b>Ответ:</b> <span class="math">\(x^2 + 20x + 100\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№703 б из учебника)</div>
+    <p>Упростите выражение: <span class="math">\((7y - 4)(2y + 3) - 13y\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="14y^2 - 12"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans29_4')">🔍 Проверить</button>
+    <div id="ans29_4" class="answer">
+        <ol>
+            <li>Четыре произведения: <span class="math">\(7y \cdot{} 2y = 14y^2\)</span>, <span class="math">\(7y \cdot{} 3 = 21y\)</span>, <span class="math">\(-4 \cdot{} 2y = -8y\)</span>, <span class="math">\(-4 \cdot{} 3 = -12\)</span>.</li>
+            <li>Приводим подобные: <span class="math">\(14y^2 + 21y - 8y - 12 = 14y^2 + 13y - 12\)</span>.</li>
+            <li>Вычитаем <span class="math">\(13y\)</span>: <span class="math">\(14y^2 + 13y - 12 - 13y = 14y^2 - 12\)</span>.</li>
+            <li>Проверка числом при <span class="math">\(y = 2\)</span>: слева <span class="math">\((14 - 4)(4 + 3) - 26 = 70 - 26 = 44\)</span>, справа <span class="math">\(56 - 12 = 44\)</span> — сошлось.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(14y^2 - 12\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№717 а из учебника, уравнение)</div>
+    <p>Решите уравнение: <span class="math">\((3x - 1)(5x + 4) - 15x^2 = 17\)</span></p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x = 3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans29_5')">🔍 Проверить</button>
+    <div id="ans29_5" class="answer">
+        <ol>
+            <li>Раскрываем произведение: <span class="math">\((3x - 1)(5x + 4) = 15x^2 + 12x - 5x - 4 = 15x^2 + 7x - 4\)</span>.</li>
+            <li>Прибавляем <span class="math">\(-15x^2\)</span>: слева остаётся <span class="math">\(15x^2 + 7x - 4 - 15x^2 = 7x - 4\)</span> — вторая степень исчезла.</li>
+            <li>Уравнение стало линейным: <span class="math">\(7x - 4 = 17\)</span>, откуда <span class="math">\(7x = 21\)</span> и <span class="math">\(x = 3\)</span>.</li>
+            <li>Проверка подстановкой <span class="math">\(x = 3\)</span>: слева <span class="math">\(8 \cdot{} 19 - 135 = 152 - 135 = 17\)</span> — верно.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(x = 3\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№718 из учебника, сюжетная задача)</div>
+    <p>Найдите три последовательных натуральных числа, если известно, что квадрат меньшего из них на 65 меньше произведения двух остальных.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="21; 22; 23"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans29_6')">🔍 Проверить</button>
+    <div id="ans29_6" class="answer">
+        <ol>
+            <li>Пусть меньшее число — <span class="math">\(n\)</span>. Тогда два остальных: <span class="math">\(n + 1\)</span> и <span class="math">\(n + 2\)</span>.</li>
+            <li>Квадрат меньшего на 65 меньше их произведения, значит: <span class="math">\((n + 1)(n + 2) - n^2 = 65\)</span>.</li>
+            <li>Раскрываем произведение: <span class="math">\((n + 1)(n + 2) = n^2 + 2n + n + 2 = n^2 + 3n + 2\)</span>.</li>
+            <li>Подставляем в уравнение: <span class="math">\(n^2 + 3n + 2 - n^2 = 65\)</span>, откуда <span class="math">\(3n + 2 = 65\)</span>.</li>
+            <li>Решаем: <span class="math">\(3n = 63\)</span>, значит <span class="math">\(n = 21\)</span>. Числа: 21, 22, 23.</li>
+            <li>Проверка: <span class="math">\(22 \cdot{} 23 = 506\)</span>, квадрат меньшего <span class="math">\(21^2 = 441\)</span>, разница <span class="math">\(506 - 441 = 65\)</span> — всё верно. ✅</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(21; 22; 23\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li>Чтобы умножить многочлен на многочлен, умножь каждый член одного многочлена на каждый член другого и сложи произведения: <span class="math">\((a + b)(c + d) = ac + bc + ad + bd\)</span>.</li>
+        <li>Контроль: до приведения подобных слагаемых должно быть <span class="math">\(m \cdot{} n\)</span>, где <span class="math">\(m\)</span> и <span class="math">\(n\)</span> — числа членов множителей.</li>
+        <li>Не теряй «крест» — два средних произведения чаще всего дают подобные: <span class="math">\((x + 6)(x + 5) = x^2 + 11x + 30\)</span>.</li>
+        <li>Степень двучлена — это его умножение на себя: <span class="math">\((x + 10)^2 = (x + 10)(x + 10)\)</span>.</li>
+        <li>Следи за знаками в каждой клетке: <span class="math">\(-y^2 \cdot{} (-y) = y^3\)</span>.</li>
+        <li>После раскрытия скобок приводи подобные — из 6 слагаемых может получиться 3.</li>
+        <li>Умножение многочленов решает уравнения со скобками и сюжетные задачи: площади, последовательные числа, работа бригад.</li>
+        <li>Проверяй себя подстановкой числа в обе формы выражения — значения должны совпасть.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 4: Многочлены<br>
+    §10, п. 29. Умножение многочлена на многочлен • Страницы 147-151</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-28.html">← Урок 28</a><span class="sep">|</span><a href="lesson-30.html">Урок 30 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>

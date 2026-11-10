@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Функции y = x² и y = x³ и их графики — Алгебра 7 класс | Глава 3, §7, п. 23</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        background-image: linear-gradient(#e6e6e6 1px, transparent 1px),
+                          linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #2d3436;
+        line-height: 1.7;
+        margin: 0;
+        padding: 25px 15px 45px;
+    }
+
+    .page-block {
+        max-width: 960px;
+        margin: 0 auto 24px;
+    }
+
+    .lesson-nav {
+        max-width: 960px;
+        margin: 0 auto 22px;
+        text-align: center;
+        font-size: 0.95em;
+    }
+    .lesson-nav a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    .lesson-nav a:hover { text-decoration: underline; }
+    .lesson-nav .sep {
+        margin: 0 12px;
+        color: #bdc3c7;
+    }
+
+    header.header-card {
+        background: #f8f9fa;
+        border-left: 6px solid #3498db;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .badge {
+        display: inline-block;
+        background: #3498db;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    header.header-card h1 {
+        margin: 0 0 14px;
+        color: #2c3e50;
+        font-size: 2.3em;
+        line-height: 1.2;
+    }
+    .subtitle {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 1.15em;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+        margin-top: 0;
+        color: #3498db;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 10px;
+    }
+
+    .highlight {
+        background: #fff59d;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .math {
+        font-family: 'Courier New', Courier, monospace;
+        background: #ecf0f1;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .visual-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 6px;
+    }
+    .graph-svg {
+        max-width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid #ecf0f1;
+    }
+    .fig-caption {
+        text-align: center;
+        color: #95a5a6;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 4px 0 10px;
+    }
+    .legend {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.9em;
+    }
+    .legend-item { display: flex; align-items: center; gap: 7px; }
+    .color-dot {
+        width: 12px; height: 12px; border-radius: 50%; border: 2px solid #2d3436;
+    }
+    .color-dot.open { background: #ffffff; }
+    .color-dot.closed { background: #2d3436; }
+
+    .scaffolding-box {
+        background: #e8f8f5;
+        border-left: 6px solid #1abc9c;
+        padding: 28px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .scaffolding-box h3 {
+        margin-top: 0;
+        color: #16a085;
+    }
+
+    .tasks-title {
+        text-align: center;
+        color: #2c3e50;
+        margin: 34px auto 6px;
+        font-size: 1.6em;
+    }
+    .tasks-note {
+        text-align: center;
+        color: #95a5a6;
+        margin: 0 auto 22px;
+        max-width: 960px;
+    }
+    .task {
+        background: #ffffff;
+        padding: 24px 42px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 6px solid #ecf0f1;
+    }
+    .task.level-1 { border-left-color: #1abc9c; }
+    .task.level-2 { border-left-color: #3498db; }
+    .task.level-3 { border-left-color: #9b59b6; }
+    .task-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        margin-bottom: 10px;
+    }
+
+    .btn-check {
+        background: #3498db;
+        border: 2px solid #2d3436;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95em;
+        box-shadow: 4px 4px 0px #2d3436;
+        transition: all 0.1s;
+        margin-top: 14px;
+    }
+    .btn-check:active {
+        box-shadow: 0px 0px 0px #2d3436;
+        transform: translate(4px, 4px);
+    }
+
+    .answer {
+        display: none;
+        background: #f8f9fa;
+        padding: 18px 22px;
+        margin-top: 18px;
+        border: 1px dashed #bdc3c7;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-box {
+        background: #eafaf1;
+        border: 2px solid #1abc9c;
+        padding: 28px 42px;
+    }
+    .summary-box h2 {
+        margin-top: 0;
+        color: #27ae60;
+    }
+    .summary-box li { margin-bottom: 8px; }
+
+    footer {
+        max-width: 960px;
+        margin: 34px auto 22px;
+        text-align: center;
+    }
+    footer .textbook-info {
+        font-size: 0.95em;
+        color: #7f8c8d;
+        margin-bottom: 12px;
+    }
+    footer .legal {
+        font-size: 0.85em;
+        color: #95a5a6;
+        margin: 4px 0;
+    }
+    footer .legal a { color: #95a5a6; }
+
+    .piecewise-brace {
+        font-size: 2.5em;
+        font-weight: 100;
+        line-height: 1;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .piecewise-table {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+    .piecewise-table div {
+        margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+        body { padding: 15px 8px 30px; }
+        header.header-card, .card, .task, .scaffolding-box, .summary-box { padding: 20px 18px; }
+        header.header-card h1 { font-size: 1.65em; }
+        .lesson-nav .sep { margin: 0 6px; }
+        .btn-check { width: 100%; }
+        .piecewise-brace { font-size: 2em; }
+    }
+    /* длинные формулы: скролл внутри чипа вместо вылезания за контейнер */
+    .math { display: inline-block; max-width: 100%; overflow-x: auto; }
+    .math::-webkit-scrollbar { height: 3px; }
+    /* адаптивные таблицы: скролл вместо вылезания */
+    table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/course.css">
+<meta name="description" content="Две фигуры-близнеца: парабола-«зеркало» и кубическая «карусель» 🎢">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Алгебра 7 класс">
+<meta property="og:title" content="Функции y = x² и y = x³ и их графики — Алгебра 7 класс | Глава 3, §7, п. 23">
+<meta property="og:description" content="Две фигуры-близнеца: парабола-«зеркало» и кубическая «карусель» 🎢">
+<meta property="og:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<meta property="og:url" content="https://интерактивнаяшкола.рф/algebra-7/lesson-23.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Функции y = x² и y = x³ и их графики — Алгебра 7 класс | Глава 3, §7, п. 23">
+<meta name="twitter:description" content="Две фигуры-близнеца: парабола-«зеркало» и кубическая «карусель» 🎢">
+<meta name="twitter:image" content="https://интерактивнаяшкола.рф/algebra-7/assets/logo.png">
+<link rel="canonical" href="https://интерактивнаяшкола.рф/algebra-7/lesson-23.html">
+</head>
+<body>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-22.html">← Урок 22</a><span class="sep">|</span><a href="lesson-24.html">Урок 24 →</a>
+</nav>
+
+<header class="header-card page-block">
+    <span class="badge">Глава 3 • §7, п. 23</span>
+    <h1>Функции y = x² и y = x³ и их графики</h1>
+    <p class="subtitle">Две фигуры-близнеца: парабола-«зеркало» и кубическая «карусель» 🎢</p>
+</header>
+
+<section class="card page-block">
+    <p>Привет! 👋 Сегодня нас ждут два самых знаменитых графика школьной алгебры. Началось всё с простого вопроса из жизни: как зависит <b>площадь квадрата</b> от длины его стороны? Увеличил сторону вдвое — площадь выросла в четыре раза! А если так же «распугивать» объём куба? Именно эти зависимости — <span class="highlight">y = x²</span> и <span class="highlight">y = x³</span> — учебник предлагает изучить по-взрослому: таблицей, точками и плавной линией. К концу урока ты сможешь строить обе кривые и даже решать уравнения «по картинке». 🚀</p>
+</section>
+
+<section class="card page-block">
+    <h2>📐 Строим параболу y = x²</h2>
+    <p><b>Из учебника.</b> Зависимость площади квадрата от его стороны задаётся формулой <span class="math">\(y = x^2\)</span>: сторона <span class="math">\(x\)</span> — площадь <span class="math">\(y\)</span>. Составим таблицу значений и построим точки:</p>
+    <div style="overflow-x:auto;">
+        <table style="margin: 12px auto; border-collapse: collapse; text-align: center;">
+            <tr><td style="border:1px solid #bdc3c7; padding:5px 12px; background:#ecf0f1;"><b>x</b></td><td>±0,2</td><td>±0,5</td><td>±1</td><td>±1,5</td><td>±2</td></tr>
+            <tr><td style="border:1px solid #bdc3c7; padding:5px 12px; background:#ecf0f1;"><b>y = x²</b></td><td>0,04</td><td>0,25</td><td>1</td><td>2,25</td><td>4</td></tr>
+        </table>
+    </div>
+    <p>Чтобы точнее провести линию вблизи нуля, добавим промежуточные точки: <span class="math">\(0,3^2 = 0,09\)</span>, <span class="math">\(0,4^2 = 0,16\)</span>. Видно, что при маленьких <span class="math">\(x\)</span> значения <span class="math">\(y\)</span> крошечные — график почти сливается с осью x. Через отмеченные точки проведём плавную линию.</p>
+    <p>График функции <span class="math">\(y = x^2\)</span> называют <span class="highlight">параболой</span>. Она неограниченно поднимается вверх и справа, и слева от оси y.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔍 Свойства функции y = x² (по учебнику)</h2>
+    <ol>
+        <li><b>Область определения</b> — все действительные числа: любое <span class="math">\(x\)</span> можно возвести в квадрат.</li>
+        <li>Если <span class="math">\(x = 0\)</span>, то <span class="math">\(y = 0\)</span> — график проходит <b>через начало координат</b>.</li>
+        <li>Если <span class="math">\(x \ne 0\)</span>, то <span class="math">\(y \gt 0\)</span>: квадрат ненулевого числа положителен — все точки, кроме вершины, <b>выше оси x</b>.</li>
+        <li>Противоположным значениям <span class="math">\(x\)</span> соответствует <b>одно и то же</b> значение <span class="math">\(y\)</span> (ведь <span class="math">\((-x)^2 = x^2\)</span>): точки графика симметричны <b>относительно оси y</b>.</li>
+    </ol>
+    <p><b>Пример 1 из учебника.</b> Площадь квадратной мозаичной плитки со стороной 0,5 дм равна <span class="math">\(0,5^2 = 0,25\)</span> дм², а со стороной 1,5 дм — уже <span class="math">\(2,25\)</span> дм². Сторона выросла в 3 раза, площадь — в 9! Вот почему парабола так круто уходит вверх.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🧊 Строим кубическую параболу y = x³</h2>
+    <p><b>Из учебника.</b> Объём куба с ребром <span class="math">\(x\)</span> равен <span class="math">\(y = x^3\)</span>. Составим таблицу (значения округляем до сотых):</p>
+    <div style="overflow-x:auto;">
+        <table style="margin: 12px auto; border-collapse: collapse; text-align: center;">
+            <tr><td style="border:1px solid #bdc3c7; padding:5px 12px; background:#ecf0f1;"><b>x</b></td><td>±0,2</td><td>±0,4</td><td>±0,6</td><td>±0,8</td><td>±1</td><td>±1,2</td><td>±1,4</td><td>±1,6</td></tr>
+            <tr><td style="border:1px solid #bdc3c7; padding:5px 12px; background:#ecf0f1;"><b>y = x³</b></td><td>±0,008</td><td>±0,064</td><td>±0,216</td><td>±0,512</td><td>±1</td><td>±1,73</td><td>±2,74</td><td>±4,1</td></tr>
+        </table>
+    </div>
+    <p>График неограниченно продолжается <b>справа от оси y вверх</b> и <b>слева от оси y вниз</b>. Возьмём <span class="math">\(x = 0,2\)</span>: <span class="math">\(y = 0,008\)</span> — у нуля график опять почти сливается с осью x.</p>
+</section>
+
+<section class="card page-block">
+    <h2>🔁 Свойства функции y = x³ (по учебнику)</h2>
+    <ol>
+        <li><b>Область определения</b> — все действительные числа.</li>
+        <li>Если <span class="math">\(x = 0\)</span>, то <span class="math">\(y = 0\)</span> — график проходит через начало координат.</li>
+        <li>Если <span class="math">\(x \gt 0\)</span>, то <span class="math">\(y \gt 0\)</span>; если <span class="math">\(x \lt 0\)</span>, то <span class="math">\(y \lt 0\)</span> — график живёт в <b>I и III четвертях</b>.</li>
+        <li>Противоположным значениям <span class="math">\(x\)</span> соответствуют <b>противоположные</b> значения <span class="math">\(y\)</span>: <span class="math">\((-x)^3 = -x^3\)</span> — симметрия относительно <b>начала координат</b>.</li>
+    </ol>
+    <p>Оба графика на одной картинке (масштаб одинаковый — сравнивай честно):</p>
+    <div class="visual-container">
+        <svg viewBox="0 0 400 560" class="graph-svg" width="400" height="460" role="img" aria-label="Парабола y = x² и кубическая парабола y = x³">
+            <line x1="40" y1="40" x2="40" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="80" y1="40" x2="80" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="120" y1="40" x2="120" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="160" y1="40" x2="160" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="200" y1="40" x2="200" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="240" y1="40" x2="240" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="280" y1="40" x2="280" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="320" y1="40" x2="320" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="360" y1="40" x2="360" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="520" x2="360" y2="520" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="480" x2="360" y2="480" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="440" x2="360" y2="440" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="400" x2="360" y2="400" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="360" x2="360" y2="360" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="320" x2="360" y2="320" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="280" x2="360" y2="280" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="240" x2="360" y2="240" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="200" x2="360" y2="200" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="160" x2="360" y2="160" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="120" x2="360" y2="120" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="80" x2="360" y2="80" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="40" y1="40" x2="360" y2="40" stroke="#e8eef0" stroke-width="1"/>
+            <line x1="20" y1="280" x2="380" y2="280" stroke="#2d3436" stroke-width="2" marker-end="url(#arrXПар)"/>
+            <line x1="200" y1="540" x2="200" y2="20" stroke="#2d3436" stroke-width="2" marker-end="url(#arrYПар)"/>
+            <defs>
+                <marker id="arrXПар" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2d3436"/></marker>
+                <marker id="arrYПар" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2d3436"/></marker>
+            </defs>
+            <text x="372" y="270" font-size="14" font-family="sans-serif">x</text>
+            <text x="208" y="30" font-size="14" font-family="sans-serif">y</text>
+            <text x="189" y="295" font-size="12" font-family="sans-serif">0</text>
+            <text x="43" y="296" font-size="12" font-family="sans-serif" fill="#7f8c8d">-4</text>
+            <text x="83" y="296" font-size="12" font-family="sans-serif" fill="#7f8c8d">-3</text>
+            <text x="123" y="296" font-size="12" font-family="sans-serif" fill="#7f8c8d">-2</text>
+            <text x="163" y="296" font-size="12" font-family="sans-serif" fill="#7f8c8d">-1</text>
+            <text x="243" y="296" font-size="12" font-family="sans-serif" fill="#7f8c8d">1</text>
+            <text x="283" y="296" font-size="12" font-family="sans-serif" fill="#7f8c8d">2</text>
+            <text x="323" y="296" font-size="12" font-family="sans-serif" fill="#7f8c8d">3</text>
+            <text x="363" y="296" font-size="12" font-family="sans-serif" fill="#7f8c8d">4</text>
+            <text x="184" y="196" font-size="12" font-family="sans-serif" fill="#7f8c8d">2</text>
+            <text x="184" y="116" font-size="12" font-family="sans-serif" fill="#7f8c8d">4</text>
+            <text x="184" y="36" font-size="12" font-family="sans-serif" fill="#7f8c8d">6</text>
+            <text x="180" y="370" font-size="12" font-family="sans-serif" fill="#7f8c8d">−2</text>
+            <text x="180" y="450" font-size="12" font-family="sans-serif" fill="#7f8c8d">−4</text>
+            <text x="180" y="530" font-size="12" font-family="sans-serif" fill="#7f8c8d">−6</text>
+            <polyline points="104.0,49.6 112.0,86.4 120.0,120.0 128.0,150.4 136.0,177.6 144.0,201.6 152.0,222.4 160.0,240.0 168.0,254.4 176.0,265.6 184.0,273.6 192.0,278.4 200.0,280.0 208.0,278.4 216.0,273.6 224.0,265.6 232.0,254.4 240.0,240.0 248.0,222.4 256.0,201.6 264.0,177.6 272.0,150.4 280.0,120.0 288.0,86.4 296.0,49.6" fill="none" stroke="#3498db" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="132.0,476.5 136.0,443.8 140.0,415.0 144.0,389.8 148.0,367.9 152.0,349.1 156.0,333.2 160.0,320.0 164.0,309.2 168.0,300.5 172.0,293.7 176.0,288.6 180.0,285.0 184.0,282.6 188.0,281.1 192.0,280.3 196.0,280.0 200.0,280.0 204.0,280.0 208.0,279.7 212.0,278.9 216.0,277.4 220.0,275.0 224.0,271.4 228.0,266.3 232.0,259.5 236.0,250.8 240.0,240.0 244.0,226.8 248.0,210.9 252.0,192.1 256.0,170.2 260.0,145.0 264.0,116.2 268.0,83.5" fill="none" stroke="#1abc9c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+    </div>
+    <div class="legend">
+        <span class="legend-item"><span class="color-dot" style="background:#3498db;"></span>y = x² — парабола</span>
+        <span class="legend-item"><span class="color-dot" style="background:#1abc9c;"></span>y = x³ — кубическая парабола</span>
+    </div>
+    <p class="fig-caption">Схема: оба графика построены в одном масштабе (1 клетка = 1 единица) по точкам из таблиц.</p>
+</section>
+
+<section class="card page-block">
+    <h2>⚔️ Графический способ решения уравнений</h2>
+    <p><b>Пример 1 из учебника.</b> Решим уравнение <span class="math">\(x^2 = x + 1\)</span>. Построим в одной системе координат параболу <span class="math">\(y = x^2\)</span> и прямую <span class="math">\(y = x + 1\)</span>. Они пересекаются в двух точках, их абсциссы — корни уравнения: <span class="math">\(x_1 ≈ -0,6\)</span>, <span class="math">\(x_2 ≈ 1,6\)</span>.</p>
+    <p>Такой способ называют <span class="highlight">графическим</span>. Он даёт <b>приближённые</b> корни (потому смотрим на картинку), зато работает даже там, где обычные правила ещё не справляются. Найденное обязательно проверяем подстановкой!</p>
+</section>
+
+<section class="scaffolding-box page-block">
+    <h3>🎯 Методическая подсказка: «Зеркало и карусель»</h3>
+    <p>У этих двух функций — разные «характеры», и они видны в одном коротком эксперименте. Возьмём число <span class="math">\(-5\)</span> и его приятеля <span class="math">\(5\)</span>:</p>
+    <ul>
+        <li><b>Парабола — «зеркало»:</b> <span class="math">\((-5)^2 = 25\)</span> и <span class="math">\(5^2 = 25\)</span> — противоположным «x» отвечает <b>один и тот же</b> «y» ✅. График можно перегнуть по оси y — половинки совпадут.</li>
+        <li><b>Кубическая — «карусель»:</b> <span class="math">\((-5)^3 = -125\)</span>, а <span class="math">\(5^3 = 125\)</span> — противоположным «x» отвечают <b>противоположные</b> «y» ✅. Картинка вращается вокруг начала координат на 180° и совпадает сама с собой.</li>
+        <li><b>Ловушка 🚫:</b> ждать от кубической «зеркала» (что <span class="math">\((-5)^3 = 125\)</span>) — классическая ошибка. Чётная степень — зеркало, нечётная — карусель.</li>
+    </ul>
+    <p>Мостик к заданиям: в задании 1 и 2 будешь проверять точки подстановкой — «зеркало» и «карусель» сразу подскажут, какой знак должен получиться у «y», а в задании 3 тот же приём найдёт все значения «a».</p>
+</section>
+
+<h2 class="tasks-title page-block">✏️ Проверь себя</h2>
+<p class="tasks-note">Задания взяты из учебника (п. 23) и идут от простого к сложному. Нажми «Проверить», чтобы увидеть полный ход решения!</p>
+
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 1 (№502 из учебника)</div>
+    <p>Принадлежит ли графику функции <span class="math">\(y = x^2\)</span> точка: <b>А</b><span class="math">\((6; 36)\)</span>; <b>В</b><span class="math">\((-1,5; 2,25)\)</span>; <b>С</b><span class="math">\((4; -2)\)</span>; <b>Р</b><span class="math">\((1,2; 1,44)\)</span>?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="А, В, Р — принадлежат; С — нет"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans23_1')">🔍 Проверить</button>
+    <div id="ans23_1" class="answer">
+        <p><b>Решение.</b> Точка <span class="math">\((x; y)\)</span> принадлежит графику, если при подстановке её координат получается верное равенство <span class="math">\(y = x^2\)</span>.</p>
+        <ol>
+            <li><b>А</b><span class="math">\((6; 36)\)</span>: <span class="math">\(6^2 = 36\)</span> — верно ✅, точка принадлежит графику.</li>
+            <li><b>В</b><span class="math">\((-1,5; 2,25)\)</span>: <span class="math">\((-1,5)^2 = 2,25\)</span> — верно ✅ (зеркало: знак минус исчез!).</li>
+            <li><b>С</b><span class="math">\((4; -2)\)</span>: <span class="math">\(4^2 = 16 ≠ -2\)</span> — неверно 🚫, точка не принадлежит (у параболы не бывает отрицательных «y»).</li>
+            <li><b>Р</b><span class="math">\((1,2; 1,44)\)</span>: <span class="math">\(1,2^2 = 1,44\)</span> — верно ✅, принадлежит.</li>
+        </ol>
+        <p><b>Ответ:</b> <b>А, В, Р</b> — принадлежат; <b>С</b> — нет</p>
+    </div>
+</div>
+
+<div class="task page-block level-1">
+    <div class="task-title">🟢 Уровень 1: Лёгкий | Задание 2 (№506 из учебника)</div>
+    <p>Принадлежит ли графику функции <span class="math">\(y = x^3\)</span> точка: <b>А</b><span class="math">\((-0,2; -0,008)\)</span>; <b>В</b><span class="math">\((1,5; 3,375)\)</span>?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="А и В — принадлежат"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans23_2')">🔍 Проверить</button>
+    <div id="ans23_2" class="answer">
+        <p><b>Решение.</b> Проверяем равенство <span class="math">\(y = x^3\)</span> подстановкой.</p>
+        <ol>
+            <li><b>А</b><span class="math">\((-0,2; -0,008)\)</span>: <span class="math">\((-0,2)^3 = -0,008\)</span> — верно ✅ (карусель: минус сохранился!).</li>
+            <li><b>В</b><span class="math">\((1,5; 3,375)\)</span>: <span class="math">\(1,5^3 = 1,5 \cdot{} 1,5 \cdot{} 1,5 = 2,25 \cdot{} 1,5 = 3,375\)</span> — верно ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <b>А</b> и <b>В</b> — принадлежат</p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 3 (№508 из учебника)</div>
+    <p>При каких значениях <span class="math">\(a\)</span> точка <b>Р</b><span class="math">\((a; 64)\)</span> принадлежит графику функции: а) <span class="math">\(y = x^2\)</span>; б) <span class="math">\(y = x^3\)</span>?</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) a = ±8; б) a = 4"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans23_3')">🔍 Проверить</button>
+    <div id="ans23_3" class="answer">
+        <p><b>Решение.</b> Подставляем координаты точки в формулу и решаем уравнение относительно <span class="math">\(a\)</span>.</p>
+        <ol>
+            <li>а) <span class="math">\(a^2 = 64\)</span>. При каких <span class="math">\(a\)</span> квадрат равен 64? Подходят <span class="math">\(8^2 = 64\)</span> и <span class="math">\((-8)^2 = 64\)</span> — «зеркало» даёт два ответа.</li>
+            <li>Проверка: <span class="math">\(8^2 = 64\)</span> ✅, <span class="math">\((-8)^2 = 64\)</span> ✅.</li>
+            <li>б) <span class="math">\(a^3 = 64\)</span>. Куб растёт строго: <span class="math">\(4^3 = 4 \cdot{} 4 \cdot{} 4 = 64\)</span>, и других кандидатов нет (карусель: отрицательные дают отрицательный куб).</li>
+            <li>Проверка: <span class="math">\(4^3 = 64\)</span> ✅; <span class="math">\((-4)^3 = -64 ≠ 64\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> а) <span class="math">\(a = ±8\)</span>; б) <span class="math">\(a = 4\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-2">
+    <div class="task-title">🔵 Уровень 2: Средний | Задание 4 (№507 из учебника)</div>
+    <p>В одной и той же системе координат постройте графики функций <span class="math">\(y = x^2\)</span> и <span class="math">\(y = x^3\)</span> (при <span class="math">\(x ≥ 0\)</span>). Пользуясь построенными графиками, сравните: а) <span class="math">\(0,6^2\)</span> и <span class="math">\(0,6^3\)</span>; б) <span class="math">\(1,5^2\)</span> и <span class="math">\(1,5^3\)</span>; в) <span class="math">\(2,7^2\)</span> и <span class="math">\(2,7^3\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="а) 0,36 &gt; 0,216; б) 2,25 &lt; 3,375; в) 7,29 &lt; 19,683"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans23_4')">🔍 Проверить</button>
+    <div id="ans23_4" class="answer">
+        <p><b>Решение.</b> Смотрим по графикам: при <span class="math">\(0 \lt x \lt 1\)</span> парабола идёт ВЫШЕ кубической, а при <span class="math">\(x \gt 1\)</span> — НИЖЕ (графики пересекаются в точке <span class="math">\((1; 1)\)</span>).</p>
+        <ol>
+            <li>а) <span class="math">\(0,6\)</span> — между 0 и 1: <span class="math">\(0,6^2 = 0,36\)</span>, <span class="math">\(0,6^3 = 0,216\)</span>. Проверка умножением: <span class="math">\(0,36 \cdot{} 0,6 = 0,216\)</span> — куб меньше ✅: <span class="math">\(0,6^2 \gt 0,6^3\)</span>.</li>
+            <li>б) <span class="math">\(1,5 \gt 1\)</span>: <span class="math">\(1,5^2 = 2,25\)</span>, <span class="math">\(1,5^3 = 3,375\)</span>. Проверка: <span class="math">\(2,25 \cdot{} 1,5 = 3,375\)</span> ✅: <span class="math">\(1,5^2 \lt 1,5^3\)</span>.</li>
+            <li>в) <span class="math">\(2,7 \gt 1\)</span>: <span class="math">\(2,7^2 = 7,29\)</span>, <span class="math">\(2,7^3 = 19,683\)</span>. Проверка: <span class="math">\(7,29 \cdot{} 2,7 = 19,683\)</span> ✅: <span class="math">\(2,7^2 \lt 2,7^3\)</span>.</li>
+            <li>Вывод: до единицы куб «мельче» квадрата, после единицы — «крупнее». Граница — точка <span class="math">\((1; 1)\)</span>.</li>
+        </ol>
+        <p><b>Ответ:</b> а) <span class="math">\(0,36 \gt 0,216\)</span>; б) <span class="math">\(2,25 \lt 3,375\)</span>; в) <span class="math">\(7,29 \lt 19,683\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 5 (№509 а из учебника)</div>
+    <p>Решите графически уравнение <span class="math">\(x^2 = x + 6\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x = -2, x = 3"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans23_5')">🔍 Проверить</button>
+    <div id="ans23_5" class="answer">
+        <p><b>Решение.</b> Строим в одной системе координат параболу <span class="math">\(y = x^2\)</span> и прямую <span class="math">\(y = x + 6\)</span>. Абсциссы точек пересечения — корни уравнения.</p>
+        <ol>
+            <li>Прямая <span class="math">\(y = x + 6\)</span> проходит через точки <span class="math">\((0; 6)\)</span> и <span class="math">\((-6; 0)\)</span>.</li>
+            <li>Парабола <span class="math">\(y = x^2\)</span>: точки <span class="math">\((0; 0)\)</span>, <span class="math">\((±1; 1)\)</span>, <span class="math">\((±2; 4)\)</span>, <span class="math">\((±3; 9)\)</span>.</li>
+            <li>Графики пересекаются в двух точках с абсциссами <span class="math">\(x = -2\)</span> и <span class="math">\(x = 3\)</span>.</li>
+            <li>Проверка подстановкой: <span class="math">\((-2)^2 = 4\)</span> и <span class="math">\(-2 + 6 = 4\)</span> ✅; <span class="math">\(3^2 = 9\)</span> и <span class="math">\(3 + 6 = 9\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(x = -2\)</span>, <span class="math">\(x = 3\)</span></p>
+    </div>
+</div>
+
+<div class="task page-block level-3">
+    <div class="task-title">🟣 Уровень 3: Сложный | Задание 6 (№509 б из учебника)</div>
+    <p>Решите графически уравнение <span class="math">\(x^2 + 2x - 8 = 0\)</span>.</p>
+    <div class="check-row"><input class="check-input" type="text" placeholder="Введи ответ" data-answer="x = -4, x = 2"><button class="check-btn" type="button">Проверить</button><span class="check-feedback"></span></div>
+<button class="btn-check" onclick="toggleAnswer('ans23_6')">🔍 Проверить</button>
+    <div id="ans23_6" class="answer">
+        <p><b>Решение.</b> Перенесём <span class="math">\(-2x + 8\)</span> вправо: <span class="math">\(x^2 = -2x + 8\)</span>. Строим параболу <span class="math">\(y = x^2\)</span> и прямую <span class="math">\(y = -2x + 8\)</span>.</p>
+        <ol>
+            <li>Прямая <span class="math">\(y = -2x + 8\)</span>: точки <span class="math">\((0; 8)\)</span> и <span class="math">\((4; 0)\)</span>.</li>
+            <li>Графики пересекаются в двух точках с абсциссами <span class="math">\(x = -4\)</span> и <span class="math">\(x = 2\)</span>.</li>
+            <li>Проверка подстановкой в исходное уравнение: <span class="math">\((-4)^2 + 2\cdot{}(-4) - 8 = 16 - 8 - 8 = 0\)</span> ✅.</li>
+            <li>Вторая точка: <span class="math">\(2^2 + 2\cdot{}2 - 8 = 4 + 4 - 8 = 0\)</span> ✅.</li>
+        </ol>
+        <p><b>Ответ:</b> <span class="math">\(x = -4\)</span>, <span class="math">\(x = 2\)</span></p>
+    </div>
+</div>
+
+<section class="summary-box page-block">
+    <h2>📝 Главное, что нужно запомнить</h2>
+    <ul>
+        <li><b>y = x²</b> — квадратичная зависимость; график — <b>парабола</b> с вершиной в начале координат.</li>
+        <li>Парабола проходит через <span class="math">\((0; 0)\)</span>, все её точки (кроме вершины) лежат <b>выше оси x</b>.</li>
+        <li>Противоположным значениям <span class="math">\(x\)</span> парабола отвечает <b>одним и тем же</b> <span class="math">\(y\)</span>: <span class="math">\((-x)^2 = x^2\)</span> — точки симметричны относительно оси y.</li>
+        <li><b>y = x³</b> — кубическая зависимость; график идёт из III четверти в I через начало координат.</li>
+        <li>Для кубической: <span class="math">\((-x)^3 = -x^3\)</span> — точки симметричны относительно <b>начала координат</b>.</li>
+        <li>Быстрая проверка точки: подставь её координаты в формулу — должно получиться верное равенство.</li>
+        <li>Графически уравнение решают так: строят два графика и ищут абсциссы точек пересечения; ответ проверяют подстановкой.</li>
+    </ul>
+</section>
+
+<footer>
+    <p class="textbook-info">📖 Учебник: Алгебра 7 класс • Глава 3: Степень с натуральным показателем<br>
+    §7, п. 23. Функции y = x² и y = x³ и их графики • Страницы 114-120</p>
+    <p class="legal">© 2019-2026 ИП Громова Анна Александровна, ОГРНИП: 319237500156762, ИНН: 236507001744</p>
+    <p class="legal">Лицензия № Л035-01218-23/01091451 <a href="https://xn--80aaagnrcpdkofpu2ae0iuf.xn--p1ai/" target="_blank" rel="noopener">Интерактивная школа «МУДРО»</a></p>
+</footer>
+
+<nav class="lesson-nav">
+    <a href="index.html">← Все уроки</a><span class="sep">|</span><a href="lesson-22.html">← Урок 22</a><span class="sep">|</span><a href="lesson-24.html">Урок 24 →</a>
+</nav>
+
+<script>
+    function toggleAnswer(id) {
+        var el = document.getElementById(id);
+        var btn = el.previousElementSibling;
+        if (el.style.display === 'block') {
+            el.style.display = 'none';
+            btn.textContent = '🔍 Проверить';
+            btn.style.background = '#3498db';
+            btn.style.color = '#ffffff';
+        } else {
+            el.style.display = 'block';
+            btn.textContent = '🔒 Скрыть ответ';
+            btn.style.background = '#e74c3c';
+            btn.style.color = '#ffffff';
+        }
+    }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/axis-math.js"></script>
+<script defer src="assets/answer-core.js"></script>
+<script defer src="assets/course.js"></script>
+</body>
+</html>
